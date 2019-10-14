@@ -22,7 +22,6 @@ D:\Test\WpfTest\WpfTest\obj\Debug\Window2.g.cs
 D:\Test\WpfTest\WpfTest\obj\Debug\Window2.baml
 D:\Test\WpfTest\WpfTest\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Test\WpfTest\WpfTest\obj\Debug\Style.baml
-D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csprojAssemblyReference.cache
 D:\Test\WpfTest\WpfTest\obj\Debug\Window5.g.cs
 D:\Test\WpfTest\WpfTest\bin\Debug\UI.dll
 D:\Test\WpfTest\WpfTest\bin\Debug\UI.pdb
