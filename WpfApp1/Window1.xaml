@@ -9,6 +9,5 @@
         Title="测试" Height="450" Width="800">
     <Grid>
         <TextBox Width="120" Height="40" PreviewMouseDoubleClick="TextBox_PreviewMouseDoubleClick" x:Name="Text1"></TextBox>
-        <charts:Chart>
     </Grid>
 </Window>
