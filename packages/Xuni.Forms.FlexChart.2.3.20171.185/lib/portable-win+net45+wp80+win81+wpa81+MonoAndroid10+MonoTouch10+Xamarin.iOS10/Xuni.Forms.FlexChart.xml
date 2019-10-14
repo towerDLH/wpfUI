@@ -1,0 +1,1717 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xuni.Forms.FlexChart</name>
+    </assembly>
+    <members>
+        <member name="T:Xuni.Forms.FlexChart.ChartDataLabel">
+            <summary>
+            The point data label for FlexChart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartDataLabel.PositionProperty">
+            <summary>
+            Identifies the Position bindable property.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataLabel.Position">
+            <summary>
+            Gets or sets the chart type of all data series.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartPlotElement">
+            <summary>
+            The plot element for FlexChart.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartPlotElement.#ctor">
+            <summary>
+            New an instance for ChartPlotElement.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.Content">
+            <summary>
+            Gets or sets the content of the ChartPlotElement
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.BorderColor">
+            <summary>
+            Gets or sets the color of the border 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.BorderWidth">
+            <summary>
+            Gets or sets the border width of the plot element. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.Color">
+            <summary>
+            Gets or sets the fill color of the plot element. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.Opacity">
+            <summary>
+            Gets or sets the opacity value from 0 to 1. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.SymbolBorderColor">
+            <summary>
+            Gets or sets the color of the border for symbols. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElement.SymbolBorderWidth">
+            <summary>
+            Gets or sets the border with for symbols.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartAxis">
+            <summary>
+            Represents an axis in the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.AxisTypeProperty">
+            <summary>
+            Identifies the AxisType Bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.ActualMaxProperty">
+            <summary>
+            Identifies the ActualMax bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.ActualMinProperty">
+            <summary>
+            Identifies the ActualMin bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.OriginProperty">
+            <summary>
+            Identifies the Origin bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.FormatProperty">
+            <summary>
+            Identifies the Format bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.PositionProperty">
+            <summary>
+            Identifies the Position bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorTickOverlapProperty">
+            <summary>
+            Identifies the MajorTickOverlap bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorUnitProperty">
+            <summary>
+            Identifies the MajorUnit bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MaxProperty">
+            <summary>
+            Identifies the Max bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinProperty">
+            <summary>
+            Identifies the Min bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorTickOverlapProperty">
+            <summary>
+            Identifies the MinorTickOverlap bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorUnitProperty">
+            <summary>
+            Identifies the MinorUnit bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.ReversedProperty">
+            <summary>
+            Identifies the Reversed bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.TitleTextProperty">
+            <summary>
+            Identifies the TitleText bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelTextColorProperty">
+            <summary>
+            Identifies the LabelTextColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelFontSizeProperty">
+            <summary>
+            Identifies the LabelFontSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelFontFamilyProperty">
+            <summary>
+            Identifies the LabelFontFamily bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelFontAttributesProperty">
+            <summary>
+            Identifies the LabelFontAttributes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LineColorProperty">
+            <summary>
+            Identifies the LineColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LineWidthProperty">
+            <summary>
+            Identifies the LineWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorGridDashesProperty">
+            <summary>
+            Identifies the MajorGridDashes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorGridDashesProperty">
+            <summary>
+            Identifies the MinorGridDashes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorGridColorProperty">
+            <summary>
+            Identifies the MajorGridColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorGridFillProperty">
+            <summary>
+            Identifies the MajorGridFill bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorGridWidthProperty">
+            <summary>
+            Identifies the MajorGridWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorTickColorProperty">
+            <summary>
+            Identifies the MajorTickColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorTickWidthProperty">
+            <summary>
+            Identifies the MajorTickWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorGridColorProperty">
+            <summary>
+            Identifies the MinorGridColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorTickColorProperty">
+            <summary>
+            Identifies the MinorTickColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorGridFillProperty">
+            <summary>
+            Identifies the MinorGridFill bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorTickWidthProperty">
+            <summary>
+            Identifies the MinorTickWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorGridWidthProperty">
+            <summary>
+            Identifies the MinorGridWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.TitleFontSizeProperty">
+            <summary>
+            Identifies the TitleFontSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.TitleFontFamilyProperty">
+            <summary>
+            Identifies the TitleFontFamily bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.TitleFontAttributesProperty">
+            <summary>
+            Identifies the TitleFontAttributes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.TitleTextColorProperty">
+            <summary>
+            Identifies the TitleTextColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.AxisLineVisibleProperty">
+            <summary>
+            Identifies the AxisLineVisibl bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelsVisibleProperty">
+            <summary>
+            Identifies the LabelsVisible bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MajorGridVisibleProperty">
+            <summary>
+            Identifies the MajorGridVisible bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinorGridVisibleProperty">
+            <summary>
+            Identifies the MinorGridVisible bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.ScaleProperty">
+            <summary>
+            Identifies the Scale bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.ScrollPositionProperty">
+            <summary>
+            Identifies the ScrollPosition bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LabelAngleProperty">
+            <summary>
+            Identifies the LabelAngleProperty bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.MinScaleProperty">
+            <summary>
+            Identifies the MinScale bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.DisplayedRangeProperty">
+            <summary>
+            Identifies the DisplayedRange bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.NameProperty">
+            <summary>
+            Identifies the name bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.OverlappingLabelsProperty">
+            <summary>
+            Identifies how to handle overlapping axis labels.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxis.LogBaseProperty">
+            <summary>
+            Identifies the LogBase bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartAxis.Convert(Xamarin.Forms.Point)">
+            <summary>
+            Transforms the point from axis data coordinates to the chart view coordinates.
+            </summary>
+            <param name="point">The point in axis data coordinates.</param>
+            <returns>The point in chart view coordinates.</returns>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartAxis.ConvertBack(Xamarin.Forms.Point)">
+            <summary>
+            Transforms the point from chart view coordinates to the axis data coordinates.
+            </summary>
+            <param name="point">The point in chart view coordinates.</param>
+            <returns>The point in axis data coordinates.</returns>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartAxis.ScrollTo(System.Double,Xuni.Forms.FlexChart.ChartScrollPosition)">
+            <summary>
+            Method that scrolls to a specific position on the axis.
+            </summary>
+            <param name="dataValue">The value in axis data coordinates.</param>
+            <param name="position">The scroll position in chart viewport.</param>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartAxis.#ctor(Xuni.Forms.FlexChart.FlexChart,Xuni.Forms.ChartCore.ChartPositionType)">
+            <summary>
+            Initializes a new instance of ChartAxis class.
+            </summary>
+            <param name="flexChart">The FlexChart object that owns this axis</param>
+            <param name="positionType">The enumerated axis position.</param>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartAxis.#ctor">
+            <summary>
+            Initializes a new instance of ChartAxis class.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.FlexChart">
+            <summary>
+             Gets the FlexChart object that owns this axis
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorGridDashes">
+            <summary>
+            Gets major grid dashes pattern
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorGridDashes">
+            <summary>
+            Gets minor grid dashes pattern
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.AxisType">
+            <summary>
+            Gets the axis type.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.ActualMax">
+            <summary>
+            Gets the actual axis maximum.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.ActualMin">
+            <summary>
+            Gets the actual axis minimum.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Origin">
+            <summary>
+            Gets or sets the value at which the axes cross perpendicularly.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Format">
+            <summary>
+            Gets or sets the format string used for axis labels
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Position">
+            <summary>
+            Gets or sets the enumerated axis position.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorTickOverlap">
+            <summary>
+            Gets or sets the relative overlap of major axis tick. The range of values is from 0 to 1.
+            The default value 0 means no overlap,when the overlap is 1, the whole tick is inside the plot area.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorUnit">
+            <summary>
+            Gets or sets the major unit (distance between labels).
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Max">
+            <summary>
+            Gets or sets the maximum value shown on the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Min">
+            <summary>
+            Gets or sets the minimum value shown on the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorTickOverlap">
+            <summary>
+            Gets or sets the relative overlap of major axis tick. The range of values is from 0 to 1.
+            The default value 0 means no overlap,when the overlap is 1, the whole tick is inside the plot area.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorUnit">
+            <summary>
+            Gets or sets the minor unit (distance between minor tick marks).
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Reversed">
+            <summary>
+            Gets or sets whether the axis is reversed.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleText">
+            <summary>
+            Gets or sets the axis title.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelTextColor">
+            <summary>
+            Gets or sets the label text color of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelFont">
+            <summary>
+            Gets or sets the label font of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelFontSize">
+            <summary>
+            ​Gets or sets the label font size of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelFontFamily">
+            <summary>
+            ​Gets or sets the label font family of the axis..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelFontAttributes">
+            <summary>
+            ​Gets or sets the label font attributes of the axis..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LineColor">
+            <summary>
+            Gets or sets the color of the axis line.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LineWidth">
+            <summary>
+            Gets or sets the line width of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorGridColor">
+            <summary>
+            Gets or sets the color of major grid lines.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorGridFill">
+            <summary>
+            Gets or sets the color used to fill the major grid.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorGridWidth">
+            <summary>
+            Gets or sets the thickness of major grid lines.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorTickColor">
+            <summary>
+            Gets or sets the major tick color.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorTickWidth">
+            <summary>
+            Gets or sets the major tick thickness.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorGridColor">
+            <summary>
+            Gets or sets the brush of minor grid lines.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorGridFill">
+            <summary>
+            Gets or sets the color used to fill the minor grid.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorGridWidth">
+            <summary>
+            Gets or sets the thickness of minor grid lines.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorTickColor">
+            <summary>
+            Gets or sets the minor tick color.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorTickWidth">
+            <summary>
+            Gets or sets the minor tick thickness.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleFont">
+            <summary>
+            Gets or sets the title font of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleFontSize">
+            <summary>
+            ​Gets or sets the font size of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleFontFamily">
+            <summary>
+            ​Gets or sets the font family of the axis..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleFontAttributes">
+            <summary>
+            ​Gets or sets the font attributes of the axis..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.TitleTextColor">
+            <summary>
+            Gets or sets the title text color of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.AxisLineVisible">
+            <summary>
+            Gets or sets the axis line visible of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelsVisible">
+            <summary>
+            Gets or sets the labels visible of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MajorGridVisible">
+            <summary>
+            Gets or sets visible of major grid.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinorGridVisible">
+            <summary>
+            Gets or sets visible of minor grid.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LabelAngle">
+            <summary>
+            Gets or sets the rotation angle of axis labels. The angle is measured in degrees with valid values ranging from -90 to 90
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.ScrollPosition">
+            <summary>
+            Gets or sets the current scrolling position of the axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Scale">
+            <summary>
+            Gets or set the scale of axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.MinScale">
+            <summary>
+            Gets or set the minimum scale of axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.DisplayedRange">
+            <summary>
+            Gets or sets the absolute range of values displayed in the view. Setting this property enables panning.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.Name">
+            <summary>
+            Gets or sets the axis name.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.OverlappingLabels">
+            <summary>
+            Gets or sets how to handle the overlapping labels.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartAxis.LogBase">
+            <summary>
+            ​Gets or sets the logarithmic base of the axis. If the base is not specified the axis uses the normal scale.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.ChartAxis.RangeChanged">
+            <summary>
+            Occurs when the axis range during scroll or zoom.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.ChartAxis.LabelLoading">
+            <summary>
+            Occurs when the axis label is loading.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartDataPoint">
+            <summary>
+            Represents a DataPoint.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.BubbleSize">
+            <summary>
+            Gets or sets the bubble size for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.High">
+            <summary>
+            Gets or sets the high value for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.Low">
+            <summary>
+            Gets or sets the low value for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.Open">
+            <summary>
+            Gets or sets the open value for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.Close">
+            <summary>
+            Gets or sets the close value for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.SeriesIndex">
+            <summary>
+            Gets or sets the series index for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.SeriesName">
+            <summary>
+            Gets or sets the series name for this data point.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartDataPoint.ValueX">
+            <summary>
+            Gets or sets the X value for this data point as an object.​
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartLineMarker">
+            <summary>
+             The LineMarker consists of a text area with content reflecting data point values, and an optional vertical or horizontal line (or both for a cross-hair effect) positioned over the plot area.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLineMarker.ContentProperty">
+            <summary>
+            Identifies the ContentTemplate bindable property.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.Content">
+            <summary>
+            Gets or sets the content template for the marker label.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.DataPoints">
+            <summary>
+            DataPoints
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.Lines">
+            <summary>
+            Gets or sets the type of lines.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.Interaction">
+            <summary>
+            Gets or sets whether the marker is interactive.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.DragContent">
+            <summary>
+            If the Interaction is Drag, this property determines if the user can also drag the label.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.Alignment">
+            <summary>
+            Gets or sets the label alignment.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.IsVisible">
+            <summary>
+            Gets or sets the visibility of the line marker.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.HorizontalPosition">
+            <summary>
+            Gets or sets the horizontal position of the LineMarker 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.VerticalPosition">
+            <summary>
+            Gets or sets the vertical position of the LineMarker relative to the plot area. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.X">
+            <summary>
+            Gets the current x-value as chart data coordinates.  
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.Y">
+            <summary>
+            Gets the current y-value as chart data coordinates.  
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.SeriesIndex">
+            <summary>
+            Gets or sets the index of the series in the chart in which the LineMarker.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.HorizontalLineWidth">
+            <summary>
+            Gets or sets the width of the horizontal lines 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.HorizontalLineColor">
+            <summary>
+            Gets or sets the color of the horizontal line .
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.VerticalLineWidth">
+            <summary>
+            Gets or sets the width of the vertical lines 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartLineMarker.VerticalLineColor">
+            <summary>
+            Gets or sets the color of the vertical line.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.ChartLineMarker.PositionChanged">
+            <summary>
+            Fires when the marker is moved and its position changes.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartOptions">
+            <summary>
+            Represents an chart option in the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOptions.BubbleMaxSizeProperty">
+            <summary>
+            Identifies the BubbleMaxSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOptions.BubbleMinSizeProperty">
+            <summary>
+            Identifies the BubbleMinSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOptions.GroupWidthProperty">
+            <summary>
+            Identifies the GroupWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOptions.CandleWidthProperty">
+            <summary>
+            Identifies the CandleWidth bindable property.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartOptions.BubbleMaxSize">
+            <summary>
+            Specifies the maximum size of symbols in the Bubble chart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartOptions.BubbleMinSize">
+            <summary>
+            Specifies the minimum size of symbols in the Bubble chart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartOptions.GroupWidth">
+            <summary>
+            Specifies the group width for Column charts, or the group height for Bar charts
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartOptions.CandleWidth">
+            <summary>
+            Specifies the candle bar width for candle charts. The value should be between 0 and 1. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartSeries">
+            <summary>
+            Represents a series of data points to display in the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.OpacityProperty">
+            <summary>
+            Identifies the Opacity bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.BindingProperty">
+            <summary>
+            Identifies the Binding bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.ChartTypeProperty">
+            <summary>
+            Identifies the ChartType bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.NameProperty">
+            <summary>
+            Identifies the Name bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.ColorProperty">
+            <summary>
+            Identifies the Color bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.BorderColorProperty">
+            <summary>
+            Identifies the BorderColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.BorderWidthProperty">
+            <summary>
+            Identifies the BorderWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.SymbolColorProperty">
+            <summary>
+            Identifies the SymbolColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.SymbolBorderColorProperty">
+            <summary>
+            Identifies the SymbolBorderColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.SymbolBorderWidthProperty">
+            <summary>
+            Identifies the SymbolBorderWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.VisibilityProperty">
+            <summary>
+            Identifies the Visibility bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.ItemsSourceProperty">
+            <summary>
+            Identifies the ItemsSource bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.BindingXProperty">
+            <summary>
+            Identifies the BindingX bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.AxisXProperty">
+            <summary>
+            Identifies the AxisX bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeries.AxisYProperty">
+            <summary>
+            Identifies the AxisY bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartSeries.#ctor(Xuni.Forms.FlexChart.FlexChart,System.String,System.String)">
+            <summary>
+            Initializes a new instance of DataSeries class.
+            </summary>
+            <param name="flexChart">The FlexChart object that owns this axis</param>
+            <param name="name">Name of the FlexChart</param>
+            <param name="binding">The bound property name for plotting values along the y-axis.</param>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartSeries.#ctor">
+            <summary>
+            Initializes a new instance of DataSeries class.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.FlexChart">
+            <summary>
+             Gets the FlexChart object that owns this axis
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.Opacity">
+            <summary>
+            ​Gets or sets the opacity value applied to the plot element. Opacity overrides the Alpha color channel.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.Binding">
+            <summary>
+            Gets or sets the bound property name for plotting values along the y-axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.BindingX">
+            <summary>
+            Gets or sets the name of the bound property to be plotted on the X axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.ChartType">
+            <summary>
+            Gets or sets the chart type for the series.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.ItemsSource">
+            <summary>
+            Gets or sets the series-specific data source (overrides FlexChart.ItemsSource)
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.Name">
+            <summary>
+            ​Gets or sets the series name. The series name is displayed in the chart legend. Series without names do not appear in the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.Color">
+            <summary>
+            Gets or sets the color used to fill in most plot elements (bar, area, line, pie)
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.BorderColor">
+            <summary>
+            Gets or sets the border color for most plot elements (bar, area, line, pie)
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.BorderWidth">
+            <summary>
+            ​Gets or sets the border thickness for most plot elements (bar, area, line, pie)
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.SymbolColor">
+            <summary>
+            ​Gets or sets the color used to fill the symbols. Overrides Color/Fill property for chart types with symbols (LineSymbol).
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.SymbolBorderColor">
+            <summary>
+            ​​Gets or sets the border color for the symbols.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.SymbolBorderWidth">
+            <summary>
+            Gets or sets the border thickness for the symbols.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.Visibility">
+            <summary>
+            Gets or sets the series visibility
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.AxisX">
+            <summary>
+            ​Gets or sets the name of the x-axis for the series
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeries.AxisY">
+            <summary>
+            Gets or sets the name of the y-axis for the series
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartHitTestInfo">
+            <summary>
+            Contains all the information of a hit test.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartHitTestInfo.#ctor">
+            <summary>
+            Internal constructor, customer should not need to initialize this object.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartHitTestInfo.FlexChart">
+            <summary>
+            The flex chart object the hit test occured inside.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartHitTestInfo.DataPoint">
+            <summary>
+            Gets the DataPoint of the FlexChartHitTestInfo.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartHitTestInfo.ChartElement">
+            <summary>
+            The chart element type selected.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartHitTestInfo.Annotation">
+            <summary>
+             Gets the annotation;
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.FlexChartTooltip">
+            <summary>
+            Provides a pop-up window that displays additional information about chart.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChartTooltip.#ctor">
+            <summary>
+            Initializes a new instance of FlexChartTooltip class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChartTooltip.#ctor(Xuni.Forms.FlexChart.FlexChart)">
+            <summary>
+            Initializes a new instance of FlexChartTooltip class.
+            </summary>
+            <param name="flexChart">The FlexChart object that owns this tooltip</param>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChartTooltip.Hide">
+            <summary>
+            Hides the tooltip.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChartTooltip.Show">
+            <summary>
+            Shows the tooltip.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartAxisType">
+            <summary>
+            Specifies axis type.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxisType.X">
+            <summary>
+            X-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartAxisType.Y">
+            <summary>
+            Y-axis.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartZoomMode">
+            <summary>
+            Specifies zoom mode.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartZoomMode.X">
+            <summary>
+            Enable on X-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartZoomMode.Y">
+            <summary>
+            Enable on Y-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartZoomMode.XY">
+            <summary>
+            Enable on both X-axis and Y-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartZoomMode.Disabled">
+            <summary>
+            Disable on both X-axis and Y-axis.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartScrollPosition">
+            <summary>
+            Specifies position.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartScrollPosition.Min">
+            <summary>
+            Value scroll to as a min value.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartScrollPosition.Center">
+            <summary>
+            Value scroll to is in the center.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartScrollPosition.Max">
+            <summary>
+            Value scroll to as a max value.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartElementType">
+            <summary>
+            Used with HitTestInfo to determine the element selected.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.None">
+            <summary>
+            No chart element.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.PlotArea">
+            <summary>
+            The area within the axes.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.AxisX">
+            <summary>
+            X-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.AxisY">
+            <summary>
+            Y-axis.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.ChartArea">
+            <summary>
+            The area within the control but outside of the axes.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.Legend">
+            <summary>
+            The legend.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.LegendSeries">
+            <summary>
+            A series within the legend.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.Header">
+            <summary>
+            The chart header.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.Footer">
+            <summary>
+            The chart footer.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.Series">
+            <summary>
+            A chart series.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.SeriesSymbol">
+            <summary>
+            A chart series symbol.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartElementType.Annotation">
+            <summary>
+            An annotation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartLabelPosition">
+            <summary>
+            Specifies the position of data labels on the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.None">
+            <summary>
+             No labels appear.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.Left">
+            <summary>
+            The labels appear to the left of the data points.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.Top">
+            <summary>
+            The labels appear above the data points.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.Right">
+            <summary>
+            The labels appear to the right of the data points
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.Bottom">
+            <summary>
+            The labels appear below the data points
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartLabelPosition.Center">
+            <summary>
+            The labels appear centered on the data points
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.Enums.ChartMarkerLines">
+            <summary>
+            Specifies the line type for the LineMarker.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerLines.None">
+            <summary>
+            Show no lines
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerLines.Vertical">
+            <summary>
+            Show a vertical line.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerLines.Horizontal">
+            <summary>
+            Show a horizontal line.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerLines.Both">
+            <summary>
+            Show both vertical and horizontal lines.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.Enums.ChartMarkerInteraction">
+            <summary>
+            Specifies how the LineMarker interacts with the user.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerInteraction.None">
+            <summary>
+             No interaction, the user specifies the position by clicking. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerInteraction.Move">
+            <summary>
+            The LineMarker moves with the pointer.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerInteraction.Drag">
+            <summary>
+             The LineMarker moves when the user drags the line.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment">
+            <summary>
+            Specifies the alignment of the LineMarker.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment.Auto">
+            <summary>
+            The LineMarker alignment adjusts automatically so that it stays inside the boundaries of the plot area.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment.BottomRight">
+            <summary>
+            The LineMarker aligns to the right of the pointer.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment.BottomLeft">
+            <summary>
+            The LineMarker aligns to the left of the pointer.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment.TopRight">
+            <summary>
+            The LineMarker aligns to the bottom of the pointer.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.Enums.ChartMarkerAlignment.TopLeft">
+            <summary>
+             The LineMarker aligns to the top of the pointer.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartType">
+            <summary>
+            Specifies the chart type.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Column">
+            <summary>
+            Column charts show vertical bars and allow you to compare values of items across categories.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Bar">
+            <summary>
+            Bar charts show horizontal bars.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Scatter">
+            <summary>
+            Scatter charts use X and Y coordinates to show patterns within the data. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Line">
+            <summary>
+            Line charts show trends over a period of time or across categories.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.LineSymbols">
+            <summary>
+            Line and symbol charts are line charts with a symbol on each data point.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Area">
+            <summary>
+            Area charts are line charts with the area below the line filled with color.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Bubble">
+            <summary>
+             Bubble charts are Scatter charts with a third data value that determines the size of the symbol.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Candle">
+            <summary>
+            Candlestick charts present items with high, low, open, and close values.
+            The size of the wick line is determined by the High and Low values, while the size of the bar is 
+            determined by the Open and Close values. The bar is displayed using different colors, depending on 
+            whether the close value is higher or lower than the open value.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Hloc">
+            <summary>
+            High-low-open-close charts display the same information as a candlestick chart, except that opening values are displayed using lines to the left, while lines to the right indicate closing values.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.Spline">
+            <summary>
+            Spline charts are Line charts that plot curves rather than angled lines through the data points.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.SplineSymbols">
+            <summary>
+            Spline and symbol charts are spline charts with symbols on each data point.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartType.SplineArea">
+            <summary>
+            Spline area charts are spline charts with the area below the line filled with color.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartSeriesVisibilityType">
+            <summary>
+            Specifies whether and where the Series is visible.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeriesVisibilityType.Visible">
+            <summary>
+            The series is visible on the plot and in the legend.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeriesVisibilityType.Plot">
+            <summary>
+            The series is visible only on the plot.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeriesVisibilityType.Legend">
+            <summary>
+            The series is visible only in the legend.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartSeriesVisibilityType.Hidden">
+            <summary>
+            The series is hidden. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartStackingType">
+            <summary>
+            Specifies whether and how to stack the chart's data values.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartStackingType.None">
+            <summary>
+            No stacking. Each series object is plotted independently.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartStackingType.Stacked">
+            <summary>
+            Stacked charts show how each value contributes to the total.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartStackingType.Stacked100pc">
+            <summary>
+            100% stacked charts show how each value contributes to the total with the relative size of 
+            each series representing its contribution to the total.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartSeriesEventArgs">
+            <summary>
+            Event data for SeriesVisibilityChanged event of <see cref="T:Xuni.Forms.FlexChart.FlexChart"/>.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSeriesEventArgs.Series">
+            <summary>
+            Gets the series of the event args.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartOverlappingLabels">
+            <summary>
+            Specify how to handle overlapping axis labels.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOverlappingLabels.Auto">
+            <summary>
+            Auto hide overlapping labels.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.ChartOverlappingLabels.Show">
+            <summary>
+            Always show overlapping labels.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartSelectionChangedEventArgs">
+            <summary>
+            Argument passed when a selection change event has triggered.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.ChartSelectionChangedEventArgs.#ctor(Xuni.Forms.FlexChart.ChartHitTestInfo)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="hitTestInfo"></param>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartSelectionChangedEventArgs.HitTestInfo">
+            <summary>
+            Hit test information regarding the selection.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartMarkerPositionChangedEventArgs">
+            <summary>
+            Provides data for a chart marker position changed event.
+            This class is not in using currently.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartMarkerPositionChangedEventArgs.points">
+            <summary>
+            Gets or sets the point element.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.LabelLoadingEventArgs">
+            <summary>
+            Provides data for a Axis.LabelLoading event.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.LabelLoadingEventArgs.Label">
+            <summary>
+            Gets or sets the label element.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.LabelLoadingEventArgs.Value">
+            <summary>
+            Gets the axis value that corresponds to the annotation label.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.LabelLoadingEventArgs.Text">
+            <summary>
+            Gets the axis text that corresponds to the annotation label.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.FlexChart">
+            <summary>
+            The <see cref="T:Xuni.Forms.FlexChart.FlexChart"/> control provides a powerful and flexible way to visualize data.
+            You can use the <see cref="T:Xuni.Forms.FlexChart.FlexChart"/> control to create charts that display data in several formats, including bar, line, symbol, bubble, and others.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.LegendToggleProperty">
+            <summary>
+            Identifies the LegendToggle bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.PlotAreaBackgroundColorProperty">
+            <summary>
+            Identifies the PlotAreaBackgroundColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.AxisXProperty">
+            <summary>
+            Identifies the AxisX bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.AxisYProperty">
+            <summary>
+            Identifies the AxisY bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.BindingXProperty">
+            <summary>
+            Identifies the BindingX bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.ChartTypeProperty">
+            <summary>
+            Identifies the ChartType bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.ZoomModeProperty">
+            <summary>
+            Identifies the ZoomMode bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.StackingProperty">
+            <summary>
+            Identifies the Stacking bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.SeriesProperty">
+            <summary>
+            Identifies the Series bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.AnnotationsProperty">
+            <summary>
+            Identifies the Axes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.AxesProperty">
+            <summary>
+            Identifies the Axes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.RotatedProperty">
+            <summary>
+            Identifies the Rotated bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.InterpolateNullsProperty">
+            <summary>
+            Identifies the InterpolateNulls bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.SymbolSizeProperty">
+            <summary>
+            Identifies the SymbolSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.DataLabelProperty">
+            <summary>
+            Identifies the DataLabel bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.OptionsProperty">
+            <summary>
+            Identifies the Option bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.LineMarkerProperty">
+            <summary>
+            Identifies the LineMarker bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.FlexChart.FlexChart.ForceClipAndroidPlotAreaProperty">
+            <summary>
+            Identifies the ForceClipAndroidPlotArea bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.#ctor">
+            <summary>
+            Initializes a new instance of FlexChart class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.PointToData(Xamarin.Forms.Point)">
+            <summary>
+            Coordinate conversion from screen point to data.
+            </summary>
+            <param name="pt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.DataToPoint(Xamarin.Forms.Point)">
+            <summary>
+            Coordinate conversion from data point to screen point.
+            </summary>
+            <param name="pt">Data point</param>
+            <returns>The point which is relative the screen.</returns>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.HitTest(Xamarin.Forms.Point)">
+            <summary>
+            ​Get the chart element at the specified point.
+            </summary>
+            <param name="pt">point to simulate a touch at.</param>
+            <returns>HitTestInfo</returns>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.Axes_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Use for axes collection after changed.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.FlexChart.FlexChart.Series_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Use for series collection after changed.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.AxisX">
+            <summary>
+            Gets the main horizontal (X) axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.AxisY">
+            <summary>
+            ​Gets the main vertical (Y) axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.BindingX">
+            <summary>
+            Gets or sets the name of the bound property to be plotted on the X axis.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.ChartType">
+            <summary>
+            Gets or sets the chart type of all data series.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Series">
+            <summary>
+            Gets the collection of data series collections.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Stacking">
+            <summary>
+            Gets or sets whether the chart series are stacked. Options: None, Stacked, Stacked 100%
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.ZoomMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Rotated">
+            <summary>
+            Gets or sets whether the direction of plotting is inverted. By default (inverted = false) the direction of plotting is horizontal. When inverted, the direction becomes vertical and the axes are swapped.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.LegendToggle">
+            <summary>
+            Gets or sets whether clicking legend items should toggle the series visibility.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.InterpolateNulls">
+            <summary>
+            Gets or sets whether to interpolate null values in the data. If true, the chart will interpolate the value of any missing data based on neighboring points. If false, it will leave a break in lines and areas at the points with null values.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Axes">
+            <summary>
+            Gets the collection of axes.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Annotations">
+            <summary>
+            Gets the collection of annotations
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Selection">
+            <summary>
+            ​Gets or sets the chart selection
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.SymbolSize">
+            <summary>
+            ​Gets or sets the size of the symbols used for all serise in this FlexChart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.DataLabel">
+            <summary>
+            Gets or sets the point data label. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.Options">
+            <summary>
+            Gets or sets various chart options.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.LineMarker">
+            <summary>
+            Gets or sets line marker.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.PlotAreaBackgroundColor">
+            <summary>
+            ​Gets or sets the background color of plot area.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.FlexChart.ForceClipAndroidPlotArea">
+            <summary>
+            Indicates whether should force clip the plot area in android decices.
+            This is to solve a Xamarin.Forms.Android overdraw issue which occured only in some very specific emulators.
+            In most of the case, please just keep this property as its default value : false.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.FlexChart.SeriesVisibilityChanged">
+            <summary>
+            ​Occurs when the series visibility changed.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.FlexChart.PlotElementLoading">
+            <summary>
+            ​Occurs when a plot element is being loaded.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.FlexChart.FlexChart.SelectionChanged">
+            <summary>
+            ​Occurs when the selection changes.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.FlexChart.ChartPlotElementLoadingEventArgs">
+            <summary>
+            Event data for PlotElementLoading event of <see cref="T:Xuni.Forms.FlexChart.FlexChart"/>.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElementLoadingEventArgs.DataItem">
+            <summary>
+            Gets the data item.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElementLoadingEventArgs.PlotElement">
+            <summary>
+            Gets or sets the PlotElement
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElementLoadingEventArgs.SeriesIndex">
+            <summary>
+             Gets the index of the Series
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.FlexChart.ChartPlotElementLoadingEventArgs.PointIndex">
+            <summary>
+             Gets the index of the PlotElement
+            </summary>
+        </member>
+    </members>
+</doc>

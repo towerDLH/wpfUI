@@ -1,0 +1,520 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xuni.Forms.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Xuni.Forms.Core.ColorEx">
+            <summary>
+            Provides access to system colors according to the current theme.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.ColorEx.ThemeBackgroundColor">
+            <summary>
+            Gets the color of the theme background.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.ColorEx.ThemeForegroundColor">
+            <summary>
+            Gets the color of the theme foreground.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.ColorEx.IsDarkTheme">
+            <summary>
+            Gets a value indicating whether the app is using a dark theme.
+            </summary>
+        </member>
+        <member name="M:Xuni.Core.StringEx.SplitCamel(System.String,System.Boolean)">
+            <summary>
+            Insert spaces between words identified by the camel nomenclature.
+            </summary>
+            <param name="s">The origianl string.</param>
+            <param name="capitalizeFirst">When set to true the resulting string will have its first word capitalized despite the original string capitalization.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniDoubleCollectionTypeConverter">
+            <summary>
+            Converts a coma-separated list of values to an array of double's.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniDoubleCollectionTypeConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns a Boolean value that indicates whether or not the derived type converter can convert <paramref name="sourceType" /> to its target type.
+            </summary>
+            <param name="sourceType">To type to be converted.</param>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniDoubleCollectionTypeConverter.ConvertFromInvariantString(System.String)">
+            <summary>
+            Converts an string that can be cast to the target type.
+            </summary>
+            <param name="value">The value to be converted.</param>
+        </member>
+        <member name="M:Xuni.Core.DateTimeEx.FromOADate(System.Double)">
+            <summary>
+            Returns a System.DateTime equivalent to the specified OLE Automation date.
+            </summary>
+            <param name="d">An OLE Automation date value.</param>
+            <returns>An object that represents the same date and time as the d parameter.</returns>
+        </member>
+        <member name="M:Xuni.Core.DateTimeEx.ToOADate(System.DateTime)">
+            <summary>
+            Converts the value of this instance to the equivalent OLE Automation date.
+            </summary>
+            <param name="date">The date that will be converted</param>
+            <returns>A double-precision floating-point number that contains an OLE Automation date equivalent to the value of this instance.</returns>
+        </member>
+        <member name="M:Xuni.Core.ObjectEx.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Gets the value of a property or property path of the specified object.
+            </summary>
+            <remarks>
+            This extension DON'T evaluate ICustomTypeDescriptor interface. 
+            Use generic extension with the same name if you are evaluating the path 
+            of a DataTable or any object that implements ICustomTypeDescriptor.
+            </remarks>
+            <param name="target">The target object.</param>
+            <param name="path">The name of the property or the property path.</param>
+            <returns>The value contained in the property</returns>
+        </member>
+        <member name="M:Xuni.Core.ObjectEx.SetPropertyValue``1(System.Object,System.String,``0)">
+            <summary>
+            Sets the value of a property or property path of the specified object.
+            </summary>
+            <typeparam name="T">Type of the property to set.</typeparam>
+            <param name="target">Object that contains the property.</param>
+            <param name="path">Name or path of the property that contains the value.</param>
+            <param name="value">New value for the property.</param>
+        </member>
+        <member name="T:Xuni.Core.TypeEx">
+            <summary>
+            The <see cref="T:Xuni.Core.TypeEx"/> class provides useful extension methods for the <see cref="T:System.Type"/> class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New``1(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetDefaultPublicCtor(System.Type)">
+            <summary>
+            Returns default public instance parameter-less constructor for the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The default constructor for the specified type if it exists; Null otherwise.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New``1(System.Type,System.Action{``0})">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <param name="initializers">The initializers.</param>
+            <returns>A new instance of type T</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetNonNullableType(System.Type)">
+            <summary>
+            Returns the underlying type of a nullable type:
+            e.g. if Type = double?, then returns double.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>The underlying type.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNullableType(System.Type)">
+            <summary>
+            Returns true if the type is a nullable type.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is nullable.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumeric(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric data types:
+            double, float, int, uint, long, ulong, short, ushort, sbyte, byte and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral numeric data types:
+            int, uint, long, ulong, short, ushort, sbyte and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegralSigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral signed numeric data types:
+            int, long, short and sbyte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a signed integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegralUnsigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral unsigned numeric data types:
+            uint, ulong, ushort and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an unsigned integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericNonIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric non-integral data types:
+            double, float and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a non-integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetEnumValues``1(System.Type)">
+            <summary>
+            Returns the values of an Enum type (Type.IsEnum == true).
+            </summary>
+            <typeparam name="T">Enum type.</typeparam>
+            <param name="enumType">Enum type.</param>
+            <returns>The list of values for that enum type.</returns>
+        </member>
+        <member name="T:Xuni.Forms.Core.LicenseManager">
+            <summary>
+            Allows the users to set a license in the <see cref="P:Key"/> property.
+            </summary>
+            <remarks>
+            See http://www.goxuni.com/licensing for more information.
+            </remarks>
+        </member>
+        <member name="P:Xuni.Forms.Core.LicenseManager.Key">
+            <summary>
+            Sets the key that will be used to check whether the application has a valid license.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.LicenseManager.GCDTLicenses">
+            <summary>
+            Stores license information from XML file
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.Core.LicenseManager.GCDTLicenses.LicenseList">
+            <summary>
+            A list of licenses in a file
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.LicenseManager.GCDTLicense">
+            <summary>
+            Represent a license
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.LicenseManager.GCDTLicense.Id">
+            <summary>
+            License ID
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.LicenseManager.GCDTLicense.Text">
+            <summary>
+            License key
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniTappedEventArgs">
+            <summary>
+            Provides event data for tapping the control.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniTappedEventArgs.#ctor(Xamarin.Forms.Point)">
+            <summary>
+            Initializes a new instance of the XuniTappedEventArgs
+            </summary>
+            <param name="p">The hit point when tapped on the screen</param>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniTappedEventArgs.HitPoint">
+            <summary>
+            The x- and y-coordinates of the pointer position
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniTappedEventArgs.Handled">
+            <summary>
+             Gets or sets a value that marks the routed event as handled.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniAnimation">
+            <summary>
+            Contains information about a specific animation.      
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniAnimation.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:Xuni.Forms.Core.XuniAnimation"/>.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniAnimation.StartDelay">
+            <summary>
+            Gets or sets the elapsed time in milliseconds before the animation starts.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniAnimation.Duration">
+            <summary>
+            Gets or sets the duration time in milliseconds of the animation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniAnimation.Easing">
+            <summary>
+            Gets or sets the easing funtion used to interpolate the values of the animation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniEasing">
+            <summary>
+            Easing function used to interpolate the values of the animation.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniEasing.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:Xuni.Forms.Core.XuniEasing"/>.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniEasing.#ctor(System.Func{System.Double,System.Double})">
+            <summary>
+            Initializes a new instance of a <see cref="T:Xuni.Forms.Core.XuniEasing"/>.
+            </summary>
+            <param name="function">Easing function.</param>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniEasing.Ease(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniEasing.GetEasingFunction">
+            <summary>
+            Gets the easing function.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniEasing.op_Implicit(Xamarin.Forms.Easing)~Xuni.Forms.Core.XuniEasing">
+            <summary>
+            Allows assigning a <see cref="T:Xuni.Forms.Core.XuniEasing"/> from a Xamarin Forms counterpart.
+            </summary>
+            <param name="easing"></param>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniEasing.CircleOut">
+            <summary>
+            Gets a circle easing function.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniEasing.CircleIn">
+            <summary>
+            Gets a circle easing function.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniEasing.Linear">
+            <summary>
+            Gets a linear easing function.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniCheckBox">
+            <summary>
+            Represents a control that a user can select and clear.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniCheckBox.OnChecked(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Checked"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniCheckBox.IsChecked">
+            <summary>
+            Gets or sets whether the <see cref="T:Xuni.Forms.Core.XuniCheckBox"/> is checked.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniCheckBox.IsReadOnly">
+            <summary>
+            Gets or sets whether the <see cref="T:Xuni.Forms.Core.XuniCheckBox"/> is read only.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniCheckBox.Color">
+            <summary>
+            Gets or sets the color used to paint the control.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniCheckBox.Checked">
+            <summary>
+            Occurs after the value of checkBox changes
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniHitTestInfo">
+            <summary>
+            Hold relevant information regarding a hit test / touch event.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniHitTestInfo.Point">
+            <summary>
+            coordinate of the hit test / touch event.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniLayoutOptionsConverter">
+            <summary>
+            Converts a string into a <see cref="T:Xamarin.Forms.LayoutOptions"/> value.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniLayoutOptionsConverter.CanConvertFrom(System.Type)">
+            <summary>
+            Returns true if the sourceType is string.
+            </summary>
+            <param name="sourceType">the type of the source</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniLayoutOptionsConverter.ConvertFromInvariantString(System.String)">
+            <summary>
+            Converts to <see cref="T:Xamarin.Forms.LayoutOptions"/> value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniRelativeView">
+            <summary>
+             Base layout which supports GetImage() method and Rendered event.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniRelativeView.LayoutChildren(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Lays out the XuniRelativeView.Children in the specified rectangle.
+            </summary>
+            <param name="x">The left-side bound of the rectangle into which the children will be laid out.</param>
+            <param name="y">The top bound of the rectangle into which the children will be laid out.</param>
+            <param name="width">The width of the rectangle into which the children will be laid out.</param>
+            <param name="height">The height of the rectangle into which the children will be laid out.</param>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniRelativeView.GetImage">
+            <summary>
+            Get the byte array of the control image.
+            This byte array comes from a UIImagePNGRepresentation in iOS, TrueColorAlpha of PNG format in WP, Bitmap in Android.
+            </summary>
+            <returns>A byte array with certain image format.</returns>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniRelativeView.AllowRefreshRenderEngine">
+            <summary>
+            Allows android developers to limit the control from recalculating itself whenever child views are added, necessary for Chart tooltips and FlexGrid.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniRelativeView.Rendered">
+            <summary>
+            ​Occurs after chart finishes rendering.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniRelativeView.Rendering">
+            <summary>
+            ​Occurs before chart is rendering.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniRelativeView.Tapped">
+            <summary>
+            Occurs for every touch event.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniToggleButton">
+            <summary>
+            Represents a button that a user can xpand and collapse.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniToggleButton.OnChecked(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:Checked"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.IsChecked">
+            <summary>
+            Gets or sets whether the <see cref="T:Xuni.Forms.Core.XuniCheckBox"/> is checked.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.Color">
+            <summary>
+            Gets or sets the color used to paint the control.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.BorderWidth">
+            <summary>
+            Gets or sets the width of the border.
+            </summary>
+            <remarks>
+            Set this value to a non-zero value in order to have a visible border.
+            </remarks>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.CheckedText">
+            <summary>
+            Gets or sets the text show when the button is checked.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.UncheckedText">
+            <summary>
+            Gets or sets the text shown when the button is unchecked.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.CheckedImageSource">
+            <summary>
+            Gets or sets the image show when the button is checked.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.UncheckedImageSource">
+            <summary>
+            Gets or sets the image shown when the button is unchecked.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniToggleButton.Checked">
+            <summary>
+            Occurs after the value of checkBox changes
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.AndroidOnBitmap">
+            <summary>
+            Necessary for use with Android FlexGrid RowDetails feature to utilize caching and void massive garbage collection.
+            </summary>
+            <value>The android on bitmap.</value>
+        </member>
+        <member name="P:Xuni.Forms.Core.XuniToggleButton.AndroidOffBitmap">
+            <summary>
+            Necessary for use with Android FlexGrid RowDetails feature to utilize caching and void massive garbage collection.
+            </summary>
+            <value>The android off bitmap.</value>
+        </member>
+        <member name="T:Xuni.Forms.Core.XuniView">
+            <summary>
+            Base control which supports GetImage() method and Rendered event.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.Forms.Core.XuniView"/> class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.Core.XuniView.GetImage">
+            <summary>
+            Get the byte array of the control image.
+            This byte array comes from a UIImagePNGRepresentation in iOS, TrueColorAlpha of PNG format in WP, Bitmap in Android.
+            </summary>
+            <returns>A byte array with certain image format.</returns>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniView.Rendered">
+            <summary>
+            ​Occurs after chart finishes rendering.
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniView.Rendering">
+            <summary>
+            ​Occurs before the chart starts rendering data
+            </summary>
+        </member>
+        <member name="E:Xuni.Forms.Core.XuniView.Tapped">
+            <summary>
+            Occurs for every touch event.
+            </summary>
+        </member>
+    </members>
+</doc>

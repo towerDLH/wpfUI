@@ -1,0 +1,14 @@
+D:\Test\WpfTest\Teststyle\bin\Debug\Teststyle.dll
+D:\Test\WpfTest\Teststyle\bin\Debug\Teststyle.pdb
+D:\Test\WpfTest\Teststyle\obj\Debug\ttt.g.cs
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle_MarkupCompile.cache
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle_MarkupCompile.lref
+D:\Test\WpfTest\Teststyle\obj\Debug\Style.baml
+D:\Test\WpfTest\Teststyle\obj\Debug\ttt.baml
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle.g.resources
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle.csproj.CoreCompileInputs.cache
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle.dll
+D:\Test\WpfTest\Teststyle\obj\Debug\Teststyle.pdb
+D:\Test\WpfTest\Teststyle\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Test\WpfTest\Teststyle\obj\Debug\BorderButton.g.cs
+D:\Test\WpfTest\Teststyle\obj\Debug\BorderButton.baml

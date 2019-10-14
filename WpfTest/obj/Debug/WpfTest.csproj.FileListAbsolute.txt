@@ -1,0 +1,59 @@
+D:\Test\WpfTest\WpfTest\bin\Debug\WpfTest.exe.config
+D:\Test\WpfTest\WpfTest\bin\Debug\WpfTest.exe
+D:\Test\WpfTest\WpfTest\bin\Debug\WpfTest.pdb
+D:\Test\WpfTest\WpfTest\obj\Debug\MainWindow.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\App.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest_MarkupCompile.cache
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest_MarkupCompile.lref
+D:\Test\WpfTest\WpfTest\obj\Debug\MainWindow.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.g.resources
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.Properties.Resources.resources
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.GenerateResource.cache
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CoreCompileInputs.cache
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.exe
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.pdb
+D:\Test\WpfTest\WpfTest\obj\Debug\Test.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\Test.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\UserControl2.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\UserControl2.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\UserControl3.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\UserControl3.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\Window2.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\Window2.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\Style.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csprojAssemblyReference.cache
+D:\Test\WpfTest\WpfTest\obj\Debug\Window5.g.cs
+D:\Test\WpfTest\WpfTest\bin\Debug\UI.dll
+D:\Test\WpfTest\WpfTest\bin\Debug\UI.pdb
+D:\Test\WpfTest\WpfTest\obj\Debug\Window5.baml
+D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CopyComplete
+D:\Test\WpfTest\WpfTest\obj\Debug\Window6.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\Window6.baml
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\矩形 2 拷贝.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\某省物流云主页(背景).png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\某省物流云主页(上下框).png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\某省物流云主页.jpg
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\图层 2.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\椭圆 2 拷贝.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\椭圆 2.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 1 拷贝 5-1.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 1 拷贝 5.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 1.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 center.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 down.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 green.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 rightgreen.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 拷贝 2.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 拷贝 3.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4 拷贝.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 4.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 5.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\形状 6 拷贝 2.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\右侧.png
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\中国地图.png
+D:\Test\WpfTest\WpfTest\bin\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\Test\WpfTest\WpfTest\bin\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\Test\WpfTest\WpfTest\obj\Debug\Window7.g.cs
+D:\Test\WpfTest\WpfTest\obj\Debug\Window7.baml
+D:\Test\WpfTest\WpfTest\bin\Debug\Resources\WPFVisifire.Charts.dll

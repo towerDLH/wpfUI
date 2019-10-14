@@ -1,0 +1,119 @@
+C:\Users\Administrator\Documents\Tencent Files\2647965199\FileRecv\WPF-ScreenData-master\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\Tencent Files\2647965199\FileRecv\WPF-ScreenData-master\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.g.cs
+C:\Users\Administrator\Documents\Tencent Files\2647965199\FileRecv\WPF-ScreenData-master\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.cache
+C:\Users\Administrator\Documents\Tencent Files\2647965199\FileRecv\WPF-ScreenData-master\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.lref
+D:\work\WPF-ScreenData-master\Product\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\work\WPF-ScreenData-master\Product\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csprojAssemblyReference.cache
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.g.cs
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.cache
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.lref
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.baml
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.g.resources
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.Properties.Resources.resources
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.GenerateResource.cache
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CoreCompileInputs.cache
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CopyComplete
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\work\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.g.cs
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.cache
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.lref
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.baml
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\Themes\Generic.baml
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.g.resources
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.Properties.Resources.resources
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.GenerateResource.cache
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CoreCompileInputs.cache
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CopyComplete
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\矩形 2 拷贝.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\某省物流云主页(背景).png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\某省物流云主页(上下框).png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\某省物流云主页.jpg
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\图层 2.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\椭圆 2 拷贝.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\椭圆 2.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 1 拷贝 5-1.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 1 拷贝 5.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 1.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 center.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 down.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 green.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 rightgreen.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 拷贝 2.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 拷贝 3.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4 拷贝.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 4.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 5.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\形状 6 拷贝 2.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\右侧.png
+D:\work\WPF-Sster\WPF-ScreenData-master\Product\Debug\Resources\中国地图.png
+D:\Test\WpfTest\Resources\矩形 2 拷贝.png
+D:\Test\WpfTest\Resources\某省物流云主页(背景).png
+D:\Test\WpfTest\Resources\某省物流云主页(上下框).png
+D:\Test\WpfTest\Resources\某省物流云主页.jpg
+D:\Test\WpfTest\Resources\图层 2.png
+D:\Test\WpfTest\Resources\椭圆 2 拷贝.png
+D:\Test\WpfTest\Resources\椭圆 2.png
+D:\Test\WpfTest\Resources\形状 1 拷贝 5-1.png
+D:\Test\WpfTest\Resources\形状 1 拷贝 5.png
+D:\Test\WpfTest\Resources\形状 1.png
+D:\Test\WpfTest\Resources\形状 4 center.png
+D:\Test\WpfTest\Resources\形状 4 down.png
+D:\Test\WpfTest\Resources\形状 4 green.png
+D:\Test\WpfTest\Resources\形状 4 rightgreen.png
+D:\Test\WpfTest\Resources\形状 4 拷贝 2.png
+D:\Test\WpfTest\Resources\形状 4 拷贝 3.png
+D:\Test\WpfTest\Resources\形状 4 拷贝.png
+D:\Test\WpfTest\Resources\形状 4.png
+D:\Test\WpfTest\Resources\形状 5.png
+D:\Test\WpfTest\Resources\形状 6 拷贝 2.png
+D:\Test\WpfTest\Resources\右侧.png
+D:\Test\WpfTest\Resources\中国地图.png
+D:\Test\WpfTest\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\Test\WpfTest\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\矩形 2 拷贝.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\某省物流云主页(上下框).png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\某省物流云主页.jpg
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\图层 2.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\椭圆 2 拷贝.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\椭圆 2.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 1 拷贝 5-1.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 1 拷贝 5.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 1.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 center.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 down.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 green.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 rightgreen.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 拷贝 2.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 拷贝 3.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4 拷贝.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 4.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 5.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\形状 6 拷贝 2.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\右侧.png
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\中国地图.png
+D:\Test\WpfTest\WpfTest\WpfTest\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\Test\WpfTest\WpfTest\WpfTest\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb
+D:\Test\WpfTest\WpfTest\WpfTest\Resources\WPFVisifire.Charts.dll
+D:\Test\WpfTest\WpfTest\WpfTest\WPFVisifire.Charts.dll
+D:\work\WPF-Sster\WPF-ScreenData-master\Source\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csprojAssemblyReference.cache
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csprojAssemblyReference.cache
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.g.cs
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.cache
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent_MarkupCompile.lref
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\SC_ChinaAccentControl.baml
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\Themes\Generic.baml
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.g.resources
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.Properties.Resources.resources
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.GenerateResource.cache
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CoreCompileInputs.cache
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.csproj.CopyComplete
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.dll
+D:\Test\WpfTest\Module\HeBianGu.Product.ScreenData.Module.ChinaAccent\obj\Debug\HeBianGu.Product.ScreenData.Module.ChinaAccent.pdb

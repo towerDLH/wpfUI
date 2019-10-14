@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03A0DEB2-3A8D-46DE-9127-20CDBB02124C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WpfApp3</RootNamespace>
+    <AssemblyName>WpfApp3</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ay.MvcFramework.Wpf">
+      <HintPath>..\Resources\Ay.MvcFramework.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="GanttChart, Version=1.3.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resours\GanttChart.dll</HintPath>
+    </Reference>
+    <Reference Include="HandyControl, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HandyControl.2.1.0\lib\net45\HandyControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="Syncfusion.Gantt.WPF, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Gantt.WPF.17.2.0.51\lib\net46\Syncfusion.Gantt.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.WPF, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.WPF.17.2.0.51\lib\net46\Syncfusion.Grid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WPF, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.GridCommon.Wpf.17.2.0.51\lib\net46\Syncfusion.GridCommon.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.17.2.0.51\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Linq.Base.17.2.0.51\lib\net46\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.ProjIO.Base, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.ProjIO.Base.17.2.0.51\lib\net46\Syncfusion.ProjIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.17.2.0.51\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xuni.CollectionView, Version=2.3.20171.185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xuni.CollectionView.2.3.20171.185\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xuni.CollectionView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xuni.Forms.ChartCore, Version=2.3.20171.185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xuni.Forms.ChartCore.2.3.20171.185\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xuni.Forms.ChartCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Xuni.Forms.Core, Version=2.3.20171.185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xuni.Forms.Core.2.3.20171.185\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xuni.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xuni.Forms.FlexChart, Version=2.3.20171.185, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xuni.Forms.FlexChart.2.3.20171.185\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xuni.Forms.FlexChart.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Calculator.cs" />
+    <Compile Include="Converts\BoolToVisibleConver.cs" />
+    <Compile Include="Converts\TreeViewConver.cs" />
+    <Compile Include="Converts\VisibleToReverseConver.cs" />
+    <Compile Include="PmCategoryDtl.xaml.cs">
+      <DependentUpon>PmCategoryDtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinDatagrid.xaml.cs">
+      <DependentUpon>WinDatagrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window3.xaml.cs">
+      <DependentUpon>Window3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window4.xaml.cs">
+      <DependentUpon>Window4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window5.xaml.cs">
+      <DependentUpon>Window5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window6.xaml.cs">
+      <DependentUpon>Window6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window7.xaml.cs">
+      <DependentUpon>Window7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window8.xaml.cs">
+      <DependentUpon>Window8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window9.xaml.cs">
+      <DependentUpon>Window9.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PmCategoryDtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinDatagrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resours\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resours\iconfont.ttf" />
+    <None Include="Scripts\dhtmlxgantt\dhtmlxgantt.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_click_drag.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_csp.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_fullscreen.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_keyboard_navigation.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_marker.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_multiselect.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_quick_info.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_smart_rendering.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_tooltip.js.map" />
+    <None Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_undo.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_ar.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_be.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_ca.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_cn.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_cs.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_da.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_de.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_el.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_es.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_fa.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_fi.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_fr.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_he.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_hr.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_hu.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_id.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_it.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_jp.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_kr.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_nb.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_nl.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_no.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_pl.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_pt.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_ro.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_ru.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_si.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_sk.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_sv.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_tr.js.map" />
+    <None Include="Scripts\dhtmlxgantt\locale\locale_ua.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UI\UI.csproj">
+      <Project>{86a2212a-062f-4c96-8c03-95b72ea46fc1}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_broadway.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_contrast_black.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_contrast_white.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_material.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_meadow.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_skyblue.css" />
+    <Content Include="Content\dhtmlxgantt\dhtmlxgantt_terrace.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_broadway.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_contrast_black.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_contrast_white.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_material.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_meadow.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_skyblue.css" />
+    <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_terrace.css" />
+    <Resource Include="Image\timg.jpg" />
+    <Content Include="Resours\GanttChart.dll" />
+    <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.d.ts" />
+    <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_click_drag.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_csp.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_fullscreen.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_keyboard_navigation.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_marker.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_multiselect.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_quick_info.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_smart_rendering.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_tooltip.js" />
+    <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_undo.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_ar.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_be.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_ca.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_cn.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_cs.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_da.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_de.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_el.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_es.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_fa.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_fi.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_fr.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_he.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_hr.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_hu.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_id.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_it.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_jp.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_kr.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_nb.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_nl.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_no.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_pl.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_pt.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_ro.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_ru.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_si.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_sk.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_sv.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_tr.js" />
+    <Content Include="Scripts\dhtmlxgantt\locale\locale_ua.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\dhtmlxgantt.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_click_drag.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_csp.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_fullscreen.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_keyboard_navigation.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_marker.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_multiselect.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_quick_info.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_smart_rendering.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_tooltip.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\ext\dhtmlxgantt_undo.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_ar.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_be.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_ca.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_cn.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_cs.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_da.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_de.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_el.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_es.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_fa.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_fi.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_fr.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_he.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_hr.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_hu.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_id.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_it.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_jp.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_kr.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_nb.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_nl.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_no.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_pl.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_pt.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_ro.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_ru.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_si.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_sk.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_sv.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_tr.js" />
+    <Content Include="Scripts\dhtmlxgantt\sources\locale\locale_ua.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+</Project>

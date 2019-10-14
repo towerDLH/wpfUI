@@ -1,0 +1,903 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xuni.Forms.ChartCore</name>
+    </assembly>
+    <members>
+        <member name="T:Xuni.Forms.ChartCore.ChartAnnotation">
+            <summary>
+            Represents the base class of annotations
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Attachment">
+            <summary>
+            Gets or sets the attachment of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Width">
+            <summary>
+            Gets or sets the width of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Height">
+            <summary>
+            Gets or sets the height of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Offset">
+            <summary>
+            Gets or sets the offset of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Point">
+            <summary>
+            Gets or sets the point of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.Position">
+            <summary>
+            Gets or sets the position of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.PointIndex">
+            <summary>
+            Gets or sets the point index of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.SeriesIndex">
+            <summary>
+            Gets or sets the series index of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.TooltipText">
+            <summary>
+            Gets or sets the tooltip text of the annotation 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartAnnotation.IsVisible">
+            <summary>
+            Gets or sets the visibility of the annotation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartImageAnnotation">
+            <summary>
+            Draws an image annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartImageAnnotation.Source">
+            <summary>
+             Gets or sets the image source. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartTextAnnotation">
+            <summary>
+            Draws a text annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTextAnnotation.Text">
+            <summary>
+             Gets or sets the text of the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTextAnnotation.TextColor">
+            <summary>
+             Gets or sets the text color of the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTextAnnotation.FontSize">
+            <summary>
+             Gets or sets the font size of the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTextAnnotation.FontFamily">
+            <summary>
+             Gets or sets the font family of the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTextAnnotation.FontAttributes">
+            <summary>
+             Gets or sets the font attributes of the annotation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartShapeAnnotation">
+            <summary>
+            Represents a base class of shape annotations
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartShapeAnnotation.Color">
+            <summary>
+            Gets or sets the fill color for the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartShapeAnnotation.BorderColor">
+            <summary>
+            Gets or sets the border color for the annotation.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartShapeAnnotation.BorderWidth">
+            <summary>
+            ​Gets or sets the border width for the annotation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartRectangleAnnotation">
+            <summary>
+            Draws a rectangle.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartEllipseAnnotation">
+            <summary>
+             Draws an ellipse.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartLineAnnotation">
+            <summary>
+            Draws a line
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLineAnnotation.Start">
+            <summary>
+            ​Gets or sets the starting point of the line annotation. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLineAnnotation.End">
+            <summary>
+            ​Gets or sets the end point of the line annotation. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLineAnnotation.Color">
+            <summary>
+            ​Gets or sets the color of the line. 
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLineAnnotation.LineWidth">
+            <summary>
+            Gets or sets the line width.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartPolygonAnnotation">
+            <summary>
+            Draws a polygon
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartPolygonAnnotation.#ctor">
+            <summary>
+            Initializes a new instance of ChartPolygonAnnotation class
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartPolygonAnnotation.Points">
+            <summary>
+            Gets the collection of points for the polygon annotation. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartBase">
+            <summary>
+            Base class for the Chart controls 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.BorderColorProperty">
+            <summary>
+            Identifies the BorderColo bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.BorderWidthProperty">
+            <summary>
+            Identifies the BorderWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterFontSizeProperty">
+            <summary>
+            Identifies the FooterFontSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterFontFamilyProperty">
+            <summary>
+            Identifies the FooterFontFamily bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterFontAttributesProperty">
+            <summary>
+            Identifies the FooterFontAttributes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterTextColorProperty">
+            <summary>
+            Identifies the  FooterText bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterHorizontalAlignmentProperty">
+            <summary>
+            Identifies the FooterHorizontalAlignment bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderFontSizeProperty">
+            <summary>
+            Identifies the HeaderFontSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderFontFamilyProperty">
+            <summary>
+            Identifies the HeaderFontFamily bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderFontAttributesProperty">
+            <summary>
+            Identifies the HeaderFontAttributes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderTextColorProperty">
+            <summary>
+            Identifies the  HeaderTextColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderHorizontalAlignmentProperty">
+            <summary>
+            Identifies the HeaderHorizontalAlignment bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.SelectedBorderWidthProperty">
+            <summary>
+            Identifies the SelectedBorderWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.SelectedDashesProperty">
+            <summary>
+            Identifies the SelectedDashes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.SelectedBorderColorProperty">
+            <summary>
+            Identifies the SelectedBorderColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.SelectionModeProperty">
+            <summary>
+            Identifies the SelectionMode bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.FooterTextProperty">
+            <summary>
+            Identifies the FooterText bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.HeaderTextProperty">
+            <summary>
+            Identifies the HeaderText bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.TextColorProperty">
+            <summary>
+            Identifies the HeaderText bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.ItemsSourceProperty">
+            <summary>
+            Identifies the ItemsSource bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.PlotMarginProperty">
+            <summary>
+            Identifies the PlotMargin  bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.BindingProperty">
+            <summary>
+            Identifies the Binding bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.LegendProperty">
+            <summary>
+            Identifies the Legend bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.TooltipProperty">
+            <summary>
+            Identifies the ChartTooltip bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.PaletteProperty">
+            <summary>
+            Identifies the Palette bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.IsAnimatedProperty">
+            <summary>
+            Identifies the IsAnimated bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.LoadAnimationProperty">
+            <summary>
+            Identifies the LoadAnimation bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.UpdateAnimationProperty">
+            <summary>
+            Identifies the IsAnimated bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.TouchFeedbackProperty">
+            <summary>
+            Identifies the TouchFeedback bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartBase.ShowTooltipsProperty">
+            <summary>
+            Identifies the ShowTooltips bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartBase.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:Xuni.Forms.ChartCore.ChartBase"/> control.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartBase.Refresh(System.Boolean)">
+            <summary>
+            ​Refreshes the chart.
+            </summary>
+            <param name="fullUpdate">Whether to update the control layout as well as the content (default: true)</param>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.BorderColor">
+            <summary>
+            Gets or sets a color that describes the border stroke color of the chart.​
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.BorderWidth">
+            <summary>
+            Gets or sets the width of the border.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterFont">
+            <summary>
+            ​Gets or sets the font of footer.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterFontSize">
+            <summary>
+            ​Gets or sets the font size of footer.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterFontFamily">
+            <summary>
+            ​Gets or sets the font family of footer.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterFontAttributes">
+            <summary>
+            ​Gets or sets the font attributes of footer.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterTextColor">
+            <summary>
+            ​Gets or sets the color of footer text.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterHorizontalAlignment">
+            <summary>
+            ​Gets or sets the horizontal alignment of footer text.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderFont">
+            <summary>
+            ​Gets or sets the horizontal alignment of header text.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderFontSize">
+            <summary>
+            ​Gets or sets the font size of header.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderFontFamily">
+            <summary>
+            ​Gets or sets the font family of header.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderFontAttributes">
+            <summary>
+            ​Gets or sets the font attributes of header.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderTextColor">
+            <summary>
+            ​Gets or sets the color of header text.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderHorizontalAlignment">
+            <summary>
+            ​Gets or sets the horizontal alignment of header text.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.SelectedDashes">
+            <summary>
+            Gets or sets the collection of dashes and gaps in the selection stroke.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.SelectedBorderWidth">
+            <summary>
+            ​Gets of sets the border width used to highlight selected plot elements.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.SelectedBorderColor">
+            <summary>
+            Gets or sets the border color used to highlight selected plot elements.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.TextColor">
+            <summary>
+            Gets or sets the text color.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.Palette">
+            <summary>
+            ​Gets or sets the color palette from a collection of built-in palettes. Ignored if CustomPalette is not null.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.Tooltip">
+            <summary>
+            ​Gets or sets the ChartToolTip object.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.SelectionMode">
+            <summary>
+            Gets or sets the chart selection mode.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.FooterText">
+            <summary>
+            ​Gets or sets the chart footer.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.HeaderText">
+            <summary>
+            ​Gets or sets the chart header.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.ItemsSource">
+            <summary>
+            ​Gets or sets the chart data source for all series.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.Legend">
+            <summary>
+            gets or sets the legend of the chart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.IsAnimated">
+            <summary>
+            Gets or sets whether animation is enabled on the control.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.LoadAnimation">
+            <summary>
+            Gets or sets the animation used when the control is loaded.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.Binding">
+            <summary>
+            ​Gets or sets the name of the property that contains the Y values
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.PlotMargin">
+            <summary>
+            Gets or sets the area between the edges of the control and the plot area.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.UpdateAnimation">
+            <summary>
+            Gets or sets the animation used when the data is updated.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.TouchFeedback">
+            <summary>
+            Gets or sets whether the chart displays touch feedback when the user interacts with the chart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartBase.ShowTooltips">
+            <summary>
+            Gets or sets whether the control shows tooltips when the user interacts with plot elements.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartLegend">
+            <summary>
+            Represents a chart legend.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.PositionProperty">
+            <summary>
+            Identifies the Position bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.BackgroundColorProperty">
+            <summary>
+            Identifies the BackgroundColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.BorderWidthProperty">
+            <summary>
+            Identifies the BorderWidth bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.BorderColorProperty">
+            <summary>
+            Identifies the BorderColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.LabelTextColorProperty">
+            <summary>
+            Identifies the LabelTextColor bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.LabelFontSizeProperty">
+            <summary>
+            Identifies the LabelFontSize bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.LabelFontFamilyProperty">
+            <summary>
+            Identifies the LabelFontFamily bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.LabelFontAttributesProperty">
+            <summary>
+            Identifies the LabelFontAttributes bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegend.OrientationProperty">
+            <summary>
+            Identifies the Orientation bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartLegend.#ctor(Xuni.Forms.ChartCore.ChartBase)">
+            <summary>
+            Initializes a new instance of Legend class with its owner chart.
+            </summary>
+            <param name="baseFlexChart">the chart object that owns this legend.</param>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartLegend.#ctor">
+            <summary>
+            Initializes a new instance of Legend class.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.BaseFlexChart">
+            <summary>
+             Gets the chart base object that owns this legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.Position">
+            <summary>
+            Gets or sets the legend position relative to the chart area.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.BackgroundColor">
+            <summary>
+            Gets or sets the background color of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.BorderWidth">
+            <summary>
+            Gets or sets the border width of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.BorderColor">
+            <summary>
+            Gets or sets the border color of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.LabelTextColor">
+            <summary>
+            Gets or sets the label text color of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.LabelFont">
+            <summary>
+            Gets or sets the label font of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.LabelFontSize">
+            <summary>
+            ​Gets or sets the font size of the legend.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.LabelFontFamily">
+            <summary>
+            ​Gets or sets the font family of the legend..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.LabelFontAttributes">
+            <summary>
+            ​Gets or sets the font attributes of the legend..
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLegend.Orientation">
+            <summary>
+            Gets or sets the legend orientation.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartLoadAnimation">
+            <summary>
+            Represents a load animation of the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLoadAnimation.AnimationModeProperty">
+            <summary>
+            Binable property for the animation mode.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartLoadAnimation.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:Xuni.Forms.ChartCore.ChartLoadAnimation"/>.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartLoadAnimation.AnimationMode">
+            <summary>
+            Gets or sets whether the plot points animate one at a time, series by series, or all at once All animation is still completed within duration. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartDataLabelBase">
+            <summary>
+            The point data label for FlexChart..
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartDataLabelBase.ContentTemplateProperty">
+            <summary>
+            Identifies the ContentTemplate bindable property.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartDataLabelBase.ContentTemplate">
+            <summary>
+            Gets or sets the content template for visualizing the data
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartDataPointBase">
+            <summary>
+            The data point for the chart.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartDataPointBase.Value">
+            <summary>
+            Gets the numeric value for this data point.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartDataPointBase.PointIndex">
+            <summary>
+            Gets or sets the point index for the data point.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartDataPointBase.DataObject">
+            <summary>
+            Gets or sets the underlying business object this data point is bound to.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartAnimationMode">
+            <summary>
+            Gets or sets whether the plot points animate one at a time, series by series, or all at once All animation is still completed within duration
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnimationMode.All">
+            <summary>
+            All points and series are animated at once.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnimationMode.Point">
+            <summary>
+            Animation is performed point by point. Multiple series are animated simultaneously at the same time.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnimationMode.Series">
+            <summary>
+            Animation is performed series by series. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartPositionType">
+            <summary>
+            Specifies the position of an axis or legend on the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.Auto">
+            <summary>
+            The item appears to the bottom of the chart when there is more vertical space and on the right when there is more horizontal space.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.None">
+            <summary>
+            The item is not visible.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.Left">
+            <summary>
+            The item appears to the left of the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.Top">
+            <summary>
+            The item appears above the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.Right">
+            <summary>
+            The item appears to the right of the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartPositionType.Bottom">
+            <summary>
+            The item appears below the chart.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartLegendOrientation">
+            <summary>
+            Specifies the layout of an legend on the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegendOrientation.Vertical">
+            <summary>
+             The legend should be vertically oriented.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegendOrientation.Horizontal">
+            <summary>
+             The legend should be horizontally oriented.
+             </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartLegendOrientation.Auto">
+            <summary>
+            The legend should be automatically oriented.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartAnnotationAttachment">
+            <summary>
+            Specifies the attachment of the annotation.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationAttachment.Absolute">
+            <summary>
+            The coordinates of the annotation are specified by the annotation's shape data in pixels. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationAttachment.DataCoordinate">
+            <summary>
+            The annotation coordinates are specified in data coordinates. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationAttachment.DataIndex">
+            <summary>
+            The annotation coordinates are specified by the data series index and point index. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationAttachment.Relative">
+            <summary>
+            The annotation coordinates are specified as a relative position within the control where (0,0) is the top left corner and (1,1) is the bottom right corner. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartAnnotationPosition">
+            <summary>
+            Specifies the position of the annotation.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationPosition.Bottom">
+            <summary>
+            The annotation appears at the bottom of the target point.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationPosition.Center">
+            <summary>
+            The annotation appears at the center of the target point. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationPosition.Left">
+            <summary>
+            The annotation appears to the left of the target point. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationPosition.Right">
+            <summary>
+             The annotation appears to the right of the target point. 
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartAnnotationPosition.Top">
+            <summary>
+            The annotation appears at the top of the target point. 
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartSelectionModeType">
+            <summary>
+            Specifies what is selected when the user clicks the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartSelectionModeType.None">
+            <summary>
+            Select neither series nor data points when the user clicks the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartSelectionModeType.Series">
+            <summary>
+            Select the whole series when the user clicks it on the chart.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartSelectionModeType.Point">
+            <summary>
+            Select the data point when the user clicks it on the chart. Since Line, Area, Spline,
+            and SplineArea charts do not render individual data points, nothing is selected with this
+            setting on those chart types.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartPalettes">
+            <summary>
+            Defines color palettes for chart and pie.
+            </summary>
+        </member>
+        <member name="T:Xuni.Forms.ChartCore.ChartTooltip">
+            <summary>
+            Base tooltip of FlexChart and FlexPie.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartTooltip.HideDelayProperty">
+            <summary>
+            Identifies the HideDelay bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartTooltip.ShowDelayProperty">
+            <summary>
+            Identifies the ShowDelay bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartTooltip.GapProperty">
+            <summary>
+            Identifies the Gap bindable property.
+            </summary>
+        </member>
+        <member name="F:Xuni.Forms.ChartCore.ChartTooltip.ThresholdProperty">
+            <summary>
+            Identifies the Threshold bindable property.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartTooltip.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.Forms.ChartCore.ChartTooltip"/> class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartTooltip.#ctor(Xuni.Forms.ChartCore.ChartBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.Forms.ChartCore.ChartTooltip"/> class.
+            </summary>
+            <param name="chartBase">The owner chart</param>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartTooltip.Hide">
+            <summary>
+            Make the tooltip dissapear.
+            </summary>
+        </member>
+        <member name="M:Xuni.Forms.ChartCore.ChartTooltip.Show">
+            <summary>
+            Show the tooltip.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.ChartBase">
+            <summary>
+             Gets the chart base object that owns this tooltip.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.HideDelay">
+            <summary>
+            Delay for tooltip to disappear.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.ShowDelay">
+            <summary>
+            Delay for tooltip to appear.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.Gap">
+            <summary>
+            Gets or sets the distance between the tooltip and the target element.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.Threshold">
+            <summary>
+            Gets or sets the maximum distance from the target element.
+            </summary>
+        </member>
+        <member name="P:Xuni.Forms.ChartCore.ChartTooltip.HideAction">
+            <summary>
+            Individual platform renderers need to implement in order to hide the default native tooltip.
+            </summary>
+        </member>
+    </members>
+</doc>

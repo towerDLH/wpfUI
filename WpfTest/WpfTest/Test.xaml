@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfTest.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTest"
+        mc:Ignorable="d"
+        x:Name="_base"
+        Title="Test" Height="450" Width="800">
+    <Grid x:Name="Ged">
+        <Grid Width="400" Height="200" Margin="10,10,0,0" Background="AliceBlue" FlowDirection="LeftToRight" VerticalAlignment="Top" HorizontalAlignment="Left"></Grid>
+        <Button Width="30" Height="50"  Content="{Binding selecttext}"  Margin="567,266,195,103"  Click="Button_Click"/>
+        <ComboBox x:Name="Combox" Width="130" Height="20" Margin="148,130,514,139" SelectedValue="{Binding NameAge}" ></ComboBox>
+        <StackPanel>
+        <TextBlock Width="70 " Height="20" Text="a" ></TextBlock>
+            <TextBox Width="70 " Height="20" Text="b"></TextBox>
+            <TextBlock Width="70 " Height="20" Text="c"></TextBlock>
+            <TextBlock Width="70 " Height="20" Text="da"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

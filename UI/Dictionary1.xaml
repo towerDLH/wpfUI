@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:UI">
+    <Style x:Key="FontAwesome">
+        <Setter Property="TextElement.FontFamily" Value="pack://WpfApp3:,,,/Resours/#FontAwesome" />
+        <Setter Property="TextBlock.Width" Value="20"></Setter>
+        <Setter Property="TextBlock.Height" Value="20"></Setter>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+        <Setter Property="TextBlock.FontSize" Value="15"></Setter>
+        <Setter Property="TextBlock.Foreground" Value="Green"></Setter>
+    </Style>
+    <Style x:Key="FontAwesome1">
+        <Setter Property="TextElement.FontFamily" Value="pack://WpfApp3:,,,/Resours/#iconfont" />
+        <Setter Property="TextBlock.Width" Value="100"></Setter>
+        <Setter Property="TextBlock.Height" Value="100"></Setter>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+        <Setter Property="TextBlock.FontSize" Value="60"></Setter>
+        <Setter Property="TextBlock.Foreground" Value="Green"></Setter>
+    </Style>
+</ResourceDictionary>

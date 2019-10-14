@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp3.WinDatagrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="WinDatagrid" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63"></RowDefinition>
+            <RowDefinition Height ="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  x:Name ="GridHs" ShowGridLines="False" Height ="63" VerticalAlignment ="Top">
+        </Grid>
+        <DataGrid Grid.Row="1"  x:Name ="DataGridHs"  HeadersVisibility="None"  ItemsSource="{Binding}" DisplayMemberPath="Data"  Height ="400" CanUserAddRows =" False"  VerticalAlignment="Top"  AutoGenerateColumns="False" ></DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,28 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "HandyControl/2.1.0": {
+        "runtime": {
+          "HandyControl.dll": {}
+        },
+        "resources": {
+          "en/HandyControl.resources.dll": {
+            "locale": "en"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HandyControl/2.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
