@@ -52,14 +52,13 @@
   <ItemGroup>
     <Compile Include="buttonex.cs" />
     <Compile Include="CustomControl1.cs" />
+    <Compile Include="DatePickerCalendar.cs" />
+    <Compile Include="DatePickerDateFormat.cs" />
+    <Compile Include="FconButton.cs" />
+    <Compile Include="IconButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxEx.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="WinContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dictionary1.xaml">
@@ -69,14 +68,6 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

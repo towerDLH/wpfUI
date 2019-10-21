@@ -86,6 +86,10 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFVisifire.Charts, Version=5.1.3.0, Culture=neutral, PublicKeyToken=0cd785983078370b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resours\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -117,6 +121,9 @@
     <Compile Include="Converts\BoolToVisibleConver.cs" />
     <Compile Include="Converts\TreeViewConver.cs" />
     <Compile Include="Converts\VisibleToReverseConver.cs" />
+    <Compile Include="MouseTree.xaml.cs">
+      <DependentUpon>MouseTree.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PmCategoryDtl.xaml.cs">
       <DependentUpon>PmCategoryDtl.xaml</DependentUpon>
     </Compile>
@@ -162,6 +169,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MouseTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PmCategoryDtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -304,6 +315,7 @@
     <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_terrace.css" />
     <Resource Include="Image\timg.jpg" />
     <Content Include="Resours\GanttChart.dll" />
+    <Content Include="Resours\WPFVisifire.Charts.dll" />
     <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.d.ts" />
     <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.js" />
     <Content Include="Scripts\dhtmlxgantt\ext\dhtmlxgantt_click_drag.js" />

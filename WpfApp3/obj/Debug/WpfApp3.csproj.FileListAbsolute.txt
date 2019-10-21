@@ -76,3 +76,6 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\HandyControl.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\HandyControl.pdb
 D:\Test\WpfTest\WpfApp3\bin\Debug\HandyControl.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\en\HandyControl.resources.dll
+D:\Test\WpfTest\WpfApp3\obj\Debug\MouseTree.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\MouseTree.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\WPFVisifire.Charts.dll

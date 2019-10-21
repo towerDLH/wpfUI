@@ -51,13 +51,22 @@ namespace WpfApp3
                    }
                }
             });
-            for (int a = 0; a < 30; a++)
+            nodexlist.Add(new NodeX()
             {
-                var n3 = new NodeX();
-                n3.Name = a.ToString();
-                n3.Icon = "/WpfApp3;component/Image/timg.jpg";
-                nodexlist.Add(n3);
-            }
+                Name = "一级",
+                Icon = "/WpfApp3;component/Image/timg.jpg",
+                Nodes = new ObservableCollection<NodeX>() {
+                   new NodeX(){
+                   }
+               }
+            });
+            //for (int a = 0; a < 30; a++)
+            //{
+            //    var n3 = new NodeX();
+            //    n3.Name = a.ToString();
+            //    n3.Icon = "/WpfApp3;component/Image/timg.jpg";
+            //    nodexlist.Add(n3);
+            //}
             system_tree.ItemsSource = nodexlist;
         }
 

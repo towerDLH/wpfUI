@@ -24,4 +24,9 @@ namespace WpfTest
             InitializeComponent();
         }
     }
+    public class a
+    {
+        public Guid name { get; set; }
+    }
+
 }

@@ -8,12 +8,10 @@
         mc:Ignorable="d"
         Title="Window8" Height="450" Width="800">
     <Window.Resources>
-    
+
         <HierarchicalDataTemplate x:Key="treeviewTemplate" ItemsSource="{Binding Children,Mode=TwoWay}">
             <Grid  Background="Transparent">
                 <Grid.Resources>
-                    <cnv:BoolToVisibleConver x:Key="boolToVisible"/>
-                    <cnv:VisibleToReverseConver x:Key="visibleToReverse"/>
                 </Grid.Resources>
                 <Grid MinHeight="30" x:Name="userinfo" Background="Transparent" Margin="-5 0 0 0" Visibility="{Binding Visibility,ElementName=groupinginfo,Converter={StaticResource visibleToReverse}}">
                     <Grid Height="50" x:Name="grid">
@@ -30,6 +28,9 @@
             </Grid>
         </HierarchicalDataTemplate>
         <!--TreeViewItem样式代码-->
+
+       
+
         <Style  x:Key="DefaultTreeViewItem" TargetType="{x:Type TreeViewItem}">
             <Setter Property="MinHeight" Value="25" />
             <Setter Property="Background" Value="Transparent" />

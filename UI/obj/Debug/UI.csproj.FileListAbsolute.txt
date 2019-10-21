@@ -1,16 +1,12 @@
 D:\Test\WpfTest\UI\bin\Debug\UI.dll
 D:\Test\WpfTest\UI\bin\Debug\UI.pdb
-D:\Test\WpfTest\UI\obj\Debug\UserControl1.g.cs
 D:\Test\WpfTest\UI\obj\Debug\UI_MarkupCompile.cache
 D:\Test\WpfTest\UI\obj\Debug\UI_MarkupCompile.lref
 D:\Test\WpfTest\UI\obj\Debug\Dictionary1.baml
-D:\Test\WpfTest\UI\obj\Debug\UserControl1.baml
 D:\Test\WpfTest\UI\obj\Debug\UI.g.resources
 D:\Test\WpfTest\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\UI\obj\Debug\UI.dll
 D:\Test\WpfTest\UI\obj\Debug\UI.pdb
-D:\Test\WpfTest\UI\obj\Debug\Window1.g.cs
-D:\Test\WpfTest\UI\obj\Debug\Window1.baml
 D:\Test\WpfTest\UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Test\WpfTest\UI\obj\Debug\Themes\Generic.baml
 D:\Test\WpfTest\WpfTest\bin\Debug\UI.dll

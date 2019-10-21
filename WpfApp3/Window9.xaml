@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
+            xmlns:ui="clr-namespace:UI;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         mc:Ignorable="d"
+        Icon="pack://application:,,,/Image/timg.jpg"
         Title="Window9" Height="450" Width="800">
     <Window.Resources>
        
@@ -18,15 +21,22 @@
             <TextBlock Text="&#xf000;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf003;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf015;" Style="{DynamicResource FontAwesome}" />
+            <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xe77e;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"    />
+            <TextBlock Text="&#xe643;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"    />
             <TextBlock>
                 <Run Text="&#xf099;" Style="{DynamicResource FontAwesome}"  Foreground="Red"></Run>
                 <Run Text=" Twitter:"  Style="{DynamicResource FontAwesome}"  ></Run>
                 <Run Text="1234565465" Style="{DynamicResource FontAwesome}"  ></Run>
             </TextBlock>
+            <DatePicker Width="200" Height="30" ui:DatePickerCalendar.IsMonthYear="True" ui:DatePickerDateFormat.DateFormat="yyyy-MM" />
+            <DatePicker ></DatePicker>
+            <Path x:Name="ExpandPath" Data="M0,0 L0,6 L6,0 z" Fill="#0357aa" Stroke="#0357aa">
+                <Path.RenderTransform>
+                    <RotateTransform Angle="135" CenterY="3" CenterX="3"/>
+                </Path.RenderTransform>
+            </Path>
             <hc:LoadingCircle  ></hc:LoadingCircle>
             <hc:Rate  AllowHalf="True"   x:Name="RateText"></hc:Rate>
             <TextBlock Text="{Binding ElementName=RateText ,Path=Value }"></TextBlock>
@@ -39,5 +49,110 @@
                 </hc:CompareSlider.SourceContent>
             </hc:CompareSlider>
         </WrapPanel>
+        <charts:Chart    
+                        x:Name="topchar"
+                          Width="400" Height="210" 
+                          View3D="True"
+                          Background="Transparent"
+                          BorderBrush="Transparent"
+                          AnimatedUpdate="true">
+            <charts:Chart.Legends >
+                <charts:Legend FontSize="2 "  VerticalAlignment="Bottom"  HorizontalAlignment="Center" />
+            </charts:Chart.Legends>
+
+            <charts:Chart.AxesX>
+                <charts:Axis Title="时间" TitleFontSize="14" />
+            </charts:Chart.AxesX>
+
+            <charts:Chart.AxesY>
+                <charts:Axis  Title="单位 (元)" TitleFontSize="14" LineThickness="0">
+                    <charts:Axis.Grids>
+                        <charts:ChartGrid LineColor="WhiteSmoke"/>
+                    </charts:Axis.Grids>
+                    <charts:Axis.Ticks>
+                        <charts:Ticks LineColor="Transparent"/>
+                    </charts:Axis.Ticks>
+                </charts:Axis>
+
+                <charts:Axis AxisType="Secondary"
+                                 Suffix="%" 
+                                 LineThickness="0">
+                    <charts:Axis.Ticks>
+                        <charts:Ticks LineColor="Transparent"/>
+                    </charts:Axis.Ticks>
+                </charts:Axis>
+            </charts:Chart.AxesY>
+
+
+            <charts:Chart.PlotArea>
+                <charts:PlotArea BorderThickness="1" 
+                                     BorderColor="WhiteSmoke" 
+                                     CornerRadius="7,7,0,0"/>
+            </charts:Chart.PlotArea>
+
+            <charts:Chart.Series>
+                <charts:DataSeries LegendText="业务收入"
+                                       Bevel="false"
+                                       AxisYType="Primary" 
+                                       RenderAs="StackedColumn"  LabelText ="#AxisXLabel,#YValue" >
+                    <charts:DataSeries.DataPoints>
+                        <charts:DataPoint AxisXLabel="1月" YValue="1200"  />
+                        <charts:DataPoint AxisXLabel="2月" YValue="1500"/>
+                        <charts:DataPoint AxisXLabel="3月" YValue="1700"/>
+                        <charts:DataPoint AxisXLabel="4月" YValue="2000"/>
+                    </charts:DataSeries.DataPoints>
+                </charts:DataSeries>
+                <charts:DataSeries LegendText="业务收入"
+                                       Bevel="false"
+                                       AxisYType="Primary" 
+                                       RenderAs="StackedColumn"  LabelText ="#AxisXLabel,#YValue" >
+                    <charts:DataSeries.DataPoints>
+                        <charts:DataPoint AxisXLabel="1月" YValue="520"  />
+                        <charts:DataPoint AxisXLabel="2月" YValue="1500"/>
+                        <charts:DataPoint AxisXLabel="3月" YValue="1700"/>
+                        <charts:DataPoint AxisXLabel="4月" YValue="2000"/>
+                    </charts:DataSeries.DataPoints>
+                </charts:DataSeries>
+                <!--<charts:DataSeries LegendText="净利润"
+                                       Bevel="false"
+                                      
+                                       AxisYType="Primary" 
+                                       RenderAs="Column" >
+                    <charts:DataSeries.DataPoints>
+                        <charts:DataPoint AxisXLabel="1月" YValue="1000"/>
+                        <charts:DataPoint AxisXLabel="2月" YValue="1200"/>
+                        <charts:DataPoint AxisXLabel="3月" YValue="1500"/>
+                        <charts:DataPoint AxisXLabel="4月" YValue="1800"/>
+                    </charts:DataSeries.DataPoints>
+                </charts:DataSeries>
+
+                <charts:DataSeries LegendText="毛利率"
+                                       Bevel="false" 
+                                      
+                                       AxisYType="Secondary"
+                                       RenderAs="Line" >
+
+                    <charts:DataSeries.DataPoints>
+                        <charts:DataPoint AxisXLabel="1月" YValue="0.5"/>
+                        <charts:DataPoint AxisXLabel="2月" YValue="0.8"/>
+                        <charts:DataPoint AxisXLabel="3月" YValue="0.7"/>
+                        <charts:DataPoint AxisXLabel="4月" YValue="0.5"/>
+                    </charts:DataSeries.DataPoints>
+                </charts:DataSeries>
+
+                <charts:DataSeries LegendText="净利率" 
+                                       Bevel="false" 
+                                     
+                                       RenderAs="Line" 
+                                       AxisYType="Secondary">
+                    <charts:DataSeries.DataPoints>
+                        <charts:DataPoint AxisXLabel="1月" YValue="0.5"/>
+                        <charts:DataPoint AxisXLabel="2月" YValue="0.3"/>
+                        <charts:DataPoint AxisXLabel="3月" YValue="0.7"/>
+                        <charts:DataPoint AxisXLabel="4月" YValue="0.6"/>
+                    </charts:DataSeries.DataPoints>
+                </charts:DataSeries>-->
+            </charts:Chart.Series>
+        </charts:Chart>
     </Grid>
 </Window>

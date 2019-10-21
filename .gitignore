@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+\WpfTest\bin
+\WpfTest\obj
+\WpfApp3\bin
+\WpfApp3\obj
+/UI/bin/Debug
