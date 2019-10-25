@@ -12,6 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using LiveCharts;
+using LiveCharts.Wpf;
+using LiveCharts.Defaults;
+using System.Threading;
+using System.Windows.Threading;
+
 namespace WpfApp3
 {
     /// <summary>
@@ -19,147 +25,134 @@ namespace WpfApp3
     /// </summary>
     public partial class Window1 : Window
     {
-        private student Model;
+        private double _lastLecture;
+        private double _trend;
         public Window1()
         {
-            Model = new student();
             InitializeComponent();
-            //  grd.DataContext = GetNum();
-            var a = System.Enum.GetValues(typeof(Stuent));
-            cmboxStretch.ItemsSource = System.Enum.GetValues(typeof(Stuent));
-        }
-
-        public double Add(double one, double two)
-
-        {
-
-            return one + two;
-
-        }
-
-
-
-        public string Add(string arg1, string arg2)
-
-        {
-
-            int x = 0;
-
-            int y = 0;
-
-            if (int.TryParse(arg1, out x) && int.TryParse(arg2, out y))
-
+            LastHourSeries = new SeriesCollection
             {
-
-                return this.Add(x, y).ToString();
-
-            }
-
-            else
-
-            {
-
-                return "Input Error!";
-
-            }
-
-        }
-        private List<student> GetNum()
-        {
-            //decimal a = (decimal)-1.12;
-            //MessageBox.Show(a.ToString());
-            Guid a = Guid.NewGuid();
-            Guid b = Guid.NewGuid();
-            Guid c = Guid.NewGuid();
-            Guid d = Guid.NewGuid();
-            List<student> students = new List<student>() { };
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 12 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 12 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 12 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 12 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 12 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 12 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 34 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 54 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 12 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 43 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 12 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 23 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 86 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 87 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 678 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 45 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 23 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 12 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 12 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 23 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 12 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 12 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 12 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 12 });
-            students.Add(new student() { Userid = a, NameAge = "张三", Age = 12 });
-            students.Add(new student() { Userid = b, NameAge = "里斯", Age = 12 });
-            students.Add(new student() { Userid = c, NameAge = "王五", Age = 12 });
-            students.Add(new student() { Userid = d, NameAge = "赵六", Age = 12 });
-            return students;
-        }
-
-
-
-
-
-        private class student : INotifyPropertyChanged
-        {
-
-            private Guid userid;
-
-            public Guid Userid
-            {
-                get { return userid; }
-                set
+                new LineSeries
                 {
-                    userid = value;
-                    SetName("Userid");
+                    AreaLimit = -10,
+                    Values = new ChartValues<ObservableValue>
+                    {
+                        new ObservableValue(3),
+                        new ObservableValue(5),
+                        new ObservableValue(6),
+                        new ObservableValue(7),
+                        new ObservableValue(3),
+                        new ObservableValue(4),
+                        new ObservableValue(2),
+                        new ObservableValue(5),
+                        new ObservableValue(8),
+                        new ObservableValue(3),
+                        new ObservableValue(5),
+                        new ObservableValue(6),
+                        new ObservableValue(7),
+                        new ObservableValue(3),
+                        new ObservableValue(4),
+                        new ObservableValue(2),
+                        new ObservableValue(5),
+                        new ObservableValue(8)
+                    }
                 }
-            }
-            private string nameAge;
-
-            public string NameAge
+            };
+            _trend = 8;
+# if  RELEASE
+            Task.Factory.StartNew(() =>
             {
-                get { return nameAge; }
-                set
+                var r = new Random();
+
+                Action action = delegate
                 {
-                    nameAge = value;
-                    SetName("NameAge");
+                    LastHourSeries[0].Values.Add(new ObservableValue(_trend));
+                    LastHourSeries[0].Values.RemoveAt(0);
+                    SetLecture();
+                };
+
+                while (true)
+                {
+                    Thread.Sleep(500);
+                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
+                    Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, action);
                 }
-            }
+            });
 
-            public int age;
-            public int Age { get { return age; } set { age = value; SetName("Age"); } }
+#endif
 
-            public event PropertyChangedEventHandler PropertyChanged;
-            public void SetName(string propertyName)
+#if DEBUG
+            Task.Run(() =>
             {
-                PropertyChangedEventHandler handler = this.PropertyChanged;
-                if (handler != null)
-                    handler(this, new PropertyChangedEventArgs(propertyName));
+                var r = new Random();
+                while (true)
+                {
+                    Thread.Sleep(500);
+                    _trend += (r.NextDouble() > 0.3 ? 1 : -1)*r.Next(0, 5);
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        LastHourSeries[0].Values.Add(new ObservableValue(_trend));
+                        LastHourSeries[0].Values.RemoveAt(0);
+                        SetLecture();
+                    });
+                }
+            });
+#endif
+
+            DataContext = this;
+        }
+
+        public SeriesCollection LastHourSeries { get; set; }
+
+        public double LastLecture
+        {
+            get { return _lastLecture; }
+            set
+            {
+                _lastLecture = value;
+                OnPropertyChanged("LastLecture");
             }
-
         }
-        private enum Stuent
-        {
-            男 = 1,
-            女 = 2
 
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SetLecture()
         {
-            var a = cmboxStretch.SelectedItem;
-            var b = (Stuent)a;
-            //if(a=) Stuent.女
+            var target = ((ChartValues<ObservableValue>)LastHourSeries[0].Values).Last().Value;
+            var step = (target - _lastLecture) / 4;
+#if NET40
+            Task.Factory.StartNew(() =>
+            {
+                for (var i = 0; i < 4; i++)
+                {
+                    Thread.Sleep(100);
+                    LastLecture += step;
+                }
+                LastLecture = target;
+            });
+#endif
+#if DEBUG
+            Task.Run(() =>
+            {
+                for (var i = 0; i < 4; i++)
+                {
+                    Thread.Sleep(100);
+                    LastLecture += step;
+                }
+                LastLecture = target;
+            });
+#endif
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void UpdateOnclick(object sender, RoutedEventArgs e)
+        {
+            TimePowerChart.Update(true);
         }
     }
-    
-        
-    }
-
+}

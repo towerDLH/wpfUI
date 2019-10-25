@@ -55,6 +55,7 @@
     <Compile Include="DatePickerCalendar.cs" />
     <Compile Include="DatePickerDateFormat.cs" />
     <Compile Include="FconButton.cs" />
+    <Compile Include="GridViewUtility .cs" />
     <Compile Include="IconButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxEx.cs" />

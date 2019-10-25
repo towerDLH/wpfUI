@@ -23,6 +23,8 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/dhtmlxgantt/sources/dhtmlxgantt_skyblue.css")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("content/dhtmlxgantt/sources/dhtmlxgantt_terrace.css")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/ganttchart.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/microsoft.expression.interactions.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/system.windows.interactivity.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/wpfvisifire.charts.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.d.ts")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.js")]

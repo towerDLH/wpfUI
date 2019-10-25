@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -27,6 +28,22 @@ namespace WpfApp3
             Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CN");
             Thread.CurrentThread.CurrentCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
             Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "yyyy";
+            //Storyboard sbd = Resources["sbCloud"]as Storyboard;
+            //sbd.Begin();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (YearRa?.IsChecked ?? false)
+            {
+                MessageBox.Show("年");
+
+            }
+            if (YueRa?.IsChecked ?? false)
+            {
+                MessageBox.Show("月");
+            }
+            ad.Text = "\xe6b1"; 
         }
     }
 }

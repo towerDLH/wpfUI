@@ -79,3 +79,17 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\en\HandyControl.resources.dll
 D:\Test\WpfTest\WpfApp3\obj\Debug\MouseTree.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\MouseTree.baml
 D:\Test\WpfTest\WpfApp3\bin\Debug\WPFVisifire.Charts.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.Wpf.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.pdb
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.xml
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.Wpf.pdb
+D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.Wpf.xml
+D:\Test\WpfTest\WpfApp3\obj\Debug\CharLive.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\CharLive.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\ListView.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\ListView.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListView.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListView.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\system.windows.interactivity.dll

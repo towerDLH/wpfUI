@@ -10,6 +10,8 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="20"/>
     </Style>
+
+   
     <Style TargetType="ToggleButton" x:Key="stlToggleButton">
         <Setter Property="Foreground" Value="White"></Setter>
         <Setter Property="Template">

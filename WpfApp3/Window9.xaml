@@ -3,35 +3,89 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
         xmlns:local="clr-namespace:WpfApp3"
             xmlns:ui="clr-namespace:UI;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         mc:Ignorable="d"
         Icon="pack://application:,,,/Image/timg.jpg"
-        Title="Window9" Height="450" Width="800">
-    <Window.Resources>
        
+        Title="Window9" Height="450" Width="800">
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome ResizeBorderThickness="10" 
+      CaptionHeight="40"
+      CornerRadius="10"
+      GlassFrameThickness="0"/>
+    </shell:WindowChrome.WindowChrome>
+    <Window.Resources>
+ <Storyboard x:Key="sbCloud" RepeatBehavior="Forever">
+
+            <DoubleAnimation Storyboard.TargetName="cloud" Storyboard.TargetProperty="Angle" To="360" Duration="0:0:05" />
+            <!--<DoubleAnimation Storyboard.TargetName="cloud"
+
+                            Storyboard.TargetProperty="X"
+
+                            From="0" To="280"
+
+                            BeginTime="00:00:00"
+
+                            Duration="00:00:5">
+
+               
+
+           </DoubleAnimation>
+
+           <DoubleAnimation Storyboard.TargetName="cloud"
+
+                            Storyboard.TargetProperty="Y"
+
+                            From="0" To="180"
+
+                            BeginTime="00:00:00"
+
+                            Duration="00:00:5">
+
+               
+
+           </DoubleAnimation>-->
+
+       </Storyboard>
     </Window.Resources>
-    <Grid>
+    <Grid >
         <WrapPanel>
-            <TextBlock Text="&#xf001;" Style="{DynamicResource FontAwesome}" Foreground="Red" />
-            <TextBlock Text="&#xf038;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="^_^" Style="{DynamicResource FontAwesome}" />
+            <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
+            <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
+            <TextBlock Text="&#xe6b2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
             <TextBlock Text="&#xf000;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf003;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf015;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xe643;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"    />
+            <TextBlock  x:Name="ad"  Style="{StaticResource FontAwesome1}"  Foreground="Red"    />
             <TextBlock>
                 <Run Text="&#xf099;" Style="{DynamicResource FontAwesome}"  Foreground="Red"></Run>
                 <Run Text=" Twitter:"  Style="{DynamicResource FontAwesome}"  ></Run>
                 <Run Text="1234565465" Style="{DynamicResource FontAwesome}"  ></Run>
             </TextBlock>
-            <DatePicker Width="200" Height="30" ui:DatePickerCalendar.IsMonthYear="True" ui:DatePickerDateFormat.DateFormat="yyyy-MM" />
-            <DatePicker ></DatePicker>
+            <DatePicker Width="102" Height="30" ui:DatePickerCalendar.IsYear="True" ui:DatePickerDateFormat.DateFormat="yyyy"  />
+            <StackPanel  >
+                <RadioButton   x:Name="YearRa" IsChecked="True" Content="年度" GroupName="TimeRa" HorizontalAlignment="Left" Margin="0,5" ></RadioButton>
+                <RadioButton Content="月度统计" x:Name="YueRa" GroupName="TimeRa"></RadioButton>
+            </StackPanel>
+            <Button Content="radio选择的东西" Click="Button_Click" Background="Red"></Button>
+            <Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
+                <!--<Image.RenderTransform>
+                    <TranslateTransform x:Name="cloud"></TranslateTransform>
+                </Image.RenderTransform>-->
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="cloud" Angle="0"/>
+                </Image.RenderTransform>
+
+            </Image>
+            
+           
             <Path x:Name="ExpandPath" Data="M0,0 L0,6 L6,0 z" Fill="#0357aa" Stroke="#0357aa">
                 <Path.RenderTransform>
                     <RotateTransform Angle="135" CenterY="3" CenterX="3"/>
@@ -40,7 +94,7 @@
             <hc:LoadingCircle  ></hc:LoadingCircle>
             <hc:Rate  AllowHalf="True"   x:Name="RateText"></hc:Rate>
             <TextBlock Text="{Binding ElementName=RateText ,Path=Value }"></TextBlock>
-            <hc:CompareSlider  Width="100"  Value="5">
+            <hc:CompareSlider  Width="100"  Value="5" Height="198">
                 <hc:CompareSlider.TargetContent >
                     <TextBlock Text="&#xe77e;" Style="{DynamicResource FontAwesome1}"   FontSize="20" Background="Red" />
                 </hc:CompareSlider.TargetContent>
@@ -57,9 +111,11 @@
                           BorderBrush="Transparent"
                           AnimatedUpdate="true">
             <charts:Chart.Legends >
-                <charts:Legend FontSize="2 "  VerticalAlignment="Bottom"  HorizontalAlignment="Center" />
+                <charts:Legend FontSize="2 "  FontColor="Wheat" VerticalAlignment="Bottom"  HorizontalAlignment="Center" />
             </charts:Chart.Legends>
-
+            <charts:Chart.Titles > 
+                <charts:Title Text="aa"  FontColor="White"></charts:Title>
+            </charts:Chart.Titles>
             <charts:Chart.AxesX>
                 <charts:Axis Title="时间" TitleFontSize="14" />
             </charts:Chart.AxesX>
