@@ -22,4 +22,5 @@
         <Setter Property="TextBlock.FontSize" Value="160"></Setter>
         <Setter Property="TextBlock.Foreground" Value="Red"></Setter>
     </Style>
+    
 </ResourceDictionary>

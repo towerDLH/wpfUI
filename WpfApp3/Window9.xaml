@@ -12,12 +12,7 @@
         Icon="pack://application:,,,/Image/timg.jpg"
        
         Title="Window9" Height="450" Width="800">
-    <shell:WindowChrome.WindowChrome>
-        <shell:WindowChrome ResizeBorderThickness="10" 
-      CaptionHeight="40"
-      CornerRadius="10"
-      GlassFrameThickness="0"/>
-    </shell:WindowChrome.WindowChrome>
+     
     <Window.Resources>
  <Storyboard x:Key="sbCloud" RepeatBehavior="Forever">
 

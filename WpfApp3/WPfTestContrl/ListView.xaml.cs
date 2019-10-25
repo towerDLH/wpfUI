@@ -54,7 +54,7 @@ namespace WpfApp3.WPfTestContrl
             this.Dispatcher.Invoke(() =>
             {
                 if (this.liststudnts.Count > 0)
-                    this.liststudnts.RemoveAt(4);//2s后从头部开始消失
+                    this.liststudnts.RemoveAt(2);//2s后从头部开始消失
                 this.liststudnts.Insert(2, new Student()
                 {
                     Name = "张三",

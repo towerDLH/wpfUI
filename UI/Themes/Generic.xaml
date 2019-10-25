@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:UI">
+    xmlns:local="clr-namespace:UI"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
    
     <Style TargetType="{x:Type local:CustomControl1}">
         <Setter Property="Template">
@@ -67,4 +68,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <sys:Double x:Key="DisableOpacity">0.5</sys:Double>
 </ResourceDictionary>
