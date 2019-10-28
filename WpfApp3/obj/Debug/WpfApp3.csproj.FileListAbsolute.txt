@@ -95,3 +95,5 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.Expression.Interactions.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\system.windows.interactivity.dll
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\MovContonl.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\MovContonl.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.baml

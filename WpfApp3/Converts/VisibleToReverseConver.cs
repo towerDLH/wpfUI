@@ -13,10 +13,12 @@ namespace WpfApp3.Converts
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((Visibility)value == Visibility.Visible)
-                return Visibility.Collapsed;
-            else
-                return Visibility.Visible;
+            if (value == null)
+                return DependencyProperty.UnsetValue;
+            Guid id = (Guid)value;
+            int strpara = int.Parse(parameter.ToString());
+            object ret;
+            return true;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

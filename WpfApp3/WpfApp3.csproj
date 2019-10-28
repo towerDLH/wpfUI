@@ -136,11 +136,13 @@
       <DependentUpon>CharLive.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converts\BoolToVisibleConver.cs" />
+    <Compile Include="Converts\SubjectToBoolConver.cs" />
     <Compile Include="Converts\TreeViewConver.cs" />
     <Compile Include="Converts\VisibleToReverseConver.cs" />
     <Compile Include="ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Large.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="MouseTree.xaml.cs">
       <DependentUpon>MouseTree.xaml</DependentUpon>
@@ -183,6 +185,9 @@
     </Compile>
     <Compile Include="WPfTestContrl\MovContonl.xaml.cs">
       <DependentUpon>MovContonl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPfTestContrl\RabuttonList.xaml.cs">
+      <DependentUpon>RabuttonList.xaml</DependentUpon>
     </Compile>
     <Page Include="CharLive.xaml">
       <SubType>Designer</SubType>
@@ -257,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPfTestContrl\MovContonl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPfTestContrl\RabuttonList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
