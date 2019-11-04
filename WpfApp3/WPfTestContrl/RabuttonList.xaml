@@ -11,19 +11,22 @@
         <conver:SubjectToBoolConver x:Key="SubjectToBoolConver"></conver:SubjectToBoolConver>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="ListRad">
+        <ListBox x:Name="ListRad"     >
             <ListBox.ItemTemplate>
                 <!-- 此段实现平滑的效果-->
                 <DataTemplate>
                     <Grid>
                         <WrapPanel>
-                            <RadioButton Content="{Binding SubName}"   Tag="{Binding Subid}" GroupName="SubGroup" >
-                                <RadioButton.IsChecked>
+                            <RadioButton    IsChecked="{Binding  IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"  GroupName="SubGroup" Content="{Binding}" >
+                                <!--<RadioButton.IsChecked>
+                                    <Binding Path="IsSelected" ElementName="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay"></Binding>
+                                </RadioButton.IsChecked>-->
+                                <!--<RadioButton.IsChecked>
                                     <MultiBinding Converter="{StaticResource SubjectToBoolConver}">
-                                        <Binding Path="Subid" />
+                                        <Binding Path="Subid"   />
                                         <Binding Path="Selectid"  />
                                     </MultiBinding>
-                                </RadioButton.IsChecked>
+                                </RadioButton.IsChecked>-->
                             </RadioButton>
                         </WrapPanel>
                     </Grid>

@@ -22,6 +22,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
+        List<Student> liststudes = new List<Student>();
         public Window9()
         {
             InitializeComponent();
@@ -30,6 +31,15 @@ namespace WpfApp3
             Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "yyyy";
             //Storyboard sbd = Resources["sbCloud"]as Storyboard;
             //sbd.Begin();
+
+            liststudes.Add(new Student() { Number = 1, Text = "张三" });
+            liststudes.Add(new Student() { Number = 2, Text = "李四" });
+            liststudes.Add(new Student() { Number = 3, Text = "王五" });
+            liststudes.Add(new Student() { Number = 4, Text = "赵六" });
+            mcom.ItemsSource = liststudes;
+            mcom.DisplayMemberPath = "Number";
+            mcom.SelectedValuePath = "Text";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,7 +53,7 @@ namespace WpfApp3
             {
                 MessageBox.Show("月");
             }
-            ad.Text = "\xe6b1"; 
+            ad.Text = "\xe6b1";
         }
     }
 }

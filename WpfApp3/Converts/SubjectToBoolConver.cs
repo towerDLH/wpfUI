@@ -23,10 +23,18 @@ namespace WpfApp3.Converts
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            string[] splitValues = ((string)value).Split(' ');
-                 return splitValues;
-            int[] Subject = new int[2];
             return null;
+            throw new NotImplementedException();
+            //string[] splitValues = ((string)value).Split(' ');
+            //return splitValues;
+            // return targetTypes;
+            string[] splitValues = new string[2];
+            return splitValues;
+            //throw new NotImplementedException();
+            //string[] splitValues = ((string)value).Split(' ');
+            //     return splitValues;
+            //int[] Subject = new int[2];
+            //return null;
             //return (int)targetTypes[0];
         }
     }

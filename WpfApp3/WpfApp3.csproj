@@ -139,6 +139,7 @@
     <Compile Include="Converts\SubjectToBoolConver.cs" />
     <Compile Include="Converts\TreeViewConver.cs" />
     <Compile Include="Converts\VisibleToReverseConver.cs" />
+    <Compile Include="Fileupload.cs" />
     <Compile Include="ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>

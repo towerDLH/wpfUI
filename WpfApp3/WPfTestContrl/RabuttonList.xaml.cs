@@ -29,17 +29,19 @@ namespace WpfApp3.WPfTestContrl
         private void Loaded()
         {
             var a = System.Enum.GetValues(typeof(Large.Subject));
-            List<Subject> sublist = new List<Subject>();
-            foreach (var item in a)
-            {
-                sublist.Add(new Subject()
-                {
-                    Subid = (int)item,
-                    Selectid = 3,
-                    SubName = item.ToString(),
-                });
-            }
-            ListRad.ItemsSource = sublist;
+            //List<Subject> sublist = new List<Subject>();
+            //foreach (var item in a)
+            //{
+            //    sublist.Add(new Subject()
+            //    {
+            //        Subid = (int)item,
+            //        Selectid = 3,
+            //        SubName = item.ToString(),
+            //    });
+            //}
+            ListRad.ItemsSource = a;
+            ListRad.SelectedItem = Large.Subject.数学;
+
         }
     }
     public class Subject
