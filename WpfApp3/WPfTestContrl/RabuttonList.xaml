@@ -11,13 +11,18 @@
         <conver:SubjectToBoolConver x:Key="SubjectToBoolConver"></conver:SubjectToBoolConver>
     </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <ListBox x:Name="ListRad"     >
             <ListBox.ItemTemplate>
                 <!-- 此段实现平滑的效果-->
                 <DataTemplate>
                     <Grid>
                         <WrapPanel>
-                            <RadioButton    IsChecked="{Binding  IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"  GroupName="SubGroup" Content="{Binding}" >
+                            <RadioButton    IsChecked="{Binding Path= IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}"  GroupName="SubGroup" Content="{Binding}" >
                                 <!--<RadioButton.IsChecked>
                                     <Binding Path="IsSelected" ElementName="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay"></Binding>
                                 </RadioButton.IsChecked>-->
@@ -33,5 +38,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button  Content="asdf" Grid.Row="1" Click="Button_Click"></Button>
+        <WrapPanel Grid.Row="2" x:Name="AA">
+           
+        </WrapPanel>
     </Grid>
 </Window>

@@ -43,6 +43,15 @@ namespace WpfApp3.WPfTestContrl
             ListRad.SelectedItem = Large.Subject.数学;
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button bt = new Button();
+            bt.Content = "张三";
+            bt.Width = 100;
+            bt.Height = 100;
+            AA.Children.Add(bt);
+        }
     }
     public class Subject
     {

@@ -1,0 +1,6 @@
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\bin\Debug\FileUpload.dll
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\bin\Debug\FileUpload.pdb
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\obj\Debug\FileUpload.csproj.CoreCompileInputs.cache
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\obj\Debug\FileUpload.dll
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\obj\Debug\FileUpload.pdb
+D:\Workcore\代码\GMPDEMO\功能模块\FileUpload\obj\Debug\FileUpload.csprojAssemblyReference.cache
