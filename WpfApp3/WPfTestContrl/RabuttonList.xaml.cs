@@ -28,7 +28,13 @@ namespace WpfApp3.WPfTestContrl
 
         private void Loaded()
         {
+            CbSex.Items.Insert(0, "请选择");
             var a = System.Enum.GetValues(typeof(Large.Subject));
+            foreach (var item in a)
+            {
+                CbSex.Items.Add(item);
+            }
+            // CbSex.ItemsSource = a;
             //List<Subject> sublist = new List<Subject>();
             //foreach (var item in a)
             //{
@@ -51,6 +57,15 @@ namespace WpfApp3.WPfTestContrl
             bt.Width = 100;
             bt.Height = 100;
             AA.Children.Add(bt);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (CbSex.SelectedItem.ToString() != "请选择")
+            {
+                int a = (int)(Large.Subject)CbSex.SelectedItem;
+                MessageBox.Show(a.ToString());
+            }
         }
     }
     public class Subject
