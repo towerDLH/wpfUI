@@ -42,10 +42,11 @@
             <StackPanel>
                 <Button  Content="asdf"   Click="Button_Click"></Button>
                 <ComboBox  Width="200" Height="50" x:Name="CbSex"></ComboBox>
+                <CheckBox Content="动态的勾选吧"></CheckBox>
                 <Button Width="100"   Content="下拉框的值" Click="Button_Click_1"></Button>
             </StackPanel>
         </Grid>
-        <WrapPanel Grid.Row="2" x:Name="AA">
+        <WrapPanel Grid.Row="2" x:Name="AA" >
            
         </WrapPanel>
     </Grid>

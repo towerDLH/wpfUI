@@ -69,7 +69,7 @@
                 <RadioButton   x:Name="YearRa" IsChecked="True" Content="年度" GroupName="TimeRa" HorizontalAlignment="Left" Margin="0,5" ></RadioButton>
                 <RadioButton Content="月度统计" x:Name="YueRa" GroupName="TimeRa"></RadioButton>
             </StackPanel>
-            <Button Content="radio选择的东西" Click="Button_Click" Background="Red"></Button>
+            <Button Content="radio选择的东西" Click="Button_Click" Background="Green"></Button>
             <Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
                 <!--<Image.RenderTransform>
                     <TranslateTransform x:Name="cloud"></TranslateTransform>

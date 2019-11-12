@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,6 +45,11 @@ namespace WpfApp3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            string a = "\\\\192.168.0.114\\File\\7eadbf4a-6828-41b5-bbdf-6e7475dc64ae.docx";
+            var b = a.Replace("/", "/");
+          //  Regex.Unescape();
+            MessageBox.Show(b);
             if (YearRa?.IsChecked ?? false)
             {
                 MessageBox.Show("年");
@@ -55,5 +61,8 @@ namespace WpfApp3
             }
             ad.Text = "\xe6b1";
         }
+
+      
+
     }
 }

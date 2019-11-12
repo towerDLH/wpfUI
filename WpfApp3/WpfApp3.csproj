@@ -140,8 +140,14 @@
     <Compile Include="Converts\TreeViewConver.cs" />
     <Compile Include="Converts\VisibleToReverseConver.cs" />
     <Compile Include="Fileupload.cs" />
+    <Compile Include="HandTest.xaml.cs">
+      <DependentUpon>HandTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadWindow.xaml.cs">
+      <DependentUpon>LoadWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Large.cs" />
     <Compile Include="Model\Person.cs" />
@@ -194,7 +200,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HandTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

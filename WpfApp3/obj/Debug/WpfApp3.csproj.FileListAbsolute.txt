@@ -97,3 +97,5 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\MovContonl.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\MovContonl.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\HandTest.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\HandTest.baml
