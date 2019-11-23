@@ -12,7 +12,6 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\MainWindow.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.g.resources
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.Properties.Resources.resources
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.csproj.GenerateResource.cache
-D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.csproj.CopyComplete
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.exe
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.pdb
@@ -99,3 +98,14 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\RabuttonList.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\HandTest.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\HandTest.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\LoadWindow.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\PataList.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\LoadWindow.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\Style\Geometries.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\PataList.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OOXML.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXml4Net.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.xml

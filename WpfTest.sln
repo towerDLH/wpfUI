@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{9B663879-3C0A-479D-9A3F-67FCA311C46D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "WpfApp3\WpfApp3.csproj", "{03A0DEB2-3A8D-46DE-9127-20CDBB02124C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GanttChart", "GanttChart\GanttChart.csproj", "{F98F97D5-4F29-4531-AD05-D90F8E84C9AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UiTest", "UiTest", "{E87F4F76-A483-4080-89E0-BEEDDCE29FE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B663879-3C0A-479D-9A3F-67FCA311C46D} = {E87F4F76-A483-4080-89E0-BEEDDCE29FE3}
+		{86A2212A-062F-4C96-8C03-95B72EA46FC1} = {E87F4F76-A483-4080-89E0-BEEDDCE29FE3}
+		{F98F97D5-4F29-4531-AD05-D90F8E84C9AA} = {E87F4F76-A483-4080-89E0-BEEDDCE29FE3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C3F84E8-BD00-45FF-A46C-BDE5F7482B87}

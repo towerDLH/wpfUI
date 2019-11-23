@@ -47,6 +47,9 @@
     <Reference Include="HandyControl, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HandyControl.2.1.0\lib\net45\HandyControl.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -56,6 +59,22 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resours\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="Syncfusion.Gantt.WPF, Version=17.2460.0.51, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
@@ -193,6 +212,9 @@
     <Compile Include="WPfTestContrl\MovContonl.xaml.cs">
       <DependentUpon>MovContonl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPfTestContrl\PataList.xaml.cs">
+      <DependentUpon>PataList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPfTestContrl\RabuttonList.xaml.cs">
       <DependentUpon>RabuttonList.xaml</DependentUpon>
     </Compile>
@@ -229,6 +251,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PmCategoryDtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\Geometries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -277,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPfTestContrl\MovContonl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPfTestContrl\PataList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -381,6 +411,16 @@
     <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_skyblue.css" />
     <Content Include="Content\dhtmlxgantt\sources\dhtmlxgantt_terrace.css" />
     <Resource Include="Image\timg.jpg" />
+    <Resource Include="Image\1.jpg" />
+    <Resource Include="Image\10.jpg" />
+    <Resource Include="Image\2.jpg" />
+    <Resource Include="Image\3.jpg" />
+    <Resource Include="Image\4.jpg" />
+    <Resource Include="Image\5.jpg" />
+    <Resource Include="Image\6.jpg" />
+    <Resource Include="Image\7.jpg" />
+    <Resource Include="Image\8.jpg" />
+    <Resource Include="Image\9.jpg" />
     <Content Include="Resours\GanttChart.dll" />
     <Content Include="Resours\Microsoft.Expression.Interactions.dll" />
     <Content Include="Resours\system.windows.interactivity.dll" />

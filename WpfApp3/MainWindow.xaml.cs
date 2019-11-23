@@ -41,6 +41,14 @@ namespace WpfApp3
     {
 
 
+        private Guid id;
+
+        public Guid Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
 
         private int number;
         public int Number

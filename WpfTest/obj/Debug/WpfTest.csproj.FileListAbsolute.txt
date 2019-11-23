@@ -9,7 +9,6 @@ D:\Test\WpfTest\WpfTest\obj\Debug\MainWindow.baml
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.g.resources
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.Properties.Resources.resources
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.GenerateResource.cache
-D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.exe
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.pdb
 D:\Test\WpfTest\WpfTest\obj\Debug\Test.g.cs

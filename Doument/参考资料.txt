@@ -19,3 +19,10 @@ https://www.bootcss.com/p/font-awesome/design.html 资源字体
 
 
 https://blog.csdn.net/feng125125/article/details/89448329 内网穿透
+
+
+[WPF随笔（十一）--日志输出到界面 - lordwish的专栏 - CSDN博客](https://blog.csdn.net/lordwish/article/details/103059254 )
+
+
+
+https://docs.microsoft.com/zh-tw/dotnet/api/system.windows.media.media3d?redirectedfrom=MSDN&view=netframework-4.8  2D转3D的 文章

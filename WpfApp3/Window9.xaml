@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-          xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
         xmlns:local="clr-namespace:WpfApp3"
             xmlns:ui="clr-namespace:UI;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
@@ -48,6 +47,7 @@
     </Window.Resources>
     <Grid >
         <WrapPanel>
+            <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Red" Style="{StaticResource LoadingLineLarge}"/>
             <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xe6b2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
@@ -64,21 +64,26 @@
                 <Run Text=" Twitter:"  Style="{DynamicResource FontAwesome}"  ></Run>
                 <Run Text="1234565465" Style="{DynamicResource FontAwesome}"  ></Run>
             </TextBlock>
-            <DatePicker Width="102" Height="30" ui:DatePickerCalendar.IsYear="True" ui:DatePickerDateFormat.DateFormat="yyyy"  />
             <StackPanel  >
                 <RadioButton   x:Name="YearRa" IsChecked="True" Content="年度" GroupName="TimeRa" HorizontalAlignment="Left" Margin="0,5" ></RadioButton>
                 <RadioButton Content="月度统计" x:Name="YueRa" GroupName="TimeRa"></RadioButton>
             </StackPanel>
-            <Button Content="radio选择的东西" Click="Button_Click" Background="Green"></Button>
-            <Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
-                <!--<Image.RenderTransform>
+            <Button Content="radio选择的东西" Click="Button_Click"  IsEnabled="False"></Button>
+            <Button Content="dg" Click="Button_Click_1"></Button>
+            <ui:TextBoxEx XRegExp="^[0-9]+([.]{1}[0-9]+){0,1}$" Width="100"></ui:TextBoxEx>
+            <!--<s:Shape></s:Shape>-->
+            <hc:CoverFlow x:Name="CoverFlowMain" Margin="32" Width="500" Height="300"/>
+            <!--<Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
+                -->
+            <!--<Image.RenderTransform>
                     <TranslateTransform x:Name="cloud"></TranslateTransform>
                 </Image.RenderTransform>-->
+            <!--
                 <Image.RenderTransform>
                     <RotateTransform x:Name="cloud" Angle="0"/>
                 </Image.RenderTransform>
 
-            </Image>
+            </Image>-->
 
 
             <Path x:Name="ExpandPath" Data="M0,0 L0,6 L6,0 z" Fill="#0357aa" Stroke="#0357aa">
@@ -98,7 +103,7 @@
                 </hc:CompareSlider.SourceContent>
             </hc:CompareSlider>
         </WrapPanel>
-        <charts:Chart    
+        <!--<charts:Chart    
                         x:Name="topchar"
                           Width="400" Height="210" 
                           View3D="True"
@@ -164,7 +169,8 @@
                         <charts:DataPoint AxisXLabel="4月" YValue="2000"/>
                     </charts:DataSeries.DataPoints>
                 </charts:DataSeries>
-                <!--<charts:DataSeries LegendText="净利润"
+                -->
+        <!--<charts:DataSeries LegendText="净利润"
                                        Bevel="false"
                                       
                                        AxisYType="Primary" 
@@ -203,7 +209,14 @@
                         <charts:DataPoint AxisXLabel="4月" YValue="0.6"/>
                     </charts:DataSeries.DataPoints>
                 </charts:DataSeries>-->
+        <!--
             </charts:Chart.Series>
-        </charts:Chart>
+        </charts:Chart>-->
+        <DataGrid   AlternationCount="2"   Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.###\}}" ClipboardContentBinding="{x:Null}" Header="姓名"/>
+                <DataGridTextColumn Binding="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.###\}}" ClipboardContentBinding="{x:Null}" Header="年龄"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

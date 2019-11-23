@@ -4,11 +4,11 @@ D:\Test\WpfTest\UI\obj\Debug\UI_MarkupCompile.cache
 D:\Test\WpfTest\UI\obj\Debug\UI_MarkupCompile.lref
 D:\Test\WpfTest\UI\obj\Debug\Dictionary1.baml
 D:\Test\WpfTest\UI\obj\Debug\UI.g.resources
-D:\Test\WpfTest\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\UI\obj\Debug\UI.dll
 D:\Test\WpfTest\UI\obj\Debug\UI.pdb
 D:\Test\WpfTest\UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Test\WpfTest\UI\obj\Debug\Themes\Generic.baml
 D:\Test\WpfTest\WpfTest\bin\Debug\UI.dll
 D:\Test\WpfTest\WpfTest\bin\Debug\UI.pdb
-D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache
+D:\Test\WpfTest\UI\obj\Debug\UI.Lang.resources
+D:\Test\WpfTest\UI\obj\Debug\UI.csproj.GenerateResource.cache
