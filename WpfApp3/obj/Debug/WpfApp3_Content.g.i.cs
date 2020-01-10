@@ -25,6 +25,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/ganttchart.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/microsoft.expression.interactions.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/system.windows.interactivity.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/util.controls.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/wpfvisifire.charts.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.d.ts")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.js")]

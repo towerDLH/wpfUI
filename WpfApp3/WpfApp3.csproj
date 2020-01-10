@@ -115,6 +115,10 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Util.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resours\Util.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -424,6 +428,7 @@
     <Content Include="Resours\GanttChart.dll" />
     <Content Include="Resours\Microsoft.Expression.Interactions.dll" />
     <Content Include="Resours\system.windows.interactivity.dll" />
+    <Content Include="Resours\Util.Controls.dll" />
     <Content Include="Resours\WPFVisifire.Charts.dll" />
     <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.d.ts" />
     <Content Include="Scripts\dhtmlxgantt\dhtmlxgantt.js" />

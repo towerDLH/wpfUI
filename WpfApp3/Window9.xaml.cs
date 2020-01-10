@@ -9,6 +9,11 @@ using System.Text;
 using System.Windows;
 using NPOI.HSSF.UserModel;
 using System.IO;
+using System.Windows.Forms;
+using System.Reflection;
+using System.Threading.Tasks;
+using Application = System.Windows.Application;
+using System.Windows.Threading;
 
 namespace WpfApp3
 {
@@ -23,6 +28,7 @@ namespace WpfApp3
         {
             InitializeComponent();
             // GetDatableToModel();
+            //SaveDatableToExecel();
             dt.Columns.Add("id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Age", typeof(int));
@@ -130,7 +136,7 @@ namespace WpfApp3
         /// <param name="dt">数据源</param>
         /// <param name="PrintList">要打印的数据</param>
         /// <param name="fileName">保存的文件名，也可以是路径</param>
-        private void SaveDatableToExecel(DataTable dt, Dictionary<string, string> PrintList, string fileName, bool IsSelect)
+        private async void SaveDatableToExecel(DataTable dt, Dictionary<string, string> PrintList, string fileName, bool IsSelect)
         {
             int colIndex = 0;
             int rowNumber = dt.Rows.Count;
@@ -169,7 +175,7 @@ namespace WpfApp3
             {
 
             }
-           
+
         }
 
 
@@ -218,6 +224,12 @@ namespace WpfApp3
                 }
                 //Application.DoEvents();
             }
+
+            range = worksheet.get_Range(excel.Cells[2, 1], excel.Cells[rowNumber + 1, columnNumber]);
+            //range.NumberFormat = "@";//设置单元格为文本格式
+            range.Value2 = objData;
+            worksheet.get_Range(excel.Cells[2, 1], excel.Cells[rowNumber + 1, 1]).NumberFormat = "yyyy-m-d h:mm";
+
             // 写入Excel 
             for (int c = 0; c < rowNumber; c++)
             {
@@ -242,15 +254,15 @@ namespace WpfApp3
             string a = "\\\\192.168.0.114\\File\\7eadbf4a-6828-41b5-bbdf-6e7475dc64ae.docx";
             var b = a.Replace("/", "/");
             //  Regex.Unescape();
-            MessageBox.Show(b);
+            //  MessageBox.Show(b);
             if (YearRa?.IsChecked ?? false)
             {
-                MessageBox.Show("年");
+                //    MessageBox.Show("年");
 
             }
             if (YueRa?.IsChecked ?? false)
             {
-                MessageBox.Show("月");
+                //     MessageBox.Show("月");
             }
             ad.Text = "\xe6b1";
         }
@@ -288,13 +300,59 @@ namespace WpfApp3
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Dictionary<string, string> lista = new Dictionary<string, string>();
-            foreach (var item in gtdpurorder.Columns)
+
+            BackgroundWorker worker = new BackgroundWorker();
+
+            // worker 要做的事情 使用了匿名的事件响应函数
+            worker.DoWork += (o, ea) =>
             {
-                lista.Add(item.SortMemberPath, item.Header.ToString());
-            }
-            var a = (gtdpurorder.ItemsSource as DataView).ToTable();
-            SaveDatableToExecel(a, lista, "ggddg", true);
+                //WPF中线程只能控制自己创建的控件，
+                //如果要修改主线程创建的MainWindow界面的内容,
+                //可以委托主线程的Dispatcher处理。
+                //在这里，委托内容为一个匿名的Action对象。
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    load.IsActive = true;
+                    Dictionary<string, string> lista = new Dictionary<string, string>();
+                    foreach (var item in gtdpurorder.Columns)
+                    {
+                        lista.Add(item.SortMemberPath, item.Header.ToString());
+                    }
+                    var a = (gtdpurorder.ItemsSource as DataView).ToTable();
+                    SaveDatableToExecel(a, lista, "ggddg", true);
+                }));
+                Thread.Sleep(5000);
+            };
+            // worker 完成事件响应
+            worker.RunWorkerCompleted += (o, ea) =>
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    load.IsActive = false;
+                }));
+            };
+
+            //注意：运行了下面这一行代码，worker才真正开始工作。上面都只是声明定义而已。
+            worker.RunWorkerAsync();
+
+            //Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+            //      new Action(() =>
+
+            //      {
+            //          load.IsActive = true;
+            //      }));
+            //Task t = new Task(() =>
+            //{
+            //    load.IsActive = true;
+
+            //    //Console.WriteLine("任务开始工作……");
+            //    ////模拟工作过程
+            //    //Thread.Sleep(5000);
+            //});
+            // Thread.Sleep(5000);
+
+            
+            // load.IsActive = false;
         }
     }
 }

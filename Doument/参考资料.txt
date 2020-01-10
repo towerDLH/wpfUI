@@ -26,3 +26,10 @@ https://blog.csdn.net/feng125125/article/details/89448329 内网穿透
 
 
 https://docs.microsoft.com/zh-tw/dotnet/api/system.windows.media.media3d?redirectedfrom=MSDN&view=netframework-4.8  2D转3D的 文章
+
+
+https://www.cnblogs.com/ExMan/p/5631225.html path 画图的实现的
+
+
+https://blog.csdn.net/qq_32447301/article/details/78848231 大数据可视化平台
+

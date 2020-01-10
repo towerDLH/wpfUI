@@ -109,3 +109,4 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OOXML.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXml4Net.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXmlFormats.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\Test\WpfTest\WpfApp3\bin\Debug\Util.Controls.dll

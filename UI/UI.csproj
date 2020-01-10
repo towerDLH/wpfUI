@@ -68,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxEx.cs" />
     <Compile Include="WinContext.cs" />
+    <Compile Include="WindowUsrTest.xaml.cs">
+      <DependentUpon>WindowUsrTest.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dictionary1.xaml">
@@ -77,6 +80,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowUsrTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

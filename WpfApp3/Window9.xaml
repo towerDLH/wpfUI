@@ -7,6 +7,7 @@
             xmlns:ui="clr-namespace:UI;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
+        xmlns:core="clr-namespace:Util.Controls;assembly=Util.Controls"
         mc:Ignorable="d"
         Icon="pack://application:,,,/Image/timg.jpg"
         Title="Window9" Height="450" Width="800">
@@ -47,7 +48,8 @@
     </Window.Resources>
     <Grid >
         <WrapPanel>
-            <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Red" Style="{StaticResource LoadingLineLarge}"/>
+            <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
+            <core:ProgressRing Width="80" Height="80" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
             <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xe6b2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>

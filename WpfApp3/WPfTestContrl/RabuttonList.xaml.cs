@@ -61,11 +61,10 @@ namespace WpfApp3.WPfTestContrl
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (CbSex.SelectedItem.ToString() != "请选择")
-            {
-                int a = (int)(Large.Subject)CbSex.SelectedItem;
+            
+                int a = (int)(Large.Subject)ListRad.SelectedItem;
                 MessageBox.Show(a.ToString());
-            }
+           // }
         }
     }
     public class Subject
