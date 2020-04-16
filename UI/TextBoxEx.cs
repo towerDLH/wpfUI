@@ -137,7 +137,7 @@ namespace UI
         {
             if (this.IsFocused == false)
             {
-                TextBox textBox = e.Source as TextBox;
+                TextBox textBox = sender as TextBox;
                 textBox.Focus();
                 e.Handled = true;
             }

@@ -31,7 +31,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="item" Grid.Row="1"  ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+        <ListBox x:Name="item" Grid.Row="1"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemStringFormat="\{0:0.####\}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel  >

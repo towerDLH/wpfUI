@@ -180,7 +180,7 @@ namespace UI
             this.WindowStyle = WindowStyle.None;
             this.AllowsTransparency = true;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Style = this.FindResource("DefaultWindowStyle") as Style;
+       //     this.Style = this.FindResource("DefaultWindowStyle") as Style;
             //this.Icon = Image.CreateImageSourceFromImage(Properties.Resources.logo);
             //12=6+6//Margin=6,Border.Effect.BlueRadius=6
             this.MaxHeight = SystemParameters.WorkArea.Height + 12 + 2;

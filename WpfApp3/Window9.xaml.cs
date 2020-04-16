@@ -14,7 +14,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Application = System.Windows.Application;
 using System.Windows.Threading;
-
+using System.Linq;
 namespace WpfApp3
 {
     /// <summary>
@@ -31,15 +31,15 @@ namespace WpfApp3
             //SaveDatableToExecel();
             dt.Columns.Add("id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Age", typeof(int));
-            dt.Columns.Add("Sex", typeof(int));
+            dt.Columns.Add("Age", typeof(decimal));
+            dt.Columns.Add("Sex", typeof(decimal));
             for (int i = 0; i < 8; i++)
             {
                 DataRow newRow = dt.NewRow();
                 newRow["id"] = i;
                 newRow["Name"] = "张三" + i;
-                newRow["Age"] = i;
-                newRow["Sex"] = i;
+                newRow["Age"] = Math.Round((i + 0.10003), 6);
+                newRow["Sex"] = i + 0.21231000;
                 dt.Rows.Add(newRow);
 
             }
@@ -56,9 +56,9 @@ namespace WpfApp3
             liststudes.Add(new Student() { Number = 2, Text = "李四" });
             liststudes.Add(new Student() { Number = 3, Text = "王五" });
             liststudes.Add(new Student() { Number = 4, Text = "赵六" });
-            mcom.ItemsSource = liststudes;
-            mcom.DisplayMemberPath = "Number";
-            mcom.SelectedValuePath = "Text";
+            //mcom.ItemsSource = liststudes;
+            //mcom.DisplayMemberPath = "Number";
+            //mcom.SelectedValuePath = "Text";
             CoverFlowMain.AddRange(new[]
             {
                 new Uri(@"pack://application:,,,/Image/timg.jpg"),
@@ -74,6 +74,17 @@ namespace WpfApp3
             });
             CoverFlowMain.JumpTo(2);
 
+            // mcom.ItemsSource = System.Enum.GetValues(typeof(SelectInsSubResult));
+            new Thread(p => { DataBinding(); }).Start();
+        }
+
+        private void DataBinding()
+        {
+            this.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                Thread.Sleep(3000);
+                NUmber.Text = "300000";
+            }));
         }
 
         //private void SaveDatableToExecel2()
@@ -191,8 +202,8 @@ namespace WpfApp3
                 DataRow newRow = dt.NewRow();
                 newRow["id"] = i;
                 newRow["Name"] = "张三" + i;
-                newRow["Age"] = i;
-                newRow["Sex"] = i;
+                newRow["Age"] = i + 0.10003;
+                newRow["Sex"] = i + 0.21231000;
                 dt.Rows.Add(newRow);
 
             }
@@ -351,8 +362,32 @@ namespace WpfApp3
             //});
             // Thread.Sleep(5000);
 
-            
+
             // load.IsActive = false;
         }
+
+
+
+        private void gtdpurorder_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void gtdpurorder_SelectedCellsChanged_1(object sender, System.Windows.Controls.SelectedCellsChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            List<Student> liststudes = new List<Student>();
+            liststudes.Add(new Student() { Number = 1, Text = "张三" });
+            liststudes.Add(new Student() { Number = 2, Text = "李四" });
+            liststudes.Add(new Student() { Number = 3, Text = "王五" });
+            liststudes.Add(new Student() { Number = 4, Text = "赵六" });
+            var delmd = liststudes.FirstOrDefault();
+            liststudes.Remove(delmd);
+        }
     }
+
 }

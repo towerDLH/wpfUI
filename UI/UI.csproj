@@ -53,6 +53,7 @@
     <Compile Include="AdornerContainer.cs" />
     <Compile Include="buttonex.cs" />
     <Compile Include="classMD\RegularPatterns.cs" />
+    <Compile Include="Convert\TextDoubleToString.cs" />
     <Compile Include="CustomControl1.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />
     <Compile Include="DatePickerCalendar.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="FconButton.cs" />
     <Compile Include="GridViewUtility .cs" />
     <Compile Include="IconButton.cs" />
+    <Compile Include="IsDoubleConver.cs" />
     <Compile Include="Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextBoxEx.cs" />
     <Compile Include="WinContext.cs" />
+    <Compile Include="WindowsBase.cs" />
     <Compile Include="WindowUsrTest.xaml.cs">
       <DependentUpon>WindowUsrTest.xaml</DependentUpon>
     </Compile>

@@ -30,9 +30,9 @@ namespace WpfApp3.WPfTestContrl
             //  this.DataContext = new Person();
 
 
-            liststudnts.Add(new Student() { Name="张三",Age=18,Score=100,Ficon= "\xe6b1", FiClor="Green"});
-            liststudnts.Add(new Student() { Name = "李四", Age = 18, Score = 98, Ficon = "\xe6b0",FiClor = "Red" });
-            liststudnts.Add(new Student() { Name = "赵武", Age = 18, Score = 97, Ficon = "\xe6b2", FiClor = "Gold" });
+            liststudnts.Add(new Student() { Name="张三",Age=18,Score=100.12M,Ficon= "\xe6b1", FiClor="Green"});
+            liststudnts.Add(new Student() { Name = "李四", Age = 18, Score = 98.2M, Ficon = "\xe6b0",FiClor = "Red" });
+            liststudnts.Add(new Student() { Name = "赵武", Age = 18, Score = 97.00005M, Ficon = "\xe6b2", FiClor = "Gold" });
             liststudnts.Add(new Student() { Name = "孙兵", Age = 18, Score = 96, Ficon = "" });
             liststudnts.Add(new Student() { Name = "王二", Age = 18, Score = 95, Ficon = "" });
             //for (int i = 0; i < 5; i++)
@@ -82,9 +82,9 @@ namespace WpfApp3.WPfTestContrl
             get { return age; }
             set { age = value; }
         }
-        private int score;
+        private decimal score;
 
-        public int Score
+        public decimal Score
         {
             get { return score; }
             set { score = value; }

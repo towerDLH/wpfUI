@@ -57,4 +57,17 @@ namespace WpfApp3
 
 
     }
+
+    public class SelectInsSubResult
+    {
+        /// <summary>
+        /// 未审核
+        /// </summary>
+        public const int NotAudit = 100101;
+
+        /// <summary>
+        /// 已审核
+        /// </summary>
+        public const int Audited = 100102;
+    }
 }

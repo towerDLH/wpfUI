@@ -12,6 +12,7 @@
         <conver:SubjectToBoolConver x:Key="SubjectToBoolConver"></conver:SubjectToBoolConver>
     </Window.Resources>
     <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"></RowDefinition>
             <RowDefinition Height="0"></RowDefinition>
@@ -65,5 +66,20 @@
         <Grid Grid.Row="3">
             <ui:WindowUsrTest></ui:WindowUsrTest>
         </Grid>
+    </Grid>
+    <!--<Grid>
+        <StackPanel>
+                <Button Content="asdf" IsTabStop="False"></Button>
+                <Button Content="asdf"  IsTabStop="False"></Button>
+                <Button Content="asdf"   ></Button>
+                <Button Content="asdf"  IsTabStop="False"></Button>
+                <ComboBox  x:Name="Cbtext">
+                    <ComboBoxItem Content="sdfa"></ComboBoxItem>
+                    <ComboBoxItem Content="sdfa2"></ComboBoxItem>
+                    <ComboBoxItem Content="sdfa3"></ComboBoxItem>
+                    <ComboBoxItem Content="sdfa4"></ComboBoxItem>
+                </ComboBox>
+        </StackPanel>
+    </Grid>-->
     </Grid>
 </Window>

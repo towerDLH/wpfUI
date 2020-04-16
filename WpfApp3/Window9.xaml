@@ -45,6 +45,7 @@
            </DoubleAnimation>-->
 
         </Storyboard>
+        <CollectionViewSource x:Key="ItemCollectionViewSource"  CollectionViewType="ListCollectionView"/>
     </Window.Resources>
     <Grid >
         <WrapPanel>
@@ -59,6 +60,9 @@
             <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
+            <TextBlock Text="1" x:Name="NUmber"></TextBlock>
+            <Button Content="删除测试" Click="Button_Click_2"></Button>
+            <TextBlock Text="{Binding ElementName=WelcomeText,Path=Text,StringFormat='Hello \{0\}'}" Margin="10,10,0,0"></TextBlock>
             <ComboBox Width="100" Height="100" x:Name="mcom"/>
             <TextBlock  x:Name="ad"  Style="{StaticResource FontAwesome1}"  Foreground="Red"    />
             <TextBlock>
@@ -214,10 +218,45 @@
         <!--
             </charts:Chart.Series>
         </charts:Chart>-->
-        <DataGrid   AlternationCount="2"   Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  >
+        <DataGrid   AlternationCount="2"     DataContext="{StaticResource ItemCollectionViewSource}"  Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.###\}}" ClipboardContentBinding="{x:Null}" Header="姓名"/>
-                <DataGridTextColumn Binding="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.###\}}" ClipboardContentBinding="{x:Null}" Header="年龄"/>
+                <DataGridTextColumn   Binding="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="姓名">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Content" Value="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent},StringFormat=\{0:0.###\}}"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="年龄">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Content" Value="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent},StringFormat=\{0:0.##\}}"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Header="nbbb">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate> 
+                            
+                            <!--<TextBlock Text="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}"></TextBlock>-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Age,Converter={StaticResource TextDoubleToString} ,Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ui:TextBoxEx Width="100" Height="100" VerticalAlignment="Top" XRegExp="^\d+(\.\d+)?$" Text="{Binding Age,Converter={StaticResource TextDoubleToString},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}"  ></ui:TextBoxEx>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="aa"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

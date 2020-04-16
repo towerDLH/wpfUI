@@ -2,15 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfApp3"
-             StartupUri="WPfTestContrl/RabuttonList.xaml">
+             StartupUri="Window9.xaml">
     <Application.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="/UI;component/Dictionary1.xaml"/>
+                <ResourceDictionary Source="/UI;component/Dictionary1.xaml"/>
                 <ResourceDictionary Source="/WpfApp3;component/Style/Geometries.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>-->
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/> 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
