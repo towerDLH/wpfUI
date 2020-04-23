@@ -9,12 +9,17 @@ using System.Text;
 using System.Windows;
 using NPOI.HSSF.UserModel;
 using System.IO;
-using System.Windows.Forms;
 using System.Reflection;
 using System.Threading.Tasks;
 using Application = System.Windows.Application;
 using System.Windows.Threading;
 using System.Linq;
+using log4net;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Data;
+using System.Collections;
+
 namespace WpfApp3
 {
     /// <summary>
@@ -22,6 +27,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
+        ILog log = LogManager.GetLogger(typeof(Window9));
         List<Student> liststudes = new List<Student>();
         DataTable dt = new DataTable();
         public Window9()
@@ -82,10 +88,11 @@ namespace WpfApp3
         {
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
-                Thread.Sleep(3000);
-                NUmber.Text = "300000";
+
             }));
         }
+
+
 
         //private void SaveDatableToExecel2()
         //{
@@ -387,7 +394,132 @@ namespace WpfApp3
             liststudes.Add(new Student() { Number = 4, Text = "赵六" });
             var delmd = liststudes.FirstOrDefault();
             liststudes.Remove(delmd);
+            log.Debug("删除");
         }
-    }
 
+
+    }
+    [TemplatePart(Name = "total_row", Type = typeof(Grid))]
+    public class DataGridTotal : DataGrid, INotifyPropertyChanged
+    {
+        DataGrid TotalRow;
+        List<object> totalRowItemSource;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void senvent(string Name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(Name));
+            }
+        }
+        public override void OnApplyTemplate()
+        {
+            TotalRow = base.GetTemplateChild("TotalRow") as DataGrid;
+
+            TotalRow.Background = new SolidColorBrush(Colors.AliceBlue);
+            TotalRow.Visibility = Visibility.Visible;
+            int displayindex = 0;
+            if (TotalRow.Columns != null)
+                TotalRow.Columns.Clear();
+
+            foreach (var item in this.Columns)
+            {
+
+                DataGridTextColumn cl = new DataGridTextColumn();
+                cl.Header = item.Header;
+                cl.Width = item.Width;
+                cl.DisplayIndex = item.DisplayIndex = displayindex++;
+
+                Binding widthBd = new Binding();
+                widthBd.Source = item;
+                widthBd.Mode = BindingMode.TwoWay;
+                widthBd.Path = new PropertyPath(DataGridColumn.WidthProperty);
+                BindingOperations.SetBinding(cl, DataGridTextColumn.WidthProperty, widthBd);
+
+                Binding visibleBd = new Binding();
+                visibleBd.Source = item;
+                visibleBd.Mode = BindingMode.TwoWay;
+                visibleBd.Path = new PropertyPath(DataGridColumn.VisibilityProperty);
+                BindingOperations.SetBinding(cl, DataGridTextColumn.VisibilityProperty, visibleBd);
+
+                Binding indexBd = new Binding();
+                indexBd.Source = item;
+                indexBd.Mode = BindingMode.TwoWay;
+                indexBd.Path = new PropertyPath(DataGridColumn.DisplayIndexProperty);
+                BindingOperations.SetBinding(cl, DataGridTextColumn.DisplayIndexProperty, indexBd);
+
+                cl.Binding = (item as DataGridTextColumn).Binding;
+
+                TotalRow.Columns.Add(cl);
+            }
+            this.TotalRow.ItemsSource = totalRowItemSource;
+            base.OnApplyTemplate();
+        }
+
+        protected override void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
+        {
+            base.OnItemsSourceChanged(oldValue, newValue);
+
+            Type itemType = null;
+            totalRowItemSource = new List<object>();
+            object obj = null;
+            if (newValue == null)
+            {
+                return;
+            }
+            #region 新
+        
+            DataTable dt = new DataTable();
+            dt = (newValue as DataView).Table.Copy();
+            var dtl= (newValue as DataView).Table.Clone();
+            
+            if (TotalRow != null)
+                this.TotalRow.ItemsSource = dt.DefaultView;
+
+            #endregion
+
+            //    #region 原
+            //    foreach (var item in newValue)
+            //{
+
+            //    itemType = item.GetType();
+            //    obj = Activator.CreateInstance(itemType, true);
+            //    break;
+            //}
+            //if (itemType == null)
+            //    return;
+
+            //PropertyInfo[] ps = itemType.GetProperties();
+            //foreach (var item in newValue)
+            //{
+
+            //    foreach (PropertyInfo property in ps)
+            //    {
+            //        object tmpValue = property.GetValue(item, null);
+            //        object totalValue = property.GetValue(obj, null);
+
+            //        if (property.PropertyType == typeof(int))
+            //        {
+            //            totalValue = (int)tmpValue + (int)totalValue;
+            //            property.SetValue(obj, totalValue, null);
+            //        }
+            //        else if (property.PropertyType == typeof(double))
+            //        {
+            //            totalValue = (double)tmpValue + (double)totalValue;
+            //            property.SetValue(obj, totalValue, null);
+            //        }
+            //    }
+            //}
+            //totalRowItemSource.Add(obj);
+            //if (TotalRow != null)
+            //    this.TotalRow.ItemsSource = totalRowItemSource;
+            //#endregion
+
+
+
+        }
+
+    }
 }

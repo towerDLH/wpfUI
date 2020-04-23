@@ -31,3 +31,5 @@ D:\Test\WpfTest\WpfTest\obj\Debug\Window6.baml
 D:\Test\WpfTest\WpfTest\obj\Debug\Window7.g.cs
 D:\Test\WpfTest\WpfTest\obj\Debug\Window7.baml
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csprojAssemblyReference.cache
+D:\Test\WpfTest\WpfTest\bin\Debug\log4net.dll
+D:\Test\WpfTest\WpfTest\bin\Debug\log4net.xml

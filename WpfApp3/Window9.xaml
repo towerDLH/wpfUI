@@ -46,8 +46,74 @@
 
         </Storyboard>
         <CollectionViewSource x:Key="ItemCollectionViewSource"  CollectionViewType="ListCollectionView"/>
+        <Style x:Key="DateGridTotalStyle" TargetType="{x:Type local:DataGridTotal}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="#FF688CAF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:DataGridTotal}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                                <ScrollViewer.Template>
+                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Button Command="{x:Static DataGrid.SelectAllCommand}" Focusable="false" Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                            <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}"/>
+                                            <Grid Grid.Column="1" Grid.Row="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </ScrollViewer.Template>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    <DataGrid Visibility="Collapsed" Name="TotalRow" Grid.Row="1" Height="40" HeadersVisibility="None"
+                                              AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" >
+                                    </DataGrid>
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsGrouping" Value="true"/>
+                        <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
-    <Grid >
+    <Grid Background="Red" >
         <WrapPanel>
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <core:ProgressRing Width="80" Height="80" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
@@ -60,7 +126,9 @@
             <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
+            <TextBox Text="aa"  IsEnabled="False" Background="Transparent"></TextBox>
             <TextBlock Text="1" x:Name="NUmber"></TextBlock>
+            <CheckBox Content="aa"></CheckBox>
             <Button Content="删除测试" Click="Button_Click_2"></Button>
             <TextBlock Text="{Binding ElementName=WelcomeText,Path=Text,StringFormat='Hello \{0\}'}" Margin="10,10,0,0"></TextBlock>
             <ComboBox Width="100" Height="100" x:Name="mcom"/>
@@ -76,7 +144,7 @@
             </StackPanel>
             <Button Content="radio选择的东西" Click="Button_Click"  IsEnabled="False"></Button>
             <Button Content="dg" Click="Button_Click_1"></Button>
-            <ui:TextBoxEx XRegExp="^[0-9]+([.]{1}[0-9]+){0,1}$" Width="100"></ui:TextBoxEx>
+            <ui:TextBoxEx XRegExp="^[0-9]+([.]{1}[0-9]+){0,1}$" Width="100" BorderThickness="0,0,0,1"></ui:TextBoxEx>
             <!--<s:Shape></s:Shape>-->
             <hc:CoverFlow x:Name="CoverFlowMain" Margin="32" Width="500" Height="300"/>
             <!--<Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
@@ -218,7 +286,7 @@
         <!--
             </charts:Chart.Series>
         </charts:Chart>-->
-        <DataGrid   AlternationCount="2"     DataContext="{StaticResource ItemCollectionViewSource}"  Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1" >
+        <local:DataGridTotal   AlternationCount="2"     DataContext="{StaticResource ItemCollectionViewSource}"  Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"  Style="{DynamicResource DateGridTotalStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn   Binding="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="姓名">
                     <DataGridTextColumn.CellStyle>
@@ -258,6 +326,6 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="aa"></DataGridTextColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </local:DataGridTotal>
     </Grid>
 </Window>

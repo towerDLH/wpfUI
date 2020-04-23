@@ -23,5 +23,10 @@ namespace WpfTest
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LogHelper.WriteLog("adf");
+        }
     }
 }

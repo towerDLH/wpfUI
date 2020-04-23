@@ -28,12 +28,12 @@ namespace WpfApp3.WPfTestContrl
 
         private void Loaded()
         {
-            CbSex.Items.Insert(0, "请选择");
+            //CbSex.Items.Insert(0, "请选择");
             var a = System.Enum.GetValues(typeof(Large.Subject));
-            foreach (var item in a)
-            {
-                CbSex.Items.Add(item);
-            }
+            //foreach (var item in a)
+            //{
+            //    CbSex.Items.Add(item); 
+            //}
             // CbSex.ItemsSource = a;
             //List<Subject> sublist = new List<Subject>();
             //foreach (var item in a)
@@ -46,7 +46,7 @@ namespace WpfApp3.WPfTestContrl
             //    });
             //}
             ListRad.ItemsSource = a;
-            ListRad.SelectedItem = Large.Subject.数学;
+           // ListRad.SelectedItem = Large.Subject.数学;
 
         }
 
@@ -56,7 +56,7 @@ namespace WpfApp3.WPfTestContrl
             bt.Content = "张三";
             bt.Width = 100;
             bt.Height = 100;
-            AA.Children.Add(bt);
+          //  AA.Children.Add(bt);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -65,6 +65,16 @@ namespace WpfApp3.WPfTestContrl
                 int a = (int)(Large.Subject)ListRad.SelectedItem;
                 MessageBox.Show(a.ToString());
            // }
+        }
+
+        private void ListRad_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            StringBuilder sql = new StringBuilder();
+            foreach (var item in ListRad.SelectedItems)
+            {
+                sql.Append((int)item).Append(",");
+            }
+           // MessageBox.Show(sql.ToString());
         }
     }
     public class Subject

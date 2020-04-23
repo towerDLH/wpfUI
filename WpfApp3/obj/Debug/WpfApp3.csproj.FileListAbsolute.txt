@@ -110,3 +110,5 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXml4Net.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\NPOI.OpenXmlFormats.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\Util.Controls.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\log4net.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\log4net.xml
