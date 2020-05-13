@@ -127,6 +127,21 @@ namespace WpfApp3
         {
 
         }
+
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Expander_Collapsed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GtdadjDel_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
     }
     public class NodeX : INotifyPropertyChanged
     {

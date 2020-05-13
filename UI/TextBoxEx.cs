@@ -66,7 +66,7 @@ namespace UI
         }
 
 
-
+        
         public bool IsError
         {
             get { return (bool)GetValue(IsErrorProperty); }

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
             xmlns:ui="clr-namespace:UI;assembly=UI"
+         xmlns:extend="clr-namespace:UI.Extend;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
         xmlns:core="clr-namespace:Util.Controls;assembly=Util.Controls"
@@ -113,20 +114,33 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid Background="Red" >
+    <Grid Background="Red"  >
+        <Canvas  >
+            <Border BorderThickness="22" BorderBrush="Black"></Border>
+        </Canvas>
         <WrapPanel>
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <core:ProgressRing Width="80" Height="80" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
-            <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
+            <TextBlock Text="&#xe600;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xe6b1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xe6b2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
             <TextBlock Text="&#xf000;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf003;" Style="{DynamicResource FontAwesome}" />
             <TextBlock Text="&#xf015;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
-            <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" />
-            <TextBox Text="aa"  IsEnabled="False" Background="Transparent"></TextBox>
+            
+            <Button >
+                <Grid>
+                    <TextBlock Text="&#xf07b;" Style="{DynamicResource FontAwesome}"   VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                </Grid>
+            </Button>
+            <StackPanel  >
+                <TextBlock Text="&#xf01a;" Style="{DynamicResource FontAwesome}" Height="14" />
+                <TextBlock Text="abd"       FontSize="13"  VerticalAlignment="Top"   HorizontalAlignment="Center">
+                    <Run Text="asd"   ></Run>
+                </TextBlock>
+            </StackPanel>
+            <TextBlock Text="&#xf01a;"  Style="{DynamicResource FontAwesome}" />
+            <TextBox Text="aa"  FontWeight="Normal" IsEnabled="False" Background="Transparent"></TextBox>
             <TextBlock Text="1" x:Name="NUmber"></TextBlock>
             <CheckBox Content="aa"></CheckBox>
             <Button Content="删除测试" Click="Button_Click_2"></Button>
@@ -286,8 +300,15 @@
         <!--
             </charts:Chart.Series>
         </charts:Chart>-->
-        <local:DataGridTotal   AlternationCount="2"     DataContext="{StaticResource ItemCollectionViewSource}"  Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder"   VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"  Style="{DynamicResource DateGridTotalStyle}">
+        <DataGrid  extend:DatagridExtend.DisplayRowNumber="True"  HeadersVisibility="Column"  AlternationCount="2"   VerticalScrollBarVisibility="Visible"   DataContext="{StaticResource ItemCollectionViewSource}"  Width="400" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder"  MouseDoubleClick="gtdpurorder_MouseDoubleClick"   HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"   LoadingRow="gtdpurorder_LoadingRow" ><!--Style="{DynamicResource DateGridTotalStyle}"-->
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header="序号">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn   Binding="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="姓名">
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
@@ -326,6 +347,6 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="aa"></DataGridTextColumn>
             </DataGrid.Columns>
-        </local:DataGridTotal>
+        </DataGrid>
     </Grid>
 </Window>

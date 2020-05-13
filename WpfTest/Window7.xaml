@@ -7,6 +7,31 @@
         mc:Ignorable="d"
         Title="Window7" Height="450" Width="800">
     <Grid>
-        <Button Click="Button_Click"></Button>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="用户名"></Label>
+                <TextBox Width="100"  MouseMove="TextBox_MouseMove"  MouseEnter="TextBox_MouseEnter"  MouseLeave ="TextBox_MouseLeave"></TextBox>
+                <Popup Name="pop1" StaysOpen="False">
+                    <Label x:Name="brandSelectView" HorizontalAlignment="Left" Content="aadf"/>
+                </Popup>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="密码" Width="46"></Label>
+                <TextBox Width="100"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Grid>
+                    <Button Click="Button_Click" Content="登录"   HorizontalAlignment="Left"></Button>
+                    <Button Click="Button_Click" Content="登录" HorizontalAlignment="Right" ></Button>
+
+                </Grid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Style="{StaticResource imagkey}" Width="100" Height="100"></Image>
+                <Image Style="{StaticResource imagkey}" Width="100" Height="100"></Image>
+            </StackPanel>
+        </StackPanel>
+
+      
     </Grid>
 </Window>

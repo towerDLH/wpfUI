@@ -19,6 +19,9 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Data;
 using System.Collections;
+using UI;
+using UI.DaTa;
+using System.Windows.Input;
 
 namespace WpfApp3
 {
@@ -164,7 +167,7 @@ namespace WpfApp3
             Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
             Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];
             excel.Visible = IsSelect;
-            //Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
+           // Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
             Microsoft.Office.Interop.Excel.Range range;
             int rowIndex = 1;
             foreach (var item in PrintList.Keys)
@@ -182,7 +185,7 @@ namespace WpfApp3
                 }
                 colIndex++;
             }
-            // workbook.SaveAs(fileName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+            //workbook.SaveAs(fileName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
 
             try
             {
@@ -204,7 +207,7 @@ namespace WpfApp3
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Age", typeof(int));
             dt.Columns.Add("Sex", typeof(int));
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 DataRow newRow = dt.NewRow();
                 newRow["id"] = i;
@@ -387,17 +390,52 @@ namespace WpfApp3
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            List<Student> liststudes = new List<Student>();
-            liststudes.Add(new Student() { Number = 1, Text = "张三" });
-            liststudes.Add(new Student() { Number = 2, Text = "李四" });
-            liststudes.Add(new Student() { Number = 3, Text = "王五" });
-            liststudes.Add(new Student() { Number = 4, Text = "赵六" });
-            var delmd = liststudes.FirstOrDefault();
-            liststudes.Remove(delmd);
-            log.Debug("删除");
+            //List<Student> liststudes = new List<Student>();
+            //liststudes.Add(new Student() { Number = 1, Text = "张三" });
+            //liststudes.Add(new Student() { Number = 2, Text = "李四" });
+            //liststudes.Add(new Student() { Number = 3, Text = "王五" });
+            //liststudes.Add(new Student() { Number = 4, Text = "赵六" });
+            //var delmd = liststudes.FirstOrDefault();
+            //liststudes.Remove(delmd);
+            //log.Debug("删除");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("id", typeof(int));
+            dt.Columns.Add("Name", typeof(string));
+            dt.Columns.Add("Age", typeof(int));
+            dt.Columns.Add("Sex", typeof(int));
+            for (int i = 0; i < 100000; i++)
+            {
+                DataRow newRow = dt.NewRow();
+                newRow["id"] = i;
+                newRow["Name"] = "李四" + i;
+                newRow["Age"] = i + 0.10003;
+                newRow["Sex"] = i + 0.21231000;
+                dt.Rows.Add(newRow);
+
+            }
+            gtdpurorder.ItemsSource = dt.DefaultView;
         }
 
+        private void gtdpurorder_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            IsDatagridDouble data = new IsDatagridDouble();
+            #region 判断是否在控件上 rowhit 为true 表示在文档上
+            DataGrid dtg = sender as DataGrid;
+            if (!data.IsPostion(dtg, e) || dtg.SelectedItem == null) return;
+            #endregion
+        }
 
+        private void gtdpurorder_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+           // e.Row.MouseEnter += Row_MouseEnter;
+        }
+
+        private void Row_MouseEnter(object sender, MouseEventArgs e)
+        {
+            DataGridRow row = (DataGridRow)sender;
+            MessageBox.Show(row.GetIndex().ToString());
+        }
     }
     [TemplatePart(Name = "total_row", Type = typeof(Grid))]
     public class DataGridTotal : DataGrid, INotifyPropertyChanged

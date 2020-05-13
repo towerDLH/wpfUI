@@ -12,36 +12,41 @@
         <conver:SubjectToBoolConver x:Key="SubjectToBoolConver"></conver:SubjectToBoolConver>
     </Window.Resources>
     <Grid >
-        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center">
-            <Label Content="段暄"></Label>
-            <ListView x:Name="ListRad"   VerticalAlignment="Center"  SelectionChanged="ListRad_SelectionChanged" BorderBrush="Transparent"  Background="Transparent">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListBox.ItemTemplate>
-                    <!-- 此段实现平滑的效果-->
-                    <DataTemplate>
-                        <Grid>
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox    IsChecked="{Binding Path= IsSelected, RelativeSource={RelativeSource AncestorType=ListViewItem},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"   Content="{Binding}" >
-                                    <!--<RadioButton.IsChecked>
+        <StackPanel>
+            <Grid>
+                <ListView x:Name="ListRad"  ScrollViewer.VerticalScrollBarVisibility="Visible"   ScrollViewer.HorizontalScrollBarVisibility="Visible"      VerticalAlignment="Center"  SelectionChanged="ListRad_SelectionChanged" BorderBrush="Transparent"  Background="Transparent">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <!-- 此段实现平滑的效果-->
+                        <DataTemplate>
+                            <WrapPanel Orientation="Horizontal">
+                                <Grid  >
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center"  >
+                                        <TextBlock Text="{Binding }"></TextBlock>
+                                        <Button   VerticalAlignment="Top" HorizontalAlignment="Right" >
+                                            <TextBlock Text="&#xf00d;" Style="{DynamicResource FontAwesome}" Foreground="Red" />
+                                        </Button>
+                                        <!--<RadioButton.IsChecked>
                                     <Binding Path="IsSelected" ElementName="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay"></Binding>
                                 </RadioButton.IsChecked>-->
-                                    <!--<RadioButton.IsChecked>
+                                        <!--<RadioButton.IsChecked>
                                     <MultiBinding Converter="{StaticResource SubjectToBoolConver}">
                                         <Binding Path="Subid"   />
                                         <Binding Path="Selectid"  />
                                     </MultiBinding>
                                 </RadioButton.IsChecked>-->
-                                </CheckBox>
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListView>
+                                    </StackPanel>
+                                </Grid>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListView>
 
-        </StackPanel>
+            </Grid></StackPanel>
+
     </Grid>
 </Window>

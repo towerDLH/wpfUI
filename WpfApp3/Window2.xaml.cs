@@ -23,6 +23,9 @@ namespace WpfApp3
         {
             InitializeComponent();
             Loaded();
+            decimal number = 1.1100M;
+            var a = string.Format("{0:0.######}", "1.1100");
+
         }
 
         private void Loaded()

@@ -30,23 +30,25 @@ namespace WpfApp3.WPfTestContrl
         {
             //CbSex.Items.Insert(0, "请选择");
             var a = System.Enum.GetValues(typeof(Large.Subject));
+
+
             //foreach (var item in a)
             //{
             //    CbSex.Items.Add(item); 
             //}
             // CbSex.ItemsSource = a;
-            //List<Subject> sublist = new List<Subject>();
-            //foreach (var item in a)
-            //{
-            //    sublist.Add(new Subject()
-            //    {
-            //        Subid = (int)item,
-            //        Selectid = 3,
-            //        SubName = item.ToString(),
-            //    });
-            //}
+            List<Subject> sublist = new List<Subject>();
+            foreach (var item in a)
+            {
+                sublist.Add(new Subject()
+                {
+                    Subid = (int)item,
+                    Selectid = 3,
+                    SubName = item.ToString(),
+                });
+            }
             ListRad.ItemsSource = a;
-           // ListRad.SelectedItem = Large.Subject.数学;
+            // ListRad.SelectedItem = Large.Subject.数学;
 
         }
 
@@ -56,15 +58,15 @@ namespace WpfApp3.WPfTestContrl
             bt.Content = "张三";
             bt.Width = 100;
             bt.Height = 100;
-          //  AA.Children.Add(bt);
+            //  AA.Children.Add(bt);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
-                int a = (int)(Large.Subject)ListRad.SelectedItem;
-                MessageBox.Show(a.ToString());
-           // }
+
+            int a = (int)(Large.Subject)ListRad.SelectedItem;
+            MessageBox.Show(a.ToString());
+            // }
         }
 
         private void ListRad_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -74,7 +76,7 @@ namespace WpfApp3.WPfTestContrl
             {
                 sql.Append((int)item).Append(",");
             }
-           // MessageBox.Show(sql.ToString());
+            // MessageBox.Show(sql.ToString());
         }
     }
     public class Subject

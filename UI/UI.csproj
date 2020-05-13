@@ -52,12 +52,15 @@
   <ItemGroup>
     <Compile Include="AdornerContainer.cs" />
     <Compile Include="buttonex.cs" />
+    <Compile Include="classMD\DataGridNumber.cs" />
     <Compile Include="classMD\RegularPatterns.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
     <Compile Include="CustomControl1.cs" />
+    <Compile Include="DaTa\IsDatagridDouble.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />
     <Compile Include="DatePickerCalendar.cs" />
     <Compile Include="DatePickerDateFormat.cs" />
+    <Compile Include="Extend\DatagridExtend.cs" />
     <Compile Include="FconButton.cs" />
     <Compile Include="GridViewUtility .cs" />
     <Compile Include="IconButton.cs" />

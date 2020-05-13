@@ -28,22 +28,22 @@ namespace WpfApp3
                 int x = 0;
 
                 int y = 0;
+                return arg1 + arg2;
+            //if (int.TryParse(arg1, out x) && int.TryParse(arg2, out y))
 
-                if (int.TryParse(arg1, out x) && int.TryParse(arg2, out y))
+            //    {
 
-                {
+            //        return this.Add(x, y).ToString();
 
-                    return this.Add(x, y).ToString();
+            //    }
 
-                }
+                //else
 
-                else
+                //{
 
-                {
+                //    return "Input Error!";
 
-                    return "Input Error!";
-
-                }
+                //}
 
             }
  

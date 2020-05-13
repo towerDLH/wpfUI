@@ -206,6 +206,58 @@
                 </ContextMenu>
             </TreeView.ContextMenu>
         </TreeView>
-         
+        <DataGrid    AutoGenerateColumns="False"  AlternationCount="2" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding ShowProductDeliveryDtlList}"    HorizontalScrollBarVisibility="Auto" Margin="0,1,0,-1"    >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Expander Expanded="Expander_Expanded" Collapsed="Expander_Collapsed"></Expander>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTextColumn      Header="物料编码" Binding="{Binding ItemId,Converter={StaticResource ItemConver},ConverterParameter=0,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />-->
+                <DataGridTextColumn Header="物料名称" Binding="{Binding ItemId}" ClipboardContentBinding="{x:Null}" />
+                <DataGridTextColumn Binding="{Binding Qty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,  StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="计划耗用数"/>
+                <DataGridTextColumn Binding="{Binding UnitId, Mode=OneWay, UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" Header="耗用单位"/>
+                <DataGridTextColumn Binding="{Binding DeliveryQty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,  StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="实际提货数量"/>
+                <DataGridTextColumn Binding="{Binding DeliveryUnitId, Mode=OneWay, UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" Header="提货单位"/>
+                <!--<DataGridTextColumn Binding="{Binding AlreadDeliveryQty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,  StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="已提货数量"/>
+                                <DataGridTextColumn Binding="{Binding DeliveryUnitId, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource UnitConver},ConverterParameter=0 }" ClipboardContentBinding="{x:Null}" Header="单位"/>-->
+
+                <!--alreadyQuantity-->
+
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate   >
+                <DataTemplate >
+                    <DataGrid  AutoGenerateColumns="False" Name="gtdadjDel" AlternationCount="2" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding  ShowLpnRsList}"           HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" SelectedCellsChanged="GtdadjDel_SelectedCellsChanged" Margin="0,13,0,-13" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn      Header="条码" Binding="{Binding  BarCode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />
+                            <DataGridTextColumn      Header="物料编码" Binding="{Binding ItemId ,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />
+                            <DataGridTextColumn Header="物料名称" Binding="{Binding ItemId  ,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />
+                            <DataGridTextColumn Binding="{Binding CurBaseNum, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,  StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="可提货数量"/>
+
+                            <DataGridTextColumn Header="工序" Visibility="Collapsed" Binding="{Binding proc_id ,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }"  ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Binding="{Binding lot_id , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="批号"/>
+                            <DataGridTextColumn Binding="{Binding location_id , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="物料库位"/>
+                            <DataGridTemplateColumn Header="是否拣货">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox  IsEnabled="False" Visibility="{Binding SelectPicking}" IsChecked="{Binding IsPicking,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ></CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Binding="{Binding UnitId, Mode=OneWay, UpdateSourceTrigger=PropertyChanged  }" ClipboardContentBinding="{x:Null}" Header="单位"/>
+                            <!--<DataGridTemplateColumn Header="删除">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="删除" x:Name="LpnDelBtn" Click="LpnRsDelBtn_Click" Tag="{Binding BusinessLpnRsId}"></Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
     </Grid>
 </Window>
