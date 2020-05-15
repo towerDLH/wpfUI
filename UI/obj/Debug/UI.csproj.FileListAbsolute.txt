@@ -15,3 +15,4 @@ D:\Test\WpfTest\UI\obj\Debug\UI.csproj.GenerateResource.cache
 D:\Test\WpfTest\UI\obj\Debug\WindowUsrTest.g.cs
 D:\Test\WpfTest\UI\obj\Debug\WindowUsrTest.baml
 D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache
+D:\Test\WpfTest\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache

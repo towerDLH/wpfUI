@@ -112,3 +112,4 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\Util.Controls.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\log4net.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\log4net.xml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.csproj.CoreCompileInputs.cache
