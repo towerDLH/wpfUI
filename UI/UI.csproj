@@ -35,9 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ay.MvcFramework.Wpf">
+      <HintPath>..\Resources\Ay.MvcFramework.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
@@ -54,16 +58,26 @@
     <Compile Include="buttonex.cs" />
     <Compile Include="classMD\DataGridNumber.cs" />
     <Compile Include="classMD\RegularPatterns.cs" />
+    <Compile Include="ComboxTree.xaml.cs">
+      <DependentUpon>ComboxTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Convert\ImageTextBoxMarginLeftConverter.cs" />
+    <Compile Include="Convert\PlaceholderFontSizeConverter.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
-    <Compile Include="CustomControl1.cs" />
     <Compile Include="DaTa\IsDatagridDouble.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />
     <Compile Include="DatePickerCalendar.cs" />
     <Compile Include="DatePickerDateFormat.cs" />
+    <Compile Include="Extend\ControlAttachProperty.cs" />
     <Compile Include="Extend\DatagridExtend.cs" />
+    <Compile Include="Extend\PasswordBoxExtend.cs" />
+    <Compile Include="Extend\PasswordBoxHelper.cs" />
     <Compile Include="FconButton.cs" />
     <Compile Include="GridViewUtility .cs" />
     <Compile Include="IconButton.cs" />
+    <Compile Include="IntellTextBox.xaml.cs">
+      <DependentUpon>IntellTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IsDoubleConver.cs" />
     <Compile Include="Lang.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -71,6 +85,9 @@
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearTextBox.xaml.cs">
+      <DependentUpon>SearTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxEx.cs" />
     <Compile Include="WinContext.cs" />
     <Compile Include="WindowsBase.cs" />
@@ -79,7 +96,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ComboxTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IntellTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Block\" />
+    <Folder Include="Resour\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

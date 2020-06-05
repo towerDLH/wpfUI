@@ -1,9 +1,28 @@
-WpfTest/obj
-/UI/obj
-/WpfApp3/obj
-/GanttChart/obj
-/UI/obj
-/WpfApp3/bin
-/WpfApp3/obj
-/WpfTest/FileUpload/obj
-/WpfTest/FileUpload/bin
+Build/
+Intermediate/
+bin/
+obj/
+output/
+artifacts/
+Debug/
+Release/
+packages/
+paket-files/
+.tmp/
+*.vs
+*.vscode
+*.user
+*.opensdf
+*.sdf
+*.suo
+*.pdb
+*.dll
+*.ncb
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Designer
+FAML.Designer.settings

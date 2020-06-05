@@ -27,6 +27,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/system.windows.interactivity.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/util.controls.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/wpfvisifire.charts.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resours/%e6%96%87%e4%bb%b6.svg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.d.ts")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/dhtmlxgantt.js")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/dhtmlxgantt/ext/dhtmlxgantt_click_drag.js")]

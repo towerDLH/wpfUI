@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WpfApp3"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="WpfApp3.Window2"
         mc:Ignorable="d"
         Title="Window2" Height="450" Width="800">
@@ -351,6 +352,7 @@
             <TextBox x:Name="textBox1" Margin="5" Text="{Binding MethodParameters[0], BindsDirectlyToSource=true, Source={StaticResource odp}, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox x:Name="textBox2" Margin="5" Text="{Binding MethodParameters[1], BindsDirectlyToSource=true, Source={StaticResource odp}, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox x:Name="textBox3" Margin="5" Text="{Binding Mode=OneWay, Source={StaticResource odp}}"/>
+            <svgc:SvgViewbox IsHitTestVisible="False" Height="130"  Source="/WpfApp3;component/Resours/文件.svg" Margin="291,0,430.333,0"/>
             <TextBlock>
 
                 <TextBlock.Text>
@@ -375,7 +377,7 @@
 
             <GridSplitter   Background="Red" />
             <ComboBox x:Name="A" Width="100" SelectedIndex="0" Visibility="Visible" Style="{DynamicResource ComboBoxStyle1}"  />
-            <ComboBox    Height="33"  SelectedIndex="1" Visibility="Visible"   TabIndex="32" Tag="单位" VerticalAlignment="Top"   x:Name="InsStateCombox"   HorizontalAlignment="Left" Width="209"   />
+            <ComboBox    Height="33"  SelectedIndex="1" Visibility="Visible"   TabIndex="32" Tag="单位" VerticalAlignment="Top"   x:Name="InsStateCombox"   HorizontalAlignment="Left" Width="209"  />
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

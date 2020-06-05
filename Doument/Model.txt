@@ -1,0 +1,9 @@
+wpf Bing  Relativesource  Model 枚举属性
+
+Self 自身
+
+FinAncestor 绑定到父级
+
+PreviousDate 绑定数据列表的前一项
+
+TemplateParent 绑定到应用模板的元素

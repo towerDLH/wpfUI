@@ -22,6 +22,7 @@ using System.Collections;
 using UI;
 using UI.DaTa;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 namespace WpfApp3
 {
@@ -32,10 +33,16 @@ namespace WpfApp3
     {
         ILog log = LogManager.GetLogger(typeof(Window9));
         List<Student> liststudes = new List<Student>();
+        public ObservableCollection<string> KeysCollection { get; set; } = new ObservableCollection<string>();
+
         DataTable dt = new DataTable();
+        public Test Model;
         public Window9()
         {
             InitializeComponent();
+            Load();
+            Model = new Test();
+            this.DataContext = Model;
             // GetDatableToModel();
             //SaveDatableToExecel();
             dt.Columns.Add("id", typeof(int));
@@ -53,6 +60,7 @@ namespace WpfApp3
 
             }
             gtdpurorder.ItemsSource = dt.DefaultView;
+            gtdpurorder2.ItemsSource = dt.DefaultView;
             GetDatableToModel();
             //SaveDatableToExecel2();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("zh-CN");
@@ -85,6 +93,24 @@ namespace WpfApp3
 
             // mcom.ItemsSource = System.Enum.GetValues(typeof(SelectInsSubResult));
             new Thread(p => { DataBinding(); }).Start();
+        }
+        public void Load()
+        {
+            KeysCollection.Add("23");
+            KeysCollection.Add("张三");
+            KeysCollection.Add("李四");
+            KeysCollection.Add("王五");
+            KeysCollection.Add("赵六");
+            MailConfigSelection.ItemsSource = KeysCollection;
+            Intxt.IntellList = KeysCollection;
+        }
+
+        private string Tname;
+
+        public string TName
+        {
+            get { return Tname; }
+            set { Tname = value; }
         }
 
         private void DataBinding()
@@ -125,8 +151,7 @@ namespace WpfApp3
         //                                            //创建数据行
         //    for (int i= 0;i < dt.Rows.Count;i++)
         //    {
-        //        NPOI.SS.UserModel.IRow rowTemp = sheet1.CreateRow(i + 1);//因为第一行已经被表头占用了，所以要+1
-        //        rowTemp.CreateCell(i).SetCellValue(dt.Rows[i]["id"].ToString());
+        //        NPOI.SS.UserModel.IRow rowTemp = sheet1.CreateRow(i + 1);//因为第一行已经被表头占用了，所以要+1        //        rowTemp.CreateCell(i).SetCellValue(dt.Rows[i]["id"].ToString());
         //        rowTemp.CreateCell(i).SetCellValue(dt.Rows[i]["Name"].ToString());
         //        rowTemp.CreateCell(i).SetCellValue(dt.Rows[i]["Age"].ToString());
         //        rowTemp.CreateCell(i).SetCellValue(dt.Rows[i]["Sex"].ToString());
@@ -167,7 +192,7 @@ namespace WpfApp3
             Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
             Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];
             excel.Visible = IsSelect;
-           // Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
+            // Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
             Microsoft.Office.Interop.Excel.Range range;
             int rowIndex = 1;
             foreach (var item in PrintList.Keys)
@@ -428,13 +453,130 @@ namespace WpfApp3
 
         private void gtdpurorder_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-           // e.Row.MouseEnter += Row_MouseEnter;
+            // e.Row.MouseEnter += Row_MouseEnter;
         }
 
         private void Row_MouseEnter(object sender, MouseEventArgs e)
         {
             DataGridRow row = (DataGridRow)sender;
             MessageBox.Show(row.GetIndex().ToString());
+        }
+
+        private void TextBlock_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // MessageBox.Show("移入", "提示信息");
+            NUmber.Text = "2";
+            LinPop.IsOpen = false;
+            LinPop.IsOpen = true;
+        }
+
+        private void TextBlock_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // MessageBox.Show("离开","提示信息");
+            NUmber.Text = "3";
+            LinPop.IsOpen = false;
+        }
+
+        private void whenToolTipOpens(object sender, RoutedEventArgs e)
+        {
+            Model.Number = 23423333;
+        }
+
+        private void whenToolTipCloses(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Gtdpurorder_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Gtdpurorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DtgLpnrs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Gtdpurorder_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void DtgLpnrs_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MailConfigSelection_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ConfigPopup.IsOpen = false;
+                System.Windows.Controls.ListBox lb = sender as System.Windows.Controls.ListBox;
+                if (lb == null) return;
+
+                string mailConfig = lb.SelectedItem.ToString();
+
+                //Popup pp = (lb.Parent as Grid).Parent as Popup;
+                TextBox tb = ConfigPopup.PlacementTarget as TextBox;
+                int i = tb.CaretIndex;//获取呼出这个popup的textbox的当前光标位置
+                tb.Text = mailConfig;//插入选择的字符串
+                tb.CaretIndex = i + mailConfig.Length + 1;//移动光标
+                tb.Focus();
+            }
+            else if (e.Key == Key.Escape)
+            {
+                ConfigPopup.IsOpen = false;
+            }
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter || e.Key == Key.Delete || e.Key == Key.Back) return;
+
+            TextBox tbm = e.OriginalSource as TextBox;
+            if (KeysCollection.Count != 0)//这里是这样的条件，可以根据需求来改变
+            {
+                ShowPopUp(tbm.GetRectFromCharacterIndex(tbm.CaretIndex), tbm);
+            }
+        }
+        private void ShowPopUp(Rect placementRect, TextBox tb)
+        {
+            ConfigPopup.PlacementTarget = tb;
+            ConfigPopup.PlacementRectangle = placementRect;
+            ConfigPopup.IsOpen = true;
+            MailConfigSelection.Focus();
+            MailConfigSelection.SelectedIndex = 0;
+            var listBoxItem = (ListBoxItem)MailConfigSelection.ItemContainerGenerator.ContainerFromItem(MailConfigSelection.SelectedItem);
+            listBoxItem.Focus();
+        }
+
+        private void MailConfigSelection_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Intxt_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+        }
+
+        private void Intxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Intxt.ContentText = "";
+            }
         }
     }
     [TemplatePart(Name = "total_row", Type = typeof(Grid))]
@@ -508,11 +650,11 @@ namespace WpfApp3
                 return;
             }
             #region 新
-        
+
             DataTable dt = new DataTable();
             dt = (newValue as DataView).Table.Copy();
-            var dtl= (newValue as DataView).Table.Clone();
-            
+            var dtl = (newValue as DataView).Table.Clone();
+
             if (TotalRow != null)
                 this.TotalRow.ItemsSource = dt.DefaultView;
 
@@ -559,5 +701,32 @@ namespace WpfApp3
 
         }
 
+    }
+
+    public class Test : INotifyPropertyChanged
+    {
+
+        private int number;
+
+        public int Number
+        {
+            get { return number; }
+            set
+            {
+                number = value;
+                SetEvent("Number");
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void SetEvent(string Name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(Name));
+            }
+        }
     }
 }
