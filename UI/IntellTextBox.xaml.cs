@@ -70,20 +70,6 @@ namespace UI
             DependencyProperty.Register("ContentText", typeof(string), typeof(IntellTextBox), new PropertyMetadata(string.Empty, ContetChange));
 
 
-
-
-        public string NametextProperty
-        {
-            get { return (string)GetValue(NametextPropertyProperty); }
-            set { SetValue(NametextPropertyProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for NametextProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty NametextPropertyProperty =
-            DependencyProperty.Register("NametextProperty", typeof(string), typeof(IntellTextBox), new PropertyMetadata(string.Empty));
-
-
-
         private static void ContetChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             IntellTextBox tobj = d as IntellTextBox;
@@ -91,11 +77,7 @@ namespace UI
            // tobj.LoadText((string)e.NewValue);
         }
 
-
-        public void LoadText(string TextName)
-        {
-            tTxt.Text = TextName;
-        }
+         
         private static void ListChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             IntellTextBox tobj = d as IntellTextBox;
@@ -188,45 +170,6 @@ namespace UI
                 tb.CaretIndex = i + mailConfig.Length + 1;//移动光标
                 tb.Focus();
                 ConfigPopup.IsOpen = false;
-            }
-        }
-
-        private void tTxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            TextBox tbm = e.OriginalSource as TextBox;
-            if (IntellList.ToList().Count != 0)//这里是这样的条件，可以根据需求来改变
-            {
-                if (e.Key == Key.Enter)
-                {
-                    if (MailConfigSelection.SelectedItem == null) return;
-                    string mailConfig = MailConfigSelection.SelectedItem.ToString();
-                    TextBox tb = tTxt;
-                    int i = tb.CaretIndex;//获取呼出这个popup的textbox的当前光标位置
-                    tb.Text = mailConfig;//插入选择的字符串
-                    tb.CaretIndex = i + mailConfig.Length + 1;//移动光标
-                    tb.Focus();
-                    ConfigPopup.IsOpen = false;
-                }
-                if (e.Key == Key.Down)
-                {
-                    int index = MailConfigSelection.SelectedIndex;
-                    if (index < MailConfigSelection.Items.Count)
-                    {
-                        index++;
-                    }
-                    MailConfigSelection.SelectedIndex = index;
-                }
-                if (e.Key == Key.Up)
-                {
-                    int index = MailConfigSelection.SelectedIndex;
-                    if (index > 1)
-                    {
-                        index--;
-                    }
-                    MailConfigSelection.SelectedIndex = index;
-                }
-                else if (e.Key != Key.Down && e.Key != Key.Up && e.Key != Key.Enter)
-                    ShowPopUp(tbm.GetRectFromCharacterIndex(tbm.CaretIndex), tbm);
             }
         }
     }

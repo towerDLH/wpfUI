@@ -65,7 +65,7 @@
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
@@ -208,6 +208,7 @@
     <Compile Include="PmCategoryDtl.xaml.cs">
       <DependentUpon>PmCategoryDtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SModel.cs" />
     <Compile Include="WinDatagrid.xaml.cs">
       <DependentUpon>WinDatagrid.xaml</DependentUpon>
     </Compile>
@@ -255,6 +256,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HandTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lanage\Lanage-E.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lanage\lanage-ZH.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:UI"
              mc:Ignorable="d" 
              x:Name="_base"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label Foreground="Silver" Content="{Binding ElementName=_base,Path=WaterTxt}"  ></Label>

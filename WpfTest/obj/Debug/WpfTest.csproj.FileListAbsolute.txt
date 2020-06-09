@@ -31,7 +31,6 @@ D:\Test\WpfTest\WpfTest\obj\Debug\Window7.baml
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.g.resources
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.Properties.Resources.resources
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.GenerateResource.cache
-D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CopyComplete
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.exe
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.pdb

@@ -9,6 +9,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/UI;component/Dictionary1.xaml"/>
                 <ResourceDictionary Source="/WpfApp3;component/Style/Geometries.xaml"/>
+                <ResourceDictionary Source="/WpfApp3;component/Lanage/lanage-ZH.xaml" />
+                <ResourceDictionary Source="/WpfApp3;component/Lanage/Lanage-E.xaml" />
                 <!--<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>--> 
             </ResourceDictionary.MergedDictionaries>

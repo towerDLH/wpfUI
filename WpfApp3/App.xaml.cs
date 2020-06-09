@@ -37,6 +37,44 @@ namespace WpfApp3
             e.Handled = true;
             LogHelper.ErrorLog(null, e.Exception);
         }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
 
+            // 初始化语言
+            Language = string.IsNullOrEmpty(Language) ? "en-US" : Language;
+        }
+
+        private static string language;
+
+        public static string Language
+        {
+            get { return language; }
+            set
+            {
+                if (language != value)
+                {
+                    language = value;
+                    List<ResourceDictionary> dictionaryList = new List<ResourceDictionary>();
+                    foreach (ResourceDictionary dictionary in Application.Current.Resources.MergedDictionaries)
+                    {
+                        dictionaryList.Add(dictionary);
+                    }
+                    string requestedLanguage = string.Format(@"/WpfApp3;component/Lanage/{0}.xaml", Language);
+                    ResourceDictionary resourceDictionary = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedLanguage));
+                    if (resourceDictionary == null)
+                    {
+                        requestedLanguage = @"/WpfApp3;component/Lanage/Lanage-E.xaml";
+                        resourceDictionary = dictionaryList.FirstOrDefault(d => d.Source.OriginalString.Equals(requestedLanguage));
+                    }
+                    if (resourceDictionary != null)
+                    {
+                        Application.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
+                        Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+                    }
+                }
+            }
+        }
     }
 }
+ 

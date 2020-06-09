@@ -20,6 +20,6 @@ D:\Test\WpfTest\UI\obj\Debug\UI.g.resources
 D:\Test\WpfTest\UI\obj\Debug\UI.Lang.resources
 D:\Test\WpfTest\UI\obj\Debug\UI.csproj.GenerateResource.cache
 D:\Test\WpfTest\UI\obj\Debug\UI.csproj.CopyComplete
-D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache
 D:\Test\WpfTest\UI\obj\Debug\SearTextBox.g.cs
 D:\Test\WpfTest\UI\obj\Debug\SearTextBox.baml
+D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache

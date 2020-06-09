@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfApp3.Lanage" 
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="biFile">File</sys:String>
+    <sys:String x:Key="biHelp">Help</sys:String>
+    <sys:String x:Key="biAbout">About</sys:String>
+</ResourceDictionary>

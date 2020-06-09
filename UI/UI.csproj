@@ -134,7 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Block\" />
-    <Folder Include="Resour\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resour\SeraTextBox.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

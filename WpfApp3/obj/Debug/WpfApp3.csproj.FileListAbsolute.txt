@@ -120,3 +120,7 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\SharpVectors.Model.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\SharpVectors.Rendering.Gdi.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\SharpVectors.Rendering.Wpf.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\SharpVectors.Runtime.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\stdole.dll
+D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\Lanage-E.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\lanage-ZH.baml

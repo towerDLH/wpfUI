@@ -44,6 +44,7 @@ namespace UI
     ///     <MyNamespace:IconButton/>
     ///
     /// </summary>
+    /// 
     public class IconButton : Control
     {
         static IconButton()

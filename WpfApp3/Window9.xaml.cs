@@ -23,6 +23,7 @@ using UI;
 using UI.DaTa;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using WpfApp3.Model;
 
 namespace WpfApp3
 {
@@ -31,6 +32,16 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
+
+        private string yuWen = ((int)Large.Subject.语文1111111).ToString();
+
+        public string YuWen
+        {
+            get { return yuWen; }
+            set { yuWen = value; }
+        }
+
+        public static int ShuXue = (int)Large.Subject.语文1111111;
         ILog log = LogManager.GetLogger(typeof(Window9));
         List<Student> liststudes = new List<Student>();
         public ObservableCollection<string> KeysCollection { get; set; } = new ObservableCollection<string>();
@@ -102,7 +113,7 @@ namespace WpfApp3
             KeysCollection.Add("王五");
             KeysCollection.Add("赵六");
             MailConfigSelection.ItemsSource = KeysCollection;
-            Intxt.IntellList = KeysCollection;
+            //  Intxt.IntellList = KeysCollection;
         }
 
         private string Tname;
@@ -494,12 +505,14 @@ namespace WpfApp3
 
         private void Gtdpurorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            var dg = sender as DataGrid;
+            var name = dg.Name;
         }
 
         private void DtgLpnrs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            var dg = sender as DataGrid;
+            var name = dg.Name;
         }
 
         private void Gtdpurorder_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
@@ -509,7 +522,8 @@ namespace WpfApp3
 
         private void DtgLpnrs_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            var dg = sender as DataGrid;
+            var index = dg.SelectedIndex;
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -568,15 +582,38 @@ namespace WpfApp3
 
         private void Intxt_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
-        private void Intxt_KeyUp(object sender, KeyEventArgs e)
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            DataGridRow row = FindVisualParent<DataGridRow>(sender as Expander);
+            row.DetailsVisibility = System.Windows.Visibility.Visible;
+        }
+
+        private void Expander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            DataGridRow row = FindVisualParent<DataGridRow>(sender as Expander);
+            row.DetailsVisibility = System.Windows.Visibility.Collapsed;
+        }
+        public T FindVisualParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            DependencyObject parentObject = VisualTreeHelper.GetParent(child);
+            if (parentObject == null) return null;
+            T parent = parentObject as T;
+            if (parent != null)
+                return parent;
+            else
+                return FindVisualParent<T>(parentObject);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (App.Language.ToString() == "lanage-ZH")
             {
-                Intxt.ContentText = "";
+                App.Language = "Lanage-E";
             }
+            else App.Language = "lanage-ZH";
         }
     }
     [TemplatePart(Name = "total_row", Type = typeof(Grid))]
@@ -729,4 +766,6 @@ namespace WpfApp3
             }
         }
     }
+
+
 }
