@@ -164,10 +164,12 @@ namespace UI.Extend
             }
             if ((bool)e.NewValue)
             {
+                grid.SelectionMode = DataGridSelectionMode.Single;
                 grid.PreviewMouseWheel += DataGrid_PreviewMouseWheel;
             }
             else
             {
+                grid.SelectionMode = DataGridSelectionMode.Extended;
                 grid.PreviewMouseWheel -= DataGrid_PreviewMouseWheel;
             }
         }
@@ -184,7 +186,7 @@ namespace UI.Extend
                 eventArg.RoutedEvent = UIElement.MouseWheelEvent;
                 eventArg.Source = sender;
                 var parent = ((Control)sender).Parent as UIElement;
-                parent.RaiseEvent(eventArg);
+                if (parent != null) parent.RaiseEvent(eventArg);
             }
         }
 

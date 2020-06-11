@@ -2,19 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfApp3"
-             StartupUri="/Window9.xaml">
+             StartupUri="/Window6.xaml">
     <Application.Resources>
-
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WpfApp3;component/Skin/SkinDictionary.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/UI;component/Dictionary1.xaml"/>
                 <ResourceDictionary Source="/WpfApp3;component/Style/Geometries.xaml"/>
-                <ResourceDictionary Source="/WpfApp3;component/Lanage/lanage-ZH.xaml" />
                 <ResourceDictionary Source="/WpfApp3;component/Lanage/Lanage-E.xaml" />
+                <ResourceDictionary Source="/WpfApp3;component/Lanage/lanage-ZH.xaml" />
                 <!--<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>--> 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

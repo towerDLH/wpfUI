@@ -29,8 +29,15 @@ namespace WpfApp3
 
         private void Loaded()
         {
+            List<Icon> Ilist = new List<Icon>();
             ViewModel v1 = new ViewModel();
             Gantt.ItemsSource = v1.TaskCollection;
+            Ilist.Add(new Icon() { IconName = "\xf0f6" });
+            Ilist.Add(new Icon() { IconName = "\xE6B1" });
+            Ilist.Add(new Icon() { IconName = "\xE6B2" });
+            Ilist.Add(new Icon() { IconName = "\xF015" });
+            //IcList.ItemsSource = Ilist;
+
         }
     }
 
@@ -100,5 +107,16 @@ namespace WpfApp3
 
             return task;
         }
+    }
+    public class Icon
+    {
+        private string iconname;
+
+        public string IconName
+        {
+            get { return iconname; }
+            set { iconname = value; }
+        }
+
     }
 }

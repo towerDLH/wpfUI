@@ -295,6 +295,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Skin\SkinDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\Geometries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

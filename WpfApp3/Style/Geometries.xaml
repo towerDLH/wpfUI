@@ -433,4 +433,17 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="TextBox"  >
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+                <Setter Property="Background" Value="Transparent"></Setter>
+            </Trigger>
+            <Trigger Property="TextWrapping" Value="Wrap">
+                <Setter Property="VerticalContentAlignment" Value="Top"></Setter>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
 </ResourceDictionary>

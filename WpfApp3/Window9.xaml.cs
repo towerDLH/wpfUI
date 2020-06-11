@@ -32,7 +32,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
-
+        private int skinstyle = 1;
         private string yuWen = ((int)Large.Subject.语文1111111).ToString();
 
         public string YuWen
@@ -417,11 +417,34 @@ namespace WpfApp3
         private void gtdpurorder_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
 
+            var dt = sender as DataGrid;
+            if (dt.SelectedIndex == -1 || dt.Name != "gtdpurorder")
+            {
+                return;
+            }
+            DataGridRow row = (DataGridRow)dt.ItemContainerGenerator.ContainerFromIndex(dt.SelectedIndex);
+            var a = row.DetailsVisibility;
+            if (a == Visibility.Visible)
+            {
+                row.DetailsVisibility = Visibility.Collapsed;
+            }
+            else { row.DetailsVisibility = Visibility.Visible; }
         }
 
         private void gtdpurorder_SelectedCellsChanged_1(object sender, System.Windows.Controls.SelectedCellsChangedEventArgs e)
         {
-
+            //var dt = sender as DataGrid;
+            //if (dt.SelectedIndex == -1)
+            //{
+            //    return;
+            //}
+            //DataGridRow row = (DataGridRow)dt.ItemContainerGenerator.ContainerFromIndex(dt.SelectedIndex);
+            //var a = row.DetailsVisibility;
+            //if (a == Visibility.Visible)
+            //{
+            //    row.DetailsVisibility = Visibility.Collapsed;
+            //}
+            //else { row.DetailsVisibility = Visibility.Visible; }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -614,6 +637,81 @@ namespace WpfApp3
                 App.Language = "Lanage-E";
             }
             else App.Language = "lanage-ZH";
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (skinstyle == 1)
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Blue"];
+                skinstyle = 2;
+            }
+            else
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Green"];
+                skinstyle = 1;
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void gtdpurorder_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var dt = sender as DataGrid;
+            if (dt.SelectedIndex == -1 || dt.Name != "gtdpurorder")
+            {
+                return;
+            }
+            DataGridRow row = (DataGridRow)dt.ItemContainerGenerator.ContainerFromIndex(dt.SelectedIndex);
+            var a = row.DetailsVisibility;
+            //if (a == Visibility.Visible)
+            //{
+            //    row.DetailsVisibility = Visibility.Collapsed;
+            //}
+            //else { row.DetailsVisibility = Visibility.Visible; }
+        }
+
+        private void DtgLpnrs_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var dt = sender as DataGrid;
+            var indexnum = dt.SelectedIndex;
+            DataGridRow dgr = (DataGridRow)gtdpurorder.ItemContainerGenerator.ContainerFromIndex(this.gtdpurorder.SelectedIndex);
+            DataGrid dg = FindVisualChildByName<DataGrid>(dgr, "DtgLpnrs") as DataGrid;
+            var q = dg.SelectedIndex;
+        }
+
+        //下面的方法曾让我教头烂额，感叹微软的控件封装的太牛逼了，处理起来有点变态    
+        /// <summary>    
+                /// 找到行明细中嵌套的控件名称    
+                /// </summary>    
+                /// <typeparam name="T"></typeparam>    
+                /// <param name="parent"></param>    
+                /// <param name="name"></param>    
+                /// <returns></returns>    
+        public T FindVisualChildByName<T>(DependencyObject parent, string name) where T : DependencyObject
+        {
+            if (parent != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+                {
+                    var child = VisualTreeHelper.GetChild(parent, i) as DependencyObject;
+                    string controlName = child.GetValue(Control.NameProperty) as string;
+                    if (controlName == name)
+                    {
+                        return child as T;
+                    }
+                    else
+                    {
+                        T result = FindVisualChildByName<T>(child, name);
+                        if (result != null)
+                            return result;
+                    }
+                }
+            }
+            return null;
         }
     }
     [TemplatePart(Name = "total_row", Type = typeof(Grid))]

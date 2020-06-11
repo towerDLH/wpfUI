@@ -42,7 +42,10 @@ namespace WpfApp3
             base.OnStartup(e);
 
             // 初始化语言
-            Language = string.IsNullOrEmpty(Language) ? "en-US" : Language;
+            Language = string.IsNullOrEmpty(Language) ? "Lanage-E" : Language;
+
+            var splashScreen = new SplashScreen("Image/2.jpg");
+            splashScreen.Show(true);
         }
 
         private static string language;

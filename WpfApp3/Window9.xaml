@@ -263,6 +263,8 @@
                 extend:ControlAttachProperty.PlaceHolder="请输入密码"
                 IsEnabled="True"/>-->
             <core:ProgressRing Width="180" Height="180" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
+            <TextBox  AcceptsReturn="True" Height="40" Width="49" Text="asdd"  TextWrapping="Wrap"></TextBox>
+            <TextBox  Height="40" Width="30" Text="asdfasd"></TextBox>
             <TextBlock Text="&#xE600;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xE6B1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
@@ -364,6 +366,8 @@
             <Label Content="{DynamicResource biHelp}"></Label>
             <Label Content="{DynamicResource biAbout}"></Label>
             <Button Content="切换语言包" Click="Button_Click_4"></Button>
+            <Button Content="换肤" Click="Button_Click_5" ></Button>
+            <Button Content="换肤" Click="Button_Click_6" ></Button>
             <TextBox Width="80" Height="30"      >
                 <TextBox.Style>
                     <Style TargetType="TextBox"  >
@@ -570,7 +574,11 @@
                         <charts:DataPoint AxisXLabel="4月" YValue="0.6"/>
                     </charts:DataSeries.DataPoints>
                 </charts:DataSeries>-->
-        <DataGrid  extend:DatagridExtend.DisplayRowNumber="True"  HeadersVisibility="Column"  AlternationCount="2"   VerticalScrollBarVisibility="Visible"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder"  MouseDoubleClick="gtdpurorder_MouseDoubleClick"   HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"    MouseLeftButtonDown="Gtdpurorder_MouseLeftButtonDown"     LoadingRow="gtdpurorder_LoadingRow" Margin="240,209,19,83" RowStyle="{DynamicResource DataGridRowStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}"   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowDetailsVisibilityMode="VisibleWhenSelected"  >
+        <DataGrid   SelectedIndex="0"  ScrollViewer.CanContentScroll="False"  extend:DatagridExtend.DisplayRowNumber="True" SelectionMode="Single"
+                      AlternationCount="2"  MouseUp="gtdpurorder_MouseUp"                        CanUserAddRows="False" 
+                    AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"
+                    x:Name="gtdpurorder"       
+                    Margin="240,209,19,83"      RowDetailsVisibilityMode="Collapsed" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type ToolTip}">
                     <Setter Property="Template">
@@ -604,7 +612,20 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Expander Expanded="Expander_Expanded" Collapsed="Expander_Collapsed"></Expander>
+                            <Expander   Expanded="Expander_Expanded"  Collapsed="Expander_Collapsed" >
+                                <!--<Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={ x:Type DataGridRow},AncestorLevel=1},Path=DetailsVisibility}" Value="Visible">
+                                                <Setter Property="IsExpanded" Value="True"></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={ x:Type DataGridRow},AncestorLevel=1},Path=DetailsVisibility}" Value="Collapsed">
+                                                <Setter Property="IsExpanded" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Expander.Style>-->
+                            </Expander>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -688,9 +709,10 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="aa"/>
             </DataGrid.Columns>
-            <DataGrid.RowDetailsTemplate>
+            <DataGrid.RowDetailsTemplate >
                 <DataTemplate>
-                    <DataGrid   SelectionMode="Single"  extend:DatagridExtend.IsSlide="True"     AutoGenerateColumns="False" x:Name="DtgLpnrs"  AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"    ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type DataGrid}}}"  MouseLeftButtonDown="DtgLpnrs_MouseLeftButtonDown"  PreviewMouseLeftButtonDown="DtgLpnrs_PreviewMouseLeftButtonDown"    HorizontalScrollBarVisibility="Auto"  Grid.Row="0">
+                    <Grid>
+                    <DataGrid   Margin="30,20,0,20" Style="{x:Null}"  extend:DatagridExtend.DisplayRowNumber="True"       extend:DatagridExtend.IsSlide="True"     AutoGenerateColumns="False" x:Name="DtgLpnrs"  AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"    ItemsSource="{Binding   RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type DataGrid}},Path=ItemsSource}"     MouseUp="DtgLpnrs_MouseUp"     >
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Header="序号"  >
                                 <DataGridTemplateColumn.CellTemplate >
@@ -705,6 +727,7 @@
 
                         </DataGrid.Columns>
                     </DataGrid>
+                    </Grid>
                     <!--<DataGrid Grid.Row="1" AlternationCount="2" Name="dg_dtl"    AutoGenerateColumns="False" CanUserAddRows="False"  ItemsSource="{Binding ShowReceivedDtlRecords}"   SelectedCellsChanged="Dg_dtl_SelectedCellsChanged" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Binding="{Binding ItemId,Converter={StaticResource itemconvert}, ConverterParameter=0, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="物料编号" IsReadOnly="True" />

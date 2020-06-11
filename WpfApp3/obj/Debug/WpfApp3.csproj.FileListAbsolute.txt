@@ -124,3 +124,4 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\stdole.dll
 D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\Lanage-E.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\lanage-ZH.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\Skin\SkinDictionary.baml

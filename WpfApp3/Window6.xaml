@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         xmlns:Sync="clr-namespace:Syncfusion.Windows.Controls.Gantt;assembly=Syncfusion.Gantt.Wpf"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         Title="Window6" Height="450" Width="800">
     <Grid>
-       <Sync:GanttControl x:Name="Gantt" />
+        <Sync:GanttControl x:Name="Gantt" ></Sync:GanttControl>
+                          <hc:Carousel Width="600" Height="300">
+            <TextBlock Width="600" Height="300" Text="&#xE600;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
+            <TextBlock Width="600" Height="300" Text="&#xE6B1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
+            <TextBlock  Width="600" Height="300" Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
+            <TextBlock Width="600" Height="300" Text="&#xF000;" Style="{DynamicResource FontAwesome}" />
+        </hc:Carousel>
+           
     </Grid>
 </Window>

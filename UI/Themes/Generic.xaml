@@ -100,7 +100,9 @@
     </Style>
 
 
-    
 
+    <Style TargetType="Grid" >
+        <Setter Property="Background" Value="{DynamicResource skin_Blue}"></Setter>
+    </Style>
     
 </ResourceDictionary>
