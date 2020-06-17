@@ -104,5 +104,20 @@
     <Style TargetType="Grid" >
         <Setter Property="Background" Value="{DynamicResource skin_Blue}"></Setter>
     </Style>
+
+    <Style TargetType="{x:Type local:IconButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:IconButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <!--<DataGrid x:Name="PART_popupDataGrid"></DataGrid>-->
+                        <TextBlock x:Name="Ctx"></TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
 </ResourceDictionary>

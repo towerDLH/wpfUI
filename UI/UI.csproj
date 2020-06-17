@@ -54,8 +54,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityControl.cs" />
     <Compile Include="AdornerContainer.cs" />
+    <Compile Include="ArrowBase.cs" />
+    <Compile Include="ArrowLine.cs" />
     <Compile Include="buttonex.cs" />
+    <Compile Include="classMD\ActivityPath.cs" />
     <Compile Include="classMD\DataGridNumber.cs" />
     <Compile Include="classMD\RegularPatterns.cs" />
     <Compile Include="ComboxTree.xaml.cs">
@@ -78,11 +82,16 @@
     <Compile Include="IntellTextBox.xaml.cs">
       <DependentUpon>IntellTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Inter\IActivity.cs" />
+    <Compile Include="Inter\IDesigner.cs" />
     <Compile Include="IsDoubleConver.cs" />
     <Compile Include="Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MoveThumb.xaml.cs">
+      <DependentUpon>MoveThumb.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearTextBox.xaml.cs">
@@ -93,6 +102,9 @@
     <Compile Include="WindowsBase.cs" />
     <Compile Include="WindowUsrTest.xaml.cs">
       <DependentUpon>WindowUsrTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="workflowContrl.xaml.cs">
+      <DependentUpon>workflowContrl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MoveThumb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SearTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +133,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WindowUsrTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="workflowContrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

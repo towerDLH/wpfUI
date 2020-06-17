@@ -22,4 +22,8 @@ D:\Test\WpfTest\UI\obj\Debug\UI.csproj.GenerateResource.cache
 D:\Test\WpfTest\UI\obj\Debug\UI.csproj.CopyComplete
 D:\Test\WpfTest\UI\obj\Debug\SearTextBox.g.cs
 D:\Test\WpfTest\UI\obj\Debug\SearTextBox.baml
+D:\Test\WpfTest\UI\obj\Debug\workflowContrl.g.cs
+D:\Test\WpfTest\UI\obj\Debug\workflowContrl.baml
+D:\Test\WpfTest\UI\obj\Debug\MoveThumb.g.cs
+D:\Test\WpfTest\UI\obj\Debug\MoveThumb.baml
 D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache

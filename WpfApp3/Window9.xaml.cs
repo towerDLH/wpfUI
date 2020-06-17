@@ -24,6 +24,7 @@ using UI.DaTa;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using WpfApp3.Model;
+using System.Windows.Controls.Primitives;
 
 namespace WpfApp3
 {
@@ -32,6 +33,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
+        
         private int skinstyle = 1;
         private string yuWen = ((int)Large.Subject.语文1111111).ToString();
 
@@ -629,6 +631,22 @@ namespace WpfApp3
             else
                 return FindVisualParent<T>(parentObject);
         }
+        public T FindVisualParent<T>(DependencyObject child, string parentname) where T : DependencyObject
+        {
+            DependencyObject parentObject = VisualTreeHelper.GetParent(child);
+            if (parentObject == null) return null;
+            T parent = parentObject as T;
+            if (parent == null)
+                return null;
+            string controlName = parent.GetValue(Control.NameProperty) as string;
+            if (controlName == parentname)
+            {
+                return parent as T;
+            }
+            else
+                return FindVisualParent<T>(parentObject, parentname);
+        }
+
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
@@ -683,7 +701,6 @@ namespace WpfApp3
             var q = dg.SelectedIndex;
         }
 
-        //下面的方法曾让我教头烂额，感叹微软的控件封装的太牛逼了，处理起来有点变态    
         /// <summary>    
                 /// 找到行明细中嵌套的控件名称    
                 /// </summary>    
@@ -712,6 +729,109 @@ namespace WpfApp3
                 }
             }
             return null;
+        }
+
+
+
+        private void ckbSelectedAll_Checked(object sender, RoutedEventArgs e)
+        {
+            this.gtdpurorder.SelectAll();
+            //CheckBox multipleSelect = (CheckBox)this.gtdpurorder.Template.FindName("ckbSelectedAll", gtdpurorder);
+            //multipleSelect.IsChecked = true;
+        }
+
+        private void ckbSelectedAll_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.gtdpurorder.UnselectAll();
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+            DataGridCell row = FindVisualParent<DataGridCell>(sender as CheckBox);
+
+            CheckBox check = FindVisualChildByName<CheckBox>(row, "ckbSelectedAll");
+
+            DataGridTemplateColumn templeColumn = gtdpurorder.Columns[0] as DataGridTemplateColumn;
+
+            if (templeColumn == null) return;
+
+            object item = gtdpurorder.CurrentCell.Item;
+
+            FrameworkElement element = templeColumn.GetCellContent(item);
+            var expander = templeColumn.HeaderTemplate.FindName("ckbSelectedAll", element);
+            // row.FindName();
+            //  int index = gtdpurorder.CurrentCell.Column.DisplayIndex;
+
+
+        }
+
+
+
+        public void GetVisualChild(DependencyObject parent)
+        {
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                DependencyObject v = (DependencyObject)VisualTreeHelper.GetChild(parent, i);
+                CheckBox child = v as CheckBox;
+
+                if (child == null)
+                {
+                    GetVisualChild(v);
+                }
+                else
+                {
+                    child.IsChecked = true;
+                    return;
+                }
+            }
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+
+            var grd = FindVisualParent<Grid>(sender as Button);
+        }
+
+        private void thumb_DragDelta(object sender, System.Windows.Controls.Primitives.DragDeltaEventArgs e)
+        {
+
+            // Canvas.SetLeft(this, Canvas.GetLeft(this) + e.HorizontalChange);
+            //Canvas.SetTop(this, Canvas.GetTop(this) + e.VerticalChange);
+            Thumb myThumb = (Thumb)sender;
+            var canvas= FindVisualParent<Canvas>(myThumb);
+            double nTop = Canvas.GetTop(myThumb) + e.VerticalChange;
+            double nLeft = Canvas.GetLeft(myThumb) + e.HorizontalChange;
+            Canvas.SetTop(canvas, nTop);
+            Canvas.SetLeft(canvas, nLeft);
+            //On刷新事件();
+        }
+
+        private void link_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MoveThumb ui = sender as MoveThumb;
+            DragDrop.DoDragDrop(ui, ui.Name, DragDropEffects.Link);
+            //string v;
+            //if (sender is TextBlock)
+            //{
+            //    TextBlock ui = sender as TextBlock;
+
+            //    v = this.Name + "," + ui.Text;
+
+            //    DragDrop.DoDragDrop(ui, v, DragDropEffects.Link);
+            //}
+            //if (sender is Image)
+            //{
+            //    Image ui = sender as Image;
+
+            //    v = this.Name + "," + this.Name;
+
+            //    DragDrop.DoDragDrop(ui, v, DragDropEffects.Link);
+            //}
+
+
+
         }
     }
     [TemplatePart(Name = "total_row", Type = typeof(Grid))]
@@ -835,6 +955,8 @@ namespace WpfApp3
 
 
         }
+
+     
 
     }
 

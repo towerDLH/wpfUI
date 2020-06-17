@@ -234,6 +234,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ControlTemplate x:Key="rec">
+            <Grid>
+                <Rectangle Fill="Gray"   > </Rectangle>
+                <TextBlock Text="asa"></TextBlock>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid   >
 
@@ -245,7 +251,7 @@
         <WrapPanel>
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <PasswordBox Width="140" Height="50" PasswordChar="X" Password="sf" BorderBrush="#dcdcdc"     extend:PasswordBoxExtend.Attach="True" VerticalContentAlignment="Center" extend:PasswordBoxExtend.Password="{Binding Pwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
+            <TextBlock Text="aa" PreviewMouseLeftButtonDown="link_PreviewMouseLeftButtonDown"></TextBlock>
             <!--<Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
                 -->
             <!--<Image.RenderTransform>
@@ -261,7 +267,28 @@
     Style="{StaticResource EyePasswordBox}"
                 Margin="3"
                 extend:ControlAttachProperty.PlaceHolder="请输入密码"
-                IsEnabled="True"/>-->
+                
+            IsEnabled="True"/>-->
+            <Grid Width="400" Height="200">
+                <ui:MoveThumb     x:Name="movet" ></ui:MoveThumb>
+                <ui:ArrowLine Stroke="Black"
+                         StartPoint="0,0"
+                         EndPoint="100,100"></ui:ArrowLine>
+                <ui:MoveThumb  Margin="50" x:Name="movet1"  ></ui:MoveThumb>
+                <Line Stroke="Red"  X1="1" Y1="1" X2="115" Y2="116"></Line>
+            </Grid>
+            <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" >
+              
+                <Canvas Name="myDesigner"  Height="200" Width="400"  >
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="scaleTransform" ScaleX="1" ScaleY="1"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <!--<ui:workflowContrl></ui:workflowContrl>
+                    <ui:workflowContrl ></ui:workflowContrl>-->
+                        </Canvas>
+            </ScrollViewer>
             <core:ProgressRing Width="180" Height="180" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
             <TextBox  AcceptsReturn="True" Height="40" Width="49" Text="asdd"  TextWrapping="Wrap"></TextBox>
             <TextBox  Height="40" Width="30" Text="asdfasd"></TextBox>
@@ -361,6 +388,14 @@
                 <TextBlock Text="abd"       FontSize="13"  VerticalAlignment="Top"   HorizontalAlignment="Center"><Run Text="asd"   /></TextBlock>
             </StackPanel>
             <TextBlock Text="&#xF01A;"  Style="{DynamicResource FontAwesome}" />
+            <ui:IconButton Width="130">
+                <Grid>
+                    <TextBlock Text="b"></TextBlock>
+                    <TextBlock Text="b"></TextBlock>
+                    <TextBlock Text="c"></TextBlock>
+                    <TextBlock Text="ba"></TextBlock>
+                </Grid>
+            </ui:IconButton>
             <ui:TextBoxEx IsError="False"  ></ui:TextBoxEx>
             <Label Content="{DynamicResource biFile}"></Label>
             <Label Content="{DynamicResource biHelp}"></Label>
@@ -574,10 +609,10 @@
                         <charts:DataPoint AxisXLabel="4月" YValue="0.6"/>
                     </charts:DataSeries.DataPoints>
                 </charts:DataSeries>-->
-        <DataGrid   SelectedIndex="0"  ScrollViewer.CanContentScroll="False"  extend:DatagridExtend.DisplayRowNumber="True" SelectionMode="Single"
+        <DataGrid     SelectedIndex="0"  ScrollViewer.CanContentScroll="False"  extend:DatagridExtend.DisplayRowNumber="True" SelectionMode="Single"
                       AlternationCount="2"  MouseUp="gtdpurorder_MouseUp"                        CanUserAddRows="False" 
-                    AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"
-                    x:Name="gtdpurorder"       
+                    AutoGenerateColumns="False"   ItemsSource="{Binding PurOrderDetails}"
+                       
                     Margin="240,209,19,83"      RowDetailsVisibilityMode="Collapsed" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type ToolTip}">
@@ -629,6 +664,13 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsSelected,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}}">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="ckbSelectedAll" Content="全选" Checked="ckbSelectedAll_Checked"  Unchecked="ckbSelectedAll_Unchecked" IsChecked="False" />
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
                 <DataGridTemplateColumn Header="序号">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate>
@@ -712,21 +754,21 @@
             <DataGrid.RowDetailsTemplate >
                 <DataTemplate>
                     <Grid>
-                    <DataGrid   Margin="30,20,0,20" Style="{x:Null}"  extend:DatagridExtend.DisplayRowNumber="True"       extend:DatagridExtend.IsSlide="True"     AutoGenerateColumns="False" x:Name="DtgLpnrs"  AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"    ItemsSource="{Binding   RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type DataGrid}},Path=ItemsSource}"     MouseUp="DtgLpnrs_MouseUp"     >
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="序号"  >
-                                <DataGridTemplateColumn.CellTemplate >
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="计划单名称" Binding="{Binding PurchaseName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="计划单编号" Binding="{Binding BusinessCode, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Binding="{Binding BaseQty, Mode=OneWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="分配数量"/>
+                        <DataGrid     Margin="30,20,0,20" Style="{x:Null}"  extend:DatagridExtend.DisplayRowNumber="True"       extend:DatagridExtend.IsSlide="True"     AutoGenerateColumns="False" x:Name="DtgLpnrs"  AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"    ItemsSource="{Binding   RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type DataGrid}},Path=ItemsSource}"     MouseUp="DtgLpnrs_MouseUp"     >
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="序号"  >
+                                    <DataGridTemplateColumn.CellTemplate >
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="计划单名称" Binding="{Binding PurchaseName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn Header="计划单编号" Binding="{Binding BusinessCode, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn Binding="{Binding BaseQty, Mode=OneWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="分配数量"/>
 
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
                     <!--<DataGrid Grid.Row="1" AlternationCount="2" Name="dg_dtl"    AutoGenerateColumns="False" CanUserAddRows="False"  ItemsSource="{Binding ShowReceivedDtlRecords}"   SelectedCellsChanged="Dg_dtl_SelectedCellsChanged" >
                                     <DataGrid.Columns>
@@ -740,7 +782,30 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
-
+        <Grid x:Name="GrdTest">
+            <StackPanel>
+                <Canvas>
+                    <Button Click="Button_Click_7" Content="sadfasdf"   ></Button>
+                </Canvas>
+            </StackPanel>
+        </Grid>
+        <DataGrid  Visibility="Collapsed" x:Name="gtdpurorder"   >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate >
+                        <DataTemplate>
+                            <CheckBox x:Name="ckbSelectedAll" Content="全选" Checked="ckbSelectedAll_Checked" Unchecked="ckbSelectedAll_Unchecked" IsChecked="False" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Path=IsSelected,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}}" Click="CheckBox_Click" ></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="编号" Width="*" Binding="{Binding Name}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

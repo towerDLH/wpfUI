@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -15,41 +19,80 @@ using System.Windows.Shapes;
 
 namespace UI
 {
-    /// <summary>
-    /// 按照步骤 1a 或 1b 操作，然后执行步骤 2 以在 XAML 文件中使用此自定义控件。
-    ///
-    /// 步骤 1a) 在当前项目中存在的 XAML 文件中使用该自定义控件。
-    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根 
-    /// 元素中: 
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:UI"
-    ///
-    ///
-    /// 步骤 1b) 在其他项目中存在的 XAML 文件中使用该自定义控件。
-    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根 
-    /// 元素中: 
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:UI;assembly=UI"
-    ///
-    /// 您还需要添加一个从 XAML 文件所在的项目到此项目的项目引用，
-    /// 并重新生成以避免编译错误: 
-    ///
-    ///     在解决方案资源管理器中右击目标项目，然后依次单击
-    ///     “添加引用”->“项目”->[浏览查找并选择此项目]
-    ///
-    ///
-    /// 步骤 2)
-    /// 继续操作并在 XAML 文件中使用控件。
-    ///
-    ///     <MyNamespace:IconButton/>
-    ///
-    /// </summary>
-    /// 
+    [TemplatePart(Name = "Dtg", Type = typeof(TextBlock))]
+    [ContentProperty("Items")]
+    [DefaultProperty("Items")]
     public class IconButton : Control
     {
+        private const string Dtg = "Ctx";
+        /// <summary>
+        /// 下拉列表框显示的表格
+        /// </summary>
+        TextBlock txt;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [Bindable(true)]
+        public Collection<object> Items { get; }
+
+        internal static readonly DependencyPropertyKey HasItemsPropertyKey =
+            DependencyProperty.RegisterReadOnly(nameof(HasItems), typeof(bool), typeof(IconButton),
+                new PropertyMetadata(false));
+        public static readonly DependencyProperty HasItemsProperty = HasItemsPropertyKey.DependencyProperty;
+
+
+        public bool HasItems => (bool)GetValue(HasItemsProperty);
         static IconButton()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(IconButton), new FrameworkPropertyMetadata(typeof(IconButton)));
+
         }
+
+
+
+        public int MyProperty
+        {
+            get { return (int)GetValue(MyPropertyProperty); }
+            set { SetValue(MyPropertyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyPropertyProperty =
+            DependencyProperty.Register("MyProperty", typeof(int), typeof(IconButton),   new PropertyMetadata(0)  );
+
+         
+
+        public IconButton()
+        {
+            var items = new ObservableCollection<object>();
+            items.CollectionChanged += (s, e) =>
+            {
+                if (e.NewItems != null && e.NewItems.Count > 0)
+                {
+                    SetValue(HasItemsPropertyKey, true);
+                }
+                OnItemsChanged(s, e);
+            };
+            Items = items;
+            A();
+        }
+        /// <summary>
+        /// 在应用模板的方法
+        /// </summary>
+        public override void OnApplyTemplate()
+        {
+            txt = GetTemplateChild(Dtg) as TextBlock;
+            txt.Text = "dsfasfsadf";
+        }
+        public void A()
+        {
+          
+            //var index = Items.Count;
+            //this.dataGrid = UI.IconButton.ZbExternt.GetChildObject<DataGrid>(this.popup.Child, "PART_popupDataGrid");
+        }
+        protected virtual void OnItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            // Refresh();
+            // UpdateItems();
+        }
+
     }
 }
