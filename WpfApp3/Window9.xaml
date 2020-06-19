@@ -14,8 +14,10 @@
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="WpfApp3.Window9"
         mc:Ignorable="d"
         x:Name="_Base"
+     WindowStyle="SingleBorderWindow"
+        xmlns:r="clr-namespace:WpfApp3.Resours"
         Icon="pack://application:,,,/Image/timg.jpg"
-        Title="Window9" Height="450" Width="800">
+        Title="Window9" Height="450" Width="800"  >
 
     <Window.Resources>
         <sys:Double x:Key="FontSize">13</sys:Double>
@@ -242,7 +244,6 @@
         </ControlTemplate>
     </Window.Resources>
     <Grid   >
-
         <Canvas  >
             <Border BorderThickness="22" BorderBrush="Black"/>
             <core:ProgressRing    IsActive="True" Foreground="#FF178BF0" Background="Purple" Opacity="0.5"  ></core:ProgressRing>
@@ -271,13 +272,28 @@
             IsEnabled="True"/>-->
             <Grid Width="400" Height="200">
                 <ui:MoveThumb     x:Name="movet" ></ui:MoveThumb>
-                <ui:ArrowLine Stroke="Black"
+                <!--<ui:ArrowLine Stroke="Black"
                          StartPoint="0,0"
-                         EndPoint="100,100"></ui:ArrowLine>
+                         EndPoint="100,100"></ui:ArrowLine>-->
                 <ui:MoveThumb  Margin="50" x:Name="movet1"  ></ui:MoveThumb>
-                <Line Stroke="Red"  X1="1" Y1="1" X2="115" Y2="116"></Line>
+                <ui:MarkLine x:Name="mark"  StartEvent="mark_StartEvent" EndEvent="mark_EndEvent"></ui:MarkLine>
+                <Polyline  x:Name="ply"  Stroke="Blue" StrokeThickness="2" Points="10,10,120,130"   ></Polyline>
+               
+                <WrapPanel>
+                    <ScrollBar  Height="30" Width="200"    Orientation="Horizontal">
+
+                    </ScrollBar>
+                    <ProgressBar Height=" 30" Width="200"></ProgressBar>
+                    <ListBox>
+                        <Slider Height="50"  Foreground="Black"  x:Name="Ab"   Width="200" Value="1" Maximum="10" TickPlacement="BottomRight" TickFrequency="4" Ticks="1,3,9" IsSelectionRangeEnabled="True" SelectionStart="0" SelectionEnd="10"  ></Slider>
+                        <Slider Height="30" Width="100"  Value="{Binding Path=Value,  ElementName=Ab}"   ></Slider>
+                        <!--<Path  Data="{DynamicResource CalendarGeometry}"  ></Path>-->
+                    </ListBox>
+
+                </WrapPanel>
+               
             </Grid>
-            <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" >
+            <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"  >
               
                 <Canvas Name="myDesigner"  Height="200" Width="400"  >
                     <Canvas.RenderTransform>
@@ -291,7 +307,7 @@
             </ScrollViewer>
             <core:ProgressRing Width="180" Height="180" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
             <TextBox  AcceptsReturn="True" Height="40" Width="49" Text="asdd"  TextWrapping="Wrap"></TextBox>
-            <TextBox  Height="40" Width="30" Text="asdfasd"></TextBox>
+            <TextBox  Height="40" Width="30" Text="asdfasd" ></TextBox>
             <TextBlock Text="&#xE600;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xE6B1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>

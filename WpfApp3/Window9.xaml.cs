@@ -116,6 +116,16 @@ namespace WpfApp3
             KeysCollection.Add("赵六");
             MailConfigSelection.ItemsSource = KeysCollection;
             //  Intxt.IntellList = KeysCollection;
+            mark.DataPoints = new PointCollection()
+            {
+                new Point(30,24),
+                new Point (160,180)
+            };
+            ply.Points = new PointCollection()
+            {
+                new Point(130,24),
+                new Point (60,180)
+            };
         }
 
         private string Tname;
@@ -831,6 +841,17 @@ namespace WpfApp3
             //}
 
 
+
+        }
+
+        private void mark_StartEvent(object sender, DragDeltaEventArgs e)
+        {
+            //todo 只要移动的点和可以接触的点相碰，那么确定坐标点
+
+        }
+
+        private void mark_EndEvent(object sender, DragDeltaEventArgs e)
+        {
 
         }
     }

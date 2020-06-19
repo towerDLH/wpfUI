@@ -15,40 +15,62 @@ using System.Windows.Shapes;
 
 namespace UI
 {
-    /// <summary>
-    /// 按照步骤 1a 或 1b 操作，然后执行步骤 2 以在 XAML 文件中使用此自定义控件。
-    ///
-    /// 步骤 1a) 在当前项目中存在的 XAML 文件中使用该自定义控件。
-    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根
-    /// 元素中:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:UI"
-    ///
-    ///
-    /// 步骤 1b) 在其他项目中存在的 XAML 文件中使用该自定义控件。
-    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根
-    /// 元素中:
-    ///
-    ///     xmlns:MyNamespace="clr-namespace:UI;assembly=UI"
-    ///
-    /// 您还需要添加一个从 XAML 文件所在的项目到此项目的项目引用，
-    /// 并重新生成以避免编译错误:
-    ///
-    ///     在解决方案资源管理器中右击目标项目，然后依次单击
-    ///     “添加引用”->“项目”->[浏览查找并选择此项目]
-    ///
-    ///
-    /// 步骤 2)
-    /// 继续操作并在 XAML 文件中使用控件。
-    ///
-    ///     <MyNamespace:WindowsBase/>
-    ///
-    /// </summary>
     public class WindowsBase : Window
     {
         static WindowsBase()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowsBase), new FrameworkPropertyMetadata(typeof(WindowsBase)));
+        }
+        public WindowsBase()
+        {
+            Loaded += (s, e) => OnLoaded(e);
+        }
+
+        public int CornerRadius
+        {
+            get { return (int)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CornerRadius.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register("CornerRadius", typeof(int), typeof(WindowsBase), new PropertyMetadata(0));
+
+
+        public int HeaderHeight
+        {
+            get { return (int)GetValue(HeaderHeightProperty); }
+            set { SetValue(HeaderHeightProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for HeaderHeight.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty HeaderHeightProperty =
+            DependencyProperty.Register("HeaderHeight", typeof(int), typeof(WindowsBase), new PropertyMetadata(0));
+
+
+
+
+        public object CustomizedAreaContent
+        {
+            get { return (object)GetValue(CustomizedAreaContentProperty); }
+            set { SetValue(CustomizedAreaContentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CustomizedAreaContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CustomizedAreaContentProperty =
+            DependencyProperty.Register("CustomizedAreaContent", typeof(object), typeof(WindowsBase), new PropertyMetadata(default(object)));
+
+
+        public void OnLoaded(RoutedEventArgs args)
+        {
+            CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
+                      (s, e) => WindowState = WindowState.Minimized));
+            CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand,
+                (s, e) => WindowState = WindowState.Maximized));
+            CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
+                (s, e) => WindowState = WindowState.Normal));
+            CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
+            // CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
         }
     }
 }

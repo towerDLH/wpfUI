@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="UI.MarkLine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Canvas x:Name="cvs">
+        <Polyline x:Name="lineMain" Stroke="Blue" StrokeThickness="2" Points="{Binding Path=DataPoints,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}"></Polyline>
+        <Thumb x:Name="thmStart" Canvas.Left="0" Canvas.Top="0" Cursor="Hand" IsEnabled="{Binding Path=IsEdit,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" DragDelta="thmStart_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate>
+                    <Ellipse Width="16" Height="16" Fill="Blue"></Ellipse>
+                </ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+        <Thumb x:Name="thmEnd" Canvas.Left="0" Canvas.Top="0" Cursor="Hand" IsEnabled="{Binding Path=IsEdit,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" DragDelta="thmEnd_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate>
+                    <Ellipse Width="16" Height="16" Fill="Red"></Ellipse>
+                </ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+    </Canvas>
+</UserControl>

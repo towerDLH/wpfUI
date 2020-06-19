@@ -38,12 +38,18 @@
     <Reference Include="Ay.MvcFramework.Wpf">
       <HintPath>..\Resources\Ay.MvcFramework.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,6 +74,7 @@
     <Compile Include="Convert\ImageTextBoxMarginLeftConverter.cs" />
     <Compile Include="Convert\PlaceholderFontSizeConverter.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
+    <Compile Include="CustomWindow.cs" />
     <Compile Include="DaTa\IsDatagridDouble.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />
     <Compile Include="DatePickerCalendar.cs" />
@@ -90,6 +97,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Include="MarkLine.xaml.cs">
+      <DependentUpon>MarkLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MoveThumb.xaml.cs">
       <DependentUpon>MoveThumb.xaml</DependentUpon>
     </Compile>
@@ -98,6 +108,7 @@
       <DependentUpon>SearTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextBoxEx.cs" />
+    <Compile Include="TransitioningContentControl.cs" />
     <Compile Include="WinContext.cs" />
     <Compile Include="WindowsBase.cs" />
     <Compile Include="WindowUsrTest.xaml.cs">
@@ -117,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="IntellTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MarkLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +172,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resour\SeraTextBox.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resour\iconfont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

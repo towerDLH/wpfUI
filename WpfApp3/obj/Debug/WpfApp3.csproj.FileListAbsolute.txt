@@ -127,3 +127,4 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\lanage-ZH.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\Skin\SkinDictionary.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\NoUserContent.baml

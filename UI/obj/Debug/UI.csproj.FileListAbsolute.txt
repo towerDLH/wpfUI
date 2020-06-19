@@ -26,4 +26,10 @@ D:\Test\WpfTest\UI\obj\Debug\workflowContrl.g.cs
 D:\Test\WpfTest\UI\obj\Debug\workflowContrl.baml
 D:\Test\WpfTest\UI\obj\Debug\MoveThumb.g.cs
 D:\Test\WpfTest\UI\obj\Debug\MoveThumb.baml
+D:\Test\WpfTest\UI\obj\Debug\MarkLine.g.cs
+D:\Test\WpfTest\UI\obj\Debug\MarkLine.baml
+D:\Test\WpfTest\UI\bin\Debug\Microsoft.Expression.Interactions.dll
+D:\Test\WpfTest\UI\bin\Debug\System.Windows.Interactivity.dll
+D:\Test\WpfTest\UI\bin\Debug\Microsoft.Expression.Interactions.xml
+D:\Test\WpfTest\UI\bin\Debug\System.Windows.Interactivity.xml
 D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache

@@ -226,6 +226,7 @@
     <Compile Include="PmCategoryDtl.xaml.cs">
       <DependentUpon>PmCategoryDtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resours\StateEnum.cs" />
     <Compile Include="SModel.cs" />
     <Compile Include="WinDatagrid.xaml.cs">
       <DependentUpon>WinDatagrid.xaml</DependentUpon>
@@ -309,6 +310,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MouseTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NoUserContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

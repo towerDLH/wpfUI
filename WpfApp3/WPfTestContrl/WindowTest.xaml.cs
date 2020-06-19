@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI;
 using Util.Controls;
 
 namespace WpfApp3.WPfTestContrl
@@ -18,7 +19,7 @@ namespace WpfApp3.WPfTestContrl
     /// <summary>
     /// WindowTest.xaml 的交互逻辑
     /// </summary>
-    public partial class WindowTest : Window
+    public partial class WindowTest : WindowsBase
     {
         public WindowTest()
         {
