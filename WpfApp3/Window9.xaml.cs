@@ -25,6 +25,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using WpfApp3.Model;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
 namespace WpfApp3
 {
@@ -33,7 +34,7 @@ namespace WpfApp3
     /// </summary>
     public partial class Window9 : Window
     {
-        
+
         private int skinstyle = 1;
         private string yuWen = ((int)Large.Subject.语文1111111).ToString();
 
@@ -50,11 +51,15 @@ namespace WpfApp3
 
         DataTable dt = new DataTable();
         public Test Model;
+        public static ICommand AddCommand = new RoutedCommand();
+
         public Window9()
         {
             InitializeComponent();
+            this.CommandBindings.Add(new CommandBinding(AddCommand, Add, CanAdd));
             Load();
             Model = new Test();
+            Model.Addname = new Address() { ID=1,Name="中国"};
             this.DataContext = Model;
             // GetDatableToModel();
             //SaveDatableToExecel();
@@ -107,6 +112,34 @@ namespace WpfApp3
             // mcom.ItemsSource = System.Enum.GetValues(typeof(SelectInsSubResult));
             new Thread(p => { DataBinding(); }).Start();
         }
+
+        private void CanAdd(object sender, CanExecuteRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        public void CanAdd(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(e.Parameter.ToString()))
+            {
+                MessageBox.Show(e.Parameter.ToString(), "提示信息");
+            }
+            // e.CanExecute = false;
+            else
+                // e.CanExecute = true;
+
+                e.Handled = true;
+        }
+
+        private void Add(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show(e.Parameter.ToString());
+
+            //标记为已处理，不再向上传递
+            e.Handled = true;
+        }
+
+
+
         public void Load()
         {
             KeysCollection.Add("23");
@@ -810,7 +843,7 @@ namespace WpfApp3
             // Canvas.SetLeft(this, Canvas.GetLeft(this) + e.HorizontalChange);
             //Canvas.SetTop(this, Canvas.GetTop(this) + e.VerticalChange);
             Thumb myThumb = (Thumb)sender;
-            var canvas= FindVisualParent<Canvas>(myThumb);
+            var canvas = FindVisualParent<Canvas>(myThumb);
             double nTop = Canvas.GetTop(myThumb) + e.VerticalChange;
             double nLeft = Canvas.GetLeft(myThumb) + e.HorizontalChange;
             Canvas.SetTop(canvas, nTop);
@@ -977,7 +1010,7 @@ namespace WpfApp3
 
         }
 
-     
+
 
     }
 
@@ -996,6 +1029,18 @@ namespace WpfApp3
             }
         }
 
+        private Address addname;
+
+        public Address Addname
+        {
+            get { return addname; }
+            set
+            {
+                addname = value;
+                SetEvent("Number");
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -1006,7 +1051,43 @@ namespace WpfApp3
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(Name));
             }
         }
+
+
+        private RelayCommand<Address> sumbitcomm;
+
+        public RelayCommand<Address> Sumbitcomm
+        {
+            get
+            {
+                if (sumbitcomm == null) return new RelayCommand<Address>((t) => ShowMeage(t));
+                return sumbitcomm;
+            }
+            set { sumbitcomm = value; }
+        }
+
+        private void ShowMeage(Address mag)
+        {
+            MessageBox.Show(mag.Name, "提示信息");
+        }
     }
 
+    public class Address
+    {
+        private int id;
+
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+    }
 
 }

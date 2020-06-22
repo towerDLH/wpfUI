@@ -74,6 +74,8 @@
     <Compile Include="Convert\ImageTextBoxMarginLeftConverter.cs" />
     <Compile Include="Convert\PlaceholderFontSizeConverter.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
+    <Compile Include="Convert\WindowBaseBorderThicknessConverter.cs" />
+    <Compile Include="Convert\WindowBaseCornerRadiusConverter.cs" />
     <Compile Include="CustomWindow.cs" />
     <Compile Include="DaTa\IsDatagridDouble.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />

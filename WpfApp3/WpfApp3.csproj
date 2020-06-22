@@ -203,6 +203,8 @@
     <Compile Include="CharLive.xaml.cs">
       <DependentUpon>CharLive.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Command\Commands.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Converts\BoolToVisibleConver.cs" />
     <Compile Include="Converts\SubjectToBoolConver.cs" />
     <Compile Include="Converts\TreeViewConver.cs" />

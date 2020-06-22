@@ -252,6 +252,15 @@
         <WrapPanel>
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <PasswordBox Width="140" Height="50" PasswordChar="X" Password="sf" BorderBrush="#dcdcdc"     extend:PasswordBoxExtend.Attach="True" VerticalContentAlignment="Center" extend:PasswordBoxExtend.Password="{Binding Pwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label  FontFamily="Webdings"  Content=""></Label>
+            <Button   Height="30"  Background="Transparent" Command="{Binding Sumbitcomm}"  CommandParameter="{Binding Addname}" >
+                <Border CornerRadius="4" Background="SeaGreen">
+                <StackPanel Orientation="Horizontal" Margin="1,0"  >
+                <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
+                <TextBlock Text="确定" ></TextBlock>
+                </StackPanel>
+                </Border>
+            </Button>
             <TextBlock Text="aa" PreviewMouseLeftButtonDown="link_PreviewMouseLeftButtonDown"></TextBlock>
             <!--<Image  Style="{DynamicResource imagkey}"   HorizontalAlignment="Left" VerticalAlignment="Top"    RenderTransformOrigin="0.5,0.5">
                 -->
@@ -801,7 +810,7 @@
         <Grid x:Name="GrdTest">
             <StackPanel>
                 <Canvas>
-                    <Button Click="Button_Click_7" Content="sadfasdf"   ></Button>
+                    <Button  Click="Button_Click_7" Content="sadfasdf"   ></Button>
                 </Canvas>
             </StackPanel>
         </Grid>

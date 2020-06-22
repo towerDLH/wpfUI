@@ -3,9 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:UI"
      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:convert="clr-namespace:UI.Convert">
 
-
+    <convert:WindowBaseCornerRadiusConverter x:Key="WinConRaConvert"></convert:WindowBaseCornerRadiusConverter>
     <Style TargetType="{x:Type local:TextBoxEx}">
         <Setter Property="BorderBrush" Value="Silver"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -245,6 +246,8 @@
         </Setter>
     </Style>
     <Style TargetType="{x:Type local:WindowsBase}"  >
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="IsTabStop"
                 Value="False" />
         <Setter Property="BorderBrush" Value="#6fbdd1" />
@@ -258,8 +261,6 @@
                 Value="True" />
         <Setter Property="TextOptions.TextFormattingMode"
                 Value="Display" />
-        <Setter Property="WindowStyle"
-                Value="SingleBorderWindow" />
         <Setter Property="FontFamily"
                 Value="Segoe UI" />
         <Setter Property="WindowChrome.WindowChrome">
@@ -273,9 +274,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WindowsBase}">
-                    <Border Background="{TemplateBinding BorderBrush}"
-                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent} }"
-                                BorderThickness="0">
+                   
+                   
                         <Grid Name="root" Style="{StaticResource FontAwesome}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent},Path=HeaderHeight}"/>
@@ -284,6 +284,9 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
+                        <Border Background="{TemplateBinding BorderBrush}"
+                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource WinConRaConvert},ConverterParameter=header }"
+                                BorderThickness="0">
                             <Grid Name="header"      >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -330,8 +333,9 @@
                                             IsTabStop="False"/>
                                 </StackPanel>
                             </Grid>
-                            <Border Grid.Row="1" 
-                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent} }"
+                        </Border>
+                        <Border Grid.Row="1" 
+                                CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent} ,Converter={StaticResource WinConRaConvert},ConverterParameter=content}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 Background="{TemplateBinding Background}"
@@ -341,8 +345,6 @@
                                 </AdornerDecorator>
                             </Border>
                         </Grid>
-
-                    </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsActive" Value="False">
                             <Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain"/>
