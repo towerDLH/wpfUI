@@ -81,7 +81,6 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3_Content.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.cache
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3_MarkupCompile.lref
-D:\Test\WpfTest\WpfApp3\obj\Debug\App.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\CharLive.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\HandTest.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\ListView.baml
@@ -128,3 +127,11 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\Skin\SkinDictionary.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\NoUserContent.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\DiagramDesigner.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\DiagramDesigner.pdb
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\FlowWindow.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\Style\Expander.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\FlowWindow.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\Style\FlowChartStencils.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\Style\ShapeStencils.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\App.baml

@@ -1,7 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:s="clr-namespace:DiagramDesigner.Controls"
-                    xmlns:local="clr-namespace:DiagramDesigner.Themes.Style">
+                    xmlns:s="clr-namespace:DiagramDesigner.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/DiagramDesigner;component/Themes/Style/Shared.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <ContextMenu x:Key="ConnectionContextMenu">
         <MenuItem Header="Delete" Command="{x:Static ApplicationCommands.Delete}">
             <MenuItem.Icon>

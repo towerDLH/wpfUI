@@ -5,7 +5,9 @@
      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:convert="clr-namespace:UI.Convert">
-
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/UI;component/Themes/IconBtton.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
     <convert:WindowBaseCornerRadiusConverter x:Key="WinConRaConvert"></convert:WindowBaseCornerRadiusConverter>
     <Style TargetType="{x:Type local:TextBoxEx}">
         <Setter Property="BorderBrush" Value="Silver"/>
@@ -387,20 +389,6 @@
         <Setter Property="Background" Value="{DynamicResource skin_Blue}"></Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:IconButton}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:IconButton}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                        <!--<DataGrid x:Name="PART_popupDataGrid"></DataGrid>-->
-                        <TextBlock x:Name="Ctx"></TextBlock>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 
 
     <Style TargetType="{x:Type local:CustomWindow}">

@@ -22,7 +22,7 @@ namespace DiagramDesigner.Controls
         static Connection()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Connection), new FrameworkPropertyMetadata(typeof(Connection)));
-        }
+       }
         private Adorner connectionAdorner;
 
         #region Properties

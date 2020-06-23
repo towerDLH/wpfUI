@@ -22,7 +22,7 @@ namespace UI
     [TemplatePart(Name = "Dtg", Type = typeof(TextBlock))]
     [ContentProperty("Items")]
     [DefaultProperty("Items")]
-    public class IconButton : Control
+    public class IconButton : Button
     {
         private const string Dtg = "Ctx";
         /// <summary>

@@ -260,6 +260,9 @@
     <Compile Include="Window9.xaml.cs">
       <DependentUpon>Window9.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPfTestContrl\FlowWindow.xaml.cs">
+      <DependentUpon>FlowWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPfTestContrl\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
@@ -327,7 +330,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\FlowChartStencils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\Geometries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\ShapeStencils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +383,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPfTestContrl\FlowWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -467,6 +486,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DiagramDesigner\DiagramDesigner.csproj">
+      <Project>{f0c7c18f-dfd2-415b-bf86-87ee2dec112f}</Project>
+      <Name>DiagramDesigner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UI\UI.csproj">
       <Project>{86a2212a-062f-4c96-8c03-95b72ea46fc1}</Project>
       <Name>UI</Name>
