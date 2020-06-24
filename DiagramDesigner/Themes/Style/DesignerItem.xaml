@@ -7,56 +7,56 @@
     </ResourceDictionary.MergedDictionaries>
 
     <ContextMenu x:Key="DesignerItemContextMenu">
-        <MenuItem Header="Cut" Command="{x:Static ApplicationCommands.Cut}">
+        <MenuItem Header="剪切" Command="{x:Static ApplicationCommands.Cut}">
             <MenuItem.Icon>
                 <Image Source="Images/Cut.png" Width="16"/>
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="Copy" Command="{x:Static ApplicationCommands.Copy}">
+        <MenuItem Header="复制" Command="{x:Static ApplicationCommands.Copy}">
             <MenuItem.Icon>
                 <Image Source="Images/Copy.png" Width="16"/>
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
+        <MenuItem Header="粘贴" Command="{x:Static ApplicationCommands.Paste}">
             <MenuItem.Icon>
                 <Image Source="Images/Paste.png" Width="16"/>
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="Delete" Command="{x:Static ApplicationCommands.Delete}">
+        <MenuItem Header="删除" Command="{x:Static ApplicationCommands.Delete}">
             <MenuItem.Icon>
                 <Image Source="Images/Delete.png" Width="16"/>
             </MenuItem.Icon>
         </MenuItem>
         <Separator/>
-        <MenuItem Header="Grouping">
-            <MenuItem Header="Group" Command="{x:Static s:DesignerCanvas.Group}">
+        <MenuItem Header="分组">
+            <MenuItem Header="分组" Command="{x:Static s:DesignerCanvas.Group}">
                 <MenuItem.Icon>
                     <Image Source="Images/Group.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Ungroup" Command="{x:Static s:DesignerCanvas.Ungroup}">
+            <MenuItem Header="解组" Command="{x:Static s:DesignerCanvas.Ungroup}">
                 <MenuItem.Icon>
                     <Image Source="Images/Ungroup.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
         </MenuItem>
-        <MenuItem Header="Order">
-            <MenuItem Header="Bring Forward" Command="{x:Static s:DesignerCanvas.BringForward}">
+        <MenuItem Header="排序">
+            <MenuItem Header="上一层" Command="{x:Static s:DesignerCanvas.BringForward}">
                 <MenuItem.Icon>
                     <Image Source="Images/BringForward.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Bring To Front" Command="{x:Static s:DesignerCanvas.BringToFront}">
+            <MenuItem Header="最上层" Command="{x:Static s:DesignerCanvas.BringToFront}">
                 <MenuItem.Icon>
                     <Image Source="Images/BringToFront.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Send Backward" Command="{x:Static s:DesignerCanvas.SendBackward}">
+            <MenuItem Header="下一层" Command="{x:Static s:DesignerCanvas.SendBackward}">
                 <MenuItem.Icon>
                     <Image Source="Images/SendBackward.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Send To Back" Command="{x:Static s:DesignerCanvas.SendToBack}">
+            <MenuItem Header="最下层" Command="{x:Static s:DesignerCanvas.SendToBack}">
                 <MenuItem.Icon>
                     <Image Source="Images/SendToBack.png" Width="16"/>
                 </MenuItem.Icon>

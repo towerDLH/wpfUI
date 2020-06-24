@@ -238,7 +238,7 @@
         </Style>
         <ControlTemplate x:Key="rec">
             <Grid>
-                <Rectangle Fill="Gray"   > </Rectangle>
+                <Rectangle Fill="Gray"   ></Rectangle>
                 <TextBlock Text="asa"></TextBlock>
             </Grid>
         </ControlTemplate>
@@ -255,10 +255,10 @@
             <Label  FontFamily="Webdings"  Content=""></Label>
             <Button   Height="30"  Background="Transparent" Command="{Binding Sumbitcomm}"  CommandParameter="{Binding Addname}" >
                 <Border CornerRadius="4" Background="SeaGreen">
-                <StackPanel Orientation="Horizontal" Margin="1,0"  >
-                <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
-                <TextBlock Text="确定" ></TextBlock>
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="1,0"  >
+                        <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>
+                        <TextBlock Text="确定" ></TextBlock>
+                    </StackPanel>
                 </Border>
             </Button>
             <TextBlock Text="aa" PreviewMouseLeftButtonDown="link_PreviewMouseLeftButtonDown"></TextBlock>
@@ -287,7 +287,20 @@
                 <ui:MoveThumb  Margin="50" x:Name="movet1"  ></ui:MoveThumb>
                 <ui:MarkLine x:Name="mark"  StartEvent="mark_StartEvent" EndEvent="mark_EndEvent"></ui:MarkLine>
                 <Polyline  x:Name="ply"  Stroke="Blue" StrokeThickness="2" Points="10,10,120,130"   ></Polyline>
-               
+
+                <Control Background="Red" Width="100" Height="10">
+                    <Control.Template>
+                        <ControlTemplate>
+                            <Grid x:Name="a">
+
+                                <Path Style="{StaticResource Process_DragThumb}"/>
+                                <TextBlock Text="aa"></TextBlock>
+                            </Grid>
+
+                        </ControlTemplate>
+                    </Control.Template>
+                </Control>
+
                 <WrapPanel>
                     <!--<ScrollBar  Height="30" Width="200"    Orientation="Horizontal">
 
@@ -296,14 +309,16 @@
                     <ListBox>
                         <Slider Height="50"  Foreground="Black"  x:Name="Ab"   Width="200" Value="1" Maximum="10" TickPlacement="BottomRight" TickFrequency="4" Ticks="1,3,9" IsSelectionRangeEnabled="True" SelectionStart="0" SelectionEnd="10"  ></Slider>
                         <Slider Height="30" Width="100"  Value="{Binding Path=Value,  ElementName=Ab}"   ></Slider>
-                        --><!--<Path  Data="{DynamicResource CalendarGeometry}"  ></Path>--><!--
+                        -->
+                    <!--<Path  Data="{DynamicResource CalendarGeometry}"  ></Path>-->
+                    <!--
                     </ListBox>-->
 
                 </WrapPanel>
-               
+
             </Grid>
             <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"  >
-              
+
                 <Canvas Name="myDesigner"  Height="200" Width="400"  >
                     <Canvas.RenderTransform>
                         <TransformGroup>
@@ -312,7 +327,7 @@
                     </Canvas.RenderTransform>
                     <!--<ui:workflowContrl></ui:workflowContrl>
                     <ui:workflowContrl ></ui:workflowContrl>-->
-                        </Canvas>
+                </Canvas>
             </ScrollViewer>
             <core:ProgressRing Width="180" Height="180" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
             <TextBox  AcceptsReturn="True" Height="40" Width="49" Text="asdd"  TextWrapping="Wrap"></TextBox>

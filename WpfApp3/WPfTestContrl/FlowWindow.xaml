@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
         xmlns:s="clr-namespace:DiagramDesigner.Controls;assembly=DiagramDesigner"
         mc:Ignorable="d"
-        Title="FlowWindow" Height="850" Width="1000">
+        Title="工作流" Height="850" Width="1000">
     <Window.Resources>
         <ContextMenu x:Key="DesignerCanvasContextMenu">
             <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
@@ -20,28 +20,42 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Margin="0,0,5,0">
-
-            <Expander>
-            <s:Toolbox  >
-                    <ItemsControl.Items>
-                        <Image IsHitTestVisible="False"
-                   Stretch="Fill"
-                   Source="../Image/1.jpg" />
-                    </ItemsControl.Items>
-                </s:Toolbox>
-            </Expander>
+            
             <Expander Header="流程控件" Style="{StaticResource FlowExpander}" Content="{StaticResource  FlowChartStencils}"    IsExpanded="True">
-
+            </Expander>
+            <Expander Header="子流程控件" Style="{StaticResource FlowExpander}"   IsExpanded="True">
+                <StackPanel>
+ 
+                </StackPanel>
             </Expander>
         </StackPanel>
-        <GroupBox Header="模板" Grid.Column="1" Margin="3,0,0,0">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                <Button Content="保存" Width="50" Height="30"></Button>
+                <Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild" Click="BtnSaveChild_Click"></Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Frame x:Name="mainFrame" Grid.Column="1" BorderBrush="Blue" BorderThickness="1" NavigationUIVisibility="Visible"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <GroupBox Header="模板"  Margin="3,0,0,0">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-                <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
                             Background="{StaticResource WindowBackgroundBrush}"
                             Margin="10" FocusVisualStyle="{x:Null}"
                             ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>
-            </ScrollViewer>
-        </GroupBox>
+                    </ScrollViewer>
+                </GroupBox>
+
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -5,29 +5,29 @@
         <ResourceDictionary Source="/DiagramDesigner;component/Themes/Style/Shared.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <ContextMenu x:Key="ConnectionContextMenu">
-        <MenuItem Header="Delete" Command="{x:Static ApplicationCommands.Delete}">
+        <MenuItem Header="删除" Command="{x:Static ApplicationCommands.Delete}">
             <MenuItem.Icon>
                 <Image Source="Images/Delete.png" Width="16"/>
             </MenuItem.Icon>
         </MenuItem>
         <Separator/>
-        <MenuItem Header="Order">
-            <MenuItem Header="Bring Forward" Command="{x:Static s:DesignerCanvas.BringForward}">
+        <MenuItem Header="排序">
+            <MenuItem Header="上一层" Command="{x:Static s:DesignerCanvas.BringForward}">
                 <MenuItem.Icon>
                     <Image Source="Images/BringForward.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Bring To Front" Command="{x:Static s:DesignerCanvas.BringToFront}">
+            <MenuItem Header="最上层" Command="{x:Static s:DesignerCanvas.BringToFront}">
                 <MenuItem.Icon>
                     <Image Source="Images/BringToFront.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Send Backward" Command="{x:Static s:DesignerCanvas.SendBackward}">
+            <MenuItem Header="下一层" Command="{x:Static s:DesignerCanvas.SendBackward}">
                 <MenuItem.Icon>
                     <Image Source="Images/SendBackward.png" Width="16"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Send To Back" Command="{x:Static s:DesignerCanvas.SendToBack}">
+            <MenuItem Header="最下层" Command="{x:Static s:DesignerCanvas.SendToBack}">
                 <MenuItem.Icon>
                     <Image Source="Images/SendToBack.png" Width="16"/>
                 </MenuItem.Icon>
