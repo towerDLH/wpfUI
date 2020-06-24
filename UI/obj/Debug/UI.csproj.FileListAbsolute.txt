@@ -33,4 +33,3 @@ D:\Test\WpfTest\UI\bin\Debug\System.Windows.Interactivity.dll
 D:\Test\WpfTest\UI\bin\Debug\Microsoft.Expression.Interactions.xml
 D:\Test\WpfTest\UI\bin\Debug\System.Windows.Interactivity.xml
 D:\Test\WpfTest\UI\obj\Debug\Themes\IconBtton.baml
-D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache

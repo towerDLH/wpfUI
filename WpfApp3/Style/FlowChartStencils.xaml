@@ -33,10 +33,13 @@
     </Style>
 
     <!-- Process -->
+    <Style x:Key="Process1" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M512 409.6v102.4h153.6c61.696 0 102.4 42.7008 102.4 102.4v51.2h102.4a102.4 102.4 0 0 1 102.4 102.4v102.4a102.4 102.4 0 0 1-102.4 102.4h-256a102.4 102.4 0 0 1-102.4-102.4v-102.4a102.4 102.4 0 0 1 102.4-102.4h102.4v-51.2c0-30.7712-17.152-51.2-51.2-51.2H307.2c-34.048 0-51.2 20.4288-51.2 51.2v51.2h102.4a102.4 102.4 0 0 1 102.4 102.4v102.4a102.4 102.4 0 0 1-102.4 102.4H102.4a102.4 102.4 0 0 1-102.4-102.4v-102.4a102.4 102.4 0 0 1 102.4-102.4h102.4v-51.2c0-59.6992 34.816-102.4 96.512-102.4H460.8V409.6H358.4a102.4 102.4 0 0 1-102.4-102.4V204.8a102.4 102.4 0 0 1 102.4-102.4h256a102.4 102.4 0 0 1 102.4 102.4v102.4a102.4 102.4 0 0 1-102.4 102.4h-102.4z m-256 307.2H102.4a51.2 51.2 0 0 0-51.2 51.2v102.4a51.2 51.2 0 0 0 51.2 51.2h256a51.2 51.2 0 0 0 51.2-51.2v-102.4a51.2 51.2 0 0 0-51.2-51.2H256z m460.8 0h-102.4a51.2 51.2 0 0 0-51.2 51.2v102.4a51.2 51.2 0 0 0 51.2 51.2h256a51.2 51.2 0 0 0 51.2-51.2v-102.4a51.2 51.2 0 0 0-51.2-51.2h-153.6z"/>
+    </Style>
+
     <Style x:Key="Process" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
         <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
     </Style>
-
     <Style x:Key="Process_DragThumb" TargetType="Path" BasedOn="{StaticResource Process}">
         <Setter Property="IsHitTestVisible" Value="true"/>
         <Setter Property="Fill" Value="Transparent"/>
@@ -318,4 +321,37 @@
             </Path>
         </ItemsControl.Items>
     </s:Toolbox>
+    <s:Toolbox x:Key="FlowChartChildStencils" ItemSize="120,110" SnapsToDevicePixels="True"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ItemsControl.Items>
+            <Path Style="{StaticResource Process1}" Width="60" Height="50" ToolTip="子节点" Fill="ForestGreen" Stroke="White" >
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate >
+                        <Path Style="{StaticResource Process_DragThumb}"   />
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+
+            <Grid ToolTip="子节点2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Path Style="{StaticResource Process1}" Width="60" Height="50"  Fill="ForestGreen" Stroke="White" >
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate >
+                            <Path Style="{StaticResource Process_DragThumb}">
+                            </Path>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <Grid Grid.Row="1">
+                    <StackPanel>
+                        <Button Content="编辑"  Width="30" Height="20" Tag=""></Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ItemsControl.Items>
+    </s:Toolbox>
+
 </ResourceDictionary>

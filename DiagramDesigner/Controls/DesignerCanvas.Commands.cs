@@ -773,6 +773,13 @@ namespace DiagramDesigner.Controls
         void SaveFile(XElement xElement)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
+            string str1 = Directory.GetCurrentDirectory();
+            string Enclosure_Path = str1 + "\\Page";
+            if (!Directory.Exists(Enclosure_Path))     // 返回bool类型，存在返回true，不存在返回false
+            {
+                Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
+            }
+            saveFile.InitialDirectory = Enclosure_Path;
             saveFile.Filter = "Files (*.xml)|*.xml|All Files (*.*)|*.*";
             if (saveFile.ShowDialog() == true)
             {

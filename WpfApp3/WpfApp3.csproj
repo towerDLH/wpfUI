@@ -222,6 +222,7 @@
     <Compile Include="LogHelper.cs" />
     <Compile Include="Model\Large.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\RememberClass.cs" />
     <Compile Include="MouseTree.xaml.cs">
       <DependentUpon>MouseTree.xaml</DependentUpon>
     </Compile>
@@ -522,6 +523,7 @@
     <Resource Include="Image\8.jpg" />
     <Resource Include="Image\9.jpg" />
     <Resource Include="logo.ico" />
+    <Resource Include="Image\flowchild.png" />
     <Content Include="Resours\GanttChart.dll" />
     <Content Include="Resours\Microsoft.Expression.Interactions.dll" />
     <Content Include="Resours\system.windows.interactivity.dll" />
