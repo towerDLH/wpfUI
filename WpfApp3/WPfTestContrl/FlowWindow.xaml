@@ -13,6 +13,8 @@
             </MenuItem>
             <MenuItem Header="Select All" Command="{x:Static s:DesignerCanvas.SelectAll}"/>
         </ContextMenu>
+
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,8 +25,24 @@
 
             <Expander Header="流程控件" Style="{StaticResource FlowExpander}" Content="{StaticResource  FlowChartStencils}"    IsExpanded="True">
             </Expander>
-            <Expander Header="子流程控件" Style="{StaticResource FlowExpander}"   Content="{StaticResource  FlowChartChildStencils}"   IsExpanded="True">
-
+            <Expander Header="子流程控件" Style="{StaticResource FlowExpander}"   Height="500"       IsExpanded="True">
+                <ListBox Name="listBox1" Background="AliceBlue"  
+                     HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Width="40" Height="40">
+                                <Border BorderThickness="1">
+                                    <Image  Source="{Binding IcoImage}" Width="30" 
+                                   Height="30" Margin="0,5,6,0"
+                                   Tag="{Binding IcoName}" 
+                                MouseLeftButtonDown="Image_MouseLeftButtonDown"
+                                   HorizontalAlignment="Center" />
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Expander>
         </StackPanel>
         <Grid Grid.Column="1" >
@@ -36,8 +54,7 @@
             <Grid Grid.Row="0">
                 <StackPanel Orientation="Horizontal">
                     <Button Content="保存" Width="50" Height="30" Click="Button_Click"></Button>
-                    <Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"  Command="{x:Static ApplicationCommands.Save}"
-                            CommandTarget="{Binding ElementName=MyDesigner}"></Button>
+                    <Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>
                     <Button Content="导入子节点" Width="50" Height="30" x:Name="BtnOpen"   Command="{x:Static ApplicationCommands.Open}"
                             CommandTarget="{Binding ElementName=MyDesigner}"></Button>
                 </StackPanel>

@@ -135,3 +135,5 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\FlowWindow.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\Style\FlowChartStencils.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\Style\ShapeStencils.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\App.baml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.baml

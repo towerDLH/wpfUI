@@ -10,12 +10,10 @@
         CornerRadius="14"
         ResizeMode="CanResize" 
         Title="WindowTest" Height="450" Width="800">
-    <Grid   >
-        <Border    Margin="10" >
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="s"></TextBlock>
-                <TextBlock Text="b"></TextBlock>
-            </StackPanel>
-        </Border>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/WpfApp3;component/Image/1.jpg" Opacity="0.5"></ImageBrush>
+        </Grid.Background>
+        <TextBlock Text="子控件一" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
     </Grid>
 </ui:WindowsBase >

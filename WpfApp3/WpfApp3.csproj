@@ -220,6 +220,8 @@
       <DependentUpon>LoadWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogHelper.cs" />
+    <Compile Include="Model\Brushback.cs" />
+    <Compile Include="Model\FlowCharControl.cs" />
     <Compile Include="Model\Large.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\RememberClass.cs" />
@@ -263,6 +265,9 @@
     </Compile>
     <Compile Include="WPfTestContrl\FlowWindow.xaml.cs">
       <DependentUpon>FlowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPfTestContrl\ListBoxDrop.xaml.cs">
+      <DependentUpon>ListBoxDrop.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPfTestContrl\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -388,6 +393,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPfTestContrl\FlowWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPfTestContrl\ListBoxDrop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
