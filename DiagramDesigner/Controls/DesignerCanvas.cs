@@ -1,4 +1,5 @@
 ﻿using DiagramDesigner.Data;
+using DiagramDesigner.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ using System.Xml;
 
 namespace DiagramDesigner.Controls
 {
-    
+
     public partial class DesignerCanvas : Canvas
     {
         private Point? rubberbandSelectionStartPoint = null;
@@ -121,6 +122,77 @@ namespace DiagramDesigner.Controls
 
                 e.Handled = true;
             }
+            else
+            {
+                FlowChar flowChar = e.Data.GetData(typeof(FlowChar)) as FlowChar;
+                if (flowChar != null)
+                {
+                    Grid grid = new Grid();
+                    grid.Width = 80;
+                    grid.Height = 70;
+                    RowDefinition row1 = new RowDefinition();
+                    RowDefinition row2 = new RowDefinition();
+                    row2.Height = GridLength.Auto;
+                    grid.RowDefinitions.Add(row1);
+                    grid.RowDefinitions.Add(row2);
+                    Image image = new Image();
+                    image.Source = new BitmapImage(new Uri(flowChar.IcoImage, UriKind.RelativeOrAbsolute));
+                    Button button = new Button();
+                    button.Content = "编辑";
+                    button.Margin = new Thickness(3, 2, 3, 2);
+                    button.Tag = flowChar.FlowcharPath;
+                    button.Click += OpenFlowChar;
+                    grid.Children.Add(image);
+                    grid.Children.Add(button);
+                    Grid.SetRow(image, 0);
+                    Grid.SetRow(button, 1);
+                    DesignerItem newItem = null;
+                    // Object content = XamlReader.Load(XmlReader.Create(new StringReader(dragObject.Xaml)));
+
+
+                    newItem = new DesignerItem();
+                    newItem.Content = grid;
+
+                    Point position = e.GetPosition(this);
+
+
+                    // Size desiredSize = dragObject.DesiredSize.Value;
+                    newItem.Width = grid.Width;
+                    newItem.Height = grid.Height;
+
+                    DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X - newItem.Width / 2));
+                    DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y - newItem.Height / 2));
+
+                    //else
+                    //{
+                    //    DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X));
+                    //    DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y));
+                    //}
+
+                    Canvas.SetZIndex(newItem, this.Children.Count);
+                    this.Children.Add(newItem);
+                    SetConnectorDecoratorTemplate(newItem);
+
+                    //update selection
+                    this.SelectionService.SelectItem(newItem);
+                    newItem.Focus();
+
+
+                    e.Handled = true;
+                }
+
+
+            }
+        }
+        /// <summary>
+        /// 打开子控件的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenFlowChar(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            MessageBox.Show(btn.Tag.ToString(), "路径");
         }
 
         protected override Size MeasureOverride(Size constraint)

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApp3.Model
 {
-   public class FlowCharControl
+    [Serializable]
+    public class FlowCharControl
     {
 
         private string filename;

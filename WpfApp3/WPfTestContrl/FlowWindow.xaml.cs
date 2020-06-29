@@ -1,5 +1,6 @@
 ﻿using DiagramDesigner.Controls;
 using DiagramDesigner.Data;
+using DiagramDesigner.Model;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,9 @@ namespace WpfApp3.WPfTestContrl
     /// </summary>
     public partial class FlowWindow : Window
     {
-        ObservableCollection<bar> bars = new ObservableCollection<bar>();
+        ObservableCollection<FlowChar> bars = new ObservableCollection<FlowChar>();
         private Dictionary<string, Uri> allViews = new Dictionary<string, Uri>(); //包含所有页面
-        public   Dictionary<string, FlowCharControl> dicflowcontrol = new Dictionary<string, FlowCharControl>();
+        public Dictionary<string, FlowCharControl> dicflowcontrol = new Dictionary<string, FlowCharControl>();
         List<FlowCharControl> flowcharlist = new List<FlowCharControl>();
         RememberClass rememberClass;
         public FlowWindow()
@@ -46,7 +47,7 @@ namespace WpfApp3.WPfTestContrl
         {
             dicflowcontrol = rememberClass.GetDicCount();
             //如果长度>0,就把集合中的用户名加过来。
-             if (dicflowcontrol.Count > 0)
+            if (dicflowcontrol.Count > 0)
             {
                 //循环遍历RememberUserInfo对象。
                 foreach (FlowCharControl item in dicflowcontrol.Values)
@@ -54,9 +55,11 @@ namespace WpfApp3.WPfTestContrl
                     flowcharlist.Add(item);
                 }
             }
-            for (int i = 0; i < 5; i++)
+            string str1 = Directory.GetCurrentDirectory();
+            string Enclosure_Path = str1 + "\\Page"+ "/111.xml";
+            for (int i = 1; i < 5; i++)
             {
-                bars.Add(new bar() { IcoName = $"{i}", IcoImage = $"/WpfApp3;component/Image/{i}.jpg" });
+                bars.Add(new FlowChar() { Flowname = $"{i}", FlowcharPath = Enclosure_Path, IcoImage = $"/WpfApp3;component/Image/{i}.jpg" });
             }
             listBox1.ItemsSource = bars;
             // FlowChar.DataContext = flowcharlist;
@@ -69,17 +72,17 @@ namespace WpfApp3.WPfTestContrl
         private void BtnSaveChild_Click(object sender, RoutedEventArgs e)
         {
 
-            IEnumerable<DesignerItem> designerItems = MyDesigner.Children.OfType<DesignerItem>();
-            IEnumerable<Connection> connections = MyDesigner.Children.OfType<Connection>();
+            //IEnumerable<DesignerItem> designerItems = MyDesigner.Children.OfType<DesignerItem>();
+            //IEnumerable<Connection> connections = MyDesigner.Children.OfType<Connection>();
 
-            XElement designerItemsXML = SerializeDesignerItems(designerItems);
-            XElement connectionsXML = SerializeConnections(connections);
+            //XElement designerItemsXML = SerializeDesignerItems(designerItems);
+            //XElement connectionsXML = SerializeConnections(connections);
 
-            XElement root = new XElement("Root");
-            root.Add(designerItemsXML);
-            root.Add(connectionsXML);
+            //XElement root = new XElement("Root");
+            //root.Add(designerItemsXML);
+            //root.Add(connectionsXML);
 
-            SaveFile(root);
+            //SaveFile(root);
         }
 
         private XElement SerializeConnections(IEnumerable<Connection> connections)
@@ -147,7 +150,7 @@ namespace WpfApp3.WPfTestContrl
             flowcharcontrol.FileName = saveFile.SafeFileName;
             flowcharcontrol.FilePath = saveFile.FileName;
             flowcharlist.Add(flowcharcontrol);
-          //  FlowChar.DataContext = flowcharlist;
+            //  FlowChar.DataContext = flowcharlist;
             rememberClass.AddRemember(flowcharcontrol);
         }
 
@@ -159,6 +162,65 @@ namespace WpfApp3.WPfTestContrl
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+        ListBox dragSource = null;
+        private void ListBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListBox parent = (ListBox)sender;
+            dragSource = parent;
+            object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+            if (data != null)
+            {
+                DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+            }
+        }
+        #region GetDataFromListBox(ListBox,Point)
+        private static object GetDataFromListBox(ListBox source, Point point)
+        {
+            UIElement element = source.InputHitTest(point) as UIElement;
+            if (element != null)
+            {
+                object data = DependencyProperty.UnsetValue;
+                while (data == DependencyProperty.UnsetValue)
+                {
+                    data = source.ItemContainerGenerator.ItemFromContainer(element);
+
+                    if (data == DependencyProperty.UnsetValue)
+                    {
+                        element = VisualTreeHelper.GetParent(element) as UIElement;
+                    }
+
+                    if (element == source)
+                    {
+                        return null;
+                    }
+                }
+
+                if (data != DependencyProperty.UnsetValue)
+                {
+                    return data;
+                }
+            }
+
+            return null;
+        }
+
+        #endregion
+        /// <summary>
+        /// 新建子流程控件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnNew_Click(object sender, RoutedEventArgs e)
+        {
+            FlowCharUpdate flow = new FlowCharUpdate();
+            flow.Closed += WinClose;
+            flow.ShowDialog();
+        }
+
+        private void WinClose(object sender, EventArgs e)
+        {
+           //刷新子控件
         }
     }
 }

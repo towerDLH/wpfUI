@@ -55,6 +55,9 @@
     <Compile Include="Controls\DesignerCanvas.cs" />
     <Compile Include="Controls\DesignerItem.cs" />
     <Compile Include="Controls\DragThumb.cs" />
+    <Compile Include="Controls\FlowCharCentre.xaml.cs">
+      <DependentUpon>FlowCharCentre.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RelativePositionPanel.cs" />
     <Compile Include="Controls\ResizeChrome.cs" />
     <Compile Include="Controls\ResizeThumb.cs" />
@@ -67,9 +70,14 @@
     <Compile Include="Data\PathFinder.cs" />
     <Compile Include="Data\RubberbandAdorner.cs" />
     <Compile Include="Data\SelectionService.cs" />
+    <Compile Include="Model\FlowChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\FlowCharCentre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -21,17 +22,23 @@ namespace WpfApp3.Model
 
         public Dictionary<string, FlowCharControl> GetFlowChar()
         {
+            MemoryStream ms = new MemoryStream();
             using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
             {
-                fs.Position = 0;
+                byte[] buffer = new byte[fs.Length];
+                int length = fs.Read(buffer, 0, (int)fs.Length);
+                fs.Close();
+                ms.Write(buffer, 0, length); // 将字节写入内存流以备序列化使用
+                ms.Flush();
                 //如果有数据。
-                if (fs.Length > 0)
+                if (ms.Length > 0)
                 {
                     //BinaryFormatter：以二进制格式序列化和反序列化对象或连接对象的整个图形。
                     //实例化序列化对象。
                     BinaryFormatter bf = new BinaryFormatter();
+                    ms.Position = 0;
                     //将反序化后的内容转换为dicUserInfo集合。
-                    dicflowcontrol = bf.Deserialize(fs) as Dictionary<string, FlowCharControl>;
+                    dicflowcontrol = bf.Deserialize(ms) as Dictionary<string, FlowCharControl>;
                 }
             }
             return dicflowcontrol;
@@ -62,9 +69,17 @@ namespace WpfApp3.Model
                 }
                 //再添加该用户，防止用户更新密码。
                 dicflowcontrol.Add(_flowcharconrol.FilePath, _flowcharconrol);
+
                 //序列化。
-                bf.Serialize(fs, dicflowcontrol);
-                //MessageBox.Show("添加成功。");                    
+                try
+                {
+                    bf.Serialize(fs, dicflowcontrol);
+                }
+                catch (Exception e)
+                {
+
+                    
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp3.Model;
 using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace WpfApp3.WPfTestContrl
 {
@@ -22,6 +23,7 @@ namespace WpfApp3.WPfTestContrl
     public partial class ListBoxDrop : Window
     {
         ObservableCollection<bar> bars = new ObservableCollection<bar>();
+        ObservableCollection<string> zoneList = new ObservableCollection<string>();
         bool leftMouseflag = false;
         /// <summary>
         /// 右边ListBox的结果集合
@@ -35,55 +37,63 @@ namespace WpfApp3.WPfTestContrl
 
         public void Load()
         {
-            for (int i = 0; i < 5; i++)
+            foreach (TimeZoneInfo tzi in TimeZoneInfo.GetSystemTimeZones())
             {
-                bars.Add(new bar() { IcoName = $"{i}", IcoImage =  $"/WpfApp3;component/Image/{i}.jpg" });
+                zoneList.Add(tzi.ToString());
             }
-            listBox1.ItemsSource = bars;
+            lbOne.ItemsSource = zoneList;
         }
 
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            leftMouseflag = true;
-            Image image = sender as Image;
-            this.Img.Source = image.Source;
-            Point point = e.GetPosition(null);
-            this.Img.SetValue(Canvas.LeftProperty, point.X);
-            this.Img.SetValue(Canvas.TopProperty, point.Y - 5.0);
-            this.Img.Visibility = Visibility.Visible;
-        }
-        private void LayoutRoot_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
 
-            //如果得知鼠标左键松动的位置是右边的ListBox上时则为右边的ListBox添加一列
-            Point point = e.GetPosition(null);
-
-            if (point.X > 400 && point.X < 450 && point.Y < 400 && leftMouseflag == true)
+        ListBox dragSource = null;
+        private void ListBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListBox parent = (ListBox)sender;
+            dragSource = parent;
+            object data = GetDataFromListBox(dragSource, e.GetPosition(parent));
+            if (data != null)
             {
-                string bimg = this.Img.Source.ToString() ;
-                this.Img.Visibility = Visibility.Collapsed;
-                AddiphoneList.Add(new bar()
+                DragDrop.DoDragDrop(parent, data, DragDropEffects.Move);
+            }
+        }
+        #region GetDataFromListBox(ListBox,Point)
+        private static object GetDataFromListBox(ListBox source, Point point)
+        {
+            UIElement element = source.InputHitTest(point) as UIElement;
+            if (element != null)
+            {
+                object data = DependencyProperty.UnsetValue;
+                while (data == DependencyProperty.UnsetValue)
                 {
-                    IcoName = "2",
-                    IcoImage = bimg
-                });
-                this.listBox2.ItemsSource = null;
-                this.listBox2.ItemsSource = AddiphoneList;
+                    data = source.ItemContainerGenerator.ItemFromContainer(element);
+
+                    if (data == DependencyProperty.UnsetValue)
+                    {
+                        element = VisualTreeHelper.GetParent(element) as UIElement;
+                    }
+
+                    if (element == source)
+                    {
+                        return null;
+                    }
+                }
+
+                if (data != DependencyProperty.UnsetValue)
+                {
+                    return data;
+                }
             }
-            else
-            {
-                this.Img.Visibility = Visibility.Collapsed;
-                this.Img.Source = null;
-            }
-            leftMouseflag = false;
+
+            return null;
         }
 
-        private void LayoutRoot_MouseMove(object sender, MouseEventArgs e)
+        #endregion
+        private void ListBox_Drop(object sender, DragEventArgs e)
         {
-            //让图片跟随鼠标的移动而移动
-            Point point = e.GetPosition(null);
-            this.Img.SetValue(Canvas.LeftProperty, point.X);
-            this.Img.SetValue(Canvas.TopProperty, point.Y - 5.0);
+            ListBox parent = (ListBox)sender;
+            object data = e.Data.GetData(typeof(string));
+            ((IList)dragSource.ItemsSource).Remove(data);
+            parent.Items.Add(data);
         }
     }
     public class bar : Brushback

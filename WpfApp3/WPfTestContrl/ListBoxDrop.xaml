@@ -6,48 +6,16 @@
         xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
         mc:Ignorable="d"
         Title="ListBoxDrop" Height="450" Width="800">
-    <!--这个Canvas中有鼠标左键弹起事件，以及鼠标移动事件-->
-    <Canvas x:Name="LayoutRoot" AllowDrop="True"
-            MouseLeftButtonUp="LayoutRoot_MouseLeftButtonUp"
-            MouseMove="LayoutRoot_MouseMove">
-        <!--这个是右边的ListBox，鼠标拖动的图标在这个ListBox范围内放开-->
-        <ListBox  Margin="400 0 0 0"   Background="AliceBlue" Height="400"
-                  HorizontalAlignment="Right"   Name="listBox2"
-                  VerticalAlignment="Top" Width="50" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Width="40" Height="40">
-                        <Border BorderThickness="1">
-                            <Image Source="{Binding IcoImage}" Width="30" 
-                                   Height="30" Margin="0,5,6,0" 
-                                   Tag="{Binding IcoName}"  
-                                   HorizontalAlignment="Center" />
-                        </Border>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <!--这个是左边的ListBox，鼠标将从此ListBox拖出图标-->
-        <ListBox Name="listBox1" Background="AliceBlue" Width="50" 
-                     HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     Height="400" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Width="40" Height="40">
-                        <Border BorderThickness="1">
-                            <Image  Source="{Binding IcoImage}" Width="30" 
-                                   Height="30" Margin="0,5,6,0"
-                                   Tag="{Binding IcoName}" 
-                                MouseLeftButtonDown="Image_MouseLeftButtonDown"
-                                   HorizontalAlignment="Center" />
-                        </Border>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <!--这个在鼠标拖动过程中显示的图标-->
-        <Image  Name="Img" Opacity="0.5" Width="30" Height="30"
-                Margin="0,5,6,0" Visibility="Collapsed"  HorizontalAlignment="Center" />
-
-    </Canvas>
+    <Grid>
+        <ListBox x:Name="lbOne" PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown"
+                 HorizontalAlignment="Left" Margin="12,29,0,12" Width="215"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        <ListBox x:Name="lbTwo" Drop="ListBox_Drop" AllowDrop="True"
+                 HorizontalAlignment="Right" Margin="0,29,12,12" Width="215"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <TextBlock Height="21" Text="ListBox One" HorizontalAlignment="Left"
+                   Margin="12,2,0,0" VerticalAlignment="Top" Width="120" />
+        <TextBlock Height="21" Text="ListBox Two" HorizontalAlignment="Right"
+                   Margin="0,2,107,0" VerticalAlignment="Top" Width="120" />
+    </Grid>
 </Window>

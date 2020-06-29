@@ -27,21 +27,24 @@
             </Expander>
             <Expander Header="子流程控件" Style="{StaticResource FlowExpander}"   Height="500"       IsExpanded="True">
                 <ListBox Name="listBox1" Background="AliceBlue"  
-                     HorizontalAlignment="Left" VerticalAlignment="Top" 
-                     >
+                     HorizontalAlignment="Left" VerticalAlignment="Top"  PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Width="40" Height="40">
-                                <Border BorderThickness="1">
+                            <StackPanel Width="40" Height="40" Margin="2">
+                                <Border BorderThickness="0,0,1,0"  >
                                     <Image  Source="{Binding IcoImage}" Width="30" 
                                    Height="30" Margin="0,5,6,0"
-                                   Tag="{Binding IcoName}" 
-                                MouseLeftButtonDown="Image_MouseLeftButtonDown"
+                                   ToolTip="{Binding Flowname}"
                                    HorizontalAlignment="Center" />
                                 </Border>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
                 </ListBox>
             </Expander>
         </StackPanel>
@@ -53,6 +56,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel Orientation="Horizontal">
+                    <Button Content="新建" Width="50" Height="30" Click="BtnNew_Click"></Button>
                     <Button Content="保存" Width="50" Height="30" Click="Button_Click"></Button>
                     <Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>
                     <Button Content="导入子节点" Width="50" Height="30" x:Name="BtnOpen"   Command="{x:Static ApplicationCommands.Open}"
@@ -64,13 +68,7 @@
             </Grid>
             <Grid Grid.Row="2">
                 <GroupBox Header="模板"  Margin="3,0,0,0">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto">
-                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
-                            Background="{StaticResource WindowBackgroundBrush}"
-                            Margin="10" FocusVisualStyle="{x:Null}"
-                            ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>
-                    </ScrollViewer>
+                    <s:FlowCharCentre  ></s:FlowCharCentre>
                 </GroupBox>
 
             </Grid>
