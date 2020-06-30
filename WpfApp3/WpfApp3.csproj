@@ -224,7 +224,6 @@
     <Compile Include="Model\FlowCharControl.cs" />
     <Compile Include="Model\Large.cs" />
     <Compile Include="Model\Person.cs" />
-    <Compile Include="Model\RememberClass.cs" />
     <Compile Include="MouseTree.xaml.cs">
       <DependentUpon>MouseTree.xaml</DependentUpon>
     </Compile>
@@ -262,9 +261,6 @@
     </Compile>
     <Compile Include="Window9.xaml.cs">
       <DependentUpon>Window9.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WPfTestContrl\FlowCharUpdate.xaml.cs">
-      <DependentUpon>FlowCharUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPfTestContrl\FlowWindow.xaml.cs">
       <DependentUpon>FlowWindow.xaml</DependentUpon>
@@ -392,10 +388,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window9.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPfTestContrl\FlowCharUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

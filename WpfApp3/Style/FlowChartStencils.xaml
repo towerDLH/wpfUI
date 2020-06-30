@@ -271,31 +271,31 @@
         <Setter Property="Stroke" Value="Transparent"/>
     </Style>
 
-    <s:Toolbox x:Key="FlowChartStencils" ItemSize="60,50" SnapsToDevicePixels="True"
+    <s:Toolbox x:Key="FlowChartStencils" ItemSize="60,50" SnapsToDevicePixels="True"  x:Shared = "false"
              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ItemsControl.Items>
-            <Path Style="{StaticResource Start}" ToolTip="Start" Fill="LawnGreen" Stroke="White">
+            <Path Style="{StaticResource Start}" ToolTip="开始" Fill="LawnGreen" Stroke="White">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Start_DragThumb}"/>
                     </ControlTemplate>
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
-            <Path Style="{StaticResource Process}" ToolTip="Process" Fill="LawnGreen" Stroke="White" >
+            <Path Style="{StaticResource Process}" ToolTip="过程" Fill="LawnGreen" Stroke="White" >
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Process_DragThumb}"/>
                     </ControlTemplate>
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
-            <Path Style="{StaticResource Decision}" ToolTip="Decision">
+            <Path Style="{StaticResource Decision}" ToolTip="判断">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Decision_DragThumb}"/>
                     </ControlTemplate>
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
-            <Path Style="{StaticResource Data}" ToolTip="Data" Fill="Wheat" Stroke="White">
+            <Path Style="{StaticResource Data}" ToolTip="数据" Fill="Wheat" Stroke="White">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Data_DragThumb}"/>
@@ -312,7 +312,7 @@
                     </ControlTemplate>
                 </s:DesignerItem.ConnectorDecoratorTemplate>
             </Path>
-            <Path Style="{StaticResource Terminator}" ToolTip="Terminator" Fill="Red" Stroke="White">
+            <Path Style="{StaticResource Terminator}" ToolTip="结束" Fill="Red" Stroke="White">
                 <s:DesignerItem.DragThumbTemplate>
                     <ControlTemplate>
                         <Path Style="{StaticResource Terminator_DragThumb}"/>

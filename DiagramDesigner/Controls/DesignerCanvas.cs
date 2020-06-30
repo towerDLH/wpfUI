@@ -140,7 +140,7 @@ namespace DiagramDesigner.Controls
                     Button button = new Button();
                     button.Content = "编辑";
                     button.Margin = new Thickness(3, 2, 3, 2);
-                    button.Tag = flowChar.FlowcharPath;
+                    button.Tag = flowChar;
                     button.Click += OpenFlowChar;
                     grid.Children.Add(image);
                     grid.Children.Add(button);
@@ -191,8 +191,13 @@ namespace DiagramDesigner.Controls
         /// <param name="e"></param>
         private void OpenFlowChar(object sender, RoutedEventArgs e)
         {
+             FlowCharUpdate flow = new FlowCharUpdate();
             Button btn = sender as Button;
-            MessageBox.Show(btn.Tag.ToString(), "路径");
+            var fc = btn.Tag as FlowChar;
+            //flow.Closed += WinClose;
+            flow.GetFlowChar(fc);
+             flow.ShowDialog();
+            //MessageBox.Show(, "路径");
         }
 
         protected override Size MeasureOverride(Size constraint)

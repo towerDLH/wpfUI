@@ -1,4 +1,5 @@
 ﻿using DiagramDesigner.Data;
+using DiagramDesigner.Model;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,10 @@ namespace DiagramDesigner.Controls
         public static RoutedCommand DistributeHorizontal = new RoutedCommand();
         public static RoutedCommand DistributeVertical = new RoutedCommand();
         public static RoutedCommand SelectAll = new RoutedCommand();
-
+        RememberClass rememberClass;
         public DesignerCanvas()
         {
+            rememberClass = new RememberClass();
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.New, New_Executed));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Open, Open_Executed));
             this.CommandBindings.Add(new CommandBinding(ApplicationCommands.Save, Save_Executed));
@@ -123,17 +125,25 @@ namespace DiagramDesigner.Controls
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            FlowChar flow = e.Parameter as FlowChar;
+            if (string.IsNullOrEmpty(flow.Flowname) || flow.Flowname == "")
+            {
+                MessageBox.Show("流程名称不能为空", "提示信息");
+                return;
+            }
+            if (flow.Flowtype == 1 && string.IsNullOrEmpty(flow.IcoImage))
+            {
+                MessageBox.Show("子流程图片不能为空", "提示信息");
+                return;
+            }
             IEnumerable<DesignerItem> designerItems = this.Children.OfType<DesignerItem>();
             IEnumerable<Connection> connections = this.Children.OfType<Connection>();
-
             XElement designerItemsXML = SerializeDesignerItems(designerItems);
             XElement connectionsXML = SerializeConnections(connections);
-
             XElement root = new XElement("Root");
             root.Add(designerItemsXML);
             root.Add(connectionsXML);
-
-            SaveFile(root);
+            SaveFile(root, flow);
         }
 
         #endregion
@@ -770,27 +780,53 @@ namespace DiagramDesigner.Controls
             return null;
         }
 
-        void SaveFile(XElement xElement)
+        void SaveFile(XElement xElement, FlowChar flowChar)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            string str1 = Directory.GetCurrentDirectory();
-            string Enclosure_Path = str1 + "\\Page";
-            if (!Directory.Exists(Enclosure_Path))     // 返回bool类型，存在返回true，不存在返回false
+            string FileName = "Flow";
+            if (flowChar.Flowtype == 1)
             {
-                Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
+                FileName = "FlowChar";
             }
-            saveFile.InitialDirectory = Enclosure_Path;
-            saveFile.Filter = "Files (*.xml)|*.xml|All Files (*.*)|*.*";
-            if (saveFile.ShowDialog() == true)
+            SaveFileDialog saveFile = new SaveFileDialog();
+            
+            if (!string.IsNullOrEmpty(flowChar.FlowcharPath) && flowChar != null)
             {
+                xElement.Save(flowChar.FlowcharPath);
+            }
+            else
+            {
+                string str1 = Directory.GetCurrentDirectory();
+                string Enclosure_Path = str1 + $"\\{FileName}";
+                if (!Directory.Exists(Enclosure_Path))     // 返回bool类型，存在返回true，不存在返回false
+                {
+                    Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
+                }
+                var filepath = Enclosure_Path + $"\\{flowChar.Flowname}"+".xml";
+               // saveFile.InitialDirectory = Enclosure_Path;
+                //saveFile.Filter = "Files (*.xml)|*.xml|All Files (*.*)|*.*";
+                //if (saveFile.ShowDialog() == true)
+                //{
+
+                //}
                 try
                 {
-                    xElement.Save(saveFile.FileName);
+                    xElement.Save(filepath);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+            }
+            if (FileName == "FlowChar")
+            {
+                FlowChar flowcharcontrol = new FlowChar();
+                //todo 文件名称通过截取，但是会有一点问题如果输入的名称是带点的话会有问题
+                string[] strArray = saveFile.SafeFileName.Split('.');
+                flowcharcontrol.Flowname = strArray[0];
+                flowcharcontrol.FlowcharPath = saveFile.FileName;
+                flowcharcontrol.IcoImage = flowChar.IcoImage;
+                rememberClass.AddRemember(flowcharcontrol);
+                MessageBox.Show("保存成功", "提示信息");
             }
         }
 

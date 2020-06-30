@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -58,6 +61,9 @@
     <Compile Include="Controls\FlowCharCentre.xaml.cs">
       <DependentUpon>FlowCharCentre.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FlowCharUpdate.xaml.cs">
+      <DependentUpon>FlowCharUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RelativePositionPanel.cs" />
     <Compile Include="Controls\ResizeChrome.cs" />
     <Compile Include="Controls\ResizeThumb.cs" />
@@ -71,10 +77,16 @@
     <Compile Include="Data\RubberbandAdorner.cs" />
     <Compile Include="Data\SelectionService.cs" />
     <Compile Include="Model\FlowChar.cs" />
+    <Compile Include="Model\ObservableObject.cs" />
+    <Compile Include="Model\RememberClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\FlowCharCentre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FlowCharUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +134,12 @@
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Stencils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

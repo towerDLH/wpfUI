@@ -7,7 +7,7 @@
         xmlns:s="clr-namespace:DiagramDesigner.Controls;assembly=DiagramDesigner"
         mc:Ignorable="d"
         Title="子流程控件" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="grd">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="265"/>
             <ColumnDefinition/>
@@ -54,19 +54,26 @@
             <Grid Grid.Row="1">
                 <Frame x:Name="mainFrame" Grid.Column="1" BorderBrush="Blue" BorderThickness="1" NavigationUIVisibility="Visible"/>
             </Grid>-->
-            <Grid Grid.Row="0" Height="80">
+            <Grid Grid.Row="0" MinHeight="80">
                 <WrapPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Label Content="子控件名称" VerticalAlignment="Center"></Label>
-                    <TextBox Width="100" Height="28" Text="{Binding Flowname}"></TextBox>
+                    <!--<Label Content="子流程名称" VerticalAlignment="Center"></Label>
+                    <TextBox Width="100" Height="28" Text="{Binding Tumodel.Flowname}"></TextBox>-->
                     <Label Content="图片路径" VerticalAlignment="Center"></Label>
-                    <TextBlock   VerticalAlignment="Center" Text="{Binding IcoImage}"></TextBlock>
-                    <Button Content="浏览" Height="30"></Button>
-                    <Image Width="60" Height="40"></Image>
+                    <TextBlock TextWrapping="Wrap" Width="100"   VerticalAlignment="Center" Text="{Binding Tumodel.IcoImage,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <Button Content="图片上传" Height="30" x:Name="BtnImage"  Click="BtnImage_Click"></Button>
+                    <Image Width="60" Height="40" Stretch="Fill" Margin="2" Source="{Binding Tumodel.IcoImage,Mode=TwoWay }" ></Image>
+                    <Button Content="保存" Command="{x:Static ApplicationCommands.Save}"  CommandTarget="{Binding ElementName=MyDesigner}" CommandParameter="{Binding Tumodel}"></Button>
                 </WrapPanel>
             </Grid>
             <Grid Grid.Row="1">
                 <GroupBox Header="模板"  Margin="3,0,0,0">
-                    <s:FlowCharCentre  ></s:FlowCharCentre>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                            Background="{StaticResource WindowBackgroundBrush}"
+                            Margin="10" FocusVisualStyle="{x:Null}"
+                             />
+                    </ScrollViewer>
                 </GroupBox>
 
             </Grid>

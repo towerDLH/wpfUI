@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
-
 namespace DiagramDesigner.Model
 {
-    public class FlowChar
+    [Serializable]
+    public class FlowChar: ObservableObject
     {
 
         private string flowname;
@@ -17,7 +17,7 @@ namespace DiagramDesigner.Model
         public string Flowname
         {
             get { return flowname; }
-            set { flowname = value; }
+            set { flowname = value; SetPerty("Flowname"); }
         }
 
         private string icoImage;
@@ -27,7 +27,7 @@ namespace DiagramDesigner.Model
         public string IcoImage
         {
             get { return icoImage; }
-            set { icoImage = value; }
+            set { icoImage = value; SetPerty("IcoImage"); }
         }
 
         private string flowcharpath;
@@ -37,7 +37,18 @@ namespace DiagramDesigner.Model
         public string FlowcharPath
         {
             get { return flowcharpath; }
-            set { flowcharpath = value; }
+            set { flowcharpath = value; SetPerty("FlowcharPath"); }
+        }
+
+        private int flowtype;
+
+        /// <summary>
+        /// 流程类型，0为主流程，1为子流程
+        /// </summary>
+        public int Flowtype
+        {
+            get { return flowtype; }
+            set { flowtype = value; SetPerty("Flowtype"); }
         }
 
 

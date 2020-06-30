@@ -26,7 +26,7 @@
             <Expander Header="流程控件" Style="{StaticResource FlowExpander}" Content="{StaticResource  FlowChartStencils}"    IsExpanded="True">
             </Expander>
             <Expander Header="子流程控件" Style="{StaticResource FlowExpander}"   Height="500"       IsExpanded="True">
-                <ListBox Name="listBox1" Background="AliceBlue"  
+                <ListBox Name="listBox1" Background="AliceBlue"   ItemsSource="{Binding Flowcharlist}"
                      HorizontalAlignment="Left" VerticalAlignment="Top"  PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -51,24 +51,33 @@
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="新建" Width="50" Height="30" Click="BtnNew_Click"></Button>
-                    <Button Content="保存" Width="50" Height="30" Click="Button_Click"></Button>
-                    <Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>
+                    <Label Content="流程名称" VerticalAlignment="Center"></Label>
+                    <TextBox Width="100" Height="28" Text="{Binding FlowMd.Flowname}"></TextBox>
+                    <Button Content="新建子流程控件"   Height="30" Click="BtnNew_Click"></Button>
+                    <Button Content="保存" Width="50" Height="30" Click="Button_Click"  Command="{x:Static ApplicationCommands.Save}"
+                            CommandTarget="{Binding ElementName=MyDesigner}" CommandParameter="{Binding FlowMd}" ></Button>
+                    <!--<Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>-->
                     <Button Content="导入子节点" Width="50" Height="30" x:Name="BtnOpen"   Command="{x:Static ApplicationCommands.Open}"
                             CommandTarget="{Binding ElementName=MyDesigner}"></Button>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Row="1">
+            <!--<Grid Grid.Row="1">
                 <Frame x:Name="mainFrame" Grid.Column="1" BorderBrush="Blue" BorderThickness="1" NavigationUIVisibility="Visible"/>
-            </Grid>
-            <Grid Grid.Row="2">
+            </Grid>-->
+            <Grid Grid.Row="1">
                 <GroupBox Header="模板"  Margin="3,0,0,0">
-                    <s:FlowCharCentre  ></s:FlowCharCentre>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                            Background="{StaticResource WindowBackgroundBrush}"
+                            Margin="10" FocusVisualStyle="{x:Null}"
+                            ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>
+                    </ScrollViewer>
                 </GroupBox>
 
             </Grid>

@@ -138,5 +138,5 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\App.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WpfApp3.csproj.CoreCompileInputs.cache
-D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\FlowCharUpdate.g.cs
-D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\FlowCharUpdate.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\Newtonsoft.Json.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\Newtonsoft.Json.xml
