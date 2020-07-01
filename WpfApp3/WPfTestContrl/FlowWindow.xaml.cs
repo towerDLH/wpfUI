@@ -35,21 +35,26 @@ namespace WpfApp3.WPfTestContrl
         private Dictionary<string, Uri> allViews = new Dictionary<string, Uri>(); //包含所有页面
         public Dictionary<string, FlowChar> dicflowcontrol = new Dictionary<string, FlowChar>();
        
-        RememberClass rememberClass;
         public FlowWindow()
         {
             InitializeComponent();
             Model = new FlowModel();
             this.DataContext = Model;
-            rememberClass = new RememberClass();
-            rememberClass.GetFlowChar();
+           // rememberClass = new RememberClass();
+            Model.RememberClass.LoadFlowChar += LoadFlowChar;
+            Model.RememberClass.GetFlowChar();
+            GetFlowChild();
+        }
+
+        private void LoadFlowChar()
+        {
             GetFlowChild();
         }
 
         public void GetFlowChild()
         {
             List<FlowChar> flowcharlist = new List<FlowChar>();
-            dicflowcontrol = rememberClass.GetDicCount();
+            dicflowcontrol = Model.RememberClass.GetDicCount();
             //如果长度>0,就把集合中的用户名加过来。
             if (dicflowcontrol!=null&& dicflowcontrol.Count > 0)
             {
@@ -161,6 +166,11 @@ namespace WpfApp3.WPfTestContrl
             get { return flowcharlist; }
             set { flowcharlist = value; SetPerty("Flowcharlist"); }
         }
-
+       private RememberClass rememberClass=new RememberClass();
+        public RememberClass RememberClass
+        {
+            get { return rememberClass; }
+            set { rememberClass = value; SetPerty("RememberClass"); }
+        }
     }
 }

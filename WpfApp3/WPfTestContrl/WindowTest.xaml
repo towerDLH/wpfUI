@@ -21,5 +21,22 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <TreeView>
+            <TreeView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel Orientation="Horizontal"></WrapPanel>
+                </DataTemplate>
+            </TreeView.ItemTemplate>
+            <TreeViewItem Header="学科" >
+                <TreeViewItem Header="数学"></TreeViewItem>
+                <TreeViewItem Header="数学"></TreeViewItem>
+                <TreeViewItem Header="数学"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="学校">
+                <TreeViewItem Header="11"></TreeViewItem>
+                <TreeViewItem Header="22"></TreeViewItem>
+                <TreeViewItem Header="33"></TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
     </Grid>
 </ui:WindowsBase >

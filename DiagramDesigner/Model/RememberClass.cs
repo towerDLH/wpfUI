@@ -3,13 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace DiagramDesigner.Model
 {
-    
+
     public class RememberClass
     {
         //获得data.bin的路径。
@@ -24,10 +22,19 @@ namespace DiagramDesigner.Model
             //实例化一个流：FileStream。
         }
 
+        public Action LoadFlowChar;
+
+        public void LoadFlowMD()
+        {
+            if (LoadFlowChar != null)
+            {
+                LoadFlowChar.Invoke();
+            }
+        }
 
         public Dictionary<string, FlowChar> GetFlowChar()
         {
-            MemoryStream ms = new MemoryStream();
+            //MemoryStream ms = new MemoryStream();
             //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
             //{
             //    byte[] buffer = new byte[fs.Length];
@@ -47,17 +54,16 @@ namespace DiagramDesigner.Model
             //        dicflowcontrol = bf.Deserialize(ms) as Dictionary<string, FlowChar>;
             //    }
             //}
-            if (!System.IO.File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 return dicflowcontrol;
             }
-       
             using (FileStream fsRead = new FileStream(filePath, FileMode.Open))
             {
                 int fsLen = (int)fsRead.Length;
                 byte[] heByte = new byte[fsLen];
-                int r = fsRead.Read(heByte, 0, heByte.Length);
-                dicflowcontrol= JsonConvert.DeserializeObject<Dictionary<string, FlowChar>>(System.Text.Encoding.UTF8.GetString(heByte));
+                fsRead.Read(heByte, 0, heByte.Length);
+                dicflowcontrol = JsonConvert.DeserializeObject<Dictionary<string, FlowChar>>(System.Text.Encoding.UTF8.GetString(heByte));
                 return dicflowcontrol;
             }
         }
@@ -73,7 +79,7 @@ namespace DiagramDesigner.Model
         /// <summary>
         /// 此方法用于流程子控件。
         /// </summary>
-        public void AddRemember(FlowChar _flowcharconrol)
+        public void AddRemember(FlowChar _flowcharconrol,bool IsMsg=true)
         {
             //实例化一个流：FileStream。
             //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
@@ -99,15 +105,26 @@ namespace DiagramDesigner.Model
 
             //    }
             //}
-            dicflowcontrol.Add(_flowcharconrol.FlowcharPath, _flowcharconrol);
+            var msg = "";
+            if (dicflowcontrol.ContainsKey(_flowcharconrol.FlowcharPath))
+            {
+                msg = "修改成功";
+            }
+            else
+            {
+                dicflowcontrol.Add(_flowcharconrol.FlowcharPath, _flowcharconrol);
+                msg = "新建成功";
+            }
             using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
             {
                 if (dicflowcontrol.Any())
                 {
-                    var msg=JsonConvert.SerializeObject(dicflowcontrol);
-                    byte[] bts = System.Text.Encoding.Default.GetBytes(msg);
+                    var reslt = JsonConvert.SerializeObject(dicflowcontrol);
+                    byte[] bts = System.Text.Encoding.Default.GetBytes(reslt);
                     fs.Write(bts, 0, bts.Length);
                 }
+               
+                if(IsMsg) MessageBox.Show(msg, "提示信息");
             }
         }
     }

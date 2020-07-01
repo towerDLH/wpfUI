@@ -788,7 +788,7 @@ namespace DiagramDesigner.Controls
                 FileName = "FlowChar";
             }
             SaveFileDialog saveFile = new SaveFileDialog();
-            
+
             if (!string.IsNullOrEmpty(flowChar.FlowcharPath) && flowChar != null)
             {
                 xElement.Save(flowChar.FlowcharPath);
@@ -801,8 +801,10 @@ namespace DiagramDesigner.Controls
                 {
                     Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
                 }
-                var filepath = Enclosure_Path + $"\\{flowChar.Flowname}"+".xml";
-               // saveFile.InitialDirectory = Enclosure_Path;
+                
+                var filepath = Enclosure_Path + $"\\{DateTime.Now.ToString("yyyyMMddHHmmss")}" + ".xml";
+                flowChar.FlowcharPath = filepath;
+                // saveFile.InitialDirectory = Enclosure_Path;
                 //saveFile.Filter = "Files (*.xml)|*.xml|All Files (*.*)|*.*";
                 //if (saveFile.ShowDialog() == true)
                 //{
@@ -819,14 +821,13 @@ namespace DiagramDesigner.Controls
             }
             if (FileName == "FlowChar")
             {
-                FlowChar flowcharcontrol = new FlowChar();
-                //todo 文件名称通过截取，但是会有一点问题如果输入的名称是带点的话会有问题
-                string[] strArray = saveFile.SafeFileName.Split('.');
-                flowcharcontrol.Flowname = strArray[0];
-                flowcharcontrol.FlowcharPath = saveFile.FileName;
-                flowcharcontrol.IcoImage = flowChar.IcoImage;
-                rememberClass.AddRemember(flowcharcontrol);
-                MessageBox.Show("保存成功", "提示信息");
+                //FlowChar flowcharcontrol = new FlowChar();
+                ////todo 文件名称通过截取，但是会有一点问题如果输入的名称是带点的话会有问题
+                //string[] strArray = saveFile.SafeFileName.Split('.');
+                //flowcharcontrol.Flowname = flowChar.Flowname;
+                //flowcharcontrol.FlowcharPath = flowChar.FlowcharPath;
+                //flowcharcontrol.IcoImage = flowChar.IcoImage;
+                rememberClass.AddRemember(flowChar);
             }
         }
 

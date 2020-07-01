@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
@@ -28,14 +29,39 @@ namespace DiagramDesigner.Controls
     public partial class FlowCharUpdate : Window
     {
         FlowCharModel Model;
+        public Dictionary<string, FlowChar> dicflowcontrol = new Dictionary<string, FlowChar>();
         public FlowCharUpdate()
         {
             InitializeComponent();
             Model = new FlowCharModel();
             Model.Tumodel.Flowtype = 1;
+            Model.RememberClass.LoadFlowChar += LoadFlowChar;
+            Model.RememberClass.GetFlowChar();
+            GetFlowChild();
             grd.DataContext = Model;
         }
 
+        private void LoadFlowChar()
+        {
+            GetFlowChild();
+        }
+
+        public void GetFlowChild()
+        {
+            List<FlowChar> flowcharlist = new List<FlowChar>();
+            dicflowcontrol = Model.RememberClass.GetDicCount();
+            //如果长度>0,就把集合中的用户名加过来。
+            if (dicflowcontrol != null && dicflowcontrol.Count > 0)
+            {
+                //循环遍历RememberUserInfo对象。
+                foreach (FlowChar item in dicflowcontrol.Values)
+                {
+                    flowcharlist.Add(item);
+                }
+            }
+            Model.Flowcharlist = new ObservableCollection<FlowChar>(flowcharlist);
+             
+        }
         public void GetFlowChar(FlowChar flowchar)
         {
             Model.Tumodel = flowchar;
@@ -107,7 +133,7 @@ namespace DiagramDesigner.Controls
         {
             OpenFileDialog openFile = new OpenFileDialog();
             return XElement.Load(flowchar);
-            
+
         }
 
         private Connector GetConnector(Guid itemID, String connectorName)
@@ -195,6 +221,7 @@ namespace DiagramDesigner.Controls
                     length = (int)phop.Length;
                     byte[] bytes = new byte[length];
                     phop.Read(bytes, 0, length);
+                    //todo 判断以前是否有图片有的话直接替换不生成一个新的图片
                     var reslt = CreateImageByPath(bytes, "Image");
                     if (reslt != "")
                     {
@@ -219,8 +246,14 @@ namespace DiagramDesigner.Controls
                 {
                     Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
                 }
+                string imagepath = "";
                 string imgename = DateTime.Now.ToString("yyyyMMddhhmmssMM");
-                string imagepath = Enclosure_Path + $"\\{imgename}" + ".png";
+                //if (!string.IsNullOrEmpty(Model.Tumodel.IcoImage))
+                //{
+                //    imagepath = Model.Tumodel.IcoImage;
+                //}
+                //else
+                    imagepath = Enclosure_Path + $"\\{imgename}" + ".png";
                 FileInfo file = new FileInfo(imagepath);
                 FileStream fs = file.OpenWrite();
                 fs.Write(bytes, 0, bytes.Length);
@@ -252,8 +285,19 @@ namespace DiagramDesigner.Controls
             get { return imgpath; }
             set { imgpath = value; SetName("ImgPath"); }
         }
+        private ObservableCollection<FlowChar> flowcharlist;
 
-
+        public ObservableCollection<FlowChar> Flowcharlist
+        {
+            get { return flowcharlist; }
+            set { flowcharlist = value; SetName("Flowcharlist"); }
+        }
+        private RememberClass rememberClass = new RememberClass();
+        public RememberClass RememberClass
+        {
+            get { return rememberClass; }
+            set { rememberClass = value; SetName("RememberClass"); }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SetName(string Name)

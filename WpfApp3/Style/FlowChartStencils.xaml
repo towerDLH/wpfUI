@@ -319,6 +319,23 @@
                     </ControlTemplate>
                 </s:DesignerItem.DragThumbTemplate>
             </Path>
+ 
+            <!--<Path Style="{StaticResource Process1}" ToolTip="新建子流程控件" Fill="ForestGreen" Stroke="White">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Terminator_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>-->
+           
+            <Grid ToolTip="新建子流程控件">
+                <Image Source="/WpfApp3;component/Image/flowchild.png" Stretch="Fill" Margin="2"  ></Image>
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate >
+                        <Path Style="{StaticResource Process_DragThumb}"   />
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Grid>
         </ItemsControl.Items>
     </s:Toolbox>
     <s:Toolbox x:Key="FlowChartChildStencils" ItemSize="120,110" SnapsToDevicePixels="True"

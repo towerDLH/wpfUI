@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace DiagramDesigner.Controls
 {
@@ -86,41 +87,119 @@ namespace DiagramDesigner.Controls
             DragObject dragObject = e.Data.GetData(typeof(DragObject)) as DragObject;
             if (dragObject != null && !String.IsNullOrEmpty(dragObject.Xaml))
             {
-                DesignerItem newItem = null;
-                Object content = XamlReader.Load(XmlReader.Create(new StringReader(dragObject.Xaml)));
-
-                if (content != null)
+                //子流程的新建
+                if (dragObject.Xaml.Contains("子流程"))
                 {
-                    newItem = new DesignerItem();
-                    newItem.Content = content;
-
-                    Point position = e.GetPosition(this);
-
-                    if (dragObject.DesiredSize.HasValue)
+                    FlowChar flowChar = new FlowChar();
+                    string str1 = Directory.GetCurrentDirectory();
+                    string Enclosure_Path = str1 + "\\FlowChar";
+                    if (!Directory.Exists(Enclosure_Path))     // 返回bool类型，存在返回true，不存在返回false
                     {
-                        Size desiredSize = dragObject.DesiredSize.Value;
-                        newItem.Width = desiredSize.Width;
-                        newItem.Height = desiredSize.Height;
-
-                        DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X - newItem.Width / 2));
-                        DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y - newItem.Height / 2));
+                        Directory.CreateDirectory(Enclosure_Path);      //不存在则创建路径
                     }
-                    else
+                    var filepath = Enclosure_Path + $"\\{DateTime.Now.ToString("yyyyMMddhhmmssMM")}" + ".xml";
+                    flowChar.FlowcharPath = filepath;
+                    flowChar.Flowname = "子流程1";
+                    flowChar.IcoImage = "/WpfApp3;component/Image/flowchild.png";
+                    flowChar.Flowtype = 1;
+                    XElement root = new XElement("Root");
+                    try
                     {
-                        DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X));
-                        DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y));
+                        root.Save(filepath);
+                        RememberClass rememberClass = this.Tag as RememberClass;
+                        rememberClass.AddRemember(flowChar,false);
+                        if (flowChar != null)
+                        {
+                            Grid grid = new Grid();
+                            grid.Width = 80;
+                            grid.Height = 70;
+                            RowDefinition row1 = new RowDefinition();
+                            RowDefinition row2 = new RowDefinition();
+                            row2.Height = GridLength.Auto;
+                            grid.RowDefinitions.Add(row1);
+                            grid.RowDefinitions.Add(row2);
+                            Image image = new Image();
+                            image.Source = new BitmapImage(new Uri(flowChar.IcoImage, UriKind.RelativeOrAbsolute));
+                            Button button = new Button();
+                            button.Content = "编辑";
+                            button.Margin = new Thickness(3, 2, 3, 2);
+                            button.Tag = flowChar;
+                            button.Click += OpenFlowChar;
+                            grid.Children.Add(image);
+                            grid.Children.Add(button);
+                            Grid.SetRow(image, 0);
+                            Grid.SetRow(button, 1);
+                            DesignerItem newItem = null;
+                            // Object content = XamlReader.Load(XmlReader.Create(new StringReader(dragObject.Xaml)));
+                            newItem = new DesignerItem();
+                            newItem.Content = grid;
+                            Point position = e.GetPosition(this);
+                            // Size desiredSize = dragObject.DesiredSize.Value;
+                            newItem.Width = grid.Width;
+                            newItem.Height = grid.Height;
+                            DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X - newItem.Width / 2));
+                            DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y - newItem.Height / 2));
+                            //else
+                            //{
+                            //    DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X));
+                            //    DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y));
+                            //}
+                            Canvas.SetZIndex(newItem, this.Children.Count);
+                            this.Children.Add(newItem);
+                            SetConnectorDecoratorTemplate(newItem);
+                            //update selection
+                            this.SelectionService.SelectItem(newItem);
+                            newItem.Focus();
+                            rememberClass.LoadFlowMD();
+                            e.Handled = true;
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
-                    Canvas.SetZIndex(newItem, this.Children.Count);
-                    this.Children.Add(newItem);
-                    SetConnectorDecoratorTemplate(newItem);
-
-                    //update selection
-                    this.SelectionService.SelectItem(newItem);
-                    newItem.Focus();
                 }
+                //基本流程
+                else
+                {
+                    DesignerItem newItem = null;
+                    Object content = XamlReader.Load(XmlReader.Create(new StringReader(dragObject.Xaml)));
 
-                e.Handled = true;
+                    if (content != null)
+                    {
+                        newItem = new DesignerItem();
+                        newItem.Content = content;
+
+                        Point position = e.GetPosition(this);
+
+                        if (dragObject.DesiredSize.HasValue)
+                        {
+                            Size desiredSize = dragObject.DesiredSize.Value;
+                            newItem.Width = desiredSize.Width;
+                            newItem.Height = desiredSize.Height;
+
+                            DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X - newItem.Width / 2));
+                            DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y - newItem.Height / 2));
+                        }
+                        else
+                        {
+                            DesignerCanvas.SetLeft(newItem, Math.Max(0, position.X));
+                            DesignerCanvas.SetTop(newItem, Math.Max(0, position.Y));
+                        }
+
+                        Canvas.SetZIndex(newItem, this.Children.Count);
+                        this.Children.Add(newItem);
+                        SetConnectorDecoratorTemplate(newItem);
+
+                        //update selection
+                        this.SelectionService.SelectItem(newItem);
+                        newItem.Focus();
+                    }
+
+                    e.Handled = true;
+                }
             }
             else
             {
@@ -191,12 +270,12 @@ namespace DiagramDesigner.Controls
         /// <param name="e"></param>
         private void OpenFlowChar(object sender, RoutedEventArgs e)
         {
-             FlowCharUpdate flow = new FlowCharUpdate();
+            FlowCharUpdate flow = new FlowCharUpdate();
             Button btn = sender as Button;
             var fc = btn.Tag as FlowChar;
             //flow.Closed += WinClose;
             flow.GetFlowChar(fc);
-             flow.ShowDialog();
+            flow.ShowDialog();
             //MessageBox.Show(, "路径");
         }
 
