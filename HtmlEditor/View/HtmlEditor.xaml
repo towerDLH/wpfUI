@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="Msl.HtmlEditor.HtmlEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:local="clr-namespace:Msl.HtmlEditor"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <UserControl.Resources>
+        <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Background" Value="{x:Null}" />
+        </Style>
+        <Style x:Key="ToolBarImage" TargetType="{x:Type Image}">
+            <Setter Property="Height" Value="16" />
+        </Style>
+        <Style x:Key="ToggleContextMenu" TargetType="{x:Type ContextMenu}">
+            <Setter Property="Background" Value="#FFF" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="true" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type MenuItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type MenuItem}">
+                                    <ContentPresenter Margin="{TemplateBinding Padding}" ContentSource="Header" RecognizesAccessKey="False" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="local:HtmlEditCommand.Bold" Executed="BoldExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Italic" Executed="ItalicExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Underline" Executed="UnderlineExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Subscript" Executed="SubscriptExecuted" CanExecute="SubscriptCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Superscript" Executed="SuperscriptExecuted" CanExecute="SuperscriptCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.ClearStyle" Executed="ClearStyleExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Indent" Executed="IndentExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Outdent" Executed="OutdentExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.BubbledList" Executed="BubbledListExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.NumericList" Executed="NumericListExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.JustifyLeft" Executed="JustifyLeftExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.Print" Executed="PrintExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.JustifyRight" Executed="JustifyRightExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.JustifyCenter" Executed="JustifyCenterExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.JustifyFull" Executed="JustifyFullExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.InsertHyperlink" Executed="InsertHyperlinkExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.StrikethroughText" Executed="StrikethroughExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.InsertImage" Executed="InsertImageExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.InsertTable" Executed="InsertTableExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.InsertCodeBlock" Executed="InsertCodeBlockExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.InsertHorizontalLine" Executed="InsertHorizontalLineExecuted" CanExecute="EditCommandCanExecute" />
+        <CommandBinding Command="local:HtmlEditCommand.ExportTxt" Executed="ExportTxtExecuted" CanExecute="EditCommandCanExecute" />
+    </UserControl.CommandBindings>
+    <UserControl.ContextMenu>
+        <ContextMenu x:Name="EditingContextMenu">
+            <ContextMenu.CommandBindings>
+                <CommandBinding Command="Undo" Executed="UndoExecuted" CanExecute="UndoCanExecute" />
+                <CommandBinding Command="Redo" Executed="RedoExecuted" CanExecute="RedoCanExecute" />
+                <CommandBinding Command="Cut" Executed="CutExecuted" CanExecute="CutCanExecute" />
+                <CommandBinding Command="Copy" Executed="CopyExecuted" CanExecute="CopyCanExecute" />
+                <CommandBinding Command="Paste" Executed="PasteExecuted" CanExecute="PasteCanExecute" />
+                <CommandBinding Command="Delete" Executed="DeleteExecuted" CanExecute="DeleteCanExecute" />
+                <CommandBinding Command="SelectAll" Executed="SelectAllExecuted" />
+            </ContextMenu.CommandBindings>
+            <MenuItem Header="后退" Command="Undo" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-undo.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="前进" Command="Redo" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-redo.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator Margin="0,-2" />
+            <MenuItem Header="剪切" Command="Cut" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-cut.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="复制" Command="Copy" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-copy.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="粘贴" Command="Paste" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-paste.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="删除" Command="Delete" CommandTarget="{Binding ElementName=This}">
+                <MenuItem.Icon>
+                    <Image Source="/Msl.HtmlEditor;Component/Resources/Image/del.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator Margin="0,-2" />
+            <MenuItem Header="全选" Command="SelectAll" CommandTarget="{Binding ElementName=This}" />
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" Height="25">
+            <ToolBar x:Name="CommandBar" Background="#F0F0EE" BorderBrush="#CCC">
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleCodeMode" ToolTip="源码">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-source.png" />
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleBrowe" ToolTip="预览">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-preview.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="TogglePrint" Command="local:HtmlEditCommand.Print" ToolTip="打印">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-print.png"/>
+                </ToggleButton>
+                <Separator/>
+                <ComboBox x:Name="FontFamilyList" Width="100">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ComboBoxItem}">
+                            <Setter Property="FontFamily"
+                                        Value="{Binding Content, RelativeSource={RelativeSource Mode=Self}}" />
+                            <Setter Property="FontSize" Value="14" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
+                <ComboBox x:Name="FontSizeList" Width="42">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ComboBoxItem}">
+                            <Setter Property="FontSize" Value="{Binding Size}" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Text}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleJustifyLeft" Command="local:HtmlEditCommand.JustifyLeft" ToolTip="左对齐">
+                    <Image Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-justifyleft.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleJustifyCenter" Command="local:HtmlEditCommand.JustifyCenter" ToolTip="居中">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-justifycenter.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleJustifyRight" Command="local:HtmlEditCommand.JustifyRight" ToolTip="右对齐">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-justifyright.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleJustifyFull" Command="local:HtmlEditCommand.JustifyFull" ToolTip="两端对齐">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-justifyfull.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleNumberedList" Command="local:HtmlEditCommand.NumericList" ToolTip="编号">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-insertorderedlist.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleBulletedList" Command="local:HtmlEditCommand.BubbledList" ToolTip="项目符号">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-insertunorderedlist.png"/>
+                </ToggleButton>
+                <ToggleButton Command="local:HtmlEditCommand.Indent" ToolTip="增加缩进(Ctrl+T)">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-indent.png"/>
+                </ToggleButton>
+                <ToggleButton Command="local:HtmlEditCommand.Outdent" ToolTip="减少缩进(Ctrl+Shift+T)">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-outdent.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleSuperscript" Command="local:HtmlEditCommand.Superscript" ToolTip="上标">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-superscript.png"/>
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleSubscript" Command="local:HtmlEditCommand.Subscript" ToolTip="下标">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-subscript.png"/>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleBold" ToolTip="粗体" Command="local:HtmlEditCommand.Bold">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-bold.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleItalic" ToolTip="斜体" Command="local:HtmlEditCommand.Italic">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-italic.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleUnderline" ToolTip="下划线" Command="local:HtmlEditCommand.Underline">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-underline.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleStrikeThrough" ToolTip="删除线" Command="local:HtmlEditCommand.StrikethroughText">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-strikethrough.png" />
+                </ToggleButton>
+                <ToggleButton ToolTip="插入横线"
+                            Command="local:HtmlEditCommand.InsertHorizontalLine">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-hr.png" />
+                </ToggleButton>
+                <Separator />
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleFontColor" ToolTip="文字颜色">
+                    <ToggleButton.ContextMenu>
+                        <ContextMenu x:Name="FontColorContextMenu" Style="{StaticResource ToggleContextMenu}">
+                            <local:ColorPicker x:Name="FontColorPicker" />
+                        </ContextMenu>
+                    </ToggleButton.ContextMenu>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-forecolor.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleLineColor" ToolTip="文字颜色">
+                    <ToggleButton.ContextMenu>
+                        <ContextMenu x:Name="LineColorContextMenu" Style="{StaticResource ToggleContextMenu}">
+                            <local:ColorPicker x:Name="LineColorPicker" />
+                        </ContextMenu>
+                    </ToggleButton.ContextMenu>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-hilitecolor.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ClearStyleButton" ToolTip="清除格式"
+                            Command="local:HtmlEditCommand.ClearStyle">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-clearhtml.png" />
+                </ToggleButton>
+                <ToggleButton ToolTip="导出文本"
+                            Command="local:HtmlEditCommand.ExportTxt">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-txt.png" />
+                </ToggleButton>
+                <Separator />
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="ToggleFaceImage" ToolTip="表情">
+                    <ToggleButton.ContextMenu>
+                        <ContextMenu x:Name="FaceImageContextMenu" Style="{StaticResource ToggleContextMenu}">
+                            <local:FacePicker x:Name="FaceImagePicker" />
+                        </ContextMenu>
+                    </ToggleButton.ContextMenu>
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-emoticons.png" />
+                </ToggleButton>
+                <ToggleButton Style="{StaticResource ToggleButtonStyle}" x:Name="InsertHyperlink" ToolTip="超链接"
+                            Command="local:HtmlEditCommand.InsertHyperlink">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-link.png" />
+                </ToggleButton>
+                <ToggleButton ToolTip="插入图片"
+                            Command="local:HtmlEditCommand.InsertImage">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-image.png" />
+                </ToggleButton>
+                <!--<ToggleButton ToolTip="插入附件"
+                            Command="local:HtmlEditCommand.InsertAttachment">
+                        <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-insertfile.png" />
+                    </ToggleButton>-->
+                <ToggleButton ToolTip="插入表格"
+                            Command="local:HtmlEditCommand.InsertTable">
+                    <Image Style="{StaticResource ToolBarImage}" Source="/Msl.HtmlEditor;Component/Resources/Image/ke-icon-table.png" />
+                </ToggleButton>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid>
+            <TextBox Name="TxtEditor" AcceptsReturn="True"  />
+            <WindowsFormsHost x:Name="BrowserHost">
+                <wf:WebBrowser x:Name="VisualEditor" />
+            </WindowsFormsHost>
+        </Grid>
+    </DockPanel>
+</UserControl>

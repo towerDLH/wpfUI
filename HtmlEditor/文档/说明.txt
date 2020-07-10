@@ -1,0 +1,4 @@
+﻿
+使用时
+1.引用 Msl.HtmlEditor.dll 
+2.bin目录下\res\face里放表情图片

@@ -139,3 +139,8 @@ D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\ListBoxDrop.baml
 D:\Test\WpfTest\WpfApp3\bin\Debug\Newtonsoft.Json.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\Newtonsoft.Json.xml
+D:\Test\WpfTest\WpfApp3\bin\Debug\Msl.HtmlEditor.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.mshtml.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\Msl.HtmlEditor.pdb
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowHtml.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowHtml.baml

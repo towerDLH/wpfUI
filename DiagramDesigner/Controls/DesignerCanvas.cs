@@ -122,7 +122,7 @@ namespace DiagramDesigner.Controls
                             image.Source = new BitmapImage(new Uri(flowChar.IcoImage, UriKind.RelativeOrAbsolute));
                             Button button = new Button();
                             button.Content = "编辑";
-                            button.Margin = new Thickness(3, 2, 3, 2);
+                            button.Margin = new Thickness(5, 2, 5, 2);
                             button.Tag = flowChar;
                             button.Click += OpenFlowChar;
                             grid.Children.Add(image);
@@ -218,7 +218,7 @@ namespace DiagramDesigner.Controls
                     image.Source = new BitmapImage(new Uri(flowChar.IcoImage, UriKind.RelativeOrAbsolute));
                     Button button = new Button();
                     button.Content = "编辑";
-                    button.Margin = new Thickness(3, 2, 3, 2);
+                    button.Margin = new Thickness(5, 2, 5, 2);
                     button.Tag = flowChar;
                     button.Click += OpenFlowChar;
                     grid.Children.Add(image);

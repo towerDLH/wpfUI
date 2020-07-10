@@ -253,7 +253,7 @@
         <Setter Property="IsTabStop"
                 Value="False" />
         <Setter Property="BorderBrush" Value="#6fbdd1" />
-        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="CornerRadius" Value="3" />
         <Setter Property="BorderThickness" Value="4"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="HeaderHeight" Value="40"/>
@@ -289,6 +289,9 @@
                         <Border Background="{TemplateBinding BorderBrush}"
                                 CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource WinConRaConvert},ConverterParameter=header }"
                                 BorderThickness="0">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" ShadowDepth="0" />
+                            </Border.Effect>
                             <Grid Name="header"      >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>

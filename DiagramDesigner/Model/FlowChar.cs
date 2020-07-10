@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
+using System.Xml.Linq;
+
 namespace DiagramDesigner.Model
 {
     [Serializable]
-    public class FlowChar: ObservableObject
+    public class FlowChar : ObservableObject
     {
 
         private string flowname;
         /// <summary>
-        /// 子流程名称
+        /// 流程名称
         /// </summary>
         public string Flowname
         {
@@ -49,6 +52,15 @@ namespace DiagramDesigner.Model
         {
             get { return flowtype; }
             set { flowtype = value; SetPerty("Flowtype"); }
+        }
+        private ObservableCollection<XElement> listxs;
+        /// <summary>
+        /// 文件流程布局
+        /// </summary>
+        public ObservableCollection<XElement> Listxs
+        {
+            get { return listxs; }
+            set { listxs = value; SetPerty("Listxs"); }
         }
 
 

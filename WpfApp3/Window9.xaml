@@ -331,7 +331,7 @@
             </ScrollViewer>
             <core:ProgressRing Width="180" Height="180" Foreground="Red" Margin="5"  x:Name="load"  IsActive="False" />
             <TextBox  AcceptsReturn="True" Height="40" Width="49" Text="asdd"  TextWrapping="Wrap"></TextBox>
-            <TextBox  Height="40" Width="30" Text="asdfasd" ></TextBox>
+            <TextBox    Height="40" Width="30" Text="asdfasd" ></TextBox>
             <TextBlock Text="&#xE600;" Style="{DynamicResource FontAwesome1}" Foreground="Gold" />
             <TextBlock Text="&#xE6B1;" Style="{DynamicResource FontAwesome1}"  Foreground="Green"/>
             <TextBlock Text="&#xE6B2;" Style="{DynamicResource FontAwesome1}"  Foreground="Red"/>

@@ -28,6 +28,7 @@ namespace DiagramDesigner.Controls
 
         public ConnectorOrientation Orientation { get; set; }
 
+
         // center position of this Connector relative to the DesignerCanvas
         private Point position;
         public Point Position
@@ -173,6 +174,7 @@ namespace DiagramDesigner.Controls
         public Size DesignerItemSize { get; set; }
         public Point Position { get; set; }
         public ConnectorOrientation Orientation { get; set; }
+        public PointType PointType { get; set; }
     }
 
     public enum ConnectorOrientation
@@ -182,5 +184,11 @@ namespace DiagramDesigner.Controls
         Top,
         Right,
         Bottom
+    }
+
+    public enum PointType
+    {
+        Input,
+        OutPUt,
     }
 }

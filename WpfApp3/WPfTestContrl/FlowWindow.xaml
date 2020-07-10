@@ -51,25 +51,47 @@
         <Grid Grid.Column="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
+                <ListBox ItemsSource="{Binding AllFlowlist}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Flowname}"></Button>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+            <!--<Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
                     <Label Content="流程名称" VerticalAlignment="Center"></Label>
                     <TextBox Width="100" Height="28" Text="{Binding FlowMd.Flowname}"></TextBox>
                     <Button Content="新建子流程控件"   Height="30" Click="BtnNew_Click"></Button>
                     <Button Content="保存" Width="50" Height="30" Click="Button_Click"  Command="{x:Static ApplicationCommands.Save}"
                             CommandTarget="{Binding ElementName=MyDesigner}" CommandParameter="{Binding FlowMd}" ></Button>
-                    <!--<Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>-->
+                    --><!--<Button Content="保存子节点" Width="50" Height="30" x:Name="BtnSaveChild"   Click="BtnSaveChild_Click"></Button>--><!--
                     <Button Content="导入子节点" Width="50" Height="30" x:Name="BtnOpen"   Command="{x:Static ApplicationCommands.Open}"
                             CommandTarget="{Binding ElementName=MyDesigner}"></Button>
                 </StackPanel>
-            </Grid>
-            <!--<Grid Grid.Row="1">
-                <Frame x:Name="mainFrame" Grid.Column="1" BorderBrush="Blue" BorderThickness="1" NavigationUIVisibility="Visible"/>
             </Grid>-->
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" MinHeight="80">
+                <WrapPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="子流程名称" VerticalAlignment="Center"></Label>
+                    <TextBox Width="100" Height="28" Text="{Binding FlowMd.Flowname}"></TextBox>
+                    <Label Content="图片路径" VerticalAlignment="Center"></Label>
+                    <TextBlock TextWrapping="Wrap" Width="100"   VerticalAlignment="Center" Text="{Binding FlowMd.IcoImage,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <Button Content="图片上传" Height="30" x:Name="BtnImage"  Click="BtnImage_Click"></Button>
+                    <Image Width="60" Height="40" Stretch="Fill" Margin="2" Source="{Binding FlowMd.IcoImage,Mode=TwoWay }" ></Image>
+                    <Button Content="保存" Command="{x:Static ApplicationCommands.Save}"  CommandTarget="{Binding ElementName=MyDesigner}" CommandParameter="{Binding FlowMd}"></Button>
+                </WrapPanel>
+            </Grid>
+            <Grid Grid.Row="2">
                 <GroupBox Header="模板"  Margin="3,0,0,0">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">

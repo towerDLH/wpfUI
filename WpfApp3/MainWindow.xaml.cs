@@ -40,7 +40,9 @@ namespace WpfApp3
     public class Student : INotifyPropertyChanged
     {
 
-
+        /// <summary>
+        /// 这是一个id
+        /// </summary>
         private Guid id;
 
         public Guid Id

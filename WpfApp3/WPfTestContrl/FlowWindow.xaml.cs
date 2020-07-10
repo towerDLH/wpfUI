@@ -44,6 +44,9 @@ namespace WpfApp3.WPfTestContrl
             Model.RememberClass.LoadFlowChar += LoadFlowChar;
             Model.RememberClass.GetFlowChar();
             GetFlowChild();
+            ObservableCollection<FlowChar> flowchar = new ObservableCollection<FlowChar>();
+            flowchar.Add(new FlowChar() {FlowcharPath="1212",Flowname="主流程",Flowtype=1,IcoImage="" });
+            Model.AllFlowlist = flowchar;
         }
 
         private void LoadFlowChar()
@@ -65,15 +68,6 @@ namespace WpfApp3.WPfTestContrl
                 }
             }
             Model.Flowcharlist =new ObservableCollection<FlowChar>(flowcharlist) ;
-            //string str1 = Directory.GetCurrentDirectory();
-            //string Enclosure_Path = str1 + "\\Page" + "/111.xml";
-            //for (int i = 1; i < 5; i++)
-            //{
-            //    bars.Add(new FlowChar() { Flowname = $"{i}", FlowcharPath = Enclosure_Path, IcoImage = $"/WpfApp3;component/Image/{i}.jpg" });
-            //}
-            //listBox1.ItemsSource = bars;
-           // listBox1.ItemsSource = flowcharlist;
-            // FlowChar.DataContext = flowcharlist;
         }
 
 
@@ -148,6 +142,11 @@ namespace WpfApp3.WPfTestContrl
             //刷新子控件
             GetFlowChild();
         }
+
+        private void BtnImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
     public class FlowModel : ObservableObject
     {
@@ -166,7 +165,14 @@ namespace WpfApp3.WPfTestContrl
             get { return flowcharlist; }
             set { flowcharlist = value; SetPerty("Flowcharlist"); }
         }
-       private RememberClass rememberClass=new RememberClass();
+        private ObservableCollection<FlowChar> allflowlist;
+
+        public ObservableCollection<FlowChar> AllFlowlist
+        {
+            get { return allflowlist; }
+            set { allflowlist = value; SetPerty("AllFlowlist"); }
+        }
+        private RememberClass rememberClass=new RememberClass();
         public RememberClass RememberClass
         {
             get { return rememberClass; }

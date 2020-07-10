@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84BADDA1-AB3A-4064-B87E-178D7446901D}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Msl.HtmlEditor</RootNamespace>
+    <AssemblyName>Msl.HtmlEditor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extension\ColorExtension.cs" />
+    <Compile Include="Extension\HtmlEditorExtension.cs" />
+    <Compile Include="Feature\AttachedBehaviors.cs" />
+    <Compile Include="Feature\HtmlEditCommand.cs" />
+    <Compile Include="Feature\ObjectToValueConverter.cs" />
+    <Compile Include="Extension\Glo.cs" />
+    <Compile Include="Model\Enum.cs" />
+    <Compile Include="Model\FontSize.cs" />
+    <Compile Include="Model\HtmlDocument.cs" />
+    <Compile Include="Model\HtmlObject.cs" />
+    <Compile Include="Model\OptionObject.cs" />
+    <Compile Include="Model\WordCounter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extension\Tool.cs" />
+    <Compile Include="View\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FacePicker.xaml.cs">
+      <DependentUpon>FacePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HtmlEditor.xaml.cs">
+      <DependentUpon>HtmlEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HyperlinkDialog.xaml.cs">
+      <DependentUpon>HyperlinkDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ImageDialog.xaml.cs">
+      <DependentUpon>ImageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TableDialog.xaml.cs">
+      <DependentUpon>TableDialog.xaml</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\browser.png" />
+    <Resource Include="Resources\Image\del.png" />
+    <Resource Include="Resources\Image\erase.png" />
+    <Resource Include="Resources\Image\error.png" />
+    <Resource Include="Resources\Image\find.png" />
+    <Resource Include="Resources\Image\goto.png" />
+    <Resource Include="Resources\Image\help.png" />
+    <Resource Include="Resources\Image\ke-icon-link.png" />
+    <Resource Include="Resources\Image\new.png" />
+    <Resource Include="Resources\Image\open.png" />
+    <Resource Include="Resources\Image\outdent.png" />
+    <Resource Include="Resources\Image\paste.png" />
+    <Resource Include="Resources\Image\print.png" />
+    <Resource Include="Resources\Image\prop.png" />
+    <Resource Include="Resources\Image\replace.png" />
+    <Resource Include="Resources\Image\save.png" />
+    <Resource Include="Resources\Image\saveas.png" />
+    <Resource Include="Resources\Image\spelling.png" />
+    <Resource Include="Resources\Image\window.png" />
+    <Resource Include="Resources\Image\ZoomIn.png" />
+    <Resource Include="Resources\Image\ZoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\FacePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HtmlEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HyperlinkDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ImageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TableDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSHTML">
+      <Guid>{3050F1C5-98B5-11CF-BB82-00AA00BDCE0B}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\ke-icon-txt.png" />
+    <Resource Include="Resources\Image\ke-icon-hr.png" />
+    <Resource Include="文档\说明.txt" />
+    <Resource Include="Resources\Image\ke-icon-emoticons.png" />
+    <Resource Include="Resources\Image\ke-icon-insertfile.png" />
+    <Resource Include="Resources\Image\refresh.png" />
+    <Resource Include="Resources\Image\ke-icon-bold.png" />
+    <Resource Include="Resources\Image\ke-icon-clearhtml.png" />
+    <Resource Include="Resources\Image\ke-icon-copy.png" />
+    <Resource Include="Resources\Image\ke-icon-cut.png" />
+    <Resource Include="Resources\Image\ke-icon-forecolor.png" />
+    <Resource Include="Resources\Image\ke-icon-hilitecolor.png" />
+    <Resource Include="Resources\Image\ke-icon-image.png" />
+    <Resource Include="Resources\Image\ke-icon-indent.png" />
+    <Resource Include="Resources\Image\ke-icon-insertorderedlist.png" />
+    <Resource Include="Resources\Image\ke-icon-insertunorderedlist.png" />
+    <Resource Include="Resources\Image\ke-icon-italic.png" />
+    <Resource Include="Resources\Image\ke-icon-justifycenter.png" />
+    <Resource Include="Resources\Image\ke-icon-justifyfull.png" />
+    <Resource Include="Resources\Image\ke-icon-justifyleft.png" />
+    <Resource Include="Resources\Image\ke-icon-justifyright.png" />
+    <Resource Include="Resources\Image\ke-icon-outdent.png" />
+    <Resource Include="Resources\Image\ke-icon-paste.png" />
+    <Resource Include="Resources\Image\ke-icon-preview.png" />
+    <Resource Include="Resources\Image\ke-icon-print.png" />
+    <Resource Include="Resources\Image\ke-icon-redo.png" />
+    <Resource Include="Resources\Image\ke-icon-selectall.png" />
+    <Resource Include="Resources\Image\ke-icon-source.png" />
+    <Resource Include="Resources\Image\ke-icon-strikethrough.png" />
+    <Resource Include="Resources\Image\ke-icon-subscript.png" />
+    <Resource Include="Resources\Image\ke-icon-superscript.png" />
+    <Resource Include="Resources\Image\ke-icon-table.png" />
+    <Resource Include="Resources\Image\ke-icon-underline.png" />
+    <Resource Include="Resources\Image\ke-icon-undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

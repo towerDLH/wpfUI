@@ -144,8 +144,11 @@
       <HintPath>..\packages\Syncfusion.Shared.WPF.17.2.0.51\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="system.windows.interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -279,6 +282,9 @@
     </Compile>
     <Compile Include="WPfTestContrl\RabuttonList.xaml.cs">
       <DependentUpon>RabuttonList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPfTestContrl\WindowHtml.xaml.cs">
+      <DependentUpon>WindowHtml.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPfTestContrl\WindowTest.xaml.cs">
       <DependentUpon>WindowTest.xaml</DependentUpon>
@@ -415,6 +421,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPfTestContrl\WindowHtml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPfTestContrl\WindowTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -498,6 +508,10 @@
     <ProjectReference Include="..\DiagramDesigner\DiagramDesigner.csproj">
       <Project>{f0c7c18f-dfd2-415b-bf86-87ee2dec112f}</Project>
       <Name>DiagramDesigner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HtmlEditor\HtmlEditor.csproj">
+      <Project>{84badda1-ab3a-4064-b87e-178d7446901d}</Project>
+      <Name>HtmlEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\UI\UI.csproj">
       <Project>{86a2212a-062f-4c96-8c03-95b72ea46fc1}</Project>
