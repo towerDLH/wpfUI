@@ -28,38 +28,23 @@ namespace UI.Contorl
         {
             InitializeComponent();
         }
-        private ObservableCollection<CbTree> cbtreelist = new ObservableCollection<CbTree>();
 
-        public ObservableCollection<CbTree> CbTreeList
-        {
-            get { return cbtreelist; }
-            set { cbtreelist = value; }
-        }
 
         /// <summary>
-        /// 父级集合
+        /// todo 下拉树应该满足一下特点 是否选中 父子级
         /// </summary>
 
-        public IEnumerable<object> ParList
+        public IEnumerable<CbTree> CbItemSource
         {
-            get { return (IEnumerable<object>)GetValue(ParListProperty); }
-            set { SetValue(ParListProperty, value); }
+            get { return (IEnumerable<CbTree>)GetValue(CbItemSourceProperty); }
+            set { SetValue(CbItemSourceProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for ParList.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ParListProperty =
-            DependencyProperty.Register("ParList", typeof(IEnumerable<object>), typeof(ComTree), new PropertyMetadata(0));
-        /// <summary>
-        /// 子集集合
-        /// </summary>
-        public IEnumerable<object> ChildrenList
-        {
-            get { return (IEnumerable<object>)GetValue(ChildrenListProperty); }
-            set { SetValue(ChildrenListProperty, value); }
-        }
-        // Using a DependencyProperty as the backing store for ChildrenList.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ChildrenListProperty =
-            DependencyProperty.Register("ChildrenList", typeof(IEnumerable<object>), typeof(ComTree), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for CbItemSource.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CbItemSourceProperty =
+            DependencyProperty.Register("CbItemSource", typeof(IEnumerable<object>), typeof(ComTree), new PropertyMetadata(0));
+
+
 
         /// <summary>
         /// 选中的集合，选中的集合要和子集的类型一样
@@ -90,6 +75,19 @@ namespace UI.Contorl
 
 
 
+        public string ChildName
+        {
+            get { return (string)GetValue(ChildNameProperty); }
+            set { SetValue(ChildNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ChildName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ChildNameProperty =
+            DependencyProperty.Register("ChildName", typeof(string), typeof(ComTree), new PropertyMetadata(0));
+
+        
+
+
         public string Relationkey
         {
             get { return (string)GetValue(RelationkeyProperty); }
@@ -101,30 +99,57 @@ namespace UI.Contorl
             DependencyProperty.Register("Relationkey", typeof(string), typeof(CbTree), new PropertyMetadata(0));
 
 
-        public void GetTreeListMD(IEnumerable<object> preantlist, IEnumerable<object> childernlist, IEnumerable<object> selectlist, string viewname, string relationkey)
-        {
-            //if (preantlist.Count() <= 0 || childernlist.Count() <= 0 || string.IsNullOrEmpty(viewname) || string.IsNullOrEmpty(relationkey)) return;
-            //Type itemType = ChildrenList.GetType();
-            //foreach (var item in preantlist)
-            //{
-            //    PropertyInfo[] ps = itemType.GetProperties();
-            //    foreach (PropertyInfo property in ps)
-            //    {
-            //        object tmpValue = property.GetValue(item, null);
-            //        object totalValue = property.GetValue(obj, null);
+        //public void GetTreeListMD(IEnumerable<object> cbItemSource, IEnumerable<object> selectlist, string viewname,string Relationkey)
+        //{
+        //    if (cbItemSource.Count() <= 0 || string.IsNullOrEmpty(viewname) || string.IsNullOrEmpty(Relationkey) ) return;
+        //    GetTreeSource(cbItemSource, selectlist, Relationkey, se);
+        //    Type itemType = cbItemSource.GetType();
+        //    //将拿到的类型转成树形下拉的类型
+        //    foreach (var item in cbItemSource)
+        //    {
+        //        PropertyInfo[] ps = itemType.GetProperties();
+        //        foreach (PropertyInfo property in ps)
+        //        {
+        //            object tmpValue = property.GetValue(item, null);
+        //            //  object totalValue = property.GetValue(obj, null);
+        //            if (property.Name == ChildName)
+        //            {
+        //                //递归取值
+        //            }
 
-            //        if (property.PropertyType == typeof(int))
-            //        {
-            //            totalValue = (int)tmpValue + (int)totalValue;
-            //            property.SetValue(obj, totalValue, null);
-            //        }
-            //        else if (property.PropertyType == typeof(double))
-            //        {
-            //            totalValue = (double)tmpValue + (double)totalValue;
-            //            property.SetValue(obj, totalValue, null);
-            //        }
-            //    }
-            //}
+        //        }
+        //    }
+        //}
+
+        
+        
+
+        public void GetTreeSource(IEnumerable<object> sroucelis, string Relationkey, IEnumerable<object> selectlist)
+        {
+            foreach (var item in sroucelis)
+            {
+                PropertyInfo[] ps = item.GetType().GetProperties();
+                foreach (PropertyInfo property in ps)
+                {
+                    object tmpValue = property.GetValue(item, null);
+                    if (property.Name == Relationkey)
+                    {
+                        if (selectlist.Contains(property.GetValue(item, null)))
+                        property.SetValue("IsChecked", true, null);
+                    }
+                    //  object totalValue = property.GetValue(obj, null);
+                    if (property.Name == ChildName)
+                    {
+                        //递归取值
+                          IEnumerable<object> childs= property.GetValue(item, null) as IEnumerable<object>;
+                        if (childs.Count() > 0)
+                        {
+                            GetTreeSource(childs, Relationkey, selectlist);
+                        }
+                    }
+
+                }
+            }
         }
 
         private void cxb_Node_Click(object sender, RoutedEventArgs e)
@@ -229,6 +254,18 @@ namespace UI.Contorl
             {
                 ischecked = value;
                 SetPerty("IsChecked");
+            }
+        }
+
+        private bool ispart;
+
+        public bool IsPart
+        {
+            get { return ispart; }
+            set
+            {
+                ispart = value;
+                SetPerty("IsPart");
             }
         }
         private CbTree parent;

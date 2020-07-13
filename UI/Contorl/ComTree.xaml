@@ -95,8 +95,8 @@
                                             <TreeView.ItemTemplate>
                                                 <HierarchicalDataTemplate ItemsSource="{Binding Childen}">
                                                     <StackPanel Orientation="Horizontal">
-                                                        <CheckBox Visibility="{Binding Path=CheckVisiable}" Tag="{Binding}" IsChecked="{Binding Path=IsChecked, Mode=TwoWay}" Click="cxb_Node_Click"  ></CheckBox>
-                                                        <TextBlock x:Name="treeViewItemTB" Text="{Binding Name}"  />
+                                                        <CheckBox   Tag="{Binding}" IsChecked="{Binding Path=IsChecked, Mode=TwoWay}" Click="cxb_Node_Click"  ></CheckBox>
+                                                        <TextBlock x:Name="treeViewItemTB" Text="{Binding ViewName}"  />
                                                     </StackPanel>
                                                 </HierarchicalDataTemplate>
                                             </TreeView.ItemTemplate>
@@ -105,12 +105,12 @@
                                     </Grid>
                                 </Popup>
                             </Grid>
-
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
         </Grid.Resources>
-        <ComboBox></ComboBox>
+        <ComboBox ></ComboBox>
     </Grid>
 </UserControl>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

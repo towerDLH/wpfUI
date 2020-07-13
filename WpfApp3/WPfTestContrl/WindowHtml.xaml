@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
         xmlns:ex="clr-namespace:Msl.HtmlEditor;assembly=Msl.HtmlEditor"
         xmlns:ui="clr-namespace:UI.Eumn;assembly=UI"
+        xmlns:uc="clr-namespace:UI.Contorl;assembly=UI"
         mc:Ignorable="d"
         x:Name="Base"
         Title="WindowHtml" Height="450" Width="800">
@@ -155,7 +156,8 @@
                 <DataGrid   ItemsSource="{Binding Source={StaticResource DemoTypes}}">
 
                 </DataGrid>
-                <ComboBox ItemsSource="{Binding Source={StaticResource DemoTypes}}"></ComboBox>
+                <ComboBox ItemsSource="{Binding Source={StaticResource DemoTypes}}" SelectionChanged="ComboBox_SelectionChanged" ></ComboBox>
+                <ComboBox x:Name="CbTest" SelectionChanged="CbTest_SelectionChanged" DisplayMemberPath="BanjiHao" SelectedValuePath="BanjiName"></ComboBox>
                 <Polygon Fill="Red"   Points="10,12 56,89 120,89">
                     <Polygon.RenderTransform>
                         <RotateTransform Angle="-345"></RotateTransform>
@@ -239,11 +241,19 @@
                 </Path>
 
                 <Button x:Name="btn" Content="asd">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding }"   ></DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
                 <Path Data="M 0 0  6 6 12 0 Z"></Path>
                 <CheckBox IsChecked="True" Style="{DynamicResource CheckBoxStyle1}"></CheckBox>
                 <Path x:Name="optionMark" Data="M10.23879353 1.70739055 6.81749753 5.12868655 10.18595033 8.49713936 8.49738065 10.18570903 5.12892785 6.81725623 1.70787313 10.023855224 0.00168905 8.53236816 3.42274377 5.11107215 0.05429097 1.74261935 1.74286064 0.05404967 5.11131345 3.42250247 8.53260945 0.00120647 10.23879353 1.70739055 Z" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
-                <TreeView Width="240" Height="50" ItemsSource="{Binding ElementName=Base,Path=Phones}">
+                <TextBox  x:Name="TxtTest" ></TextBox>
+                <TreeView  x:Name="TreeTest" Width="240" Height="50" ItemsSource="{Binding ElementName=Base,Path=Phones}">
                     <TreeView.ItemContainerStyle>
                         <Style TargetType="{x:Type TreeViewItem}">
                             <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
@@ -266,6 +276,7 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>
+                <uc:TreeCombox x:Name="cTree"></uc:TreeCombox>
             </WrapPanel>
         </Border>
 

@@ -74,6 +74,9 @@
     <Compile Include="Contorl\ComTree.xaml.cs">
       <DependentUpon>ComTree.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contorl\TreeCombox.xaml.cs">
+      <DependentUpon>TreeCombox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Convert\ImageTextBoxMarginLeftConverter.cs" />
     <Compile Include="Convert\PlaceholderFontSizeConverter.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Contorl\ComTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Contorl\TreeCombox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

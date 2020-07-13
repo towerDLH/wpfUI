@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using Brushes = System.Windows.Media.Brushes;
+using System.Reflection;
+using UI.Contorl;
 
 namespace WpfApp3.WPfTestContrl
 {
@@ -32,19 +34,45 @@ namespace WpfApp3.WPfTestContrl
 
         public void Load()
         {
-            ObservableCollection<Phone> childs = new ObservableCollection<Phone>();
-            childs.Add(new Phone { ID = 1, Name = "子集1" });
-            childs.Add(new Phone { ID = 2, Name = "子集2" });
-            childs.Add(new Phone { ID = 3, Name = "子集3" });
+            List<Banji> banjis = new List<Banji>();
+            ObservableCollection<Treemodel> trees = new ObservableCollection<Treemodel>();
+            ObservableCollection<Treemodel> childs = new ObservableCollection<Treemodel>();
+            childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集1" ,IsParent=true});
+            childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集2", IsParent = true });
+            childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集3", IsParent = true });
             for (int i = 0; i < 8; i++)
             {
-                var phoneitem = new Phone() { ID = i, Name = $"张三1{i}" };
-                phoneitem.Childen = new ObservableCollection<Phone>()
+                var phoneitem = new Treemodel() { ID = Guid.Empty, Name = $"张三1{i}" };
+                phoneitem.Childen = new ObservableCollection<Treemodel>()
                 {
-                    new Phone { ID = 1, Name = "子集1" ,Parent=phoneitem},
-                    new Phone { ID = 2, Name = "子集2" ,Parent=phoneitem}
+                    new Treemodel { ID = Guid.NewGuid(), Name = "子集1" ,Parent=phoneitem},
+                    new Treemodel { ID = Guid.NewGuid(), Name = "子集2" ,Parent=phoneitem}
                 };
-                 Phones.Add(phoneitem);
+                trees.Add(phoneitem);
+                banjis.Add(new Banji() { BanjiHao = i, BanjiName = $"班级{i}" });
+            }
+            banjis.Add(new Banji() { BanjiHao = 1, BanjiName = $"班级1",BanjiName1="2323" });
+            CbTest.ItemsSource = banjis;
+            cTree.Threes = trees;
+           // LoaCr(childs);
+        }
+
+        public void LoaCr(ObservableCollection<Phone> cbItemSource)
+        {
+            foreach (var item in cbItemSource)
+            {
+
+                PropertyInfo[] ps = item.GetType().GetProperties();
+                foreach (PropertyInfo property in ps)
+                {
+                    object tmpValue = property.GetValue(item, null);
+                    //object totalValue = property.GetValue(obj, null);
+                    if (property.Name == "Child")
+                    {
+                        //递归取值
+                    }
+
+                }
             }
         }
         private ObservableCollection<Phone> phones = new ObservableCollection<Phone>();
@@ -139,6 +167,19 @@ namespace WpfApp3.WPfTestContrl
                 }
             }
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            ComboBox cb = sender as ComboBox;
+            var a = cb.SelectedItem;
+        }
+
+        private void CbTest_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            var a = cb.SelectedItem;
+        }
     }
     public class Phone : ObservableObject
     {
@@ -190,5 +231,30 @@ namespace WpfApp3.WPfTestContrl
             set { parent = value; SetPerty("Parent"); }
         }
 
+    }
+
+    public class Banji
+    {
+        private int banjiHao;
+
+        public int BanjiHao
+        {
+            get { return banjiHao; }
+            set { banjiHao = value; }
+        }
+        private string banjiName;
+
+        public string BanjiName
+        {
+            get { return banjiName; }
+            set { banjiName = value; }
+        }
+        private string banjiName1;
+
+        public string BanjiName1
+        {
+            get { return banjiName1; }
+            set { banjiName1 = value; }
+        }
     }
 }

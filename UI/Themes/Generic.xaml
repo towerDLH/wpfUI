@@ -6,7 +6,8 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:convert="clr-namespace:UI.Convert">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/UI;component/Themes/IconBtton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="/UI;component/Themes/IconBtton.xaml">
+</ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
     <convert:WindowBaseCornerRadiusConverter x:Key="WinConRaConvert"></convert:WindowBaseCornerRadiusConverter>
     <Style TargetType="{x:Type local:TextBoxEx}">
@@ -606,4 +607,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>
