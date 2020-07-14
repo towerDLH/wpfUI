@@ -110,7 +110,6 @@
                 </ControlTemplate.Triggers>
             </ControlTemplate>
             <Style  TargetType="{x:Type ComboBox}">
-                <Setter Property="Width" Value="200" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -121,11 +120,10 @@
                             <Grid>
                                 <Border x:Name="Bg" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" BorderBrush="#eaeaea" BorderThickness="1"  >
                                     <Grid x:Name="PART_Root">
-
                                         <Grid x:Name="PART_InnerGrid" Margin="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="0.3*" MaxWidth="30" />
+                                                 <ColumnDefinition Width="0.3*" MaxWidth="30" />
                                             </Grid.ColumnDefinitions>
                                             <ListBox x:Name="PART_ListBoxChk" ItemsSource="{Binding ElementName=Base,Path=SeleComs}"  SelectionMode="Multiple" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                                 <ListBox.ItemsPanel>
@@ -159,8 +157,8 @@
                                 <Popup x:Name="PART_Popup" AllowsTransparency="True"  Focusable="False" StaysOpen="False"
                                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
                                PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
-                                    <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"  MaxHeight="100" >
-                                        <TreeView  x:Name="TreeTest"   Width="240" Height="100" ItemsSource="{Binding ElementName=Base,Path=Threes}">
+                                    <Grid Width="{Binding Width, RelativeSource={RelativeSource TemplatedParent}}"  Height="200" >
+                                        <TreeView      x:Name="TreeTest"   Width="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}"  Height="200" ItemsSource="{Binding ElementName=Base,Path=Threes}">
                                             <TreeView.ItemContainerStyle>
                                                 <Style TargetType="{x:Type TreeViewItem}">
                                                     <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />

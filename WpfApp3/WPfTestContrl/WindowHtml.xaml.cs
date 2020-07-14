@@ -17,13 +17,14 @@ using System.Collections.ObjectModel;
 using Brushes = System.Windows.Media.Brushes;
 using System.Reflection;
 using UI.Contorl;
+using UI;
 
 namespace WpfApp3.WPfTestContrl
 {
     /// <summary>
     /// WindowHtml.xaml 的交互逻辑
     /// </summary>
-    public partial class WindowHtml : Window
+    public partial class WindowHtml : WindowsBase
     {
         public List<Phone> _selectedOrgs = new List<Phone>();
         public WindowHtml()

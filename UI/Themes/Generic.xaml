@@ -277,8 +277,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WindowsBase}">
-                   
-                   
                         <Grid Name="root" Style="{StaticResource FontAwesome}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent},Path=HeaderHeight}"/>
@@ -291,8 +289,20 @@
                                 CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource WinConRaConvert},ConverterParameter=header }"
                                 BorderThickness="0">
                             <Border.Effect>
-                                <DropShadowEffect BlurRadius="20" ShadowDepth="0" />
+                                <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
                             </Border.Effect>
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border Background="Black"
+                                        SnapsToDevicePixels="True"
+                                        CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                             
                             <Grid Name="header"      >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -346,7 +356,21 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 Background="{TemplateBinding Background}"
                                 DockPanel.Dock="Top" Height="Auto">
-                                <AdornerDecorator>
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
+                            </Border.Effect>
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Border Background="Black"
+                                        SnapsToDevicePixels="True"
+                                        CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                            <AdornerDecorator>
                                     <ContentPresenter />
                                 </AdornerDecorator>
                             </Border>
@@ -430,6 +454,20 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             x:Name="WindowBorder">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
+                        </Border.Effect>
+                        <Border.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border Background="Black"
+                                        SnapsToDevicePixels="True"
+                                        CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Border}}"
+                                        Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Border}}" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Border.OpacityMask>
                         <Grid x:Name="LayoutRoot"
                               Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>

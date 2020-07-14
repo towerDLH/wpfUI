@@ -53,3 +53,9 @@ https://blog.csdn.net/Abysscarry/article/details/89071469 微信公众号开发
 
 
 https://blog.csdn.net/run_guo/article/details/100170423?ops_request_misc=&request_id=&biz_id=102&utm_term=wpf%20%E4%B8%8B%E6%8B%89%E6%A0%91&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-5-100170423 下拉树拖动问题
+
+
+https://blog.csdn.net/u010975589/article/details/106331741 开源控件库博客
+
+
+https://github.com/HeBianGu/WPF-ImagePlayer 开源控件库
