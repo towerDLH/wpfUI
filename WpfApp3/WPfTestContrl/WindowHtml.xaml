@@ -7,12 +7,32 @@
         xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
         xmlns:ex="clr-namespace:Msl.HtmlEditor;assembly=Msl.HtmlEditor"
         xmlns:ui="clr-namespace:UI.Eumn;assembly=UI"
+         xmlns:um="clr-namespace:UI.Model;assembly=UI"
         xmlns:uc="clr-namespace:UI.Contorl;assembly=UI"
         mc:Ignorable="d"
         x:Name="Base"
+     Icon="pack://application:,,,/Image/timg.jpg"
+       xmlns:sys="clr-namespace:System;assembly=mscorlib"
         CornerRadius="10"
         Title="WindowHtml" Height="450" Width="800">
     <Window.Resources>
+        <ObjectDataProvider x:Key="odp" ObjectType="{x:Type ui:StudentEnum}"  >
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="InlineTypeEnum" MethodName="GetValues"  ObjectType="{x:Type sys:Enum}" >
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="ui:StudentEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="myDataSource" ObjectType="{x:Type ui:StudentEnum}">
+            <ObjectDataProvider.ConstructorParameters>
+                <sys:String>Joe</sys:String>
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="agile" MethodName="GetValues"  ObjectType="{x:Type sys:Enum}" >
+            <ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -143,6 +163,8 @@
 
     </Window.Resources>
     <Grid>
+        <Grid.Resources>
+        </Grid.Resources>
         <Ellipse Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Height}">
         </Ellipse>
 
@@ -167,9 +189,53 @@
                 </VisualBrush>
             </Border.OpacityMask>
             <WrapPanel  >
+                <TextBox ToolTip="{x:Static ui:cl_Sex1.cateKey}" Text="sda" Width="120">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=ToolTip}" Value="{x:Static um:ResourcesClass.English}">
+                                    <Setter Property="FontSize" Value="45"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
-                <Button  SnapsToDevicePixels="False" Style="{StaticResource ButtonStyle1}" Content="测试asay" Click="BtnAsay_Click"  >
+                <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
+                    <!--<Button.Effect>
+                        --><!--<DropShadowEffect ShadowDepth="5"  Color="Red" BlurRadius="5" Direction="60"></DropShadowEffect>--><!--
+                        <BlurEffect Radius="3" ></BlurEffect>
+                    </Button.Effect>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation  Storyboard.TargetName="BtnTest"  Storyboard.TargetProperty="Width" To="250" Duration="0:0:5"></DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>-->
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Width" To="300" From="500" Duration="0:0:0.5"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Content="aa">
+                    <Button.Effect>
+                        <BlurEffect Radius="1"></BlurEffect>
+                    </Button.Effect>
                 </Button>
                 <DataGrid   ItemsSource="{Binding Source={StaticResource DemoTypes}}">
 
@@ -177,20 +243,20 @@
                 <ComboBox ItemsSource="{Binding Source={StaticResource DemoTypes}}" SelectionChanged="ComboBox_SelectionChanged" ></ComboBox>
                 <ComboBox x:Name="CbTest" SelectionChanged="CbTest_SelectionChanged" DisplayMemberPath="BanjiHao" SelectedValuePath="BanjiName"></ComboBox>
                 <Button x:Name="cmd" Content="测试一种取形状" Background="Red"></Button>
-                <Rectangle  Margin="3" Width="100 " Height="100 "  >
+                <Rectangle   Width="{Binding ElementName=cmd,Path=ActualWidth}"  Height="{Binding ElementName=cmd,Path=ActualHeight}"   >
                     <Rectangle.Fill>
                         <BitmapCacheBrush  Target="{Binding ElementName=cmd}"   AutoLayoutContent="False"    >
                         </BitmapCacheBrush>
                     </Rectangle.Fill>
-                    <Rectangle.RenderTransform>
+                    <!--<Rectangle.RenderTransform>
                         <ScaleTransform ScaleX="0.5" ScaleY="0.5"  CenterX="50" CenterY="50" >
                             
                         </ScaleTransform>
-                    </Rectangle.RenderTransform>
+                    </Rectangle.RenderTransform>-->
                 </Rectangle>
-                <Polygon Fill="Red"   Points="10,12 56,89 120,89">
+                <Polygon Fill="Red"   Points="0,0 56,89 120,89">
                     <Polygon.RenderTransform>
-                        <RotateTransform Angle="-345"></RotateTransform>
+                        <RotateTransform Angle="10"  CenterX="0" CenterY="0"></RotateTransform>
                     </Polygon.RenderTransform>
                 </Polygon>
                 <Rectangle Fill="Red" Width="70" Height="10" x:Name="rect">
@@ -199,12 +265,17 @@
                     </Rectangle.RenderTransform>
 
                 </Rectangle>
-                <Rectangle Fill="#AAAAAAAA" Width="70" Height="10">
+                <!--<Rectangle Fill="#AAAAAAAA" Width="70" Height="10">
                     <Rectangle.RenderTransform>
-                        <RotateTransform Angle="20"   ></RotateTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-79.593" AngleY="121"/>
+                            <RotateTransform Angle="19.999999999999996"/>
+                            <TranslateTransform X="51.163" Y="18.622"/>
+                        </TransformGroup>
                     </Rectangle.RenderTransform>
 
-                </Rectangle>
+                </Rectangle>-->
                 <Rectangle Fill="Red" Width="70" Height="10">
                     <Rectangle.RenderTransform>
                         <RotateTransform Angle="90" CenterX="35" CenterY="5"   ></RotateTransform>

@@ -210,7 +210,6 @@ namespace DiagramDesigner.Data
             Rect rectSource = GetRectWithMargin(source, 10);
             Point startPoint = GetOffsetPoint(source, rectSource);
             Point endPoint = sinkPoint;
-
             linePoints.Add(startPoint);
             Point currentPoint = startPoint;
 

@@ -7,6 +7,8 @@
         xmlns:local="clr-namespace:WpfApp3"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:ui="clr-namespace:UI;assembly=UI"
+       xmlns:ue="clr-namespace:UI.Eumn;assembly=UI"
+       xmlns:um="clr-namespace:UI.Model;assembly=UI"
         xmlns:extend="clr-namespace:UI.Extend;assembly=UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
@@ -352,7 +354,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <DataGrid  extend:DatagridExtend.DisplayRowNumber="True"  HeadersVisibility="Column"  AlternationCount="2"   VerticalScrollBarVisibility="Visible"   DataContext="{StaticResource ItemCollectionViewSource}" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder2"  MouseDoubleClick="gtdpurorder_MouseDoubleClick"   HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"   LoadingRow="gtdpurorder_LoadingRow" Margin="415,125.5,114,83.5" >
+                            <DataGrid  extend:DatagridExtend.DisplayRowNumber="True"  HeadersVisibility="Column"  AlternationCount="2"   VerticalScrollBarVisibility="Visible"   DataContext="{StaticResource ItemCollectionViewSource}" Height="210"   CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding PurOrderDetails}"   x:Name="gtdpurorder2"  MouseDoubleClick="gtdpurorder_MouseDoubleClick"   HorizontalScrollBarVisibility="Auto"  PreviewMouseLeftButtonDown="gtdpurorder_PreviewMouseLeftButtonDown" SelectedCellsChanged="gtdpurorder_SelectedCellsChanged_1"   LoadingRow="gtdpurorder_LoadingRow"  >
                                 <!--Style="{DynamicResource DateGridTotalStyle}"-->
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn Header="序号">
@@ -829,7 +831,7 @@
                 </Canvas>
             </StackPanel>
         </Grid>
-        <DataGrid  Visibility="Collapsed" x:Name="gtdpurorder"   >
+        <DataGrid    x:Name="gtdpurorder"   >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate >
@@ -843,7 +845,24 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="编号" Width="*" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="编号"   Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="aaa">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding id}"  >
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding id}" Value="{x:Static ue:StudentEnum.英语 }">
+                                                <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

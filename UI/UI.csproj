@@ -83,6 +83,7 @@
     <Compile Include="Convert\WindowBaseBorderThicknessConverter.cs" />
     <Compile Include="Convert\WindowBaseCornerRadiusConverter.cs" />
     <Compile Include="CustomWindow.cs" />
+    <Compile Include="DaTa\EnumDataGet.cs" />
     <Compile Include="DaTa\EnumDataProvider.cs" />
     <Compile Include="DaTa\IsDatagridDouble.cs" />
     <Compile Include="DaTa\ValueBoxes.cs" />
@@ -111,6 +112,7 @@
       <DependentUpon>MarkLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ObservableObject.cs" />
+    <Compile Include="Model\ResourcesClass.cs" />
     <Compile Include="MoveThumb.xaml.cs">
       <DependentUpon>MoveThumb.xaml</DependentUpon>
     </Compile>

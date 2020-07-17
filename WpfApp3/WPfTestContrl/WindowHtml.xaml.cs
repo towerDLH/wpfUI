@@ -33,6 +33,9 @@ namespace WpfApp3.WPfTestContrl
             Load();
         }
 
+
+        
+
         public void Load()
         {
             List<Banji> banjis = new List<Banji>();

@@ -8,6 +8,7 @@
         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="WpfApp3.Window2"
         mc:Ignorable="d"
+     xmlns:ui="clr-namespace:UI.Eumn;assembly=UI"
         Title="Window2" Height="450" Width="800">
     <Window.Resources>
         <ObjectDataProvider x:Key="odp" ObjectType="{x:Type local:Calculator}" MethodName="Add">
@@ -15,6 +16,12 @@
                 <system:String>2</system:String>
                 <system:String>0</system:String>
             </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="testaa" ></ObjectDataProvider>
+        <ObjectDataProvider x:Key="myDataSource" ObjectType="{x:Type ui:StudentEnum}">
+            <ObjectDataProvider.ConstructorParameters>
+                <system:String>英语</system:String>
+            </ObjectDataProvider.ConstructorParameters>
         </ObjectDataProvider>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
@@ -352,7 +359,8 @@
             <TextBox x:Name="textBox1" Margin="5" Text="{Binding MethodParameters[0], BindsDirectlyToSource=true, Source={StaticResource odp}, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox x:Name="textBox2" Margin="5" Text="{Binding MethodParameters[1], BindsDirectlyToSource=true, Source={StaticResource odp}, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox x:Name="textBox3" Margin="5" Text="{Binding Mode=OneWay, Source={StaticResource odp}}"/>
-            <svgc:SvgViewbox IsHitTestVisible="False" Height="130"  Source="/WpfApp3;component/Resours/文件.svg" Margin="291,0,430.333,0"/>
+            <TextBox Text="{Binding Source={StaticResource myDataSource}, Path=语文}"></TextBox>
+            <!--<svgc:SvgViewbox IsHitTestVisible="False" Height="130"  Source="/WpfApp3;component/Resours/文件.svg" Margin="291,0,430.333,0"/>-->
             <TextBlock>
 
                 <TextBlock.Text>

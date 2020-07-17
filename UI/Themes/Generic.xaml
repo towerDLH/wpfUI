@@ -7,7 +7,7 @@
     xmlns:convert="clr-namespace:UI.Convert">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/UI;component/Themes/IconBtton.xaml">
-</ResourceDictionary>
+        </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
     <convert:WindowBaseCornerRadiusConverter x:Key="WinConRaConvert"></convert:WindowBaseCornerRadiusConverter>
     <Style TargetType="{x:Type local:TextBoxEx}">
@@ -277,14 +277,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WindowsBase}">
-                        <Grid Name="root" Style="{StaticResource FontAwesome}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent},Path=HeaderHeight}"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+                    <Grid Name="root" Style="{StaticResource FontAwesome}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{Binding RelativeSource={RelativeSource TemplatedParent},Path=HeaderHeight}"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
                         <Border Background="{TemplateBinding BorderBrush}"
                                 CornerRadius="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource WinConRaConvert},ConverterParameter=header }"
                                 BorderThickness="0">
@@ -302,7 +302,7 @@
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </Border.OpacityMask>
-                             
+
                             <Grid Name="header"      >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -316,8 +316,8 @@
                                 </StackPanel>
                                 <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" x:Name="ContentPresenterMain" Content="{TemplateBinding CustomizedAreaContent}"  />
                                 <StackPanel x:Name="ButtonPanel" DockPanel.Dock="Right" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="2" Margin="10,0">
-                                    
-                                    <Button x:Name="ButtonMin"  ToolTip="Minimize" 
+
+                                    <Button x:Name="ButtonMin"   
                                             Content="&#xe644;" Style="{StaticResource WindowBaseButton}"  
                                             ContentTemplate="{StaticResource MinimizeWhite}"
                                             Command="SystemCommands.MinimizeWindowCommand"
@@ -325,7 +325,7 @@
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
                                             IsTabStop="False"/>
-                                    <Button x:Name="ButtonMax"   ToolTip="Maximize" 
+                                    <Button x:Name="ButtonMax"     
                                             Content="&#xe641;"
                                              ContentTemplate="{StaticResource MaximizeWhite}"
                                             Style="{StaticResource WindowBaseButton}" Command="SystemCommands.MaximizeWindowCommand"
@@ -333,7 +333,7 @@
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
                                             IsTabStop="False"/>
-                                    <Button  x:Name="ButtonRestore"  ToolTip="Restore"  Content="&#xe645;" Command="SystemCommands.RestoreWindowCommand"      Style="{StaticResource WindowBaseButton}" 
+                                    <Button  x:Name="ButtonRestore"     Content="&#xe645;" Command="SystemCommands.RestoreWindowCommand"      Style="{StaticResource WindowBaseButton}" 
                                              ContentTemplate="{StaticResource RestoreWhite}"
                                              Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
@@ -341,7 +341,6 @@
                                             IsTabStop="False"/>
                                     <Button Content="&#xe642;" 
                                             ContentTemplate="{StaticResource CloseWhite}"
-                                            ToolTip="Close"
                                             Background="Red" x:Name="ButtonClose"    Command="SystemCommands.CloseWindowCommand" Style="{StaticResource WindowBaseButton}" 
                                             Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
@@ -371,10 +370,10 @@
                                 </VisualBrush>
                             </Border.OpacityMask>
                             <AdornerDecorator>
-                                    <ContentPresenter />
-                                </AdornerDecorator>
-                            </Border>
-                        </Grid>
+                                <ContentPresenter />
+                            </AdornerDecorator>
+                        </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsActive" Value="False">
                             <Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain"/>
@@ -562,7 +561,7 @@
                                               KeyboardNavigation.IsTabStop="False">
                                 <!--<ContentPresenter x:Name="MainContentPresenter"
                                                   KeyboardNavigation.TabNavigation="Cycle" />-->
-                                
+
                             </AdornerDecorator>
                             <ResizeGrip x:Name="ResizeGrip"
                                         HorizontalAlignment="Right"
