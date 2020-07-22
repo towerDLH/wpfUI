@@ -144,3 +144,10 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.mshtml.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\Msl.HtmlEditor.pdb
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowHtml.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowHtml.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\MaterialDesign.dll
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml

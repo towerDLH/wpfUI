@@ -9,6 +9,7 @@
         xmlns:ui="clr-namespace:UI.Eumn;assembly=UI"
          xmlns:um="clr-namespace:UI.Model;assembly=UI"
         xmlns:uc="clr-namespace:UI.Contorl;assembly=UI"
+    xmlns:em="clr-namespace:UI.Eumn;assembly=UI"
         mc:Ignorable="d"
         x:Name="Base"
      Icon="pack://application:,,,/Image/timg.jpg"
@@ -16,6 +17,41 @@
         CornerRadius="10"
         Title="WindowHtml" Height="450" Width="800">
     <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="ActionBtn">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Height" Value="60"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <!--使用RotateTransform时，一定要使用TransformGroup，否则不能进行动画哦-->
+                    <TransformGroup>
+                        <RotateTransform></RotateTransform>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                <DoubleAnimation To="0" Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
         <ObjectDataProvider x:Key="odp" ObjectType="{x:Type ui:StudentEnum}"  >
         </ObjectDataProvider>
         <ObjectDataProvider x:Key="InlineTypeEnum" MethodName="GetValues"  ObjectType="{x:Type sys:Enum}" >
@@ -159,7 +195,28 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style x:Key="EventTriggerTest">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="FontSize" To="22"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="FontSize"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
 
     </Window.Resources>
     <Grid>
@@ -168,7 +225,7 @@
         <Ellipse Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Height}">
         </Ellipse>
 
-        <Border   BorderThickness="3" BorderBrush="#3c4d72"    ClipToBounds="True"
+        <Border    BorderThickness="3" BorderBrush="#3c4d72"    ClipToBounds="True"
                  CornerRadius="3"  Background="LightBlue"  Width="606" Height="356"    >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
@@ -202,6 +259,7 @@
                 </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
+                <Button Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
                 <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
                     <!--<Button.Effect>
                         --><!--<DropShadowEffect ShadowDepth="5"  Color="Red" BlurRadius="5" Direction="60"></DropShadowEffect>--><!--
@@ -232,14 +290,65 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <Button Content="aa">
+                <Ellipse Height="100" Width="100">
+                    <Ellipse.Fill>
+                        <SolidColorBrush x:Name="ellipseBrush" Color="SkyBlue"/>
+                    </Ellipse.Fill>
+                    <!--定义触发器-->
+                    <Ellipse.Triggers>
+                        <EventTrigger RoutedEvent="Ellipse.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetProperty="(Ellipse.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300"/>
+                                        <ColorAnimation Storyboard.TargetName="ellipseBrush" Storyboard.TargetProperty="(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>
+                                       
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Ellipse.Triggers>
+                </Ellipse>
+                <RadioButton Content="aa"  GroupName="Test"></RadioButton>
+                <RadioButton Content="bb" GroupName="Test"></RadioButton>
+                <Button Content="aa" x:Name="Btntest"  >
                     <Button.Effect>
                         <BlurEffect Radius="1"></BlurEffect>
                     </Button.Effect>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <!--使用RotateTransform时，一定要使用TransformGroup，否则不能进行动画哦-->
+                                    <TransformGroup>
+                                        <RotateTransform></RotateTransform>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    
+                                    <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
+                                        <!--<ColorAnimation Storyboard.TargetName="Btntest" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>-->
+
+                                        <DoubleAnimation Storyboard.TargetProperty="(Button.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300"/>
+                                        <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"    Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" From="AliceBlue" To="Red"></ColorAnimation>
+                                      <DoubleAnimation From="0" To="360" Duration="0:0:2" Storyboard.TargetProperty="RenderTransform.Children[0].Angle"></DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Button.Triggers>
                 </Button>
                 <DataGrid   ItemsSource="{Binding Source={StaticResource DemoTypes}}">
 
                 </DataGrid>
+                <ComboBox  ></ComboBox>
                 <ComboBox ItemsSource="{Binding Source={StaticResource DemoTypes}}" SelectionChanged="ComboBox_SelectionChanged" ></ComboBox>
                 <ComboBox x:Name="CbTest" SelectionChanged="CbTest_SelectionChanged" DisplayMemberPath="BanjiHao" SelectedValuePath="BanjiName"></ComboBox>
                 <Button x:Name="cmd" Content="测试一种取形状" Background="Red"></Button>
@@ -259,7 +368,7 @@
                         <RotateTransform Angle="10"  CenterX="0" CenterY="0"></RotateTransform>
                     </Polygon.RenderTransform>
                 </Polygon>
-                <Rectangle Fill="Red" Width="70" Height="10" x:Name="rect">
+                <Rectangle Fill="Red" Width="70" Height="10" x:Name="rect" >
                     <Rectangle.RenderTransform>
                         <RotateTransform Angle="10"   ></RotateTransform>
                     </Rectangle.RenderTransform>
@@ -276,7 +385,7 @@
                     </Rectangle.RenderTransform>
 
                 </Rectangle>-->
-                <Rectangle Fill="Red" Width="70" Height="10">
+                <Rectangle Fill="Red" Width="70" Height="10" Style="{StaticResource EventTriggerTest}">
                     <Rectangle.RenderTransform>
                         <RotateTransform Angle="90" CenterX="35" CenterY="5"   ></RotateTransform>
                     </Rectangle.RenderTransform>

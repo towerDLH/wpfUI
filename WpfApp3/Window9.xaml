@@ -831,7 +831,7 @@
                 </Canvas>
             </StackPanel>
         </Grid>
-        <DataGrid    x:Name="gtdpurorder"   >
+        <DataGrid    x:Name="gtdpurorder"   Visibility="Collapsed" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate >

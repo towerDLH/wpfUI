@@ -10,27 +10,63 @@
         Title="RabuttonList" Height="450" Width="800">
     <Window.Resources>
         <conver:SubjectToBoolConver x:Key="SubjectToBoolConver"></conver:SubjectToBoolConver>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Height" Value="60"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <!--使用RotateTransform时，一定要使用TransformGroup，否则不能进行动画哦-->
+                    <TransformGroup>
+                        <RotateTransform></RotateTransform>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                <DoubleAnimation To="0" Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid >
         <StackPanel>
             <Grid>
-                <ListView x:Name="ListRad"  ScrollViewer.VerticalScrollBarVisibility="Visible"   ScrollViewer.HorizontalScrollBarVisibility="Visible"      VerticalAlignment="Center"  SelectionChanged="ListRad_SelectionChanged" BorderBrush="Transparent"  Background="Transparent">
-                    <ListView.ItemsPanel>
+                <ListBox x:Name="ListRad"    Height="100"   BorderThickness="1" BorderBrush="Black"   VerticalAlignment="Center"  SelectionChanged="ListRad_SelectionChanged"      >
+                    <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"/>
+                            <WrapPanel Orientation="Horizontal" VerticalAlignment="Center"/>
                         </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
+                    </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <!-- 此段实现平滑的效果-->
                         <DataTemplate>
-                            <WrapPanel Orientation="Horizontal">
-                                <Grid  >
+                            <Grid  >
+                                <TextBlock Text="{Binding }"></TextBlock>
+                                <!--<Grid  >
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center"  >
                                         <TextBlock Text="{Binding }"></TextBlock>
                                         <Button   VerticalAlignment="Top" HorizontalAlignment="Right" >
                                             <TextBlock Text="&#xf00d;" Style="{DynamicResource FontAwesome}" Foreground="Red" />
                                         </Button>
-                                        <!--<RadioButton.IsChecked>
+                                        --><!--<RadioButton.IsChecked>
                                     <Binding Path="IsSelected" ElementName="{RelativeSource AncestorType=ListBoxItem}" Mode="TwoWay"></Binding>
                                 </RadioButton.IsChecked>-->
                                         <!--<RadioButton.IsChecked>
@@ -38,13 +74,13 @@
                                         <Binding Path="Subid"   />
                                         <Binding Path="Selectid"  />
                                     </MultiBinding>
-                                </RadioButton.IsChecked>-->
+                                </RadioButton.IsChecked>--><!--
                                     </StackPanel>
-                                </Grid>
-                            </WrapPanel>
+                                </Grid>-->
+                            </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListView>
+                </ListBox>
 
             </Grid></StackPanel>
 
