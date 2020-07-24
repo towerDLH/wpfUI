@@ -194,15 +194,14 @@
 
     <Style x:Key="FontAwesome" >
         <Setter Property="TextElement.FontFamily" Value="/UI;component/Resour/#iconfont" />
-        <Setter Property="TextElement.FontSize" Value="11" />
+        <Setter Property="TextElement.FontSize" Value="13    " />
+        <Setter Property="TextElement.Foreground" Value="White"/>
     </Style>
     <Style x:Key="WindowBaseButton" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="2,0"></Setter>
         <Setter Property="Width" Value="30"></Setter>
-        <Setter Property="Focusable"
-                Value="False" />
-        <Setter Property="Background"
-                Value="#66FFFFFF" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Background" Value="#66FFFFFF" />
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
@@ -316,7 +315,9 @@
                                 </StackPanel>
                                 <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" x:Name="ContentPresenterMain" Content="{TemplateBinding CustomizedAreaContent}"  />
                                 <StackPanel x:Name="ButtonPanel" DockPanel.Dock="Right" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="2" Margin="10,0">
-
+                                    <Button x:Name="BtnColor" WindowChrome.IsHitTestVisibleInChrome="True"   Style="{StaticResource WindowBaseButton}"    Command="{Binding Path=ColorWindowCommand,RelativeSource={RelativeSource TemplatedParent}}">
+                                        <TextBlock Style="{StaticResource FontAwesome}" Text="&#xe6bd;"></TextBlock>
+                                    </Button>
                                     <Button x:Name="ButtonMin"   
                                             Content="&#xe644;" Style="{StaticResource WindowBaseButton}"  
                                             ContentTemplate="{StaticResource MinimizeWhite}"
@@ -346,6 +347,12 @@
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
                                             IsTabStop="False"/>
+                                    <Popup  StaysOpen="False"  x:Name="ColorPup" AllowsTransparency="True" PlacementTarget="{Binding ElementName=BtnColor}">
+                                        <StackPanel >
+                                            <Button Background="Blue" Tag="skin_Blue" Width="10" Height="10" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
+                                            <Button Background="Green" Tag="skin_Green" Width="10" Height="10" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
+                                        </StackPanel>
+                                    </Popup>
                                 </StackPanel>
                             </Grid>
                         </Border>

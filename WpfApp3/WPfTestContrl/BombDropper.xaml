@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp3.WPfTestContrl.BombDropper"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
+        mc:Ignorable="d"
+        Title="BombDropper" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" BorderBrush="AliceBlue" BorderThickness="1" Margin="5">
+            <Grid>
+                <Canvas x:Name="canTest1" SizeChanged="canTest1_SizeChanged" MinWidth="50">
+                    <Canvas.Background>
+                         
+                        <RadialGradientBrush>
+                            <GradientStop Color="AliceBlue" Offset="0"> </GradientStop>
+                            <GradientStop Color="White" Offset="0.7"></GradientStop>
+                        </RadialGradientBrush>
+                    </Canvas.Background>
+                </Canvas>
+            </Grid>
+        </Border>
+        <Border Grid.Column="1" BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
+            <Border.Background>
+                <RadialGradientBrush GradientOrigin="1,0.7" RadiusX="1" RadiusY="1">
+                    <GradientStop Color="Orange" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="0.7"></GradientStop>
+                </RadialGradientBrush>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BtnGeam" Click="BtnGeam_Click"></Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

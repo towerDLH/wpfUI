@@ -71,6 +71,9 @@
     <Compile Include="ComboxTree.xaml.cs">
       <DependentUpon>ComboxTree.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contorl\Bomb.xaml.cs">
+      <DependentUpon>Bomb.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contorl\ComTree.xaml.cs">
       <DependentUpon>ComTree.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Contorl\Bomb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Contorl\ComTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Block\" />
+    <Folder Include="Page\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resour\SeraTextBox.jpg" />

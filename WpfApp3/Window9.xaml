@@ -281,7 +281,7 @@
                 extend:ControlAttachProperty.PlaceHolder="请输入密码"
                 
             IsEnabled="True"/>-->
-            <Grid Width="400" Height="200">
+            <Grid Width="400" Height="200" Visibility="Hidden">
                 <ui:MoveThumb     x:Name="movet" ></ui:MoveThumb>
                 <!--<ui:ArrowLine Stroke="Black"
                          StartPoint="0,0"
@@ -319,7 +319,7 @@
                 </WrapPanel>
 
             </Grid>
-            <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"  >
+            <ScrollViewer  Visibility="Collapsed" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"  >
 
                 <Canvas Name="myDesigner"  Height="200" Width="400"  >
                     <Canvas.RenderTransform>
@@ -651,7 +651,7 @@
                         <charts:DataPoint AxisXLabel="4月" YValue="0.6"/>
                     </charts:DataSeries.DataPoints>
                 </charts:DataSeries>-->
-        <DataGrid     SelectedIndex="0"  ScrollViewer.CanContentScroll="False"  extend:DatagridExtend.DisplayRowNumber="True" SelectionMode="Single"
+        <DataGrid   Visibility="Collapsed"  SelectedIndex="0"  ScrollViewer.CanContentScroll="False"  extend:DatagridExtend.DisplayRowNumber="True" SelectionMode="Single"
                       AlternationCount="2"  MouseUp="gtdpurorder_MouseUp"                        CanUserAddRows="False" 
                     AutoGenerateColumns="False"   ItemsSource="{Binding PurOrderDetails}"
                        
@@ -831,7 +831,7 @@
                 </Canvas>
             </StackPanel>
         </Grid>
-        <DataGrid    x:Name="gtdpurorder"   Visibility="Collapsed" >
+        <DataGrid     x:Name="gtdpurorder"   Visibility="Collapsed" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate >

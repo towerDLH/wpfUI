@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,17 +16,26 @@ using System.Windows.Shapes;
 
 namespace UI
 {
+    [TemplatePart(Name = "ColorPup", Type = typeof(Popup))]
     public class WindowsBase : Window
     {
+        private const string ColorPup = "ColorPup";
+        Popup WinColorPup;
         static WindowsBase()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowsBase), new FrameworkPropertyMetadata(typeof(WindowsBase)));
         }
+
+        public ICommand ColorWindowCommand { get; protected set; }
+        public ICommand ColorSetCommand { get; protected set; }
         public WindowsBase()
         {
             Loaded += (s, e) => OnLoaded(e);
         }
-
+        private void ColorCommand_Execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
         public int CornerRadius
         {
             get { return (int)GetValue(CornerRadiusProperty); }
@@ -48,7 +58,10 @@ namespace UI
             DependencyProperty.Register("HeaderHeight", typeof(int), typeof(WindowsBase), new PropertyMetadata(0));
 
 
-
+        public override void OnApplyTemplate()
+        {
+            WinColorPup = GetTemplateChild(ColorPup) as Popup;
+        }
 
         public object CustomizedAreaContent
         {
@@ -70,7 +83,27 @@ namespace UI
             CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
                 (s, e) => WindowState = WindowState.Normal));
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
-            // CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
+            CommandBindings.Add(new CommandBinding(ColorWindowCommand, (s, e) => ColorseMD()));
+            CommandBindings.Add(new CommandBinding(ColorSetCommand, (s, e) => SetColorseMD(s, e)));
+            
+        }
+
+        private void SetColorseMD(object sender,ExecutedRoutedEventArgs e)
+        {
+            var clor = (sender as Button).Tag.ToString();
+            if (clor == "skin_Blue")
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Blue"];
+            }
+            else if(clor == "skin_Green")
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Green"];
+            }
+        }
+
+        private void ColorseMD()
+        {
+            WinColorPup.IsOpen = true;
         }
     }
 }

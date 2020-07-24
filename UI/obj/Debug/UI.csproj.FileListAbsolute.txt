@@ -38,3 +38,5 @@ D:\Test\WpfTest\UI\obj\Debug\Contorl\ComTree.baml
 D:\Test\WpfTest\UI\obj\Debug\Contorl\TreeCombox.g.cs
 D:\Test\WpfTest\UI\obj\Debug\Contorl\TreeCombox.baml
 D:\Test\WpfTest\UI\obj\Debug\UI.csprojAssemblyReference.cache
+D:\Test\WpfTest\UI\obj\Debug\Contorl\Bomb.g.cs
+D:\Test\WpfTest\UI\obj\Debug\Contorl\Bomb.baml

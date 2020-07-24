@@ -7,14 +7,15 @@
         xmlns:local="clr-namespace:WpfApp3.WPfTestContrl"
         xmlns:ex="clr-namespace:Msl.HtmlEditor;assembly=Msl.HtmlEditor"
         xmlns:ui="clr-namespace:UI.Eumn;assembly=UI"
-         xmlns:um="clr-namespace:UI.Model;assembly=UI"
+        xmlns:um="clr-namespace:UI.Model;assembly=UI"
         xmlns:uc="clr-namespace:UI.Contorl;assembly=UI"
-    xmlns:em="clr-namespace:UI.Eumn;assembly=UI"
+        xmlns:em="clr-namespace:UI.Eumn;assembly=UI"
         mc:Ignorable="d"
         x:Name="Base"
-     Icon="pack://application:,,,/Image/timg.jpg"
-       xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Icon="pack://application:,,,/Image/timg.jpg"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         CornerRadius="10"
+        CustomizedAreaContent="{StaticResource cb}"
         Title="WindowHtml" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="ActionBtn">
@@ -259,7 +260,8 @@
                 </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
-                <Button Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
+                <Button  Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
+                
                 <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
                     <!--<Button.Effect>
                         --><!--<DropShadowEffect ShadowDepth="5"  Color="Red" BlurRadius="5" Direction="60"></DropShadowEffect>--><!--
@@ -290,7 +292,7 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <Ellipse Height="100" Width="100">
+                <Ellipse Height="100" Width="100" Visibility="Collapsed">
                     <Ellipse.Fill>
                         <SolidColorBrush x:Name="ellipseBrush" Color="SkyBlue"/>
                     </Ellipse.Fill>
@@ -311,7 +313,7 @@
                 </Ellipse>
                 <RadioButton Content="aa"  GroupName="Test"></RadioButton>
                 <RadioButton Content="bb" GroupName="Test"></RadioButton>
-                <Button Content="aa" x:Name="Btntest"  >
+                <Button Visibility="Collapsed"  Content="aa" x:Name="Btntest"  >
                     <Button.Effect>
                         <BlurEffect Radius="1"></BlurEffect>
                     </Button.Effect>
@@ -329,14 +331,14 @@
                         </Style>
                     </Button.Style>
                     <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.Loaded">
+                        <EventTrigger RoutedEvent="Button.Loaded" >
                             <EventTrigger.Actions>
-                                <BeginStoryboard>
+                                <BeginStoryboard HandoffBehavior="Compose">
                                     
                                     <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
                                         <!--<ColorAnimation Storyboard.TargetName="Btntest" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>-->
 
-                                        <DoubleAnimation Storyboard.TargetProperty="(Button.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="(Button.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300" By="10"/>
                                         <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"    Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" From="AliceBlue" To="Red"></ColorAnimation>
                                       <DoubleAnimation From="0" To="360" Duration="0:0:2" Storyboard.TargetProperty="RenderTransform.Children[0].Angle"></DoubleAnimation>
                                     </Storyboard>
@@ -345,14 +347,15 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <DataGrid   ItemsSource="{Binding Source={StaticResource DemoTypes}}">
+                <DataGrid  Visibility="Collapsed" ItemsSource="{Binding Source={StaticResource DemoTypes}}">
 
                 </DataGrid>
                 <ComboBox  ></ComboBox>
                 <ComboBox ItemsSource="{Binding Source={StaticResource DemoTypes}}" SelectionChanged="ComboBox_SelectionChanged" ></ComboBox>
-                <ComboBox x:Name="CbTest" SelectionChanged="CbTest_SelectionChanged" DisplayMemberPath="BanjiHao" SelectedValuePath="BanjiName"></ComboBox>
+                <ComboBox x:Name="CbTest" SelectionChanged="CbTest_SelectionChanged" DisplayMemberPath="BanjiHao" SelectedValuePath="BanjiName">
+                </ComboBox>
                 <Button x:Name="cmd" Content="测试一种取形状" Background="Red"></Button>
-                <Rectangle   Width="{Binding ElementName=cmd,Path=ActualWidth}"  Height="{Binding ElementName=cmd,Path=ActualHeight}"   >
+                <Rectangle   Width="{Binding ElementName=cmd,Path=ActualWidth}"  Height="82"   >
                     <Rectangle.Fill>
                         <BitmapCacheBrush  Target="{Binding ElementName=cmd}"   AutoLayoutContent="False"    >
                         </BitmapCacheBrush>
@@ -391,6 +394,13 @@
                     </Rectangle.RenderTransform>
 
                 </Rectangle>
+                <Path Fill="Red" Visibility="Collapsed">
+                    <Path.Data>
+                        <RectangleGeometry Rect="0,0,50,100"  RadiusX="110" RadiusY="0">
+                            
+                        </RectangleGeometry>
+                    </Path.Data>
+                </Path>
                 <StackPanel>
                     <TextBox x:Name="txt" Width="60" Height="40" FontSize="30" >
                         adfas
@@ -415,7 +425,12 @@
                         <LineGeometry   StartPoint="10,20" EndPoint="30,89"></LineGeometry>
                     </Path.Data>
                 </Path>
-                <Path Fill="Red" Stroke="Yellow">
+                <Path Fill="Red" Stroke="Yellow" RenderTransformOrigin="0.5,0.5" Height="100">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform></RotateTransform>
+                        </TransformGroup>
+                    </Path.RenderTransform>
                     <Path.Data>
                         <CombinedGeometry GeometryCombineMode="Union">
                             <CombinedGeometry.Geometry1>
@@ -429,18 +444,40 @@
                                 </CombinedGeometry>
                             </CombinedGeometry.Geometry1>
                             <CombinedGeometry.Geometry2>
-                                <RectangleGeometry Rect="44,5 10,90 " RadiusX="40" RadiusY="40">
-                                    <RectangleGeometry.Transform>
-                                        <RotateTransform Angle="45" CenterX="50" CenterY="50">
-                                        </RotateTransform>
-                                    </RectangleGeometry.Transform>
-                                </RectangleGeometry>
+                                <CombinedGeometry>
+                                    <CombinedGeometry.Geometry1>
+                                        <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
+                                            <RectangleGeometry.Transform>
+                                                <RotateTransform Angle="90" CenterX="50" CenterY="50">
+                                                </RotateTransform>
+                                            </RectangleGeometry.Transform>
+                                        </RectangleGeometry>
+                                    </CombinedGeometry.Geometry1>
+                                    <!--<CombinedGeometry.Geometry2>
+                                        <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
+                                            <RectangleGeometry.Transform>
+                                                <RotateTransform Angle="180" CenterX="50" CenterY="50">
+                                                </RotateTransform>
+                                            </RectangleGeometry.Transform>
+                                        </RectangleGeometry>
+                                    </CombinedGeometry.Geometry2>-->
+                                </CombinedGeometry>
                             </CombinedGeometry.Geometry2>
+                             
                         </CombinedGeometry>
 
                     </Path.Data>
+                    <Path.Triggers>
+                        <EventTrigger RoutedEvent="Path.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                    <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Path.Triggers>
                 </Path>
-                <Path Stroke="Blue" StrokeThickness="2">
+                <Path Stroke="Blue" StrokeThickness="2" Stretch="Fill" Width="136.333" Height="104.666">
                     <Path.Data>
                         <PathGeometry>
                             <PathFigure IsClosed="False" StartPoint="110,120" >

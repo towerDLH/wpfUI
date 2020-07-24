@@ -151,3 +151,5 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
 D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.Core.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
 D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\BombDropper.g.cs
+D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\BombDropper.baml
