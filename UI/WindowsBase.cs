@@ -27,11 +27,15 @@ namespace UI
         }
 
         public ICommand ColorWindowCommand { get; protected set; }
-        public ICommand ColorSetCommand { get; protected set; }
+        public RoutedCommand ColorSetCommand { get; protected set; }
+        private Button ColorBtn;
+        private Button SetColorBtn;
+        private Button SetColorBtn1;
         public WindowsBase()
         {
             Loaded += (s, e) => OnLoaded(e);
         }
+
         private void ColorCommand_Execute(object sender, ExecutedRoutedEventArgs e)
         {
             this.Close();
@@ -61,6 +65,17 @@ namespace UI
         public override void OnApplyTemplate()
         {
             WinColorPup = GetTemplateChild(ColorPup) as Popup;
+            ColorBtn = (Button)Template.FindName("BtnColor", this);
+            ColorBtn.Click += ColorBtn_Click;
+            SetColorBtn = (Button)Template.FindName("SetColorBtn", this);
+            SetColorBtn.Click += SetColorseMD;
+            SetColorBtn1 = (Button)Template.FindName("SetColorBtn1", this);
+            SetColorBtn1.Click += SetColorseMD;
+        }
+
+        private void ColorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            WinColorPup.IsOpen = true;
         }
 
         public object CustomizedAreaContent
@@ -83,27 +98,35 @@ namespace UI
             CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
                 (s, e) => WindowState = WindowState.Normal));
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
-            CommandBindings.Add(new CommandBinding(ColorWindowCommand, (s, e) => ColorseMD()));
-            CommandBindings.Add(new CommandBinding(ColorSetCommand, (s, e) => SetColorseMD(s, e)));
-            
+            this.ColorWindowCommand = new RoutedCommand();
+            // this.ColorSetCommand = new RoutedCommand();
+            // CommandBindings.Add(new CommandBinding(this.ColorWindowCommand, (s, e) => ColorseMD(s, e)));
+            CommandBindings.Add(new CommandBinding(this.ColorSetCommand, SetColorseMD));
+            //CommandBindings.Add(new CommandBinding(this.ColorSetCommand, SetColorseMD(o, e)));
         }
-
-        private void SetColorseMD(object sender,ExecutedRoutedEventArgs e)
+        private void SetColorseMD(object sender, RoutedEventArgs e)
         {
             var clor = (sender as Button).Tag.ToString();
             if (clor == "skin_Blue")
             {
                 this.Style = (Style)Application.Current.Resources["skin_Blue"];
             }
-            else if(clor == "skin_Green")
+            else if (clor == "skin_Green")
             {
                 this.Style = (Style)Application.Current.Resources["skin_Green"];
             }
         }
-
-        private void ColorseMD()
+        private void SetColorseMD(object sender, ExecutedRoutedEventArgs e)
         {
-            WinColorPup.IsOpen = true;
+            var clor = (sender as Button).Tag.ToString();
+            if (clor == "skin_Blue")
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Blue"];
+            }
+            else if (clor == "skin_Green")
+            {
+                this.Style = (Style)Application.Current.Resources["skin_Green"];
+            }
         }
     }
 }

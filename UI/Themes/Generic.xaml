@@ -349,8 +349,8 @@
                                             IsTabStop="False"/>
                                     <Popup  StaysOpen="False"  x:Name="ColorPup" AllowsTransparency="True" PlacementTarget="{Binding ElementName=BtnColor}">
                                         <StackPanel >
-                                            <Button Background="Blue" Tag="skin_Blue" Width="10" Height="10" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
-                                            <Button Background="Green" Tag="skin_Green" Width="10" Height="10" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
+                                            <Button x:Name="SetColorBtn" Background="Blue" Tag="skin_Blue" Width="20" Height="20" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
+                                            <Button x:Name="SetColorBtn1" Background="Green" Tag="skin_Green" Width="20" Height="20" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
                                         </StackPanel>
                                     </Popup>
                                 </StackPanel>

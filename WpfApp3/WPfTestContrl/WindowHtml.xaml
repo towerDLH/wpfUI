@@ -10,6 +10,7 @@
         xmlns:um="clr-namespace:UI.Model;assembly=UI"
         xmlns:uc="clr-namespace:UI.Contorl;assembly=UI"
         xmlns:em="clr-namespace:UI.Eumn;assembly=UI"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
         x:Name="Base"
         Icon="pack://application:,,,/Image/timg.jpg"
@@ -227,7 +228,7 @@
         </Ellipse>
 
         <Border    BorderThickness="3" BorderBrush="#3c4d72"    ClipToBounds="True"
-                 CornerRadius="3"  Background="LightBlue"  Width="606" Height="356"    >
+                 CornerRadius="3"     Width="606" Height="356"    >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
             </Border.Effect>
@@ -444,24 +445,12 @@
                                 </CombinedGeometry>
                             </CombinedGeometry.Geometry1>
                             <CombinedGeometry.Geometry2>
-                                <CombinedGeometry>
-                                    <CombinedGeometry.Geometry1>
-                                        <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
-                                            <RectangleGeometry.Transform>
-                                                <RotateTransform Angle="90" CenterX="50" CenterY="50">
-                                                </RotateTransform>
-                                            </RectangleGeometry.Transform>
-                                        </RectangleGeometry>
-                                    </CombinedGeometry.Geometry1>
-                                    <!--<CombinedGeometry.Geometry2>
-                                        <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
-                                            <RectangleGeometry.Transform>
-                                                <RotateTransform Angle="180" CenterX="50" CenterY="50">
-                                                </RotateTransform>
-                                            </RectangleGeometry.Transform>
-                                        </RectangleGeometry>
-                                    </CombinedGeometry.Geometry2>-->
-                                </CombinedGeometry>
+                                    <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
+                                        <RectangleGeometry.Transform>
+                                            <RotateTransform Angle="90" CenterX="50" CenterY="50">
+                                            </RotateTransform>
+                                        </RectangleGeometry.Transform>
+                                    </RectangleGeometry>
                             </CombinedGeometry.Geometry2>
                              
                         </CombinedGeometry>
@@ -471,7 +460,7 @@
                         <EventTrigger RoutedEvent="Path.Loaded">
                             <BeginStoryboard>
                                 <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
-                                    <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
+                                    <DoubleAnimation From="0" To="180" Duration="0:0:2"></DoubleAnimation>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -524,7 +513,13 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>
-                <uc:TreeCombox x:Name="cTree" Width="500"></uc:TreeCombox>
+                <uc:TreeCombox x:Name="cTree" Width="500"  ></uc:TreeCombox>
+                <!--<WindowsFormsHost    x:Name="wfhSample">
+                    <WindowsFormsHost.Child>
+                        <wf:WebBrowser ></wf:WebBrowser>
+                    </WindowsFormsHost.Child>
+                </WindowsFormsHost>-->
+
             </WrapPanel>
         </Border>
 
