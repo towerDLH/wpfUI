@@ -295,7 +295,7 @@
     <converter:ImageTextBoxMarginLeftConverter x:Key="ITBMLC"/>
     <converter:PlaceholderFontSizeConverter x:Key="PHFSC"/>
     <!--<converter:ClearButtonEnableTester x:Key="CBET"/>-->
-    <Style x:Key="EyePasswordBox" TargetType="{x:Type PasswordBox}">
+    <!--<Style x:Key="EyePasswordBox" TargetType="{x:Type PasswordBox}">
         <Setter Property="SelectionBrush" Value="{StaticResource PasswordBox.Static.SelectionBrush}"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="FontSize" Value="22"/>
@@ -331,13 +331,13 @@
                                 Text="&#xe670;"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                            <!--内容区域-->
+                            --><!--内容区域--><!--
                             <ScrollViewer x:Name="PART_ContentHost" Grid.Column="2" Margin="2"
                                     BorderThickness="0" IsTabStop="False"
                                     VerticalAlignment="Stretch" Background="{x:Null}"
                                     VerticalContentAlignment="Center"/>
 
-                            <!--显示密码明文-->
+                            --><!--显示密码明文--><!--
                             <TextBox x:Name="PART_PasswordShower" Grid.Column="2"
                                 IsTabStop="True" Focusable="False"
                                 Margin="2" Padding="0"
@@ -358,7 +358,7 @@
                                 Text="{Binding Path=(controls:ControlAttachProperty.PlaceHolder), RelativeSource={RelativeSource TemplatedParent}}"
                                 FontSize="{Binding FontSize, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource PHFSC}}"/>
 
-                            <!--附加内容区域-->
+                            --><!--附加内容区域--><!--
                             <ToggleButton x:Name="PART_EyeToggle" Grid.Column="3"
                                     IsTabStop="True" Focusable="False"
                                     BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
@@ -397,7 +397,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
     <Style x:Key="PasswordBoxToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>

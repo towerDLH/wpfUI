@@ -18,7 +18,8 @@ using Brushes = System.Windows.Media.Brushes;
 using System.Reflection;
 using UI.Contorl;
 using UI;
-
+using System.ComponentModel;
+ 
 namespace WpfApp3.WPfTestContrl
 {
     /// <summary>
@@ -30,18 +31,22 @@ namespace WpfApp3.WPfTestContrl
         public WindowHtml()
         {
             InitializeComponent();
-            Load();
+           // this.Closed += WinClosee;
+           // Load();
         }
 
+        private void WinClosee(object sender, EventArgs e)
+        {
 
-
+        }
 
         public void Load()
         {
+            List<Game> games = new List<Game>();
             List<Banji> banjis = new List<Banji>();
             ObservableCollection<Treemodel> trees = new ObservableCollection<Treemodel>();
             ObservableCollection<Treemodel> childs = new ObservableCollection<Treemodel>();
-            childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集1" ,IsParent=true});
+            childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集1", IsParent = true });
             childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集2", IsParent = true });
             childs.Add(new Treemodel { ID = Guid.NewGuid(), Name = "子集3", IsParent = true });
             for (int i = 0; i < 8; i++)
@@ -53,12 +58,16 @@ namespace WpfApp3.WPfTestContrl
                     new Treemodel { ID = Guid.NewGuid(), Name = "子集2" ,Parent=phoneitem}
                 };
                 trees.Add(phoneitem);
-                banjis.Add(new Banji() { BanjiHao = i, BanjiName = $"班级{i}" });
+                banjis.Add(new Banji() { BanjiHao = i, BanjiName = $"班级{i}", Temperature = 20 + i, Humidity = 21 + i });
+                games.Add(new Game(20 + i, 22 + i));
             }
-            banjis.Add(new Banji() { BanjiHao = 1, BanjiName = $"班级1",BanjiName1="2323" });
+            // banjis.Add(new Banji() { BanjiHao = 1, BanjiName = $"班级1", BanjiName1 = "2323" });
             CbTest.ItemsSource = banjis;
             cTree.Threes = trees;
-           // LoaCr(childs);
+            // LoaCr(childs);
+
+            ObservableCollection<Banji> listbanji = new ObservableCollection<Banji>(banjis);
+           // ListRoce.ItemsSource = games;
         }
 
         public void LoaCr(ObservableCollection<Phone> cbItemSource)
@@ -237,7 +246,7 @@ namespace WpfApp3.WPfTestContrl
 
     }
 
-    public class Banji
+    public class Banji : INotifyPropertyChanged
     {
         private int banjiHao;
 
@@ -245,6 +254,28 @@ namespace WpfApp3.WPfTestContrl
         {
             get { return banjiHao; }
             set { banjiHao = value; }
+        }
+
+        private double temperature;
+
+        public double Temperature
+        {
+            get { return temperature; }
+            set
+            {
+                temperature = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Temperature"));
+                }
+            }
+        }
+        private int humidity;
+
+        public int Humidity
+        {
+            get { return humidity; }
+            set { humidity = value; }
         }
         private string banjiName;
 
@@ -260,5 +291,54 @@ namespace WpfApp3.WPfTestContrl
             get { return banjiName1; }
             set { banjiName1 = value; }
         }
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+    }
+    public class Game : INotifyPropertyChanged
+    {
+        private double score;
+
+        public double Score
+        {
+            get { return score; }
+            set
+            {
+                score = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Score"));
+                }
+            }
+        }
+        private int humidity;
+
+        public int Humidity
+        {
+            get { return humidity; }
+            set
+            {
+                humidity = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Humidity"));
+                }
+            }
+        }
+
+        public Game(double scr, int humty)
+        {
+            this.Score = scr;
+            this.Humidity = humty;
+        }
+
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
     }
 }

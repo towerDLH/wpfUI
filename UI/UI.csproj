@@ -35,11 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ay.MvcFramework.Wpf">
-      <HintPath>..\Resources\Ay.MvcFramework.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resour\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -47,8 +45,9 @@
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    <Reference Include="system.windows.interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resour\system.windows.interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -74,15 +73,20 @@
     <Compile Include="Contorl\Bomb.xaml.cs">
       <DependentUpon>Bomb.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contorl\CircularGaugeControl.cs" />
     <Compile Include="Contorl\ComTree.xaml.cs">
       <DependentUpon>ComTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="Contorl\TreeCombox.xaml.cs">
       <DependentUpon>TreeCombox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Contorl\UserExtendContent.xaml.cs">
+      <DependentUpon>UserExtendContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Convert\ImageTextBoxMarginLeftConverter.cs" />
     <Compile Include="Convert\PlaceholderFontSizeConverter.cs" />
     <Compile Include="Convert\TextDoubleToString.cs" />
+    <Compile Include="Convert\TypeConverters.cs" />
     <Compile Include="Convert\WindowBaseBorderThicknessConverter.cs" />
     <Compile Include="Convert\WindowBaseCornerRadiusConverter.cs" />
     <Compile Include="CustomWindow.cs" />
@@ -93,7 +97,6 @@
     <Compile Include="DatePickerCalendar.cs" />
     <Compile Include="DatePickerDateFormat.cs" />
     <Compile Include="Eumn\StudentEnum.cs" />
-    <Compile Include="Extend\ControlAttachProperty.cs" />
     <Compile Include="Extend\DatagridExtend.cs" />
     <Compile Include="Extend\PasswordBoxExtend.cs" />
     <Compile Include="Extend\PasswordBoxHelper.cs" />
@@ -151,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Contorl\UserExtendContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +177,10 @@
     <Page Include="SearTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Skin\SkinDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +222,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resour\Microsoft.Expression.Interactions.dll" />
+    <Content Include="Resour\system.windows.interactivity.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

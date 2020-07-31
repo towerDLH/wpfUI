@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Contorl;
 
 namespace UI
 {
@@ -26,8 +27,43 @@ namespace UI
             DefaultStyleKeyProperty.OverrideMetadata(typeof(WindowsBase), new FrameworkPropertyMetadata(typeof(WindowsBase)));
         }
 
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+            WinExtend = new UserExtendContent();
+        }
+
+
+        public object WinExtend
+        {
+            get { return (Window)GetValue(WinExtendProperty); }
+            set { SetValue(WinExtendProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for WinExtend.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty WinExtendProperty =
+            DependencyProperty.Register("WinExtend", typeof(Window), typeof(WindowsBase), new PropertyMetadata(default(object)));
+
+
+
+        public ICommand SetColoreCommand
+        {
+            get { return (ICommand)GetValue(SetColoreCommandProperty); }
+            set { SetValue(SetColoreCommandProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SetColoreCommand.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SetColoreCommandProperty =
+            DependencyProperty.Register("SetColoreCommand", typeof(ICommand), typeof(WindowsBase), new PropertyMetadata(null, SetColoreback));
+
+        private static void SetColoreback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
         public ICommand ColorWindowCommand { get; protected set; }
-        public RoutedCommand ColorSetCommand { get; protected set; }
+        public ICommand ColorSetCommand { get; protected set; }
         private Button ColorBtn;
         private Button SetColorBtn;
         private Button SetColorBtn1;
@@ -98,10 +134,10 @@ namespace UI
             CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
                 (s, e) => WindowState = WindowState.Normal));
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
-            this.ColorWindowCommand = new RoutedCommand();
+            // this.ColorWindowCommand = new RoutedCommand();
             // this.ColorSetCommand = new RoutedCommand();
             // CommandBindings.Add(new CommandBinding(this.ColorWindowCommand, (s, e) => ColorseMD(s, e)));
-            CommandBindings.Add(new CommandBinding(this.ColorSetCommand, SetColorseMD));
+            // CommandBindings.Add(new CommandBinding(this.ColorSetCommand, SetColorseMD));
             //CommandBindings.Add(new CommandBinding(this.ColorSetCommand, SetColorseMD(o, e)));
         }
         private void SetColorseMD(object sender, RoutedEventArgs e)

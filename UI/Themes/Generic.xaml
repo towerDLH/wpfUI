@@ -7,7 +7,7 @@
     xmlns:convert="clr-namespace:UI.Convert">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/UI;component/Themes/IconBtton.xaml">
-        </ResourceDictionary>
+            </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
     <convert:WindowBaseCornerRadiusConverter x:Key="WinConRaConvert"></convert:WindowBaseCornerRadiusConverter>
     <Style TargetType="{x:Type local:TextBoxEx}">
@@ -313,7 +313,7 @@
                                            MaxHeight="20" MaxWidth="20" Margin="10,0,0,0"/>
                                     <TextBlock   Text="{TemplateBinding Title}" FontSize="14" FontFamily="Microsoft Yihi" VerticalAlignment="Center" Margin="6,0,0,0"></TextBlock>
                                 </StackPanel>
-                                <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" x:Name="ContentPresenterMain" Content="{TemplateBinding CustomizedAreaContent}"  />
+                                <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="1" x:Name="ContentPresenterMain" Content="{TemplateBinding WinExtend}"  />
                                 <StackPanel x:Name="ButtonPanel" DockPanel.Dock="Right" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="2" Margin="10,0">
                                     <Button x:Name="BtnColor" WindowChrome.IsHitTestVisibleInChrome="True"   Style="{StaticResource WindowBaseButton}"    Command="{Binding Path=ColorWindowCommand,RelativeSource={RelativeSource TemplatedParent}}">
                                         <TextBlock Style="{StaticResource FontAwesome}" Text="&#xe6bd;"></TextBlock>
@@ -648,6 +648,28 @@
                             BorderThickness="{TemplateBinding BorderThickness}">
                     </Border>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="skin_Blue">
+        <Setter Property="Control.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" Opacity="0.5">
+                    <GradientStop Color="Blue" Offset="0" />
+                    <GradientStop Color="WhiteSmoke" Offset="0.5" />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="skin_Green">
+        <Setter Property="Control.Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="Green" Offset="0" />
+                    <GradientStop Color="WhiteSmoke" Offset="0.5" />
+                    <GradientStop Color="Green" Offset="1" />
+                </LinearGradientBrush>
             </Setter.Value>
         </Setter>
     </Style>

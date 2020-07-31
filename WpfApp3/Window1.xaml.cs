@@ -34,6 +34,7 @@ namespace WpfApp3
             {
                 new LineSeries
                 {
+                    PointGeometry = DefaultGeometries.Square,
                     AreaLimit = -10,
                     Values = new ChartValues<ObservableValue>
                     {
@@ -88,7 +89,7 @@ namespace WpfApp3
                 while (true)
                 {
                     Thread.Sleep(500);
-                    _trend += (r.NextDouble() > 0.3 ? 1 : -1)*r.Next(0, 5);
+                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));

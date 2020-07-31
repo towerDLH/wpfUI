@@ -35,8 +35,6 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\HandyControl.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.pdb
 D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.xml
-D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.Wpf.pdb
-D:\Test\WpfTest\WpfApp3\bin\Debug\LiveCharts.Wpf.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\log4net.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\Syncfusion.Gantt.WPF.xml
 D:\Test\WpfTest\WpfApp3\bin\Debug\Syncfusion.Grid.WPF.xml
@@ -123,7 +121,6 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\Test\WpfTest\WpfApp3\bin\Debug\stdole.dll
 D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\Lanage-E.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\Lanage\lanage-ZH.baml
-D:\Test\WpfTest\WpfApp3\obj\Debug\Skin\SkinDictionary.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\WindowTest.baml
 D:\Test\WpfTest\WpfApp3\obj\Debug\NoUserContent.baml
@@ -153,3 +150,4 @@ D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
 D:\Test\WpfTest\WpfApp3\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\BombDropper.g.cs
 D:\Test\WpfTest\WpfApp3\obj\Debug\WPfTestContrl\BombDropper.baml
+D:\Test\WpfTest\WpfApp3\bin\Debug\CircularGauge.dll

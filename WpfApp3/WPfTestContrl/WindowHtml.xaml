@@ -15,7 +15,9 @@
         x:Name="Base"
         Icon="pack://application:,,,/Image/timg.jpg"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        CornerRadius="10"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
+    CornerRadius="10"
         CustomizedAreaContent="{StaticResource cb}"
         Title="WindowHtml" Height="450" Width="800">
     <Window.Resources>
@@ -226,8 +228,247 @@
         </Grid.Resources>
         <Ellipse Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Height}">
         </Ellipse>
+        <!--<uc:CircularGaugeControl Grid.Column="0" x:Name="myGauge1"
+                                        Radius="45" 
+                                        ScaleRadius="55" 
+                                        ScaleStartAngle="120" 
+                                        ScaleSweepAngle="300"
+                                        PointerLength="42" 
+                                        PointerCapRadius="10" 
+                                        MinValue="0" 
+                                        MaxValue="500" 
+                                        MajorDivisionsCount="10" 
+                                        MinorDivisionsCount="5" 
+                                        CurrentValue="{Binding CurRadis}"
+                                        ImageSize="10,20"
+                                        RangeIndicatorThickness="2"
+                                        RangeIndicatorRadius="43"
+                                        RangeIndicatorLightRadius="3"
+                                        RangeIndicatorLightOffset="48"
+                                        ScaleLabelRadius="62"
+                                        ScaleLabelSize="15,15"
+                                        ScaleLabelFontSize="6"
+                                        ScaleLabelForeground="LightGray"
+                                        MajorTickSize="5,3"
+                                        MinorTickSize="2,1"
+                                        MajorTickColor="LightGray"
+                                        MinorTickColor="LightGray"
+                                        ImageOffset="-20"
+                                        GaugeBackgroundColor="Black"
+                                        PointerThickness ="3"
+                                        OptimalRangeStartValue="100"
+                                        OptimalRangeEndValue="400" 
+                                        BelowOptimalRangeColor="Red"
+                                        OptimalRangeColor="Yellow"
+                                        AboveOptimalRangeColor="Green"
+                                        DialTextOffset="20" 
+                                        DialText="{Binding DashboardText}" 
+                                        DialTextColor="Black"
+                                        DialTextFontSize="9"/>-->
+        <Path Margin="15" Data="m0,90 a3,3 0 0 0 4,0 l-8,-82 a0.1,2 -5 0 0 -4 0 z" Fill="Yellow"></Path>
+        <!--<Path  Data="M631.794447 887.825117L532.478931 50.298394c-8.19097-66.551634-21.501297-67.575506-29.692268 0L392.208562 886.801246c-9.214842 74.742605 43.002595 136.174883 118.769071 137.198754 75.766476 0 130.031655-61.432278 120.816814-136.174883z m-121.840685 97.267774c-47.09808-1.023871-82.933575-39.930981-81.909704-87.029061 1.023871-47.09808 39.930981-82.933575 87.02906-81.909704 47.09808 1.023871 82.933575 39.930981 81.909704 87.029061-2.047743 46.074208-40.954852 82.933575-87.02906 81.909704z" Margin="100" Width="10" Height="10" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>-->
+        <Canvas   Visibility="Collapsed">
+            <lvc:AngularGauge Value="25" FromValue="-30" ToValue="50" 
+                          LabelsStep="10" TicksStep="1" Wedge="300"
+                          NeedleFill="Green"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="15"
+                          SectionsInnerRadius="0.8" Width="400"  Height="400"   >
+                <lvc:AngularGauge.Sections>
+                    <lvc:AngularSection FromValue="-30" ToValue="10" Fill="#FF1293CF"/>
+                    <lvc:AngularSection FromValue="10" ToValue="25" Fill="#FF23E81A"/>
+                    <lvc:AngularSection FromValue="25" ToValue="50" Fill="Red"/>
+                </lvc:AngularGauge.Sections>
+            </lvc:AngularGauge>
+            <lvc:AngularGauge Value="50" FromValue="20" ToValue="100" 
+                          LabelsStep="10" TicksStep="2" Wedge="300"
+                          NeedleFill="Green"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".5" Width="221" Height="164" Canvas.Left="87" Canvas.Top="218"      >
+                <lvc:AngularGauge.Sections>
+                    <lvc:AngularSection FromValue="20" ToValue="40" Fill="#FF1293CF"/>
+                    <lvc:AngularSection FromValue="40" ToValue="70" Fill="#FF23E81A"/>
+                    <lvc:AngularSection FromValue="70" ToValue="100" Fill="Red" Height="23" RenderTransformOrigin="0.5,0.5" Width="6">
+                        <lvc:AngularSection.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </lvc:AngularSection.RenderTransform>
+                    </lvc:AngularSection>
+                </lvc:AngularGauge.Sections>
+            </lvc:AngularGauge>
+        </Canvas>
+        <Label Content="dedd:" HorizontalAlignment="Right"></Label>
+        <lvc:CartesianChart  Visibility="Collapsed"  Series="{Binding SeriesCollection}" LegendLocation="Left" >
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="时间" Labels="{Binding Labels}" FontSize="14"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MaxValue="10" MinValue="-10" MinRange="-10" MaxRange="10"/>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <ListBox x:Name="ListRoce" Visibility="Collapsed">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="750"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="550" Height="300" BorderThickness="1" BorderBrush="Blue">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Canvas Grid.Column="0" Width="300" Height="300">
+                                <gauge:CircularGaugeControl x:Name="myGauge1"  
+                                        Radius="150" 
+                                        ScaleRadius="110" 
+                                        ScaleStartAngle="150" 
+                                        ScaleSweepAngle="250"
+                                        PointerLength="85" 
+                                        PointerCapRadius="25" 
+                                        MinValue="-30" 
+                                        MaxValue="50" 
+                                        MajorDivisionsCount="8" 
+                                        MinorDivisionsCount="5" 
+                                        CurrentValue="{Binding ElementName=laTepnum,Path=Content}"
+                                        ImageSize="40,50"
+                                        RangeIndicatorThickness="8"
+                                        RangeIndicatorRadius="120"
+                                        RangeIndicatorLightRadius="10"
+                                        RangeIndicatorLightOffset="80"
+                                        ScaleLabelRadius="90"
+                                        ScaleLabelSize="40,20"
+                                        ScaleLabelFontSize="10"
+                                        ScaleLabelForeground="LightGray"
+                                        MajorTickSize="10,3"
+                                        MinorTickSize="3,1"
+                                        MajorTickColor="LightGray"
+                                        MinorTickColor="LightGray"
+                                        ImageOffset="-50"
+                                        GaugeBackgroundColor="Black"
+                                        PointerThickness ="16"
+                                        OptimalRangeStartValue="10"
+                                        OptimalRangeEndValue="25" 
+                                        DialTextOffset="20" 
+                                        DialText="温湿度"
+                                        DialTextColor="Black"
+                                        BelowOptimalRangeColor="Green"
+                                        OptimalRangeColor="Yellow"
+                                        AboveOptimalRangeColor="Red"
+                                        >
+                                </gauge:CircularGaugeControl>
+                                <Label Content="{Binding Score}"   x:Name="laTepnum" Visibility="Collapsed"></Label>
 
-        <Border    BorderThickness="3" BorderBrush="#3c4d72"    ClipToBounds="True"
+                                <lvc:AngularGauge Value="{Binding Humidity}" FromValue="20" ToValue="100" 
+                          LabelsStep="10" TicksStep="2" Wedge="300"
+                          NeedleFill="#FFA60B0B"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".9" Width="156" Height="104" Canvas.Left="72" Canvas.Top="179"      >
+                                    <lvc:AngularGauge.Sections>
+                                        <lvc:AngularSection FromValue="20" ToValue="40" Fill="Green"/>
+                                        <lvc:AngularSection FromValue="40" ToValue="70" Fill="#FF87872D"/>
+                                        <lvc:AngularSection FromValue="70" ToValue="100" Fill="Red" Height="23" RenderTransformOrigin="0.5,0.5" Width="6">
+                                            <lvc:AngularSection.RenderTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleY="0.5" ScaleX="0.5"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </lvc:AngularSection.RenderTransform>
+                                        </lvc:AngularSection>
+                                    </lvc:AngularGauge.Sections>
+                                </lvc:AngularGauge>
+
+                            </Canvas>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Canvas Visibility="Collapsed">
+            <gauge:CircularGaugeControl x:Name="myGauge1"  
+                                        Radius="150" 
+                                        ScaleRadius="110" 
+                                        ScaleStartAngle="150" 
+                                        ScaleSweepAngle="250"
+                                        PointerLength="85" 
+                                        PointerCapRadius="25" 
+                                        MinValue="-30" 
+                                        MaxValue="50" 
+                                        MajorDivisionsCount="8" 
+                                        MinorDivisionsCount="5" 
+                                        CurrentValue="{Binding Temperature,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                        ImageSize="40,50"
+                                        RangeIndicatorThickness="8"
+                                        RangeIndicatorRadius="120"
+                                        RangeIndicatorLightRadius="10"
+                                        RangeIndicatorLightOffset="80"
+                                        ScaleLabelRadius="90"
+                                        ScaleLabelSize="40,20"
+                                        ScaleLabelFontSize="10"
+                                        ScaleLabelForeground="LightGray"
+                                        MajorTickSize="10,3"
+                                        MinorTickSize="3,1"
+                                        MajorTickColor="LightGray"
+                                        MinorTickColor="LightGray"
+                                        ImageOffset="-50"
+                                        GaugeBackgroundColor="Black"
+                                        PointerThickness ="16"
+                                        OptimalRangeStartValue="10"
+                                        OptimalRangeEndValue="25" 
+                                        DialTextOffset="20" 
+                                        DialText="温湿度"
+                                        DialTextColor="Black"
+                                        BelowOptimalRangeColor="Green"
+                                        OptimalRangeColor="Yellow"
+                                        AboveOptimalRangeColor="Red"
+                                        >
+
+            </gauge:CircularGaugeControl>
+
+            <lvc:AngularGauge Value="50" FromValue="20" ToValue="100" 
+                          LabelsStep="10" TicksStep="2" Wedge="300"
+                          NeedleFill="Green"
+                          TicksForeground="White" Foreground="White" 
+                          FontWeight="Bold" FontSize="10"
+                          SectionsInnerRadius=".9" Width="156" Height="104" Canvas.Left="72" Canvas.Top="179"      >
+                <lvc:AngularGauge.Sections>
+                    <lvc:AngularSection FromValue="20" ToValue="40" Fill="Green"/>
+                    <lvc:AngularSection FromValue="40" ToValue="70" Fill="Yellow"/>
+                    <lvc:AngularSection FromValue="70" ToValue="100" Fill="Red" Height="23" RenderTransformOrigin="0.5,0.5" Width="6">
+                        <lvc:AngularSection.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="0.5" ScaleX="0.5"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </lvc:AngularSection.RenderTransform>
+                    </lvc:AngularSection>
+                </lvc:AngularGauge.Sections>
+            </lvc:AngularGauge>
+        </Canvas>
+
+        <Border       BorderThickness="3" BorderBrush="#3c4d72"    ClipToBounds="True"
                  CornerRadius="3"     Width="606" Height="356"    >
             <Border.Effect>
                 <DropShadowEffect BlurRadius="6" ShadowDepth="0" Color="#B7B7B7"/>
@@ -247,7 +488,7 @@
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Border.OpacityMask>
-            <WrapPanel  >
+            <WrapPanel   >
                 <TextBox ToolTip="{x:Static ui:cl_Sex1.cateKey}" Text="sda" Width="120">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
@@ -261,11 +502,14 @@
                 </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
+
                 <Button  Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
-                
+
                 <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
                     <!--<Button.Effect>
-                        --><!--<DropShadowEffect ShadowDepth="5"  Color="Red" BlurRadius="5" Direction="60"></DropShadowEffect>--><!--
+                        -->
+                    <!--<DropShadowEffect ShadowDepth="5"  Color="Red" BlurRadius="5" Direction="60"></DropShadowEffect>-->
+                    <!--
                         <BlurEffect Radius="3" ></BlurEffect>
                     </Button.Effect>
                     <Button.Style>
@@ -293,7 +537,7 @@
                         </EventTrigger>
                     </Button.Triggers>
                 </Button>
-                <Ellipse Height="100" Width="100" Visibility="Collapsed">
+                <Ellipse Height="100" Width="100"  >
                     <Ellipse.Fill>
                         <SolidColorBrush x:Name="ellipseBrush" Color="SkyBlue"/>
                     </Ellipse.Fill>
@@ -305,7 +549,7 @@
                                     <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
                                         <DoubleAnimation Storyboard.TargetProperty="(Ellipse.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300"/>
                                         <ColorAnimation Storyboard.TargetName="ellipseBrush" Storyboard.TargetProperty="(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>
-                                       
+
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger.Actions>
@@ -335,13 +579,13 @@
                         <EventTrigger RoutedEvent="Button.Loaded" >
                             <EventTrigger.Actions>
                                 <BeginStoryboard HandoffBehavior="Compose">
-                                    
+
                                     <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
                                         <!--<ColorAnimation Storyboard.TargetName="Btntest" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>-->
 
                                         <DoubleAnimation Storyboard.TargetProperty="(Button.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300" By="10"/>
                                         <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"    Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" From="AliceBlue" To="Red"></ColorAnimation>
-                                      <DoubleAnimation From="0" To="360" Duration="0:0:2" Storyboard.TargetProperty="RenderTransform.Children[0].Angle"></DoubleAnimation>
+                                        <DoubleAnimation From="0" To="360" Duration="0:0:2" Storyboard.TargetProperty="RenderTransform.Children[0].Angle"></DoubleAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger.Actions>
@@ -367,9 +611,9 @@
                         </ScaleTransform>
                     </Rectangle.RenderTransform>-->
                 </Rectangle>
-                <Polygon Fill="Red"   Points="0,0 56,89 120,89">
+                <Polygon Fill="Red"  RenderTransformOrigin="0.5,0.5"  Points="0,0 56,89 120,89">
                     <Polygon.RenderTransform>
-                        <RotateTransform Angle="10"  CenterX="0" CenterY="0"></RotateTransform>
+                        <RotateTransform Angle="10"     CenterX="0" CenterY="0"></RotateTransform>
                     </Polygon.RenderTransform>
                 </Polygon>
                 <Rectangle Fill="Red" Width="70" Height="10" x:Name="rect" >
@@ -398,7 +642,7 @@
                 <Path Fill="Red" Visibility="Collapsed">
                     <Path.Data>
                         <RectangleGeometry Rect="0,0,50,100"  RadiusX="110" RadiusY="0">
-                            
+
                         </RectangleGeometry>
                     </Path.Data>
                 </Path>
@@ -426,7 +670,7 @@
                         <LineGeometry   StartPoint="10,20" EndPoint="30,89"></LineGeometry>
                     </Path.Data>
                 </Path>
-                <Path Fill="Red" Stroke="Yellow" RenderTransformOrigin="0.5,0.5" Height="100">
+                <Path Fill="Red"   RenderTransformOrigin="0.5,0.5" Height="100">
                     <Path.RenderTransform>
                         <TransformGroup>
                             <RotateTransform></RotateTransform>
@@ -445,14 +689,14 @@
                                 </CombinedGeometry>
                             </CombinedGeometry.Geometry1>
                             <CombinedGeometry.Geometry2>
-                                    <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
-                                        <RectangleGeometry.Transform>
-                                            <RotateTransform Angle="90" CenterX="50" CenterY="50">
-                                            </RotateTransform>
-                                        </RectangleGeometry.Transform>
-                                    </RectangleGeometry>
+                                <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
+                                    <RectangleGeometry.Transform>
+                                        <RotateTransform Angle="90" CenterX="50" CenterY="50">
+                                        </RotateTransform>
+                                    </RectangleGeometry.Transform>
+                                </RectangleGeometry>
                             </CombinedGeometry.Geometry2>
-                             
+
                         </CombinedGeometry>
 
                     </Path.Data>
@@ -460,11 +704,42 @@
                         <EventTrigger RoutedEvent="Path.Loaded">
                             <BeginStoryboard>
                                 <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
-                                    <DoubleAnimation From="0" To="180" Duration="0:0:2"></DoubleAnimation>
+                                    <DoubleAnimation From="0" To="90" Duration="0:0:5"></DoubleAnimation>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                     </Path.Triggers>
+                </Path>
+
+                <Path Fill="Red" Stroke="Yellow">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform></RotateTransform>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                    <Path.Data>
+                        <CombinedGeometry GeometryCombineMode="Union">
+                            <CombinedGeometry.Geometry1>
+                                <CombinedGeometry GeometryCombineMode="Exclude">
+                                    <CombinedGeometry.Geometry1>
+                                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"></EllipseGeometry>
+                                    </CombinedGeometry.Geometry1>
+                                    <CombinedGeometry.Geometry2>
+                                        <EllipseGeometry Center="50,50 " RadiusX="40" RadiusY="40"></EllipseGeometry>
+                                    </CombinedGeometry.Geometry2>
+                                </CombinedGeometry>
+                            </CombinedGeometry.Geometry1>
+                            <CombinedGeometry.Geometry2>
+                                <RectangleGeometry Rect="44,5 10,90 " RadiusX="40" RadiusY="40">
+                                    <RectangleGeometry.Transform>
+                                        <RotateTransform Angle="45" CenterX="50" CenterY="50">
+                                        </RotateTransform>
+                                    </RectangleGeometry.Transform>
+                                </RectangleGeometry>
+                            </CombinedGeometry.Geometry2>
+                        </CombinedGeometry>
+
+                    </Path.Data>
                 </Path>
                 <Path Stroke="Blue" StrokeThickness="2" Stretch="Fill" Width="136.333" Height="104.666">
                     <Path.Data>
@@ -519,7 +794,6 @@
                         <wf:WebBrowser ></wf:WebBrowser>
                     </WindowsFormsHost.Child>
                 </WindowsFormsHost>-->
-
             </WrapPanel>
         </Border>
 

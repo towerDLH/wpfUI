@@ -59,3 +59,7 @@ https://blog.csdn.net/u010975589/article/details/106331741 开源控件库博客
 
 
 https://github.com/HeBianGu/WPF-ImagePlayer 开源控件库
+
+
+
+https://github.com/Live-Charts/Live-Charts livecharts 的git仓库地址

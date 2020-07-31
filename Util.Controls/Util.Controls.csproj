@@ -130,9 +130,6 @@
       <DependentUpon>IThumbnailProvider.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\VirtualizingWrapPanel.cs" />
-    <Compile Include="Control\WaitingBox.xaml.cs">
-      <DependentUpon>WaitingBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Control\WindowBase.xaml.cs">
       <DependentUpon>WindowBase.xaml</DependentUpon>
     </Compile>
@@ -212,10 +209,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Control\ProgressRing.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Control\WaitingBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

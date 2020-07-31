@@ -34,6 +34,3 @@ D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.GenerateResource.cache
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.csproj.CopyComplete
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.exe
 D:\Test\WpfTest\WpfTest\obj\Debug\WpfTest.pdb
-D:\Test\WpfTest\WpfTest\bin\Debug\Ay.MvcFramework.Wpf.dll
-D:\Test\WpfTest\WpfTest\bin\Debug\System.Windows.Interactivity.dll
-D:\Test\WpfTest\WpfTest\bin\Debug\System.Windows.Interactivity.xml

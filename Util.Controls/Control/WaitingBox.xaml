@@ -6,7 +6,7 @@
         Title="WaitingBox" Height="110" Width="260">
     <Grid>
         <!--Background="{Binding Path=Background,ElementName=wb}"-->
-        <Border Background="{StaticResource WaitingBoxBackground}"  Opacity="0.89" CornerRadius="1" Effect="{StaticResource WindowDropShadow}"></Border>
+        <Border    Opacity="0.89" CornerRadius="1" Effect="{StaticResource WindowDropShadow}"></Border>
         <StackPanel VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             <TextBlock Text="&#xe65f;" x:Name="FIcon" FontSize="50" Style="{StaticResource FIcon}"  RenderTransformOrigin="0.5,0.5" Margin="3">
                 <TextBlock.RenderTransform>
