@@ -1,0 +1,1146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xuni.CollectionView</name>
+    </assembly>
+    <members>
+        <member name="M:Xuni.Core.ObjectEx.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            Gets the value of a property or property path of the specified object.
+            </summary>
+            <remarks>
+            This extension DON'T evaluate ICustomTypeDescriptor interface. 
+            Use generic extension with the same name if you are evaluating the path 
+            of a DataTable or any object that implements ICustomTypeDescriptor.
+            </remarks>
+            <param name="target">The target object.</param>
+            <param name="path">The name of the property or the property path.</param>
+            <returns>The value contained in the property</returns>
+        </member>
+        <member name="M:Xuni.Core.ObjectEx.SetPropertyValue``1(System.Object,System.String,``0)">
+            <summary>
+            Sets the value of a property or property path of the specified object.
+            </summary>
+            <typeparam name="T">Type of the property to set.</typeparam>
+            <param name="target">Object that contains the property.</param>
+            <param name="path">Name or path of the property that contains the value.</param>
+            <param name="value">New value for the property.</param>
+        </member>
+        <member name="T:Xuni.Core.TypeEx">
+            <summary>
+            The <see cref="T:Xuni.Core.TypeEx"/> class provides useful extension methods for the <see cref="T:System.Type"/> class.
+            </summary>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New``1(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New(System.Type)">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>A new instance of type T.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetDefaultPublicCtor(System.Type)">
+            <summary>
+            Returns default public instance parameter-less constructor for the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The default constructor for the specified type if it exists; Null otherwise.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.New``1(System.Type,System.Action{``0})">
+            <summary>
+            Creates a new instance of this type using the default constructor.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <param name="initializers">The initializers.</param>
+            <returns>A new instance of type T</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetNonNullableType(System.Type)">
+            <summary>
+            Returns the underlying type of a nullable type:
+            e.g. if Type = double?, then returns double.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>The underlying type.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNullableType(System.Type)">
+            <summary>
+            Returns true if the type is a nullable type.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is nullable.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumeric(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric data types:
+            double, float, int, uint, long, ulong, short, ushort, sbyte, byte and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral numeric data types:
+            int, uint, long, ulong, short, ushort, sbyte and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegralSigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral signed numeric data types:
+            int, long, short and sbyte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a signed integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericIntegralUnsigned(System.Type)">
+            <summary>
+            Returns true if the type is any of the integral unsigned numeric data types:
+            uint, ulong, ushort and byte.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is an unsigned integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.IsNumericNonIntegral(System.Type)">
+            <summary>
+            Returns true if the type is any of the numeric non-integral data types:
+            double, float and decimal.
+            </summary>
+            <param name="type">Type.</param>
+            <returns>True if the type is a non-integral numeric.</returns>
+        </member>
+        <member name="M:Xuni.Core.TypeEx.GetEnumValues``1(System.Type)">
+            <summary>
+            Returns the values of an Enum type (Type.IsEnum == true).
+            </summary>
+            <typeparam name="T">Enum type.</typeparam>
+            <param name="enumType">Enum type.</param>
+            <returns>The list of values for that enum type.</returns>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCollectionViewWithSource`2">
+            <summary>
+            Base class for collection views.
+            </summary>
+            <typeparam name="S">The type of the items in the source collection.</typeparam>
+            <typeparam name="T">The type of the items in the collection view.</typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1">
+            <summary>
+            Base class for read-only collection views.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.ICollectionView`1">
+            <summary>
+            Abstracts the transformation of a data source into a collection view.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+        </member>
+        <member name="M:Xuni.CollectionView.ICollectionView`1.GetItemType">
+            <summary>
+            Gets the type of the item.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.ISupportCurrency">
+            <summary>
+            Specifies a calling contract for collection views that support currency management.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.ISupportCurrency.MoveCurrentToPosition(System.Int32)">
+            <summary>
+            Sets the item at the specified index in the view as the current item.
+            </summary>
+            <param name="index">The index.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.ISupportCurrency.CurrentPosition">
+            <summary>
+            Gets the current position.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.ISupportCurrency.CurrentChanging">
+            <summary>
+            Occurs when the current item is changing.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.ISupportCurrency.CurrentChanged">
+            <summary>
+            Occurs after the current item changed.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.GetItemType">
+            <summary>
+            Gets the type of the item.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.IndexOf(`0)">
+            <summary>
+            Gets the index of the specified item.
+            </summary>
+            <param name="item">The item to look for.</param>
+            <returns>The index of the item.</returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CollectionChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the <see cref="E:PropertyChanged"/> event.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentToPosition(System.Int32)">
+            <summary>
+            Sets the item at the specified index in the view as the current item.
+            </summary>
+            <param name="position">The position of the current item.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentTo(`0)">
+            <summary>
+            Sets the specified item in the view as the current item.
+            </summary>
+            <param name="item">The item to be the current item.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentToFirst">
+            <summary>
+            Sets the first item in the view as the current item.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentToLast">
+            <summary>
+            Sets the last item in the view as the current item.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentToPrevious">
+            <summary>
+            Sets the item before the <see cref="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentItem"/> in the view as the <see cref="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentItem"/>.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.MoveCurrentToNext">
+            <summary>
+            Sets the item after the <see cref="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentItem"/> in the view as the <see cref="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentItem"/>.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.OnCurrentChanging(Xuni.CollectionView.CancelEventArgs)">
+            <summary>
+            Raises the <see cref="E:CurrentChanging"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Xuni.CollectionView.CancelEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.OnCurrentChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:CurrentChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.InternalList">
+            <summary>
+            Gets or sets the list that hold the items to be returned in the public api.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.Item(System.Int32)">
+            <summary>
+            Gets the element at the specified index in the read-only list.
+            </summary>
+            <param name="index">The index.</param>
+            <returns>The item at the specified position.</returns>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.Count">
+            <summary>
+            Gets the number of elements in the collection.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CollectionChanged">
+            <summary>
+            Occurs after the collection changed.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentPosition">
+            <summary>
+            Gets the current position.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentItem">
+            <summary>
+            Gets or sets the current item in the view.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentChanging">
+            <summary>
+            Occurs when the current item is changing.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniReadOnlyCollectionViewBase`1.CurrentChanged">
+            <summary>
+            Occurs after the current item changed.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithSource`2"/> class.
+            </summary>
+            <remarks>Use <see cref="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.Source"/> property to set the collection source.</remarks>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithSource`2"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.Contains(`1)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1" /> contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
+            <returns>
+            true if <paramref name="item" /> is found in the <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.SetItem(System.Int32,`1)">
+            <summary>
+            Called when an item is set.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="item">The item set.</param>
+            <exception cref="T:System.InvalidOperationException">Raised if the collection is read-only</exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.Remove(`1)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+            <returns>
+            true if <paramref name="item"/> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Raised if the collection is read-only</exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Raised if the collection is read-only</exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.Add(`1)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1"/>.</param>
+            <exception cref="T:System.InvalidOperationException">Raised if the collection is read-only</exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.Insert(System.Int32,`1)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+            <param name="item">The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param>
+            <exception cref="T:System.InvalidOperationException">Raised if the collection is read-only</exception>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.CopyTo(`1[],System.Int32)">
+            <summary>
+            Copies to collection view into an array.
+            </summary>
+            <param name="array">The array.</param>
+            <param name="arrayIndex">Index of the array.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSource`2.OnSourceCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called when the source collection changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.Source">
+            <summary>
+            Gets or sets the original source collection.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.SourceIsList">
+            <summary>
+            Gets a value indicating whether the source collection is a list.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.SourceNotifiesChanges">
+            <summary>
+            Gets a value indicating whether the source collection notifies changes.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.IsUpdating">
+            <summary>
+            Gets a value indicating whether the collection view is being updated.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSource`2.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index in the list.
+            </summary>
+            <param name="index">The index.</param>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCollectionViewWithFiltering`1">
+            <summary>
+            Collection which supports filtering.
+            </summary>
+            <typeparam name="T">The type of the items in the collection view.</typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.ISupportFiltering">
+            <summary>
+            Specifies a calling contract for collection views that support filtering.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.ISupportFiltering.FilterAsync(Xuni.CollectionView.FilterExpression)">
+            <summary>
+            Filters the data using specified filter expression.
+            </summary>
+            <param name="filterExpression">The filter expression applied to the data.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.ISupportFiltering.FilterExpression">
+            <summary>
+            Gets the filter expression applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.ISupportFiltering.FilterChanged">
+            <summary>
+            Raised after a filter operation was performed.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithFiltering`1"/> class.
+            </summary>
+            <remarks>
+            Use <see cref="M:Xuni.CollectionView.XuniCollectionViewBase`1.SetSourceAsync(System.Collections.Generic.IEnumerable{`0})"/> method to set the collection source.
+            </remarks>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithFiltering`1"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.FilterAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Xuni.CollectionView.FilterOperation,System.Object)">
+            <summary>
+            Filters the data using specified filter parameters.
+            </summary>
+            <param name="filterPath">The path of the data item to which the filter will be applied.</param>
+            <param name="filterOperation">The filter operation.</param>
+            <param name="value">The value used in the expression.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.FilterAsync(Xuni.CollectionView.FilterExpression)">
+            <summary>
+            Filters the data using specified filter expression.
+            </summary>
+            <param name="filterExpression">The filter expression applied to the data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.OnSourceCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called when the source collection changed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> instance containing the event data.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.FilterExpression">
+            <summary>
+            Gets the filter expression applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniCollectionViewWithFiltering`1.FilterChanged">
+            <summary>
+            Raised after a filter operation was performed.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.ISupportGrouping">
+            <summary>
+            Specifies a calling contract for collection views that support grouping.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.ISupportGrouping.GroupAsync(Xuni.CollectionView.GroupDescription[])">
+            <summary>
+            Groups the collection view according to the specified group descriptions.
+            </summary>
+            <param name="groupDescriptions">The group descriptions that determine how the data will be grouped.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.ISupportGrouping.GroupDescriptions">
+            <summary>
+            Gets the group descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.ISupportGrouping.GroupChanged">
+            <summary>
+            Raised after a grouping operation was performed.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithGrouping`1.GroupAsync(System.String[])">
+            <summary>
+            Groups the collection view according to the specified group fields.
+            </summary>
+            <param name="fields">The fields.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithGrouping`1.GroupAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Groups the collection view according to the specified group path.
+            </summary>
+            <param name="groupPath">The group path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithGrouping`1.GroupAsync(Xuni.CollectionView.GroupDescription[])">
+            <summary>
+            Groups the collection view according to the specified group descriptions.
+            </summary>
+            <param name="groupDescriptions">The group descriptions that determine how the data will be grouped.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithGrouping`1.GroupDescriptions">
+            <summary>
+            Gets the group descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.GroupItem`2">
+            <summary>
+            Represent an item that is a group.
+            </summary>
+            <typeparam name="K">The type of the key</typeparam>
+            <typeparam name="T">The type of the sub-items of this group.</typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.ICollectionViewGroup`2">
+            <summary>
+            Abstracts a group of <see cref="T:Xuni.CollectionView.ICollectionView`1"/>.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.ICollectionViewGroup`2.Group">
+            <summary>
+            Gets the key that identifies the group.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.GroupItem`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.GroupItem`2"/> class.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.GroupItem`2.#ctor(`0,System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.GroupItem`2"/> class.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="collection">The collection.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.GroupItem`2.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:Xuni.CollectionView.GroupItem`2.Group">
+            <summary>
+            Gets the key of the group.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCollectionViewWithSorting`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.ISupportSorting">
+            <summary>
+            Specifies a calling contract for collection views that support sorting.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.ISupportSorting.SortAsync(Xuni.CollectionView.SortDescription[])">
+            <summary>
+            Sorts the collection view according to the specified sort descriptions.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions that determine how the data will be sort.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.ISupportSorting.SortDescriptions">
+            <summary>
+            Gets the sort descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.ISupportSorting.SortChanged">
+            <summary>
+            Raised after a sort operation was performed.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSorting`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithSorting`1"/> class.
+            </summary>
+            <remarks>
+            Use <see cref="M:Xuni.CollectionView.XuniCollectionViewBase`1.SetSourceAsync(System.Collections.Generic.IEnumerable{`0})"/> method to set the collection source.
+            </remarks>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSorting`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionViewWithSorting`1"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSorting`1.SortAsync(System.String,Xuni.CollectionView.SortDirection)">
+            <summary>
+            Sorts the collection view according to the specified sort parameters.
+            </summary>
+            <param name="sortPath">The path of the data item to which the sort description will be applied.</param>
+            <param name="sortDirection">The direction of the sort operation.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSorting`1.SortAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Xuni.CollectionView.SortDirection)">
+            <summary>
+            Sorts the collection view according to the specified sort path and direction.
+            </summary>
+            <param name="filterPath">The filter path.</param>
+            <param name="sortDirection">The sort direction.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewWithSorting`1.SortAsync(Xuni.CollectionView.SortDescription[])">
+            <summary>
+            Sorts the collection view according to the specified sort descriptions.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions that determine how the data will be sort.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionViewWithSorting`1.SortDescriptions">
+            <summary>
+            Gets the sort descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniCollectionViewWithSorting`1.SortChanged">
+            <summary>
+            Raised after a sort operation was performed.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.CancelEventArgs">
+            <summary>
+            Event data for cancellable events.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.CancelEventArgs.Cancel">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Xuni.CollectionView.CancelEventArgs"/> is cancelled.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCollectionViewEx">
+            <summary>
+            Extension methods for XuniCollectionView.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionViewEx.IsOneOf(System.Object[],System.Object)">
+            <summary>
+            Determines whether the specified elemen is one of the items in the array.
+            </summary>
+            <param name="array">The array.</param>
+            <param name="elem">The elem.</param>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterExpression">
+            <summary>
+            Abstract filter expression. Use <see cref="T:Xuni.CollectionView.FilterUnaryExpression"/> to create a concrete filter and <see cref="T:Xuni.CollectionView.FilterBinaryExpression"/> to apply logical operations between filter expressions.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterExpression.Combine(Xuni.CollectionView.FilterCombination,Xuni.CollectionView.FilterExpression[])">
+            <summary>
+            Combines a range of expressions using the specified logical operator.
+            </summary>
+            <param name="combination">The logical operator.</param>
+            <param name="expressions">The expressions to be combined.</param>
+            <returns>The resulting expression.</returns>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterBinaryExpression">
+            <summary>
+            Combines two filter expressions using a logical operator.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterBinaryExpression.#ctor(Xuni.CollectionView.FilterCombination,Xuni.CollectionView.FilterExpression,Xuni.CollectionView.FilterExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.FilterBinaryExpression"/> class.
+            </summary>
+            <param name="combination">The logical operator applied between the left and right expressions.</param>
+            <param name="leftExpression">The left expression.</param>
+            <param name="rightExpression">The right expression.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterBinaryExpression.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterBinaryExpression.FilterCombination">
+            <summary>
+            Gets the logical operator applied between the left and right expressions.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterBinaryExpression.LeftExpression">
+            <summary>
+            Gets the left expression.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterBinaryExpression.RightExpression">
+            <summary>
+            Gets the right expression.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterUnaryExpression">
+            <summary>
+            Describes a concrete filter expression.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterUnaryExpression.#ctor(System.String,Xuni.CollectionView.FilterOperation,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.FilterUnaryExpression"/> class.
+            </summary>
+            <param name="filterPath">The path of the data item to which the filter will be applied.</param>
+            <param name="filterOperation">The filter operation.</param>
+            <param name="value">The value to be filtered.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterUnaryExpression.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterUnaryExpression.FilterPath">
+            <summary>
+            Path of the data item used get the value to which the expression will be applied.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterUnaryExpression.FilterOperation">
+            <summary>
+            The current filter operation: e.g. for a text filter, the
+            FilterOperation is one of: 'Contains', 'StartsWith'.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.FilterUnaryExpression.Value">
+            <summary>
+            The filter info value used when applying the filter.
+            e.g. when creating a text filter: text.StartsWith("AAA"), the
+            Value would be "AAA".
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterUnaryExpression`1">
+            <summary>
+            Describes a concrete filter expression.
+            </summary>
+            <typeparam name="T">The type of the data item.</typeparam>
+        </member>
+        <member name="M:Xuni.CollectionView.FilterUnaryExpression`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Xuni.CollectionView.FilterOperation,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.FilterUnaryExpression`1"/> class.
+            </summary>
+            <param name="filterPath">The path of the data item to which the filter will be applied.</param>
+            <param name="filterOperation">The filter operation.</param>
+            <param name="value">The value to be filtered.</param>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterCombination">
+            <summary>
+            Represents the valid filter combinations to create a filter expression.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterCombination.And">
+            <summary>
+            An And logical operation is applied to the filters
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterCombination.Or">
+            <summary>
+            A Or logical operation is applied to the filters
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.FilterOperation">
+            <summary>
+            Represents the valid operations.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.Equal">
+            <summary>
+            Represents an equal operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.NotEqual">
+            <summary>
+            Represents a not equal operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.GreaterThan">
+            <summary>
+            Represents a greater than operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.GreaterThanOrEqual">
+            <summary>
+            Represents a greater than or equal operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.LessThan">
+            <summary>
+            Represents a less than operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.LessThanOrEqual">
+            <summary>
+            Represents a less than or equal operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.EqualText">
+            <summary>
+            Represents an equal text operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.NotEqualText">
+            <summary>
+            Represents a not equal text operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.Contains">
+            <summary>
+            Represents a contains operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.StartsWith">
+            <summary>
+            Represents a starts with operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.EndsWith">
+            <summary>
+            Represents a ends with operation
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.FilterOperation.IsOneOf">
+            <summary>
+            Represents an is one of operation
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.ISupportIncrementalLoading">
+            <summary>
+            Specifies a calling contract for collection views that support incremental loading.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.ISupportIncrementalLoading.LoadMoreItemsAsync(System.Nullable{System.Int32})">
+            <summary>
+            Loads more items.
+            </summary>
+            <param name="count">Specifies the desired number of items to be loaded.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.ISupportIncrementalLoading.HasMoreItems">
+            <summary>
+            Gets a value that indicates whether more items can be loaded.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.GroupDescription">
+            <summary>
+            Describes a group operation.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.GroupDescription.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.GroupDescription"/> class.
+            </summary>
+            <param name="groupPath">The path of the data item to which the group operation will be applied.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.GroupDescription.#ctor(System.String,Xuni.CollectionView.GroupDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.GroupDescription"/> class.
+            </summary>
+            <param name="groupPath">The path of the data item to which the group operation will be applied.</param>
+            <param name="direction">The direction of the group operation.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.GroupDescription.GroupPath">
+            <summary>
+            Path of the data item to which the group operation will be applied.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.GroupDescription.Direction">
+            <summary>
+            Direction of the group operation.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.GroupDirection">
+            <summary>
+            Direction of the group operation.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.GroupDirection.Ascending">
+            <summary>
+            The group will be performed in ascending mode.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.GroupDirection.Descending">
+            <summary>
+            The group will be performed in descending mode.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.SortDescription">
+            <summary>
+            Describes a sort operation.
+            </summary>
+        </member>
+        <member name="M:Xuni.CollectionView.SortDescription.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.SortDescription"/> class.
+            </summary>
+            <param name="sortPath">The path of the data item to which the sort operation will be applied.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.SortDescription.#ctor(System.String,Xuni.CollectionView.SortDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.SortDescription"/> class.
+            </summary>
+            <param name="sortPath">The path of the data item to which the sort operation will be applied.</param>
+            <param name="direction">The direction of the sort operation.</param>
+        </member>
+        <member name="P:Xuni.CollectionView.SortDescription.SortPath">
+            <summary>
+            Path of the data item to which the sort operation will be applied.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.SortDescription.Direction">
+            <summary>
+            Direction of the sort operation.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.SortDirection">
+            <summary>
+            Direction of the sort operation.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.SortDirection.Ascending">
+            <summary>
+            The sort will be performed in ascending mode.
+            </summary>
+        </member>
+        <member name="F:Xuni.CollectionView.SortDirection.Descending">
+            <summary>
+            The sort will be performed in descending mode.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCursorCollectionView`2">
+            <summary>
+            Base class for cursor-like collection views.
+            </summary>
+            <remarks>
+            This class is appropriate for wrapping data services that return the data in pages and give a token to get the next page, like Facebook, Twitter, YouTube, etc.
+            </remarks>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+            <typeparam name="K">The type of the token.</typeparam>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCursorCollectionView`2.GetPageAsync(`1,System.Nullable{System.Int32})">
+            <summary>
+            When overriden in an inherited class it returns the items in the page as well as a token to the next page.
+            </summary>
+            <param name="pageToken">The token of the requesting page, pass null if no pages had been requested so far.</param>
+            <param name="count">The desired number of items to be returned.</param>
+            <returns>A tuple containing the items and a token to the next page.</returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCursorCollectionView`2.LoadMoreItemsAsync(System.Nullable{System.Int32})">
+            <summary>
+            Loads more items.
+            </summary>
+            <param name="count">Specifies the desired number of items to be loaded.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCursorCollectionView`2.RefreshAsync">
+            <summary>
+            Removes the cached data and load the whole collection from scratch.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCursorCollectionView`2.InternalList">
+            <summary>
+            Gets or sets the list that hold the items to be returned in the public api.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCursorCollectionView`2.HasMoreItems">
+            <summary>
+            Gets a value that indicates whether more items can be loaded.
+            </summary>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCursorCollectionView`1">
+            <summary>
+            Base class for cursor-like collection views.
+            </summary>
+            <remarks>
+            This class is appropriate for wrapping data services that return the data in pages and give a token to get the next page, like Facebook, Twitter, YouTube, etc.
+            </remarks>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+        </member>
+        <member name="T:Xuni.CollectionView.XuniCollectionView`1">
+            <summary>
+            Implements an in-memory collection view which takes a data source and applies the sort and filter operations.
+            </summary>
+            <typeparam name="T">The type of the items in the collection.</typeparam>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionView`1"/> class.
+            </summary>
+            <remarks>Use <see cref="P:Xuni.CollectionView.XuniCollectionView`1.Source"/> property to set the collection source.</remarks>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xuni.CollectionView.XuniCollectionView`1"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.GetItemType">
+            <summary>
+            Gets the type of the items in the collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.SortAsync(System.String,Xuni.CollectionView.SortDirection)">
+            <summary>
+            Sorts the collection view according to the specified sort parameters.
+            </summary>
+            <param name="sortPath">The path of the data item to which the sort description will be applied.</param>
+            <param name="sortDirection">The direction of the sort operation.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.SortAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Xuni.CollectionView.SortDirection)">
+            <summary>
+            Sorts the collection view according to the specified sort path and direction.
+            </summary>
+            <param name="filterPath">The filter path.</param>
+            <param name="sortDirection">The sort direction.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.SortAsync(Xuni.CollectionView.SortDescription[])">
+            <summary>
+            Sorts the collection view according to the specified sort descriptions.
+            </summary>
+            <param name="sortDescriptions">The sort descriptions that determine how the data will be sort.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.FilterAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Xuni.CollectionView.FilterOperation,System.Object)">
+            <summary>
+            Filters the data using specified filter parameters.
+            </summary>
+            <param name="filterPath">The path of the data item to which the filter will be applied.</param>
+            <param name="filterOperation">The filter operation.</param>
+            <param name="value">The value used in the expression.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.FilterAsync(Xuni.CollectionView.FilterExpression)">
+            <summary>
+            Filters the data using specified filter expression.
+            </summary>
+            <param name="filterExpression">The filter expression applied to the data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.GroupAsync(System.String[])">
+            <summary>
+            Groups the collection view according to the specified group fields.
+            </summary>
+            <param name="fields">The fields.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.GroupAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            Groups the collection view according to the specified group path.
+            </summary>
+            <param name="groupPath">The group path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.GroupAsync(Xuni.CollectionView.GroupDescription[])">
+            <summary>
+            Groups the collection view according to the specified group descriptions.
+            </summary>
+            <param name="groupDescriptions">The group descriptions that determine how the data will be grouped.</param>
+        </member>
+        <member name="M:Xuni.CollectionView.XuniCollectionView`1.NewInstance(System.Type,System.Collections.IEnumerable)">
+            <summary>
+            Creates a new instance of a generic collection view using the specified type.
+            </summary>
+            <param name="itemType">Type of the items.</param>
+            <param name="source">The source collection.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.SortDescriptions">
+            <summary>
+            Gets the sort descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.FilterExpression">
+            <summary>
+            Gets the filter expression applied to the data.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.GroupDescriptions">
+            <summary>
+            Gets the group descriptions applied to the data.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniCollectionView`1.SortChanged">
+            <summary>
+            Raised after a sort operation was performed.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniCollectionView`1.FilterChanged">
+            <summary>
+            Raised after a filter operation was performed.
+            </summary>
+        </member>
+        <member name="E:Xuni.CollectionView.XuniCollectionView`1.GroupChanged">
+            <summary>
+            Raised after a grouping operation was performed.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.InternalList">
+            <summary>
+            Gets or sets the list that hold the items to be returned in the public api.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.Source">
+            <summary>
+            Gets or sets the original source collection.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.SourceIsList">
+            <summary>
+            Gets a value indicating whether the source collection is a list.
+            </summary>
+        </member>
+        <member name="P:Xuni.CollectionView.XuniCollectionView`1.SourceNotifiesChanges">
+            <summary>
+            Gets a value indicating whether the source collection notifies changes.
+            </summary>
+        </member>
+    </members>
+</doc>
