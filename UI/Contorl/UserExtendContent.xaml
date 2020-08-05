@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Contorl"
         mc:Ignorable="d"
-          Height="450" Width="800">
-    <Grid>
+      d:DesignHeight="450" d:DesignWidth="750" 
+         >
+    <Grid    >
         <Grid.Resources>
             <Style x:Key="FontAwesome" >
                 <Setter Property="TextElement.FontFamily" Value="/UI;component/Resour/#iconfont" />
@@ -64,12 +65,15 @@
                 </Setter>
             </Style>
         </Grid.Resources>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0"></Grid>
-        <Grid Grid.Column="1">
+           
+        <Grid Grid.Column="0">
+            <Menu Background="Transparent"  VerticalAlignment="Center"   >
+                <MenuItem Header="博客"    >
+                  
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Grid.Column="1" Visibility="Collapsed">
             <Button x:Name="BtnColor" WindowChrome.IsHitTestVisibleInChrome="True"   Style="{StaticResource WindowBaseButton}"     Click="Btn_SetColorClick">
                 <TextBlock Style="{StaticResource FontAwesome}" Text="&#xe6bd;"></TextBlock>
             </Button>

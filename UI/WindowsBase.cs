@@ -43,7 +43,7 @@ namespace UI
 
         // Using a DependencyProperty as the backing store for WinExtend.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WinExtendProperty =
-            DependencyProperty.Register("WinExtend", typeof(Window), typeof(WindowsBase), new PropertyMetadata(default(object)));
+            DependencyProperty.Register("WinExtend", typeof(object), typeof(WindowsBase), new PropertyMetadata(default(object)));
 
 
 

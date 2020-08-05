@@ -11,6 +11,24 @@
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
+        <Setter Property="Shape.Fill"  >
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" Opacity="0.5">
+                    <GradientStop Color="Blue" Offset="0" />
+                    <GradientStop Color="WhiteSmoke" Offset="0.5" />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Panel.Background"  >
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" Opacity="0.5">
+                    <GradientStop Color="Blue" Offset="0" />
+                    <GradientStop Color="WhiteSmoke" Offset="0.5" />
+                    <GradientStop Color="Blue" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
     </Style>
     <!-- 皮肤2-->
     <Style x:Key="skin_Green">

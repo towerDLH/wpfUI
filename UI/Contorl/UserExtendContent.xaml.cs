@@ -17,7 +17,7 @@ namespace UI.Contorl
     /// <summary>
     /// UserExtendContent.xaml 的交互逻辑
     /// </summary>
-    public partial class UserExtendContent  
+    public partial class UserExtendContent:Grid 
     {
         public UserExtendContent()
         {
@@ -25,6 +25,15 @@ namespace UI.Contorl
         }
 
         private void Btn_SetColorClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 博客
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuBlog_Click(object sender, RoutedEventArgs e)
         {
 
         }

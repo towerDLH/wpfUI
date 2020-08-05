@@ -224,6 +224,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <SplashScreen Include="Contorl\SplashScreen1.png" />
     <Content Include="Resour\Microsoft.Expression.Interactions.dll" />
     <Content Include="Resour\system.windows.interactivity.dll" />
   </ItemGroup>

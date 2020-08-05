@@ -11,42 +11,51 @@
         CornerRadius="14"
         ResizeMode="CanResize" 
         Title="WindowTest" Height="450" Width="800">
-     <Grid Height="auto"  >
-        <Grid.Background>
-            <ImageBrush ImageSource="/WpfApp3;component/Image/1.jpg" Opacity="0.5"></ImageBrush>
-        </Grid.Background>
-        <ListBox>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding }"></TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <TreeView>
-            <TreeView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Orientation="Horizontal"></WrapPanel>
-                </DataTemplate>
-            </TreeView.ItemTemplate>
-            <TreeViewItem Header="学科" >
-                <TreeViewItem Header="数学"></TreeViewItem>
-                <TreeViewItem Header="数学"></TreeViewItem>
-                <TreeViewItem Header="数学"></TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="学校">
-                <TreeViewItem Header="11"></TreeViewItem>
-                <TreeViewItem Header="22"></TreeViewItem>
-                <TreeViewItem Header="33"></TreeViewItem>
-            </TreeViewItem>
-        </TreeView>
-        <Path Fill="Red"       >
-            <Path.RenderTransform>
-                <TransformGroup>
-                    <RotateTransform></RotateTransform>
-                </TransformGroup>
-            </Path.RenderTransform>
-            <Path.Data>
-                <GeometryGroup>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid  Grid.Column="0" Background="Red"></Grid>
+        <Grid  Grid.Column="1" Background="Green"></Grid>
+        <Grid  Grid.Column="2" Background="Yellow"></Grid>
+        <Grid Height="auto"   Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="/WpfApp3;component/Image/1.jpg" Opacity="0.5"></ImageBrush>
+            </Grid.Background>
+            <ListBox>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding }"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TreeView>
+                <TreeView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </DataTemplate>
+                </TreeView.ItemTemplate>
+                <TreeViewItem Header="学科" >
+                    <TreeViewItem Header="数学"></TreeViewItem>
+                    <TreeViewItem Header="数学"></TreeViewItem>
+                    <TreeViewItem Header="数学"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="学校">
+                    <TreeViewItem Header="11"></TreeViewItem>
+                    <TreeViewItem Header="22"></TreeViewItem>
+                    <TreeViewItem Header="33"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+            <Path Fill="Red"       >
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform></RotateTransform>
+                    </TransformGroup>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <GeometryGroup>
                         <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"></EllipseGeometry>
                         <EllipseGeometry Center="50,50 " RadiusX="40" RadiusY="40"></EllipseGeometry>
                         <RectangleGeometry Rect="45,6 10,90 " RadiusX="40" RadiusY="0">
@@ -55,19 +64,21 @@
                                 </RotateTransform>
                             </RectangleGeometry.Transform>
                         </RectangleGeometry>
-                </GeometryGroup>
-            </Path.Data>
-            <Path.Triggers>
-                <EventTrigger RoutedEvent="Path.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
-                            <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Path.Triggers>
-        </Path>
+                    </GeometryGroup>
+                </Path.Data>
+                <Path.Triggers>
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
+                                <DoubleAnimation From="0" To="360" Duration="0:0:2"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
     </Grid>
+    
     <!--<Grid  >
         <lvc:CartesianChart   Series="{Binding SeriesCollection}" LegendLocation="Left"  x:Name="cartesianChart1">
             <lvc:CartesianChart.AxisX>

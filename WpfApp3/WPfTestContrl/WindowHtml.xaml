@@ -502,7 +502,6 @@
                 </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
-
                 <Button  Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
 
                 <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
@@ -738,8 +737,16 @@
                                 </RectangleGeometry>
                             </CombinedGeometry.Geometry2>
                         </CombinedGeometry>
-
                     </Path.Data>
+                    <Path.Triggers >
+                        <EventTrigger RoutedEvent="Path.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard Storyboard.TargetProperty="RenderTransform.Children[0].Angle" RepeatBehavior="Forever" >
+                                    <DoubleAnimation  To="0" From="90" Duration="0:0:5"></DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Path.Triggers>
                 </Path>
                 <Path Stroke="Blue" StrokeThickness="2" Stretch="Fill" Width="136.333" Height="104.666">
                     <Path.Data>
