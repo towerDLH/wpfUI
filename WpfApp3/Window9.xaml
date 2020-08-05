@@ -249,12 +249,14 @@
         <Canvas  >
             <Border BorderThickness="22" BorderBrush="Black"/>
             <core:ProgressRing    IsActive="True" Foreground="#FF178BF0" Background="Purple" Opacity="0.5"  ></core:ProgressRing>
-
         </Canvas>
         <WrapPanel>
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <PasswordBox Width="140" Height="50" PasswordChar="X" Password="sf" BorderBrush="#dcdcdc"     extend:PasswordBoxExtend.Attach="True" VerticalContentAlignment="Center" extend:PasswordBoxExtend.Password="{Binding Pwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label  FontFamily="Webdings"  Content=""></Label>
+            <Label  FontFamily="Webdings"  Content="0"  ></Label>
+            <Label  FontFamily="Webdings"  Content="1"></Label>
+            <Label  FontFamily="Webdings"  Content="2"></Label>
+            <Label  FontFamily="Webdings"  Content="r"></Label>
             <Button   Height="30"  Background="Transparent" Command="{Binding Sumbitcomm}"  CommandParameter="{Binding Addname}" >
                 <Border CornerRadius="4" Background="SeaGreen">
                     <StackPanel Orientation="Horizontal" Margin="1,0"  >
@@ -282,12 +284,9 @@
                 
             IsEnabled="True"/>-->
             <Grid Width="400" Height="200" Visibility="Hidden">
-                <ui:MoveThumb     x:Name="movet" ></ui:MoveThumb>
                 <!--<ui:ArrowLine Stroke="Black"
                          StartPoint="0,0"
                          EndPoint="100,100"></ui:ArrowLine>-->
-                <ui:MoveThumb  Margin="50" x:Name="movet1"  ></ui:MoveThumb>
-                <ui:MarkLine x:Name="mark"  StartEvent="mark_StartEvent" EndEvent="mark_EndEvent"></ui:MarkLine>
                 <Polyline  x:Name="ply"  Stroke="Blue" StrokeThickness="2" Points="10,10,120,130"   ></Polyline>
 
                 <Control Background="Red" Width="100" Height="10">

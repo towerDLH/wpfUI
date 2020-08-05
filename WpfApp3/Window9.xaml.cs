@@ -149,11 +149,7 @@ namespace WpfApp3
             KeysCollection.Add("赵六");
             MailConfigSelection.ItemsSource = KeysCollection;
             //  Intxt.IntellList = KeysCollection;
-            mark.DataPoints = new PointCollection()
-            {
-                new Point(30,24),
-                new Point (160,180)
-            };
+            
             ply.Points = new PointCollection()
             {
                 new Point(130,24),
@@ -853,8 +849,6 @@ namespace WpfApp3
 
         private void link_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MoveThumb ui = sender as MoveThumb;
-            DragDrop.DoDragDrop(ui, ui.Name, DragDropEffects.Link);
             //string v;
             //if (sender is TextBlock)
             //{

@@ -315,40 +315,48 @@
                                 </StackPanel>
                                 <Grid Grid.Column="1">
                                     <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="0" x:Name="ContentPresenterMain" Content="{TemplateBinding WinExtend}"  />
+                                    <ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Column="0"   Content="{TemplateBinding CustomizedAreaContent}"  />
                                 </Grid>
                                 <StackPanel x:Name="ButtonPanel" DockPanel.Dock="Right" VerticalAlignment="Center"  HorizontalAlignment="Right"  Orientation="Horizontal" Grid.Column="2" Margin="10,0" >
                                     <Button x:Name="BtnColor" WindowChrome.IsHitTestVisibleInChrome="True"   Style="{StaticResource WindowBaseButton}"    Command="{Binding Path=ColorWindowCommand,RelativeSource={RelativeSource TemplatedParent}}">
                                         <TextBlock Style="{StaticResource FontAwesome}" Text="&#xe6bd;"></TextBlock>
                                     </Button>
                                     <Button x:Name="ButtonMin"   
-                                            Content="&#xe644;" Style="{StaticResource WindowBaseButton}"  
+                                            Style="{StaticResource WindowBaseButton}"  
                                             ContentTemplate="{StaticResource MinimizeWhite}"
                                             Command="SystemCommands.MinimizeWindowCommand"
                                             Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
-                                            IsTabStop="False"/>
+                                            IsTabStop="False">
+                                        <Label  FontFamily="Webdings"  Content="0"></Label>
+                                    </Button>
                                     <Button x:Name="ButtonMax"     
-                                            Content="&#xe641;"
                                              ContentTemplate="{StaticResource MaximizeWhite}"
                                             Style="{StaticResource WindowBaseButton}" Command="SystemCommands.MaximizeWindowCommand"
                                              Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
-                                            IsTabStop="False"/>
-                                    <Button  x:Name="ButtonRestore"     Content="&#xe645;" Command="SystemCommands.RestoreWindowCommand"      Style="{StaticResource WindowBaseButton}" 
+                                            IsTabStop="False">
+                                        <Label  FontFamily="Webdings"  Content="1"></Label>
+                                    </Button>
+                                    <Button  x:Name="ButtonRestore"      Command="SystemCommands.RestoreWindowCommand"      Style="{StaticResource WindowBaseButton}" 
                                              ContentTemplate="{StaticResource RestoreWhite}"
                                              Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
-                                            IsTabStop="False"/>
-                                    <Button Content="&#xe642;" 
+                                            IsTabStop="False">
+                                        <Label  FontFamily="Webdings"  Content="2"></Label>
+                                    </Button>
+                                    <Button  
                                             ContentTemplate="{StaticResource CloseWhite}"
                                             Background="Red" x:Name="ButtonClose"    Command="SystemCommands.CloseWindowCommand" Style="{StaticResource WindowBaseButton}" 
                                             Height="{x:Static SystemParameters.SmallIconHeight}"
                                             Width="{x:Static SystemParameters.SmallIconWidth}"
                                             WindowChrome.IsHitTestVisibleInChrome="True"
-                                            IsTabStop="False"/>
+                                            IsTabStop="False">
+                                        <Label  FontFamily="Webdings"  Content="r"></Label>
+                                    </Button>
                                     <Popup  StaysOpen="False"  x:Name="ColorPup" AllowsTransparency="True" PlacementTarget="{Binding ElementName=BtnColor}">
                                         <StackPanel >
                                             <Button x:Name="SetColorBtn" Background="Blue" Tag="skin_Blue" Width="20" Height="20" Command="{Binding Path=ColorSetCommand,RelativeSource={RelativeSource TemplatedParent}}"></Button>
@@ -642,18 +650,6 @@
 
     </Style>
 
-    <Style TargetType="{x:Type local:TransitioningContentControl}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:TransitioningContentControl}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
     <Style x:Key="skin_Blue">
         <Setter Property="Control.Background">
             <Setter.Value>

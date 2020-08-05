@@ -15,11 +15,10 @@
         x:Name="Base"
         Icon="pack://application:,,,/Image/timg.jpg"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-    xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
-    CornerRadius="10"
-        CustomizedAreaContent="{StaticResource cb}"
-        Title="WindowHtml" Height="450" Width="800">
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
+        CornerRadius="20"
+        Title="圆角窗体" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="{x:Type Button}" x:Key="ActionBtn">
             <Setter Property="Width" Value="100"></Setter>
@@ -223,7 +222,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid>
+    <Grid Visibility="Collapsed">
         <Grid.Resources>
         </Grid.Resources>
         <Ellipse Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Height}">
@@ -502,8 +501,7 @@
                 </TextBox>
                 <DatePicker DisplayDate="2020/02/12" x:Name="pdate" SelectedDate="{Binding  ElementName=Base,Path=SeleDate}" ></DatePicker>
                 <TextBox Text="{Binding ElementName=pdate,Path=SelectedDate,StringFormat= {}{0:yyyy/MM/dd} }" />
-                <Button  Content="旋转button" Style="{StaticResource ActionBtn}"></Button>
-
+                <Button  Content="旋转button" Style="{StaticResource ActionBtn}"  ></Button>
                 <Button Margin="5"  SnapsToDevicePixels="False"  x:Name="BtnTest" Content="测试asay"   >
                     <!--<Button.Effect>
                         -->
@@ -544,11 +542,10 @@
                     <Ellipse.Triggers>
                         <EventTrigger RoutedEvent="Ellipse.Loaded">
                             <EventTrigger.Actions>
-                                <BeginStoryboard>
+                                <BeginStoryboard >
                                     <Storyboard Duration="00:00:06" RepeatBehavior="Forever">
                                         <DoubleAnimation Storyboard.TargetProperty="(Ellipse.Width)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" AccelerationRatio="0.9"  DecelerationRatio="0.1" From="100" To="300"/>
                                         <ColorAnimation Storyboard.TargetName="ellipseBrush" Storyboard.TargetProperty="(SolidColorBrush.Color)" Duration="0:0:3" AutoReverse="True" FillBehavior="Stop" RepeatBehavior="Forever" From="SkyBlue" To="White"/>
-
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger.Actions>
@@ -703,7 +700,11 @@
                         <EventTrigger RoutedEvent="Path.Loaded">
                             <BeginStoryboard>
                                 <Storyboard RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.Children[0].Angle">
-                                    <DoubleAnimation From="0" To="90" Duration="0:0:5"></DoubleAnimation>
+                                    <DoubleAnimation From="0" To="90" Duration="0:0:5">
+                                        <DoubleAnimation.EasingFunction>
+                                            <ElasticEase  EasingMode="EaseIn"  Oscillations="10" ></ElasticEase>
+                                        </DoubleAnimation.EasingFunction>
+                                    </DoubleAnimation>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -770,7 +771,7 @@
                 <Path Data="M 0 0  6 6 12 0 Z"></Path>
                 <CheckBox IsChecked="True" Style="{DynamicResource CheckBoxStyle1}"></CheckBox>
                 <CheckBox IsChecked="{x:Null}"></CheckBox>
-                <Path x:Name="optionMark" Data="M10.23879353 1.70739055 6.81749753 5.12868655 10.18595033 8.49713936 8.49738065 10.18570903 5.12892785 6.81725623 1.70787313 10.023855224 0.00168905 8.53236816 3.42274377 5.11107215 0.05429097 1.74261935 1.74286064 0.05404967 5.11131345 3.42250247 8.53260945 0.00120647 10.23879353 1.70739055 Z" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
+                <Path   x:Name="optionMark" Data="M10.23879353 1.70739055 6.81749753 5.12868655 10.18595033 8.49713936 8.49738065 10.18570903 5.12892785 6.81725623 1.70787313 10.023855224 0.00168905 8.53236816 3.42274377 5.11107215 0.05429097 1.74261935 1.74286064 0.05404967 5.11131345 3.42250247 8.53260945 0.00120647 10.23879353 1.70739055 Z" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
                 <TextBox  x:Name="TxtTest" ></TextBox>
                 <TreeView  x:Name="TreeTest" Width="240" Height="50" ItemsSource="{Binding ElementName=Base,Path=Phones}">
                     <TreeView.ItemContainerStyle>

@@ -19,7 +19,8 @@ using System.Reflection;
 using UI.Contorl;
 using UI;
 using System.ComponentModel;
- 
+using System.Windows.Media.Animation;
+
 namespace WpfApp3.WPfTestContrl
 {
     /// <summary>
@@ -31,8 +32,21 @@ namespace WpfApp3.WPfTestContrl
         public WindowHtml()
         {
             InitializeComponent();
-           // this.Closed += WinClosee;
-           // Load();
+            DoubleAnimation widction = new DoubleAnimation();
+            widction.To = 50;
+            widction.From = 120;
+            widction.Duration = TimeSpan.FromSeconds(5);
+            widction.RepeatBehavior = RepeatBehavior.Forever;
+            cmd.BeginAnimation(Button.WidthProperty, widction);
+
+            DoubleAnimation hightction = new DoubleAnimation();
+            hightction.To = 50;
+            hightction.From = 120;
+            hightction.Duration = TimeSpan.FromSeconds(5);
+            hightction.RepeatBehavior = RepeatBehavior.Forever;
+            cmd.BeginAnimation(Button.HeightProperty, hightction);
+            // this.Closed += WinClosee;
+            // Load();
         }
 
         private void WinClosee(object sender, EventArgs e)
@@ -67,7 +81,7 @@ namespace WpfApp3.WPfTestContrl
             // LoaCr(childs);
 
             ObservableCollection<Banji> listbanji = new ObservableCollection<Banji>(banjis);
-           // ListRoce.ItemsSource = games;
+            // ListRoce.ItemsSource = games;
         }
 
         public void LoaCr(ObservableCollection<Phone> cbItemSource)

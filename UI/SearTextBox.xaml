@@ -38,7 +38,7 @@
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Grid>
-                        <Image x:Name="Uc_Image" Source="1181298.png" Height="20" Width="20"></Image>
+                        <Image x:Name="Uc_Image"   Height="20" Width="20"></Image>
                         <ContentPresenter></ContentPresenter>
                     </Grid>
                     <ControlTemplate.Triggers>

@@ -26,14 +26,14 @@
             </ResourceDictionary.MergedDictionaries>
             <ui:EnumDataProvider x:Key="DemoTypes" Type="em:StudentEnum"/>
             <sys:Double x:Key="FontSize" >13</sys:Double>
-            <Style TargetType="ContentControl" x:Key="cb">
-                <Setter Property="Template">
+            <Style TargetType="ContentPresenter" x:Key="cb">
+                <Setter Property="Content">
                     <Setter.Value>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <Button Content="aa"></Button>
-                            </StackPanel>
-                        </ControlTemplate>
+                        <Grid>
+                            <Menu >
+                                <MenuItem Header="asd"></MenuItem>
+                            </Menu>
+                        </Grid>
                     </Setter.Value>
                 </Setter>
             </Style>

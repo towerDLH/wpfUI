@@ -248,6 +248,9 @@
     </Compile>
     <Compile Include="Resours\StateEnum.cs" />
     <Compile Include="SModel.cs" />
+    <Compile Include="UserAddContent.xaml.cs">
+      <DependentUpon>UserAddContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinDatagrid.xaml.cs">
       <DependentUpon>WinDatagrid.xaml</DependentUpon>
     </Compile>
@@ -366,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\ShapeStencils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserAddContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
