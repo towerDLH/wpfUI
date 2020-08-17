@@ -1,145 +1,418 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F0C7C18F-DFD2-415B-BF86-87EE2DEC112F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DiagramDesigner</RootNamespace>
-    <AssemblyName>DiagramDesigner</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Controls\Connection.cs" />
-    <Compile Include="Controls\Connector.cs" />
-    <Compile Include="Controls\DesignerCanvas.Commands.cs" />
-    <Compile Include="Controls\DesignerCanvas.cs" />
-    <Compile Include="Controls\DesignerItem.cs" />
-    <Compile Include="Controls\DragThumb.cs" />
-    <Compile Include="Controls\FlowCharCentre.xaml.cs">
-      <DependentUpon>FlowCharCentre.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\FlowCharUpdate.xaml.cs">
-      <DependentUpon>FlowCharUpdate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\RelativePositionPanel.cs" />
-    <Compile Include="Controls\ResizeChrome.cs" />
-    <Compile Include="Controls\ResizeThumb.cs" />
-    <Compile Include="Controls\Toolbox.cs" />
-    <Compile Include="Controls\ToolboxItem.cs" />
-    <Compile Include="Data\ConnectionAdorner.cs" />
-    <Compile Include="Data\ConnectorAdorner.cs" />
-    <Compile Include="Data\IGroupable.cs" />
-    <Compile Include="Data\ISelectable.cs" />
-    <Compile Include="Data\PathFinder.cs" />
-    <Compile Include="Data\RubberbandAdorner.cs" />
-    <Compile Include="Data\SelectionService.cs" />
-    <Compile Include="Model\FlowChar.cs" />
-    <Compile Include="Model\ObservableObject.cs" />
-    <Compile Include="Model\RememberClass.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Controls\FlowCharCentre.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FlowCharUpdate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Style\Connection.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Style\DesignerItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\ResizeChrome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\ResizeThumb.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\ScrollBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\Shared.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\ToolBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\Toolbox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Style\ToolboxItem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Stencils\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-</Project>
+﻿using SunCreate.pahf.Domain;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace SunCreate.CombatPlatform.Client
+{
+    /// <summary>
+    /// 组织机构树多选
+    /// </summary>
+    public partial class MultiSelOrgTree : UserControl
+    {
+        private bool _firstLoad = true;
+        private log4net.ILog _log = log4net.LogManager.GetLogger(typeof(MultiSelOrgTree));
+        private ObservableCollection<MultiSelOrgTreeItemModel> _collection = new ObservableCollection<MultiSelOrgTreeItemModel>();
+        private ObservableCollection<PT_ORG_INFO> _selectedOrgs = new ObservableCollection<PT_ORG_INFO>();
+        private bool _inited = false;
+
+        public IList<PT_ORG_INFO> SelectedOrgs
+        {
+            get { return _selectedOrgs; }
+        }
+
+        public MultiSelOrgTree()
+        {
+            InitializeComponent();
+
+            this.Loaded += MultiSelOrgTree_Loaded;
+            this.orgTree.Loaded += orgTree_Loaded;
+        }
+
+        private void MultiSelOrgTree_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (_firstLoad)
+            {
+                _firstLoad = false;
+                InitData();
+            }
+        }
+
+        private void InitData()
+        {
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
+            {
+                var list = SP.Get<Cache.ICacheService>().OrgCache.GetCameraOrgs();
+                var info = list.FirstOrDefault(p => p.PAR_ID == 0);
+                MultiSelOrgTreeItemModel root = new MultiSelOrgTreeItemModel();
+                root.Info = info;
+                root.Name = info.ORG_NAME;
+                BuildTree(root, list);
+                _collection.Add(root);
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    this.orgTree.ItemsSource = root.Nodes;
+                    _inited = true;
+                }));
+            });
+        }
+
+        private void orgTree_Loaded(object sender, RoutedEventArgs e)
+        {
+            ExpandInternal(this.orgTree);
+        }
+
+        private void BuildTree(MultiSelOrgTreeItemModel root, IList<PT_ORG_INFO> orgs)
+        {
+            var children = orgs.Where(p => p.PAR_ID == root.Info.ID);
+            if (children != null && children.Count() > 0)
+            {
+                foreach (var item in children)
+                {
+                    MultiSelOrgTreeItemModel model = new MultiSelOrgTreeItemModel();
+                    model.Info = item;
+                    model.Name = item.ORG_NAME;
+                    model.IsChecked = false;
+                    model.Parent = root;
+                    BuildTree(model, orgs);
+                    root.Nodes.Add(model);
+                }
+            }
+            else
+            {
+                root.IsLeaf = true;
+            }
+        }
+
+        /// <summary>
+        /// 展开树节点
+        /// </summary>
+        /// <param name="targetItemContainer"></param>
+        private void ExpandInternal(System.Windows.Controls.ItemsControl targetItemContainer)
+        {
+            try
+            {
+                if (targetItemContainer == null) return;
+                if (targetItemContainer.Items == null) return;
+                foreach (Object item in targetItemContainer.Items)
+                {
+                    System.Windows.Controls.TreeViewItem treeItem = targetItemContainer.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                    var info = item as TreeNode;
+                    if (treeItem == null || !treeItem.HasItems)
+                    {
+                        continue;
+                    }
+                    //if (info.Info == null)
+                    //{
+                    //    treeItem.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2ad7fa"));
+                    //}
+                    treeItem.IsExpanded = true;
+                    //ExpandInternal(treeItem as ItemsControl);
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.ErrorFormat("ExpandInternal error", ex);
+            }
+        }
+
+        private void cxb_Node_UnChecked(object sender, RoutedEventArgs e) { }
+
+        private void cxb_Node_Checked(object sender, RoutedEventArgs e) { }
+
+        private void cxb_Node_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CheckBox cbx = sender as CheckBox;
+                var node = (sender as CheckBox).Tag as MultiSelOrgTreeItemModel;
+                if (node != null && cbx.IsChecked != null)
+                {
+                    if (cbx.IsChecked.Value)
+                    {
+                        if (!_selectedOrgs.Contains(node.Info))
+                        {
+                            _selectedOrgs.Add(node.Info);
+                            CheckChild(node, true);
+                        }
+                    }
+                    else
+                    {
+                        if (_selectedOrgs.Contains(node.Info))
+                        {
+                            _selectedOrgs.Remove(node.Info);
+                            CheckChild(node, false);
+                        }
+                    }
+                    CheckParent(node);
+                    btnSelected.Tag = string.Join(",", _selectedOrgs.ToList().ConvertAll(a => a.ORG_NAME));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void CheckParent(MultiSelOrgTreeItemModel node)
+        {
+            if (node.Parent != null)
+            {
+                bool isCheck = true;
+                foreach (MultiSelOrgTreeItemModel item in node.Parent.Nodes)
+                {
+                    if (!item.IsChecked)
+                    {
+                        isCheck = false;
+                    }
+                }
+                if (isCheck)
+                {
+                    node.Parent.IsChecked = true;
+                    if (!_selectedOrgs.Contains(node.Parent.Info))
+                    {
+                        _selectedOrgs.Insert(0, node.Parent.Info);
+                    }
+                }
+                else
+                {
+                    node.Parent.IsChecked = false;
+                    if (_selectedOrgs.Contains(node.Parent.Info))
+                    {
+                        _selectedOrgs.Remove(node.Parent.Info);
+                    }
+                }
+                btnSelected.Tag = string.Join(",", _selectedOrgs.ToList().ConvertAll(a => a.ORG_NAME));
+                if (node.Parent.Parent != null)
+                {
+                    CheckParent(node.Parent);
+                }
+            }
+        }
+
+        private void CheckChild(MultiSelOrgTreeItemModel node, bool isCheck)
+        {
+            if (node.Nodes.Count > 0)
+            {
+                if (isCheck)
+                {
+                    foreach (MultiSelOrgTreeItemModel item in node.Nodes)
+                    {
+                        item.IsChecked = true;
+                        if (!_selectedOrgs.Contains(item.Info))
+                        {
+                            _selectedOrgs.Add(item.Info);
+                        }
+                        CheckChild(item, true);
+                    }
+                }
+                else
+                {
+                    foreach (MultiSelOrgTreeItemModel item in node.Nodes)
+                    {
+                        item.IsChecked = false;
+                        if (_selectedOrgs.Contains(item.Info))
+                        {
+                            _selectedOrgs.Remove(item.Info);
+                        }
+                        CheckChild(item, false);
+                    }
+                }
+            }
+        }
+
+        private void BtnClick(object sender, RoutedEventArgs e)
+        {
+            popup.PlacementTarget = sender as Button;
+            popup.Placement = PlacementMode.Bottom;
+            popup.IsOpen = true;
+        }
+
+        public void Select(List<string> orgIdList, ObservableCollection<MultiSelOrgTreeItemModel> Nodes = null)
+        {
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
+            {
+                while (!_inited)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
+                this.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    if (Nodes == null)
+                    {
+                        foreach (MultiSelOrgTreeItemModel item in _collection[0].Nodes)
+                        {
+                            if (orgIdList.Exists(a => a == item.Info.ID.ToString()))
+                            {
+                                item.IsChecked = true;
+                                if (!_selectedOrgs.Contains(item.Info))
+                                {
+                                    _selectedOrgs.Add(item.Info);
+                                }
+                            }
+                            else
+                            {
+                                item.IsChecked = false;
+                                if (_selectedOrgs.Contains(item.Info))
+                                {
+                                    _selectedOrgs.Remove(item.Info);
+                                }
+                            }
+                            Select(orgIdList, item.Nodes);
+                        }
+                    }
+                    else
+                    {
+                        foreach (MultiSelOrgTreeItemModel item in Nodes)
+                        {
+                            if (orgIdList.Exists(a => a == item.Info.ID.ToString()))
+                            {
+                                item.IsChecked = true;
+                                if (!_selectedOrgs.Contains(item.Info))
+                                {
+                                    _selectedOrgs.Add(item.Info);
+                                }
+                            }
+                            else
+                            {
+                                item.IsChecked = false;
+                                if (_selectedOrgs.Contains(item.Info))
+                                {
+                                    _selectedOrgs.Remove(item.Info);
+                                }
+                            }
+                            Select(orgIdList, item.Nodes);
+                        }
+                    }
+                    btnSelected.Tag = string.Join(",", _selectedOrgs.ToList().ConvertAll(a => a.ORG_NAME));
+                }));
+            });
+        }
+    }
+
+    public class MultiSelOrgTreeItemModel : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public MultiSelOrgTreeItemModel()
+        {
+            _nodes = new ObservableCollection<MultiSelOrgTreeItemModel>();
+            _parent = null;
+        }
+
+        private ObservableCollection<MultiSelOrgTreeItemModel> _nodes;
+        public ObservableCollection<MultiSelOrgTreeItemModel> Nodes
+        {
+            get { return _nodes; }
+            set
+            {
+                this._nodes = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Nodes"));
+                }
+            }
+        }
+
+        private MultiSelOrgTreeItemModel _parent;
+        public MultiSelOrgTreeItemModel Parent
+        {
+            get { return _parent; }
+            set
+            {
+                this._parent = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Parent"));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string _name;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                this._name = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("Name"));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 是否是叶子
+        /// </summary>
+        public bool _isLeaf;
+        public bool IsLeaf
+        {
+            get { return _isLeaf; }
+            set
+            {
+                this._isLeaf = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("IsLeaf"));
+                }
+                if (value)
+                {
+                    CheckVisiable = Visibility.Visible;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 选择框是否可见
+        /// </summary>
+        public Visibility _checkVisiable = Visibility.Visible;
+        public Visibility CheckVisiable
+        {
+            get { return _checkVisiable; }
+            set
+            {
+                this._checkVisiable = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("CheckVisiable"));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 是否选中
+        /// </summary>
+        public bool _isChecked;
+        public bool IsChecked
+        {
+            get { return _isChecked; }
+            set
+            {
+                this._isChecked = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("IsChecked"));
+                }
+            }
+        }
+
+        public PT_ORG_INFO Info;
+    }
+}

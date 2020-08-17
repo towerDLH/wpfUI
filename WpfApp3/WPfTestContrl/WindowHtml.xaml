@@ -20,6 +20,11 @@
         CornerRadius="20"
         Title="圆角窗体" Height="450" Width="800">
     <Window.Resources>
+        <PathGeometry x:Key="path">
+            <PathFigure IsClosed="False" StartPoint="110,120" >
+                <BezierSegment  Point1="200,200" Point2="169,89" Point3="200,200"></BezierSegment>
+            </PathFigure>
+        </PathGeometry>
         <Style TargetType="{x:Type Button}" x:Key="ActionBtn">
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="60"></Setter>
@@ -222,7 +227,7 @@
         </Style>
 
     </Window.Resources>
-    <Grid Visibility="Collapsed">
+    <Grid  >
         <Grid.Resources>
         </Grid.Resources>
         <Ellipse Width="{Binding RelativeSource={RelativeSource Mode=Self},Path=Height}">
@@ -638,7 +643,6 @@
                 <Path Fill="Red" Visibility="Collapsed">
                     <Path.Data>
                         <RectangleGeometry Rect="0,0,50,100"  RadiusX="110" RadiusY="0">
-
                         </RectangleGeometry>
                     </Path.Data>
                 </Path>
@@ -749,14 +753,17 @@
                         </EventTrigger>
                     </Path.Triggers>
                 </Path>
-                <Path Stroke="Blue" StrokeThickness="2" Stretch="Fill" Width="136.333" Height="104.666">
-                    <Path.Data>
-                        <PathGeometry>
-                            <PathFigure IsClosed="False" StartPoint="110,120" >
-                                <BezierSegment  Point1="200,200" Point2="169,89" Point3="200,200"></BezierSegment>
-                            </PathFigure>
-                        </PathGeometry>
-                    </Path.Data>
+                <Path Stroke="Blue" Data="{StaticResource path}" StrokeThickness="2" Stretch="Fill" Width="136.333" Height="104.666" Canvas.Left="1" Canvas.Top="2">
+                    <Path.Triggers>
+                        <EventTrigger RoutedEvent="Path.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimationUsingPath Storyboard.TargetName="optionMark" Storyboard.TargetProperty="(Canvas.Left)"  Duration="0:0:5"  RepeatBehavior="Forever" Source="X" PathGeometry="{StaticResource path}"></DoubleAnimationUsingPath>
+                                    <DoubleAnimationUsingPath Storyboard.TargetName="optionMark" Storyboard.TargetProperty="(Canvas.Top)"  Duration="0:0:5"  RepeatBehavior="Forever" Source="Y" PathGeometry="{StaticResource path}"></DoubleAnimationUsingPath>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Path.Triggers>
                 </Path>
 
                 <Button x:Name="btn" Content="asd">
@@ -768,10 +775,12 @@
                         </Style>
                     </Button.Style>
                 </Button>
+                
                 <Path Data="M 0 0  6 6 12 0 Z"></Path>
+                <Path Data="M 0,2 3,5 8,0"></Path>
                 <CheckBox IsChecked="True" Style="{DynamicResource CheckBoxStyle1}"></CheckBox>
                 <CheckBox IsChecked="{x:Null}"></CheckBox>
-                <Path   x:Name="optionMark" Data="M10.23879353 1.70739055 6.81749753 5.12868655 10.18595033 8.49713936 8.49738065 10.18570903 5.12892785 6.81725623 1.70787313 10.023855224 0.00168905 8.53236816 3.42274377 5.11107215 0.05429097 1.74261935 1.74286064 0.05404967 5.11131345 3.42250247 8.53260945 0.00120647 10.23879353 1.70739055 Z" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
+                <Path   x:Name="optionMark" Data="M10.23879353 1.70739055 6.81749753 5.12868655 10.18595033 8.49713936 8.49738065 10.18570903 5.12892785 6.81725623 1.70787313 10.023855224 0.00168905 8.53236816 3.42274377 5.11107215 0.05429097 1.74261935 1.74286064 0.05404967 5.11131345 3.42250247 8.53260945 0.00120647 10.23879353 1.70739055 Z" Fill="Red" Stroke="Red" Margin="1" Opacity="0" Stretch="None" OpacityMask="#FFEC6464"/>
                 <TextBox  x:Name="TxtTest" ></TextBox>
                 <TreeView  x:Name="TreeTest" Width="240" Height="50" ItemsSource="{Binding ElementName=Base,Path=Phones}">
                     <TreeView.ItemContainerStyle>
@@ -786,7 +795,6 @@
                             </Style.Triggers>
                         </Style>
                     </TreeView.ItemContainerStyle>
-
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Childen}">
                             <StackPanel Orientation="Horizontal">

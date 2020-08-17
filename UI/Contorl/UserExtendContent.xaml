@@ -65,11 +65,18 @@
                 </Setter>
             </Style>
         </Grid.Resources>
-           
+
         <Grid Grid.Column="0">
-            <Menu Background="Transparent"  VerticalAlignment="Center"   >
-                <MenuItem Header="博客"    >
-                  
+            <Menu Background="Transparent"  VerticalAlignment="Center"     >
+                <MenuItem Header="百度"   Foreground="White"  >
+                    <MenuItem.Icon >
+                        <TextBlock Text="&#xe603;" Style="{DynamicResource FontAwesome1}" Foreground="White"  VerticalAlignment="Center"></TextBlock>
+                    </MenuItem.Icon>
+                    <Grid>
+                        <TextBlock Name="navigateTextBlock"   Grid.Row="1"     TextWrapping="Wrap" Foreground="White">    
+         <Hyperlink Name="hyperlink0" Click="hyperlink0_Click"   NavigateUri=" http://www.baidu.com/" Foreground="White"> 百度  </Hyperlink>
+                        </TextBlock>
+                    </Grid>
                 </MenuItem>
             </Menu>
         </Grid>

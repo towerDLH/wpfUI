@@ -37,5 +37,10 @@ namespace UI.Contorl
         {
 
         }
+
+        private void hyperlink0_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.baidu.com/");  
+        }
     }
 }

@@ -250,13 +250,14 @@
             <Border BorderThickness="22" BorderBrush="Black"/>
             <core:ProgressRing    IsActive="True" Foreground="#FF178BF0" Background="Purple" Opacity="0.5"  ></core:ProgressRing>
         </Canvas>
-        <WrapPanel>
+        <WrapPanel Background="Green">
             <hc:LoadingLine Width="100"   Margin="0,30" Foreground="Gray" FontSize="100"  DotDiameter="20"   Visibility="Collapsed" />
             <PasswordBox Width="140" Height="50" PasswordChar="X" Password="sf" BorderBrush="#dcdcdc"     extend:PasswordBoxExtend.Attach="True" VerticalContentAlignment="Center" extend:PasswordBoxExtend.Password="{Binding Pwd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label  FontFamily="Webdings"  Content="0"  ></Label>
             <Label  FontFamily="Webdings"  Content="1"></Label>
             <Label  FontFamily="Webdings"  Content="2"></Label>
             <Label  FontFamily="Webdings"  Content="r"></Label>
+           
             <Button   Height="30"  Background="Transparent" Command="{Binding Sumbitcomm}"  CommandParameter="{Binding Addname}" >
                 <Border CornerRadius="4" Background="SeaGreen">
                     <StackPanel Orientation="Horizontal" Margin="1,0"  >

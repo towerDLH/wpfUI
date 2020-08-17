@@ -16,5 +16,5 @@ DEBUG;TRACE
 17-2115248167
 ComboxTree.xaml;Contorl\ComTree.xaml;Contorl\TreeCombox.xaml;Contorl\UserExtendContent.xaml;Dictionary1.xaml;IntellTextBox.xaml;SearTextBox.xaml;Themes\BaseStyle.xaml;Themes\Generic.xaml;Themes\IconBtton.xaml;
 
-False
+True
 
