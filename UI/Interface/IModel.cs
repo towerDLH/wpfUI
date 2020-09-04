@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WpfUI.Interface
+namespace UI.Interface
 {
+    /// <summary>
+    /// 主窗口接口(表单管理页实现该接口)
+    /// </summary>
     public interface IModel
     {
         /// <summary>

@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI;
 
-namespace WpfUI
+namespace WpfUI.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// CtlLoginView.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : WindowsBase
+    public partial class CtlLoginView : Window
     {
-        public MainWindow()
+        public CtlLoginView()
         {
             InitializeComponent();
         }

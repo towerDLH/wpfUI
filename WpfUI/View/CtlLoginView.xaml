@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfUI.View.CtlLoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d" 
+         DataContext="{Binding Source={StaticResource Locator},Path=Login}"
+             d:DesignHeight="450" d:DesignWidth="800"  WindowStyle="None"  WindowStartupLocation="CenterScreen"  AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal"  Margin="0,5">
+                <TextBlock Text="登录账号:" VerticalAlignment="Center" Foreground="White"></TextBlock>
+                <TextBox Width="140" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="txtName">
+                    <TextBox.InputBindings>
+                        <KeyBinding  Key="Enter" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="0,5">
+                <TextBlock Text="登录密码:" VerticalAlignment="Center" Foreground="White" ></TextBlock>
+                <hc:PasswordBox  ShowEyeButton="True"   IsSafeEnabled="False"    Password="123"   x:Name="pasbox"  Width="140"    >
+                    <hc:PasswordBox.InputBindings>
+                        <KeyBinding  Key="Enter" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"/>
+                    </hc:PasswordBox.InputBindings>
+                </hc:PasswordBox>
+            </StackPanel>
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,0,0">
+                <Button Content="取消" Margin="30,0" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=BaseWin}"></Button>
+                <Button Content="登录" Margin="10,0" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"></Button>
+
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>
