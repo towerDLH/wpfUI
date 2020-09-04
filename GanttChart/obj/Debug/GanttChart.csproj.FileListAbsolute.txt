@@ -4,3 +4,5 @@ D:\Test\WpfTest\GanttChart\obj\Debug\Braincase.GanttChart.GDIExtention.resources
 D:\Test\WpfTest\GanttChart\obj\Debug\GanttChart.csproj.GenerateResource.cache
 D:\Test\WpfTest\GanttChart\obj\Debug\GanttChart.dll
 D:\Test\WpfTest\GanttChart\obj\Debug\GanttChart.pdb
+D:\Test\WpfTest\GanttChart\obj\Debug\GanttChart.csprojAssemblyReference.cache
+D:\Test\WpfTest\GanttChart\obj\Debug\GanttChart.csproj.CoreCompileInputs.cache
