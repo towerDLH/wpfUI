@@ -36,8 +36,7 @@ namespace UI.Common
         public void Register(Assembly asb)
         {
             var Container = new ContainerBuilder();
-            Assembly asm = asb;//Assembly.GetExecutingAssembly();
-            RegisterByAssembly(asm, ref Container);  //Auto Service
+            RegisterByAssembly(asb, ref Container);  //Auto Service
             //Container.RegisterType<UserService>().As<IUserService>();
             //Container.RegisterType<GroupService>().As<IGroupService>();
             //Container.RegisterType<MenuService>().As<IMenuService>();

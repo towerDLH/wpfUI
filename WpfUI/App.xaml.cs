@@ -21,10 +21,10 @@ namespace WpfUI
         {
             base.OnStartup(e);
             this.ConfigureServices();
-           var dialog = ServiceProvider.Instance.Get<IModelDialog>("LoginViewDlg");
+            var dialog = ServiceProvider.Instance.Get<IModelDialog>("LoginViewDlg");
             //// var dialog = ServiceProvider.Instance.Get<IModelDialog>("MainViewDlg");
-             dialog.BindDefaultViewModel();
-             dialog.ShowDialog();
+            dialog.BindDefaultViewModel();
+            dialog.ShowDialog();
         }
 
         /// <summary>
