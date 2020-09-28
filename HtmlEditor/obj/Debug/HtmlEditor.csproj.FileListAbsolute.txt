@@ -20,3 +20,4 @@ D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.g.resources
 D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.dll
 D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.pdb
 D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csproj.CoreCompileInputs.cache
+D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csprojAssemblyReference.cache

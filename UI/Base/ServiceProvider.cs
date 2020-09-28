@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UI.Interface;
 
-namespace UI.Model
+namespace UI.Base
 {
     public class ServiceProvider
     {

@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using UI.Interface;
 using UI.Model;
+using UI.Base;
+using UI.Interface;
+using UI.Common;
 
 namespace WpfUI.ViewModel
 {
@@ -110,11 +112,23 @@ namespace WpfUI.ViewModel
                 //dialog.BindDefaultModel();
                 //Messenger.Default.Send(string.Empty, "ApplicationHiding");
                 //bool taskResult = await dialog.ShowDialog();
-                MainWindow mainView = new MainWindow();
-                mainView.ShowDialog();
+                //UserInfo user = JsonConvert.DeserializeObject<UserInfo>(relst.Obj.ToString());
+                //Loginer.LoginerUser.Account = user.username;
+                //Loginer.LoginerUser.ID = user.userid;
+                //Loginer.LoginerUser.UserName = user.username;
+                //Loginer.LoginerUser.IsAdmin = user.username == "admin" ? true : false;
+                ////  Loginer.LoginerUser.Email = user.email;
+                //Loginer.LoginerUser.netpointcode = user.netpointcode;
+                // this.Report = "加载用户信息 . . .";
+                //this.ConfigureServices();
+                var dialog = ServiceProvider.Instance.Get<IModelDialog>("MainViewDlg");
+                dialog.BindDefaultViewModel();
+                Messenger.Default.Send(string.Empty, "ApplicationHiding");
+                bool taskResult = await dialog.ShowDialog();
                 this.ApplicationShutdown();
             }
         }
+         
         private RelayCommand<Window> cancelcommand;
         /// <summary>
         /// 取消

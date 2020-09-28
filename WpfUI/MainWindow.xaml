@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:WpfUI"
         mc:Ignorable="d"
         CornerRadius="10"
-                   DataContext="{Binding Source={StaticResource Locator},Path=Main}"
         Title="WPFUUI" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
