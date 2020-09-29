@@ -1,5 +1,6 @@
 D:\Test\WpfTest\HtmlEditor\bin\Debug\Msl.HtmlEditor.dll
 D:\Test\WpfTest\HtmlEditor\bin\Debug\Msl.HtmlEditor.pdb
+D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csprojAssemblyReference.cache
 D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csproj.ResolveComReference.cache
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\ColorPicker.g.cs
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\FacePicker.g.cs
@@ -17,7 +18,6 @@ D:\Test\WpfTest\HtmlEditor\obj\Debug\View\HyperlinkDialog.baml
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\ImageDialog.baml
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\TableDialog.baml
 D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.g.resources
+D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csproj.CoreCompileInputs.cache
 D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.dll
 D:\Test\WpfTest\HtmlEditor\obj\Debug\Msl.HtmlEditor.pdb
-D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csproj.CoreCompileInputs.cache
-D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csprojAssemblyReference.cache

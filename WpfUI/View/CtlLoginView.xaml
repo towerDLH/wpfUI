@@ -5,12 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
+             x:Name="BaseWin"
             Height="250" Width="300"  WindowStyle="None"  WindowStartupLocation="CenterScreen"  AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5 0.16" EndPoint="0.5 1">
-                <GradientStop Color="#FF46FF00" Offset="0.16"/>
-                <GradientStop Color="#FF0E95F2" Offset="1"/>
+                <GradientStop Color="#FF145AD3" Offset="0.22"/>
+                <GradientStop Color="#FF174EE0" Offset="0.3"/>
+                <GradientStop Color="#FF0E95F2" Offset="0.4"/>
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -24,7 +34,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"  Margin="0,5">
                 <TextBlock Text="登录密码:" VerticalAlignment="Center" Foreground="White" ></TextBlock>
-                <hc:PasswordBox  ShowEyeButton="True"   IsSafeEnabled="False"    Password="123"   x:Name="pasbox"  Width="140"    >
+                <hc:PasswordBox    ShowEyeButton="True"   IsSafeEnabled="False"    Password="123"   x:Name="pasbox"  Width="140"    >
                     <hc:PasswordBox.InputBindings>
                         <KeyBinding  Key="Enter" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"/>
                     </hc:PasswordBox.InputBindings>

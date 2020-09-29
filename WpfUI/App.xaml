@@ -2,11 +2,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
-
-                
+                      <ResourceDictionary Source="pack://application:,,,/WpfUI;component/Style/Expander.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/WpfUI;component/Style/FlowChartStencils.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="FontAwesome">
+                <Setter Property="TextElement.FontFamily" Value="/WpfUI;component/Resouce/#iconfont" />
+                <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                <Setter Property="TextBlock.FontSize" Value="24"></Setter>
+                <Setter Property="TextBlock.Foreground" Value="#FF1B82DC"></Setter>
+            </Style>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:WpfUI.ViewModel" />
         </ResourceDictionary>
     </Application.Resources>

@@ -16,18 +16,6 @@ using WpfUI.View;
 
 namespace WpfUI.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         private object _CurrentPage;
@@ -190,39 +178,6 @@ namespace WpfUI.ViewModel
                     dialog.BindDefaultModel();
                     OpenPageCollection.Add(new PageInfo() { HeaderName = module.Name, Body = dialog.GetView() });
                 }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-                //switch (module.Code)
-                //{
-                //    case "CtlBarCodeAplicationList":
-                //        await Task.Factory.StartNew(() =>
-                //        {
-                //            var dialog = ServiceProvider.Instance.Get<IModel>("CtlBarCodeAplicationListDlg");
-                //           // IModel = ServiceProvider.Instance.Get<IModel>("CtlBarCodeAplicationListDlg");
-                //            dialog.BindDefaultModel();
-                //           // CurrentPage = IModel.GetView();
-                //            OpenPageCollection.Add(new PageInfo() { HeaderName = module.Name, Body = dialog.GetView() });
-                //        }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-                //        break;
-                //    case "CtlBarCodeRole":
-                //        await Task.Factory.StartNew(() =>
-                //        {
-                //            var dialog = ServiceProvider.Instance.Get<IModel>("CtlBarCodeRoleDlg");
-                //            // dialog = ServiceProvider.Instance.Get<IModel>("CtlBarCodeRoleDlg");
-                //            dialog.BindDefaultModel();
-                //           // CurrentPage = IModel.GetView();
-                //            OpenPageCollection.Add(new PageInfo() { HeaderName = module.Name, Body = dialog.GetView() });
-                //        }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-                //        break;
-                //    case "cdgl":
-                //        await Task.Factory.StartNew(() =>
-                //        {
-                //            IModel = ServiceProvider.Instance.Get<IModel>("AuthorityDlg");
-                //            IModel.BindDefaultModel();
-                //           // CurrentPage = IModel.GetView();
-                //        }, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-                //        break;
-                //    default:
-                //        break;
-                //}
                 CurrentPage = OpenPageCollection[OpenPageCollection.Count - 1];
             }
         }
@@ -239,51 +194,7 @@ namespace WpfUI.ViewModel
         public RelayCommand<PageInfo> ExitAllExceptCommand { get; set; }
 
         #endregion
-        //#region ÃüÁî
-        //private RelayCommand<PageInfo> exitcurrentpagecommand;
-        ///// <summary>
-        ///// µÇÂ¼
-        ///// </summary>
-        //public RelayCommand<PageInfo> ExitCurrentPageCommand
-        //{
-        //    get
-        //    {
-        //        if (exitcurrentpagecommand == null)
-        //            exitcurrentpagecommand = new RelayCommand<PageInfo>((module) => ExitCurrentPage_Click(module));
-        //        return exitcurrentpagecommand;
-
-        //    }
-        //    set { exitcurrentpagecommand = value; }
-        //}
-
-        //private RelayCommand<PageInfo> exitallpagecommand;
-         
-        //public RelayCommand<PageInfo> ExitAllPageCommand
-        //{
-        //    get
-        //    {
-        //        if (exitallpagecommand == null)
-        //            exitallpagecommand = new RelayCommand<PageInfo>((module) => ExitAllPage_Click(module));
-        //        return exitallpagecommand;
-
-        //    }
-        //    set { exitallpagecommand = value; }
-        //}
-        //private RelayCommand<PageInfo> exitallexceptcommand;
-
-        //public RelayCommand<PageInfo> ExitAllExceptCommand
-        //{
-        //    get
-        //    {
-        //        if (exitallexceptcommand == null)
-        //            exitallexceptcommand = new RelayCommand<PageInfo>((module) => ExitAllExcept_Click(module));
-        //        return exitallexceptcommand;
-
-        //    }
-        //    set { exitallexceptcommand = value; }
-        //}
-        
-        //#endregion
+ 
 
         private void ExitCommand(MenuBehaviorType type, string pageName)
         {
@@ -320,7 +231,7 @@ namespace WpfUI.ViewModel
                             OpenPageCollection.Remove(t);
                         });
                     }
-                    break;
+                    break; 
                 case MenuBehaviorType.ExitAllExcept:
                     var pageListExcept = OpenPageCollection.Where(t => t.HeaderName != pageName && t.HeaderName != "ÏµÍ³Ê×Ò³").ToList();
                     if (pageListExcept != null)

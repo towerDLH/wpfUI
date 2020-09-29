@@ -149,6 +149,7 @@ namespace WpfUI.ViewModel
         {
             if (MessageBox.Show("是否退出UDI系统？", "提示信息", System.Windows.MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                if(win!=null)
                 win.Close();
             }
         }

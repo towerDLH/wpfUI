@@ -24,5 +24,16 @@ namespace WpfUI.View
         {
             InitializeComponent();
         }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Window win = new Window();
+                CtlFlowView dtlview = new CtlFlowView();
+                win.Content = dtlview;
+                win.ShowDialog();
+            }
+        }
     }
 }
