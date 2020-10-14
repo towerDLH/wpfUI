@@ -176,6 +176,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resouce\DLL\HandyControl.dll" />
+    <Resource Include="Resouce\Image\flow.jpg" />
     <Resource Include="Resouce\Image\flowchild.png" />
     <Resource Include="Resouce\Image\borderWin.jpg" />
   </ItemGroup>
