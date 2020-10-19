@@ -61,6 +61,9 @@
                 <charts:DataSeries LegendText="生产计划单报表" Bevel="False" FontSize="6" DataPoints="{Binding Chardatas}"  
                                                            AxisYType="Primary" RenderAs="Line">
                 </charts:DataSeries>
+                <charts:DataSeries LegendText="生产计划单报表" Bevel="False" FontSize="6" DataPoints="{Binding Chardatas}"  
+                                                           AxisYType="Primary" RenderAs="Column">
+                </charts:DataSeries>
             </charts:Chart.Series>
         </charts:Chart>
     </Grid>

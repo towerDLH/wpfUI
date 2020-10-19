@@ -65,6 +65,14 @@ namespace WpfUI.ViewModel
             get { return username; }
             set { username = value; RaisePropertyChanged(() => UserName); }
         }
+        //
+        private bool loadisenab=true;
+
+        public bool LoadIsenab
+        {
+            get { return loadisenab; }
+            set { loadisenab = value; RaisePropertyChanged(() => LoadIsenab); }
+        }
 
 
 
@@ -120,6 +128,7 @@ namespace WpfUI.ViewModel
             if (UserName == "admin" && pwd == "123")
             {
                 LoadVis = Visibility.Visible;
+                LoadIsenab = false;
                 new Action(async () =>
                 {
                     Task<bool> task = new Func<Task<bool>>(async () =>
@@ -149,7 +158,7 @@ namespace WpfUI.ViewModel
                         //Loginer.LoginerUser.netpointcode = user.netpointcode;
                         // this.Report = "加载用户信息 . . .";
                         //this.ConfigureServices();
-
+                        LoadIsenab = true;
                         LoadVis = Visibility.Collapsed;
                         var dialog = ServiceProvider.Instance.Get<IModelDialog>("MainViewDlg");
                         dialog.BindDefaultViewModel();
