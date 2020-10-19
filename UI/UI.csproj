@@ -94,6 +94,9 @@
     <Compile Include="Common\NoticeViewModel.cs" />
     <Compile Include="Common\PageInfo.cs" />
     <Compile Include="Common\PopBoxViewModel.cs" />
+    <Compile Include="Control\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="Convert\WinConRaConvert.cs" />
     <Compile Include="Enums\MenuBehaviorType.cs" />
@@ -110,6 +113,10 @@
     <Compile Include="WindowBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Control\Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\AllConverts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,9 +130,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Control\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resouce\iconfont.ttf" />
   </ItemGroup>

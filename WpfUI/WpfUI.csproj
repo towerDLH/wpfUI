@@ -76,19 +76,28 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFVisifire.Charts, Version=5.1.3.0, Culture=neutral, PublicKeyToken=0cd785983078370b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resouce\DLL\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VIewDlg\CharViewDlg.cs" />
     <Compile Include="VIewDlg\CtlFlowDlg.cs" />
     <Compile Include="VIewDlg\LoginViewDlg.cs" />
     <Compile Include="VIewDlg\MainViewDlg.cs" />
+    <Compile Include="ViewModel\CtlCharViewModel.cs" />
     <Compile Include="ViewModel\CtlFlowViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\CtlCharView.xaml.cs">
+      <DependentUpon>CtlCharView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CtlFlowView.xaml.cs">
       <DependentUpon>CtlFlowView.xaml</DependentUpon>
     </Compile>
@@ -121,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\FlowChartStencils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtlCharView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +189,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resouce\DLL\HandyControl.dll" />
+    <Content Include="Resouce\DLL\WPFVisifire.Charts.dll" />
     <Resource Include="Resouce\Image\flow.jpg" />
     <Resource Include="Resouce\Image\flowchild.png" />
     <Resource Include="Resouce\Image\borderWin.jpg" />

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:ui="clr-namespace:UI.Control;assembly=UI"
              mc:Ignorable="d" 
              x:Name="BaseWin"
             Height="250" Width="300"  WindowStyle="None"  WindowStartupLocation="CenterScreen"  AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
@@ -43,8 +43,8 @@
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,0,0">
                 <Button Content="取消" Margin="30,0" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=BaseWin}"></Button>
                 <Button Content="登录" Margin="10,0" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"></Button>
-
             </WrapPanel>
         </StackPanel>
+        <hc:LoadingCircle Visibility="{Binding LoadVis,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"    />
     </Grid>
 </Window>
