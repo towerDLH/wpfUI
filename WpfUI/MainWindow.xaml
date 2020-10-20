@@ -9,7 +9,7 @@
         Title="WPFUUI" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">

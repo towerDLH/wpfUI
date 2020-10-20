@@ -12,3 +12,6 @@
 
 **流程图** 
 ![流程图](https://github.com/towerDLH/wpfUI/blob/master/WpfUI/Resouce/Image/flow.jpg)
+
+**图表** 
+![图表](https://github.com/towerDLH/wpfUI/blob/master/WpfUI/Resouce/Image/charradar.png)

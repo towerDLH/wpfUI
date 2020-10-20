@@ -2,6 +2,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
                       <ResourceDictionary Source="pack://application:,,,/WpfUI;component/Style/Expander.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/WpfUI;component/Style/FlowChartStencils.xaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -11,6 +13,7 @@
                 <Setter Property="TextBlock.FontSize" Value="24"></Setter>
                 <Setter Property="TextBlock.Foreground" Value="#FF1B82DC"></Setter>
             </Style>
+            <Style TargetType="Path" BasedOn="{x:Null}"></Style>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:WpfUI.ViewModel" />
         </ResourceDictionary>
     </Application.Resources>

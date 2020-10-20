@@ -5,23 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfUI.View" xmlns:charts="clr-namespace:Visifire.Charts;assembly=WPFVisifire.Charts"
              mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider MethodName="GetValues"  ObjectType="{x:Type sys:Enum}" x:Key="CharTyepe">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="charts:RenderAs"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+</ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <WrapPanel>
-                <Button Content="刷新"  Width="50"  Height="30" Command="{Binding LoadCommand}"></Button>
-            </WrapPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+                <ListBox x:Name="charlistbox"  ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{Binding Source={StaticResource CharTyepe} }" SelectedIndex="0">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                                <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton  Content="{Binding }" GroupName="chartype"  IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem},Path=IsSelected,Mode=TwoWay}"></RadioButton>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            <Button Content="刷新" Grid.Column="1"  Width="50"  Height="30" Command="{Binding LoadCommand}"></Button>
         </Grid>
-        <charts:Chart   Background="Transparent"    View3D="True"  x:Name="topchar" Grid.Row="1" BorderBrush="Transparent" AnimatedUpdate="true"   Margin="-10,-6,-7,-7">
+        <charts:Chart   Background="Transparent"  AnimationEnabled="True" ThemeEnabled="True"  View3D="True"  x:Name="topchar" Grid.Row="1" BorderBrush="Transparent" AnimatedUpdate="true"   Margin="-10,-6,-7,-7">
             <charts:Chart.Legends >
                 <charts:Legend FontSize="14" TitleFontColor="Black" VerticalAlignment="Bottom"  HorizontalAlignment="Center" />
             </charts:Chart.Legends>
             <charts:Chart.AxesX>
-                <charts:Axis Title="{Binding XCharTitName}" Background="Transparent" TitleFontSize="9" TitleFontColor="White">
+                <charts:Axis Title="{Binding XCharTitName}" Background="Transparent" TitleFontSize="12" TitleFontColor="Black">
                     <charts:Axis.Grids>
                         <charts:ChartGrid LineColor="WhiteSmoke"/>
                     </charts:Axis.Grids>
@@ -37,7 +59,7 @@
                 <charts:Title  FontColor="Black" Text="{Binding CharTitName}"  FontSize="20"  ></charts:Title>
             </charts:Chart.Titles>
             <charts:Chart.AxesY>
-                <charts:Axis  Title="{Binding YCharTitName}" TitleFontSize="9" TitleFontColor="White" LineThickness="0">
+                <charts:Axis  Title="{Binding YCharTitName}" TitleFontSize="12" TitleFontColor="Black" LineThickness="0">
                     <charts:Axis.Grids>
                         <charts:ChartGrid LineColor="WhiteSmoke"/>
                     </charts:Axis.Grids>
@@ -59,10 +81,7 @@
             </charts:Chart.PlotArea>
             <charts:Chart.Series>
                 <charts:DataSeries LegendText="生产计划单报表" Bevel="False" FontSize="6" DataPoints="{Binding Chardatas}"  
-                                                           AxisYType="Primary" RenderAs="Line">
-                </charts:DataSeries>
-                <charts:DataSeries LegendText="生产计划单报表" Bevel="False" FontSize="6" DataPoints="{Binding Chardatas}"  
-                                                           AxisYType="Primary" RenderAs="Column">
+                                                           AxisYType="Primary" RenderAs="{Binding ElementName=charlistbox,Path=SelectedItem}">
                 </charts:DataSeries>
             </charts:Chart.Series>
         </charts:Chart>

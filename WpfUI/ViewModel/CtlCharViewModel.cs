@@ -36,12 +36,14 @@ namespace WpfUI.ViewModel
             table.Columns.Add("Name", Type.GetType("System.String"));//添加Name列，存储数据类型为string
             table.Columns.Add("Id", Type.GetType("System.Int32"));//添加Id列，存储数据类型为Int
             table.Columns.Add("Number", Type.GetType("System.Int32"));//添加Id列，存储数据类型为Int
+            Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
+                int number = random.Next(10, 100);
                 DataRow newRow = table.NewRow();
                 newRow["Name"] = $"物料{i}";
                 newRow["Id"] = i;
-                newRow["Number"] = i;
+                newRow["Number"] = i+ number;
                 table.Rows.Add(newRow);
             }
             foreach (DataRow item in table.Rows)
@@ -126,7 +128,7 @@ namespace WpfUI.ViewModel
         #region 方法
         private void LoadMD()
         {
-
+            GetChar();
         }
         #endregion
     }
