@@ -12,6 +12,7 @@ using UI.BaseModel;
 using UI.Common;
 using UI.Enums;
 using UI.Interface;
+using WpfUI.Common;
 using WpfUI.View;
 
 namespace WpfUI.ViewModel

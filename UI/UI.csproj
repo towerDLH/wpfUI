@@ -89,7 +89,6 @@
     <Compile Include="Common\AutofacLocator.cs" />
     <Compile Include="Common\BootStrapper.cs" />
     <Compile Include="Common\ModuleGroup.cs" />
-    <Compile Include="Common\ModuleManager.cs" />
     <Compile Include="Common\Msg.cs" />
     <Compile Include="Common\NoticeViewModel.cs" />
     <Compile Include="Common\PageInfo.cs" />
@@ -101,6 +100,7 @@
     <Compile Include="Convert\WinConRaConvert.cs" />
     <Compile Include="Enums\MenuBehaviorType.cs" />
     <Compile Include="Enums\ModuleAttribute.cs" />
+    <Compile Include="Extend\DataGridExtend.cs" />
     <Compile Include="Interface\IAutoFacLocator.cs" />
     <Compile Include="Interface\IModel.cs" />
     <Compile Include="Interface\IModelDialog.cs" />

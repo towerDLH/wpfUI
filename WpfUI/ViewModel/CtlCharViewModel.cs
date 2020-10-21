@@ -70,7 +70,7 @@ namespace WpfUI.ViewModel
         }
         private string xchartitname;
         /// <summary>
-        /// 图标标题
+        /// X轴标题
         /// </summary>
         public string XCharTitName
         {
@@ -79,7 +79,7 @@ namespace WpfUI.ViewModel
         }
         private string ychartitname;
         /// <summary>
-        /// 图标标题
+        /// Y轴标题
         /// </summary>
         public string YCharTitName
         {

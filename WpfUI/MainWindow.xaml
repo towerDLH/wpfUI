@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfUI" xmlns:localt="clr-namespace:WpfUI.View.CtlTempales"
         mc:Ignorable="d"
         CornerRadius="10"
+        WindowState="Maximized"
         Title="WPFUUI" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>

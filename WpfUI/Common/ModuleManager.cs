@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using UI.Common;
 
-namespace UI.Common
+namespace WpfUI.Common
 {
     /// <summary>
     /// 模块组
@@ -25,6 +25,7 @@ namespace UI.Common
             ObservableCollection<Module> baseMuumList = new ObservableCollection<Module>();
             baseMuumList.Add(new Module("图表", "CharViewDlg", 1, "\xe639"));
             baseMuumList.Add(new Module("流程图", "CtlFlowDlg", 1, "\xe639"));
+            baseMuumList.Add(new Module("主子表", "DtChildrenDlg", 1, "\xe639"));
             //ObservableCollection<Module> PIMuumList = new ObservableCollection<Module>();
             //PIMuumList.Add(new Module("UDI-PI码管理", "CtlCommodityPIListDlg", 1, "\xe604"));
             //PIMuumList.Add(new Module("UDI-PI码历史记录", "CtlCommodityPIhistroyListDlg", 1, "\xe604"));

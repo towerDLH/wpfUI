@@ -86,17 +86,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\ModuleManager.cs" />
     <Compile Include="VIewDlg\CharViewDlg.cs" />
     <Compile Include="VIewDlg\CtlFlowDlg.cs" />
+    <Compile Include="VIewDlg\DtChildrenDlg.cs" />
     <Compile Include="VIewDlg\LoginViewDlg.cs" />
     <Compile Include="VIewDlg\MainViewDlg.cs" />
     <Compile Include="ViewModel\CtlCharViewModel.cs" />
     <Compile Include="ViewModel\CtlFlowViewModel.cs" />
+    <Compile Include="ViewModel\DtChildrenViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\CtlCharView.xaml.cs">
       <DependentUpon>CtlCharView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtlDtChildrenView.xaml.cs">
+      <DependentUpon>CtlDtChildrenView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CtlFlowView.xaml.cs">
       <DependentUpon>CtlFlowView.xaml</DependentUpon>
@@ -134,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CtlCharView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtlDtChildrenView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

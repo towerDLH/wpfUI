@@ -68,7 +68,46 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="border" CornerRadius="0" Margin="2" BorderBrush="Black"
+                                        BorderThickness="0,0,0,0.2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Margin="10,0,0,0" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="#FF46679A" />
+                                <Setter TargetName="border" Property="Background" Value="white" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF46679A" />
+                                <Setter TargetName="border" Property="BorderThickness" Value="4,0,0,0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Foreground" Value="#FF46679A" />
+                                    <Setter TargetName="border" Property="Background" Value="white" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FF46679A" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,0.5" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}">
@@ -79,7 +118,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Expander Header="{Binding GroupName}" Foreground="Black"  FocusVisualStyle="{x:Null}" IsExpanded="True" Background="Transparent">
+                    <Expander Header="{Binding GroupName}" Foreground="Black"  FocusVisualStyle="{x:Null}" IsExpanded="True" Background="Transparent" Width="150">
                         <ItemsControl ItemsSource="{Binding Modules}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>

@@ -45,6 +45,8 @@
                 <Button Content="登录" Margin="10,0" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"></Button>
             </WrapPanel>
         </StackPanel>
-        <hc:LoadingCircle   Visibility="{Binding LoadVis,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"    />
+        <Grid Background="#FF828587" Opacity="0.4"  Visibility="{Binding LoadVis,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <hc:LoadingCircle      />
+        </Grid>
     </Grid>
 </Window>
