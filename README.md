@@ -7,16 +7,10 @@
 4. 项目框架参考于 [https://github.com/HenJigg/WPF-Xamarin-Blazor-Examples](https://github.com/HenJigg/WPF-Xamarin-Blazor-Examples "ZFS")
 5. 流程图参考于 [https://www.cnblogs.com/zhoujg/archive/2010/08/19/1801660.html](https://www.cnblogs.com/zhoujg/archive/2010/08/19/1801660.html "流程图")
 # 项目UI控件 #
-<<<<<<< HEAD
-
-**流程图** 
+ 
+ 
+**流程图**
 ![流程图](https://github.com/towerDLH/wpfUI/blob/master/WpfUI/Resouce/Image/flow.jpg)
 
-**图表**
-=======
-**流程图**  
-![流程图](https://github.com/towerDLH/wpfUI/blob/master/WpfUI/Resouce/Image/flow.jpg)
-
-**图表**  
->>>>>>> d141e2bff466b1aeb3ef96925b0cd70847dee8a4
+**图表** 
 ![图表](https://github.com/towerDLH/wpfUI/blob/master/WpfUI/Resouce/Image/charradar.png)
