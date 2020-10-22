@@ -13,16 +13,32 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Expander >
+                            <Expander   x:Name="extest" Style="{x:Null}"   >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Expanded">
-                                        <cmd:EventToCommand Command="{Binding ExpandedCommand}"   />
+                                        <i:InvokeCommandAction  Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.ExpandedCommand}" CommandParameter="{Binding  ElementName=extest}"   />
                                     </i:EventTrigger>
                                     <i:EventTrigger EventName="Collapsed">
-                                        <cmd:EventToCommand Command="{Binding CollapsedCommand}"   />
+                                        <cmd:EventToCommand Command="{Binding  DataContext.CollapsedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding ElementName=extest}"  />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Expander>
+
+                            <!--<Expander        >
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},Path=DetailsVisibility,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="Visible">
+                                                <Setter Property="IsExpanded" Value="True"></Setter>
+                                            </DataTrigger>
+
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},Path=DetailsVisibility,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="Collapsed">
+                                                <Setter Property="IsExpanded" Value="False"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>  
+                                    </Style>
+                                </Expander.Style>
+                            </Expander>-->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -35,7 +51,6 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn   Header="销售出库编号" Binding="{Binding  saleSend_code,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 <DataGridTextColumn  Header="销售出库数量"   Binding="{Binding  Qty,  StringFormat=\{0:0.######\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <DataGridTextColumn  Header="销售出库金额"   Binding="{Binding  con_amt,  StringFormat=\{0:0.######\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
                 <DataGridTextColumn   Header="供应商" Binding="{Binding  customer_desc,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn   Header="接收人员" Binding="{Binding  emp_desc,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </DataGrid.Columns>
@@ -61,5 +76,23 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
+        <!--<Button Content="测试按钮"
+        Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.ExpandedCommand}"
+        CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">
+                            </Button>-->
+        <!--<Expander  IsExpanded="False"   >
+            <Expander.Style>
+                <Style TargetType="Expander">
+            <Style.Triggers>
+                <Trigger Property="IsExpanded" Value="True">
+                    <Setter Property="Header" Value="收起"></Setter>
+                </Trigger>
+                <Trigger Property="IsExpanded" Value="False">
+                    <Setter Property="Header" Value="展开"></Setter>
+                </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Expander.Style>
+        </Expander>-->
     </Grid>
 </UserControl>

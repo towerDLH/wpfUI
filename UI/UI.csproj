@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="BaseModel\MeumModel.cs" />
     <Compile Include="BaseModel\MsgBoxViewModel.cs" />
+    <Compile Include="Base\BaseMethod.cs" />
     <Compile Include="Base\BaseView.cs" />
     <Compile Include="Base\BaseViewDialog.cs" />
     <Compile Include="Base\DialogProcess.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Control\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\BoolToVisbilityConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
     <Compile Include="Convert\WinConRaConvert.cs" />
     <Compile Include="Enums\MenuBehaviorType.cs" />

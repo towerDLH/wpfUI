@@ -6,13 +6,15 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using UI.Base;
 
 namespace WpfUI.ViewModel
 {
     public class DtChildrenViewModel : ViewModelBase
     {
         #region 属性
-        private ObservableCollection<ReportSaleSend> salesendlist=new ObservableCollection<ReportSaleSend>();
+        private ObservableCollection<ReportSaleSend> salesendlist = new ObservableCollection<ReportSaleSend>();
 
         public ObservableCollection<ReportSaleSend> SaleSendlist
         {
@@ -34,68 +36,76 @@ namespace WpfUI.ViewModel
             }
         }
         #region 命令
-        private RelayCommand expandedcommand;
+        private RelayCommand<object> expandedcommand;
 
-        public RelayCommand ExpandedCommand
+        public RelayCommand<object> ExpandedCommand
         {
             get
             {
                 if (expandedcommand == null)
-                    expandedcommand = new RelayCommand(() => ExpandedMD());
+                    expandedcommand = new RelayCommand<object>((sender) => ExpandedMD(sender));
                 return expandedcommand;
             }
             set { expandedcommand = value; }
         }
 
-        private RelayCommand collapsedcommand;
+        private RelayCommand<object> collapsedcommand;
 
-        public RelayCommand CollapsedCommand
+        public RelayCommand<object> CollapsedCommand
         {
             get
             {
                 if (collapsedcommand == null)
-                    collapsedcommand = new RelayCommand(() => CollapsedMD());
+                    collapsedcommand = new RelayCommand<object>((sender) => CollapsedMD(sender));
                 return collapsedcommand;
             }
             set { collapsedcommand = value; }
         }
         #endregion
         #region 方法
-        public void ExpandedMD()
+        public void ExpandedMD(object sender)
         {
-
+            var a = this;
+            DataGridRow row = BaseMethod.FindVisualParent<DataGridRow>(sender as Expander);
+            row.DetailsVisibility = System.Windows.Visibility.Visible;
         }
 
-        public void CollapsedMD()
+        public void CollapsedMD(object sender)
         {
-
+            DataGridRow row = BaseMethod.FindVisualParent<DataGridRow>(sender as Expander);
+            row.DetailsVisibility = System.Windows.Visibility.Collapsed;
         }
         #endregion
 
         public void GetList()
         {
+            Random random = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                ObservableCollection<DtlModel> dtlList = new ObservableCollection<DtlModel>();
+                for (int dt = 0; dt < 5; dt++)
+                {
+                    DtlModel dtl = new DtlModel($"明细{dt}", dt, dt);
+                    dtlList.Add(dtl);
+                }
+                ReportSaleSend reportSaleSend = new ReportSaleSend();
+                reportSaleSend.saleSend_code = $"Sale{i}";
+                reportSaleSend.item_desc = $"物料{i}";
+                reportSaleSend.OrderTime = DateTime.Now;
+                reportSaleSend.Qty = random.Next(1, 100) + i;
+                reportSaleSend.OutQty = i;
+                reportSaleSend.customer_desc = $"客戶{i}";
+                reportSaleSend.emp_desc = $"銷售人員{i}";
+                reportSaleSend.DtlList = dtlList;
+                SaleSendlist.Add(reportSaleSend);
 
+            }
         }
     }
+    #region 临时变量类
+
     public class ReportSaleSend
     {
-        private string statustr;
-
-        public string StatuStr
-        {
-            get { return statustr; }
-            set { statustr = value; }
-        }
-
-
-        private Guid _saleSend_id;
-
-        public Guid saleSend_id
-        {
-            get { return _saleSend_id; }
-            set { _saleSend_id = value; }
-        }
-
         private string _saleSend_code;
 
         public string saleSend_code
@@ -127,13 +137,7 @@ namespace WpfUI.ViewModel
             get { return qty; }
             set { qty = value; }
         }
-        private decimal _acp_up;
 
-        public decimal acp_up
-        {
-            get { return _acp_up; }
-            set { _acp_up = value; }
-        }
 
         private decimal outqty;
 
@@ -151,13 +155,7 @@ namespace WpfUI.ViewModel
             get { return _con_amt; }
             set { _con_amt = value; }
         }
-        private decimal _notacpmoney;
 
-        public decimal notacpmoney
-        {
-            get { return _notacpmoney; }
-            set { _notacpmoney = value; }
-        }
         private string _customer_desc;
 
         public string customer_desc
@@ -182,6 +180,35 @@ namespace WpfUI.ViewModel
     }
     public class DtlModel
     {
+        public DtlModel(string barcore, decimal curbasenum, decimal qty)
+        {
+            BarCode = barcore;
+            CurBaseNum = curbasenum;
+            Qty = qty;
+        }
+        private string barcode;
+
+        public string BarCode
+        {
+            get { return barcode; }
+            set { barcode = value; }
+        }
+
+        private decimal curbasenum;
+
+        public decimal CurBaseNum
+        {
+            get { return curbasenum; }
+            set { curbasenum = value; }
+        }
+        private decimal qty;
+
+        public decimal Qty
+        {
+            get { return qty; }
+            set { qty = value; }
+        }
 
     }
+    #endregion
 }
