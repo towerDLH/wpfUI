@@ -90,14 +90,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\ModuleManager.cs" />
+    <Compile Include="Convers\TreeViewConver.cs" />
     <Compile Include="VIewDlg\CharViewDlg.cs" />
     <Compile Include="VIewDlg\CtlFlowDlg.cs" />
+    <Compile Include="VIewDlg\CtlTreeDlg.cs" />
     <Compile Include="VIewDlg\DtChildrenDlg.cs" />
     <Compile Include="VIewDlg\GantCharDlg.cs" />
     <Compile Include="VIewDlg\LoginViewDlg.cs" />
     <Compile Include="VIewDlg\MainViewDlg.cs" />
     <Compile Include="ViewModel\CtlCharViewModel.cs" />
     <Compile Include="ViewModel\CtlFlowViewModel.cs" />
+    <Compile Include="ViewModel\CtlTreeViewModel.cs" />
     <Compile Include="ViewModel\DtChildrenViewModel.cs" />
     <Compile Include="ViewModel\GantCharViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -123,6 +126,9 @@
     </Compile>
     <Compile Include="View\CtlTempales\MainTabControl.xaml.cs">
       <DependentUpon>MainTabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CtlTreeView.xaml.cs">
+      <DependentUpon>CtlTreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -172,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CtlTempales\MainTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CtlTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

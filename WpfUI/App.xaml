@@ -17,6 +17,8 @@
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:WpfUI.ViewModel" />
             <!--#region convert -->
             <uc:VisibilityConverter x:Key="isssignconvert"/>
+            <uc:VisibleToReverseConver x:Key="visibleToReverse"/>
+            <uc:BoolToVisbilityConverter x:Key="boolToVisible"/>
             <!--#endregion-->
         </ResourceDictionary>
     </Application.Resources>

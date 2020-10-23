@@ -9,18 +9,14 @@ using System.Windows.Data;
 
 namespace UI.Converter
 {
-    public class BoolToVisbilityConverter : IValueConverter
+    public class VisibleToReverseConver : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && bool.TryParse(value.ToString(), out bool result))
-            {
-                if (!result)
-                    return Visibility.Visible;
-                else
-                    return Visibility.Collapsed;
-            }
-            return Visibility.Collapsed;
+            if ((Visibility)value == Visibility.Visible)
+                return Visibility.Collapsed;
+            else
+                return Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

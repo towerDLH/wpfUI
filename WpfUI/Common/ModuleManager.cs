@@ -27,6 +27,7 @@ namespace WpfUI.Common
             baseMuumList.Add(new Module("流程图", "CtlFlowDlg", 1, "\xe639"));
             baseMuumList.Add(new Module("主子表", "DtChildrenDlg", 1, "\xe639"));
             baseMuumList.Add(new Module("甘特图", "GantCharDlg", 1, "\xe639"));
+            baseMuumList.Add(new Module("下拉树", "CtlTreeDlg", 1, "\xe639"));
             //ObservableCollection<Module> PIMuumList = new ObservableCollection<Module>();
             //PIMuumList.Add(new Module("UDI-PI码管理", "CtlCommodityPIListDlg", 1, "\xe604"));
             //PIMuumList.Add(new Module("UDI-PI码历史记录", "CtlCommodityPIhistroyListDlg", 1, "\xe604"));

@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Converter\BoolToVisbilityConverter.cs" />
     <Compile Include="Converter\VisibilityConverter.cs" />
+    <Compile Include="Converter\VisibleToReverseConver.cs" />
     <Compile Include="Convert\WinConRaConvert.cs" />
     <Compile Include="Enums\MenuBehaviorType.cs" />
     <Compile Include="Enums\ModuleAttribute.cs" />
