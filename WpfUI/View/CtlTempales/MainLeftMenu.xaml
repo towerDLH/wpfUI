@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfUI.View.CtlTempales" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:cnv="clr-namespace:WpfUI.Convers"
+             xmlns:local="clr-namespace:WpfUI.View.CtlTempales" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:cnv="clr-namespace:WpfUI.Convers" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -132,7 +132,7 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="SnapsToDevicePixels" Value="True" />
             <Setter Property="Margin" Value="0" />
-
+            <Setter Property="IsExpanded" Value="True"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TreeViewItem}">
@@ -279,12 +279,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <HierarchicalDataTemplate x:Key="ItemNode"    ItemsSource="{Binding Nodes}" >
+        <HierarchicalDataTemplate x:Key="ItemNode"    ItemsSource="{Binding Modules}" >
             <StackPanel Orientation="Horizontal" Height="28"  >
                 <!--<Image Source="{Binding Icon}" x:Name="Text"></Image>-->
                 <!--<xly:FImage Source="{Binding Icon}" Width="22" Height="22"></xly:FImage>-->
-                <TextBlock Text="&#xe619;" Style="{DynamicResource FontAwesome}" FontSize="15"  x:Name="TxtFont" Foreground="Gray"  VerticalAlignment="Center"/>
+                <TextBlock Text="{ Binding ICON}" Style="{StaticResource FontAwesome}" FontSize="15"  x:Name="TxtFont" Foreground="Gray"  VerticalAlignment="Center"/>
                 <TextBlock Text="{Binding Name}" FontSize="15" VerticalAlignment="Center" Margin="3,0,0,0"></TextBlock>
+
             </StackPanel>
             <HierarchicalDataTemplate.Triggers>
                 <DataTrigger Binding="{Binding Path=HasItems,RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}}}" Value="True">
@@ -295,7 +296,8 @@
 
     </UserControl.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}">
+        <!--#region NewRegion -->
+        <!--<ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel />
@@ -326,10 +328,14 @@
                                                        FontSize="15" 
                                                        Foreground="{Binding ElementName=node,Path=Foreground}"/>
                                         </Grid>
-                                        <!--<StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="-35 0 0 0">
-                                            --><!--<materialDesign:PackIcon Kind="ChevronRight" Width="20" Height="20" Margin="0 0 5 0" />--><!--
+                                        -->
+        <!--<StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="-35 0 0 0">
+                                            -->
+        <!--<materialDesign:PackIcon Kind="ChevronRight" Width="20" Height="20" Margin="0 0 5 0" />-->
+        <!--
                                             
                                         </StackPanel>-->
+        <!--
                                     </Button>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -337,6 +343,17 @@
                     </Expander>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ItemsControl>-->
+
+        <!--#endregion-->
+        <TreeView Name="treeview"    Padding="0" BorderThickness="1" ItemTemplate="{StaticResource ItemNode}"  ItemsSource="{Binding  Path=ModuleManager.Modules}" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectedItemChanged">
+                    <i:InvokeCommandAction   Command="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                            AncestorType={x:Type local:MainLeftMenu }}, 
+                                            Path=DataContext.ExcuteCommand,Mode=TwoWay}"   CommandParameter="{Binding ElementName=treeview, Path=SelectedItem }"  />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TreeView>
     </Grid>
 </UserControl>

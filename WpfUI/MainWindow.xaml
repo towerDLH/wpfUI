@@ -18,7 +18,7 @@
         </Grid>
         <Grid Grid.Column="1">
             <!--<TextBox  Width="100" Height="30"></TextBox>-->
-            <localt:MainTabControl Margin="10"   BorderThickness="1"  BorderBrush="#EAEAEA"/>
+            <localt:MainTabControl Margin="10"   BorderThickness="1"  BorderBrush="#EAEAEA"  />
         </Grid>
     </Grid>
 </ui:WindowsBase>
