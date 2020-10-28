@@ -23,11 +23,11 @@ namespace WpfUI.Common
         {
             ObservableCollection<Module> menumlist = new ObservableCollection<Module>();
             ObservableCollection<Module> baseMuumList = new ObservableCollection<Module>();
-            baseMuumList.Add(new Module("图表", "CharViewDlg", 1, "\xe639"));
-            baseMuumList.Add(new Module("流程图", "CtlFlowDlg", 1, "\xe639"));
-            baseMuumList.Add(new Module("主子表", "DtChildrenDlg", 1, "\xe639"));
-            baseMuumList.Add(new Module("甘特图", "GantCharDlg", 1, "\xe639"));
-            baseMuumList.Add(new Module("下拉树", "CtlTreeDlg", 1, "\xe639"));
+            baseMuumList.Add(new Module("图表", "CharViewDlg", 1, "\xe633"));
+            baseMuumList.Add(new Module("流程图", "CtlFlowDlg", 1, "\xe61a"));
+            baseMuumList.Add(new Module("主子表", "DtChildrenDlg", 1, "\xe609"));
+            baseMuumList.Add(new Module("甘特图", "GantCharDlg", 1, "\xe671"));
+            baseMuumList.Add(new Module("下拉树", "CtlTreeDlg", 1, "\xe643"));
             //ObservableCollection<Module> PIMuumList = new ObservableCollection<Module>();
             //PIMuumList.Add(new Module("UDI-PI码管理", "CtlCommodityPIListDlg", 1, "\xe604"));
             //PIMuumList.Add(new Module("UDI-PI码历史记录", "CtlCommodityPIhistroyListDlg", 1, "\xe604"));
