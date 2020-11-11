@@ -1,14 +1,17 @@
-﻿<UserControl x:Class="WpfUI.View.CtlDtChildrenView"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfUI.View"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:WpfUI.View" 
              xmlns:extent="clr-namespace:UI.Extend;assembly=UI" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+             xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="WpfUI.View.CtlDtChildrenView"
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
     <Grid>
-        <DataGrid ScrollViewer.CanContentScroll="False"   Grid.Row="1" extent:DataGridExtend.DisplayRowNumber="True" AlternationCount="2" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding SaleSendlist}"  IsReadOnly="True"       Margin="0,0,10,20"      >
+        <DataGrid   ScrollViewer.CanContentScroll="False" FrozenColumnCount="1"  Grid.Row="1" extent:DataGridExtend.DisplayRowNumber="True" AlternationCount="2" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding SaleSendlist}"  IsReadOnly="True"       Margin="0,0,10,20"            >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -16,10 +19,10 @@
                             <Expander   x:Name="extest" Style="{x:Null}"   >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Expanded">
-                                        <i:InvokeCommandAction  Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.ExpandedCommand}" CommandParameter="{Binding  ElementName=extest}"   />
+                                        <i:InvokeCommandAction  Command="{Binding DataContext.ExpandedCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding ElementName=extest}"   />
                                     </i:EventTrigger>
                                     <i:EventTrigger EventName="Collapsed">
-                                        <cmd:EventToCommand Command="{Binding  DataContext.CollapsedCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" CommandParameter="{Binding ElementName=extest}"  />
+                                        <cmd:EventToCommand Command="{Binding DataContext.CollapsedCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}, Mode=FindAncestor}}" CommandParameter="{Binding ElementName=extest}"  />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Expander>
@@ -45,31 +48,43 @@
                 <DataGridTemplateColumn Header="序号">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate>
-                            <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn   Header="销售出库编号" Binding="{Binding  saleSend_code,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <DataGridTextColumn  Header="销售出库数量"   Binding="{Binding  Qty,  StringFormat=\{0:0.######\}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <DataGridTextColumn   Header="供应商" Binding="{Binding  customer_desc,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <DataGridTextColumn   Header="接收人员" Binding="{Binding  emp_desc,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn   Header="销售出库编号" Binding="{Binding saleSend_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn  Header="销售出库数量"   Binding="{Binding Qty, Mode=TwoWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn   Header="供应商" Binding="{Binding customer_desc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn     Header="接收人员" Binding="{Binding emp_desc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTemplateColumn  SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical">
+                    <DataGridTemplateColumn.Header>
+                        <DataTemplate>
+                            <TextBlock Text="测试固定列"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
                     <Grid Margin="10">
-                        <DataGrid  extent:DataGridExtend.DisplayRowNumber="True" extent:DataGridExtend.IsSlide="True"  AutoGenerateColumns="False"  HeadersVisibility="Column"     Name="gtdadjDel" AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"  ItemsSource="{Binding DtlList}"        HorizontalScrollBarVisibility="Auto"  >
+                        <DataGrid  extent:DataGridExtend.DisplayRowNumber="True" extent:DataGridExtend.IsSlide="True"  AutoGenerateColumns="False"  HeadersVisibility="Column"     x:Name="gtdadjDel" AlternationCount="2" IsReadOnly="True" CanUserAddRows="False"  ItemsSource="{Binding DtlList}"        HorizontalScrollBarVisibility="Auto"  >
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="序号">
                                     <DataGridTemplateColumn.CellTemplate >
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type DataGridRow}}, Path=Header}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
+                                            <TextBlock Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn      Header="条码" Binding="{Binding  BarCode,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />
+                                <DataGridTextColumn      Header="条码" Binding="{Binding BarCode, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" />
                                 <!--<DataGridTextColumn      Header="物料编码" Binding="{Binding ItemId,Converter={StaticResource ItemConver},ConverterParameter=0,Mode=OneWay,UpdateSourceTrigger=PropertyChanged }" ClipboardContentBinding="{x:Null}" />-->
-                                <DataGridTextColumn Binding="{Binding CurBaseNum, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="可销售出库数量"/>
-                                <DataGridTextColumn Binding="{Binding Qty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=\{0:0.######\}}" ClipboardContentBinding="{x:Null}" Header="销售出库数量"/>
+                                <DataGridTextColumn Binding="{Binding CurBaseNum, Mode=OneWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="可销售出库数量"/>
+                                <DataGridTextColumn Binding="{Binding Qty, Mode=OneWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}" ClipboardContentBinding="{x:Null}" Header="销售出库数量"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

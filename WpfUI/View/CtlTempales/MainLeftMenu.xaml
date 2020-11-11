@@ -109,7 +109,7 @@
             </Setter>
         </Style>
 
-        <HierarchicalDataTemplate x:Key="treeviewTemplate" ItemsSource="{Binding Children,Mode=TwoWay}">
+        <HierarchicalDataTemplate x:Key="treeviewTemplate"  ItemsSource="{Binding Children,Mode=TwoWay}">
             <Grid  Background="Transparent">
                 <Grid MinHeight="30" x:Name="userinfo" Background="Transparent" Margin="-5 0 0 0" Visibility="{Binding Visibility,ElementName=groupinginfo,Converter={StaticResource visibleToReverse}}">
                     <Grid Height="50" x:Name="grid">
@@ -133,6 +133,7 @@
             <Setter Property="SnapsToDevicePixels" Value="True" />
             <Setter Property="Margin" Value="0" />
             <Setter Property="IsExpanded" Value="True"></Setter>
+            <Setter Property="IsSelected" Value="{Binding IsSelect}"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TreeViewItem}">
@@ -346,7 +347,7 @@
         </ItemsControl>-->
 
         <!--#endregion-->
-        <TreeView Name="treeview"    Padding="0" BorderThickness="1" ItemTemplate="{StaticResource ItemNode}"  ItemsSource="{Binding  Path=ModuleManager.Modules}" >
+        <TreeView Name="treeview"     Padding="0" BorderThickness="1" ItemTemplate="{StaticResource ItemNode}"  ItemsSource="{Binding  Path=ModuleManager.Modules}" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectedItemChanged">
                     <i:InvokeCommandAction   Command="{Binding RelativeSource={RelativeSource FindAncestor, 

@@ -19,7 +19,6 @@ namespace UI.Common
         private string _groupName;
         private ModuleType _moduleType;
         private ObservableCollection<Module> modules = new ObservableCollection<Module>();
-
         /// <summary>
         /// 模块ICO
         /// </summary>
@@ -29,6 +28,7 @@ namespace UI.Common
             set { _groupIcon = value; RaisePropertyChanged(); }
         }
 
+       
         /// <summary>
         /// 模块名称
         /// </summary>
@@ -87,6 +87,8 @@ namespace UI.Common
         private string _Name;
         private int? _Authorities;
         private string _Icon;
+        private bool isselect=false;
+
         private ObservableCollection<Module> modules = new ObservableCollection<Module>() { };
 
         public string Code
@@ -94,7 +96,11 @@ namespace UI.Common
             get { return _Code; }
             set { _Code = value; RaisePropertyChanged(); }
         }
-
+        public bool IsSelect
+        {
+            get { return isselect; }
+            set { isselect = value; RaisePropertyChanged(); }
+        }
 
 
         /// <summary>

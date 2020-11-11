@@ -23,7 +23,6 @@ namespace WpfUI.View
         }
         public void  GetGantChar()
         {
-            InitializeComponent();
             _mManager = new ProjectManager();
             var work = new MyTask(_mManager) { Name = "创建APP" };
             var wake = new MyTask(_mManager) { Name = "框架搭建" };
