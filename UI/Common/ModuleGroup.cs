@@ -27,7 +27,6 @@ namespace UI.Common
             get { return _groupIcon; }
             set { _groupIcon = value; RaisePropertyChanged(); }
         }
-
        
         /// <summary>
         /// 模块名称
@@ -101,7 +100,6 @@ namespace UI.Common
             get { return isselect; }
             set { isselect = value; RaisePropertyChanged(); }
         }
-
 
         /// <summary>
         /// 图标-IconFont

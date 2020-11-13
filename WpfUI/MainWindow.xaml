@@ -14,7 +14,7 @@
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <localt:MainLeftMenu   BorderThickness="1" BorderBrush="#EAEAEA" />
+            <localt:MainLeftMenu Margin="0,10"  BorderThickness="1" BorderBrush="#EAEAEA" />
         </Grid>
         <Grid Grid.Column="1">
             <!--<TextBox  Width="100" Height="30"></TextBox>-->

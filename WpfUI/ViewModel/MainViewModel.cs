@@ -142,7 +142,7 @@ namespace WpfUI.ViewModel
         {
             try
             {
-                if (module == null) return;
+                if (module == null||string.IsNullOrEmpty(module.Code)) return;
                 if (module.Code == "OutDlg")
                 {
                     var relst = MessageBox.Show("是否要退出程序", "提示信息", MessageBoxButton.YesNo, MessageBoxImage.Question);
