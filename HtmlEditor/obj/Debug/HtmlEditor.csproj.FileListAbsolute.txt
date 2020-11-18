@@ -1,6 +1,5 @@
 D:\Test\WpfTest\HtmlEditor\bin\Debug\Msl.HtmlEditor.dll
 D:\Test\WpfTest\HtmlEditor\bin\Debug\Msl.HtmlEditor.pdb
-D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csprojAssemblyReference.cache
 D:\Test\WpfTest\HtmlEditor\obj\Debug\HtmlEditor.csproj.ResolveComReference.cache
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\ColorPicker.g.cs
 D:\Test\WpfTest\HtmlEditor\obj\Debug\View\FacePicker.g.cs

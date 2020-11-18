@@ -13,6 +13,7 @@ using UI.Interface;
 using UI.Common;
 using System.Threading;
 using System.Data;
+using System.Collections.ObjectModel;
 
 namespace WpfUI.ViewModel
 {
@@ -66,7 +67,7 @@ namespace WpfUI.ViewModel
             set { username = value; RaisePropertyChanged(() => UserName); }
         }
         //
-        private bool loadisenab=true;
+        private bool loadisenab = true;
 
         public bool LoadIsenab
         {
@@ -122,13 +123,13 @@ namespace WpfUI.ViewModel
         }
 
 
-        private async void ExcuteSendCommand(string pwd)
+        private void ExcuteSendCommand(string pwd)
         {
-
             if (UserName == "admin" && pwd == "123")
             {
                 LoadVis = Visibility.Visible;
                 LoadIsenab = false;
+
                 new Action(async () =>
                 {
                     Task<bool> task = new Func<Task<bool>>(async () =>
@@ -136,7 +137,7 @@ namespace WpfUI.ViewModel
                         return await Task.Run(() =>
                         {
                             //模仿登录数据库耗时
-                            Thread.Sleep(3000);
+                            Thread.Sleep(2000);
                             return true;
                         });
                     })();
@@ -192,7 +193,7 @@ namespace WpfUI.ViewModel
 
         private void CancelMD(Window win)
         {
-            if (MessageBox.Show("是否退出UDI系统？", "提示信息", System.Windows.MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("是否退出系统？", "提示信息", System.Windows.MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 if (win != null)
                     win.Close();

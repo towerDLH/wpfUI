@@ -106,7 +106,8 @@ namespace UI.Common
         /// </summary>
         public string ICON
         {
-            get { return _Icon; RaisePropertyChanged(); }
+            get { return _Icon; }
+            set { _Icon = value; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -123,7 +124,8 @@ namespace UI.Common
         /// </summary>
         public int? Authorities
         {
-            get { return _Authorities; RaisePropertyChanged(); }
+            get { return _Authorities; }
+            set { _Authorities = value; RaisePropertyChanged(); }
         }
 
         public ObservableCollection<Module> Modules

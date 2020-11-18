@@ -2,9 +2,6 @@
 using System;
 using System.Linq;
 using System.Windows.Controls;
-using System.Windows;
-using System.Windows.Forms.Integration;
-using System.Collections.Generic;
 
 namespace WpfUI.View
 {
@@ -133,6 +130,9 @@ namespace WpfUI.View
             _mChart.TimeResolution = TimeResolution.Day; // Set the chart to display in days in header
             host.Child = _mChart as System.Windows.Forms.Control;
             grd.Children.Add(host);
+            Button testbtn = new Button();
+            testbtn.Content = "sdad";
+            grd.Children.Add(testbtn);
         }
     }
     public class MyResource

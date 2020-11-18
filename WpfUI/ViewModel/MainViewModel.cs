@@ -39,7 +39,7 @@ namespace WpfUI.ViewModel
         {
             foreach (var item in modules)
             {
-                if (item.Name == ((PageInfo)_CurrentPage).HeaderName)
+                if (_CurrentPage != null&&item.Name == ((PageInfo)_CurrentPage).HeaderName)
                 {
                     item.IsSelect = true;
                 }
@@ -100,13 +100,15 @@ namespace WpfUI.ViewModel
         public async void InitDefaultView()
         {
             //初始化工具栏,通知窗口
-            _PopBoxView = new PopBoxViewModel();
-            _NoticeView = new NoticeViewModel();
-            //加载窗体模块
-            _ModuleManager = new ModuleManager();
-
-            //await _ModuleManager.LoadModules();
-            //设置系统默认首页
+            await Task.Run(() =>
+            {
+                _PopBoxView = new PopBoxViewModel();
+                _NoticeView = new NoticeViewModel();
+                //加载窗体模块
+                _ModuleManager = new ModuleManager();
+                //await _ModuleManager.LoadModules();
+                //设置系统默认首页
+            });
             var page = OpenPageCollection.FirstOrDefault(t => t.HeaderName.Equals("系统首页"));
             if (page == null)
             {
@@ -142,7 +144,7 @@ namespace WpfUI.ViewModel
         {
             try
             {
-                if (module == null||string.IsNullOrEmpty(module.Code)) return;
+                if (module == null || string.IsNullOrEmpty(module.Code)) return;
                 if (module.Code == "OutDlg")
                 {
                     var relst = MessageBox.Show("是否要退出程序", "提示信息", MessageBoxButton.YesNo, MessageBoxImage.Question);

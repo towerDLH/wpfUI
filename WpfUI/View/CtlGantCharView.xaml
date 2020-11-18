@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfUI.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="grd"   >
-            
+    <Grid x:Name="grd"     >
+
     </Grid>
 </UserControl>

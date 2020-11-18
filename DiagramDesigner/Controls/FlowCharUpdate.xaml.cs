@@ -262,7 +262,7 @@ namespace DiagramDesigner.Controls
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message, "提示信息");
                 return "";
             }
 
