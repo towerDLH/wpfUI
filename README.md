@@ -1,5 +1,5 @@
 
-# wpfTestUI
+# wpfUserUI
 # 项目介绍 #
 1. 项目使用了autofac  [https://autofaccn.readthedocs.io/zh/latest/register/registration.html](https://autofaccn.readthedocs.io/zh/latest/register/registration.html "autofac")
 2. 使用了HandyControl  [https://github.com/HandyOrg/HandyControl](https://github.com/HandyOrg/HandyControl "HandyControl")
