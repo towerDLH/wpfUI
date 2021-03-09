@@ -35,5 +35,47 @@ namespace WpfUI.View
                 win.ShowDialog();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnXz_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+        Point m_offset = new Point(0, 0);
+        bool m_isDrag = false;
+        private void PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            FrameworkElement el = (FrameworkElement)sender;
+            m_offset = e.GetPosition(el);
+            m_isDrag = true;
+        }
+
+        private void PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (m_isDrag && e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.imageview.Cursor = Cursors.SizeAll;
+                Point p = e.GetPosition((FrameworkElement)sender);
+                double x = imageview.Margin.Left + (p.X - m_offset.X);
+                double y = imageview.Margin.Top + (p.Y - m_offset.Y);
+                if (Math.Abs(x) > 10 || Math.Abs(y) > 10)
+                {
+                    imageview.Margin = new Thickness(x, y, 0, 0);
+                }
+            }
+        }
+
+        private void PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (m_isDrag)
+            {
+                m_isDrag = false;
+            }
+            this.imageview.Cursor = Cursors.Arrow;
+        }
+
     }
 }

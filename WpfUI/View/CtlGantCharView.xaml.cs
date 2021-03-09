@@ -1,7 +1,18 @@
 ﻿using Braincase.GanttChart;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace WpfUI.View
 {
@@ -18,7 +29,7 @@ namespace WpfUI.View
             InitializeComponent();
             GetGantChar();
         }
-        public void  GetGantChar()
+        public void GetGantChar()
         {
             _mManager = new ProjectManager();
             var work = new MyTask(_mManager) { Name = "创建APP" };
@@ -130,9 +141,6 @@ namespace WpfUI.View
             _mChart.TimeResolution = TimeResolution.Day; // Set the chart to display in days in header
             host.Child = _mChart as System.Windows.Forms.Control;
             grd.Children.Add(host);
-            Button testbtn = new Button();
-            testbtn.Content = "sdad";
-            grd.Children.Add(testbtn);
         }
     }
     public class MyResource

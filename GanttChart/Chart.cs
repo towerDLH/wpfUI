@@ -1560,13 +1560,13 @@ namespace Braincase.GanttChart
         /// </summary>
         private static readonly SortedDictionary<DayOfWeek, string> ShortDays = new SortedDictionary<DayOfWeek, string>
         {
-            {DayOfWeek.Sunday, "星期七"},
-            {DayOfWeek.Monday, "星期一"},
-            {DayOfWeek.Tuesday, "星期二"},
-            {DayOfWeek.Wednesday, "星期三"},
-            {DayOfWeek.Thursday, "星期四"},
-            {DayOfWeek.Friday, "星期五"},
-            {DayOfWeek.Saturday, "星期六"}
+            {DayOfWeek.Sunday, "七"},
+            {DayOfWeek.Monday, "一"},
+            {DayOfWeek.Tuesday, "二"},
+            {DayOfWeek.Wednesday, "三"},
+            {DayOfWeek.Thursday, "四"},
+            {DayOfWeek.Friday, "五"},
+            {DayOfWeek.Saturday, "六"}
         };
 
         /// <summary>

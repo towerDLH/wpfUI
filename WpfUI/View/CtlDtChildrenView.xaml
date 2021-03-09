@@ -9,9 +9,28 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <Style x:Key="dtagridCellStyle" TargetType="DataGridCell">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell"  >
+                        <TextBlock   Padding="5,5,5,0" TextAlignment="Center" VerticalAlignment="Center">
+                    <ContentPresenter VerticalAlignment="Center"/>
+                        </TextBlock>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
     </UserControl.Resources>
     <Grid>
-        <DataGrid   ScrollViewer.CanContentScroll="False" FrozenColumnCount="1"  Grid.Row="1" extent:DataGridExtend.DisplayRowNumber="True" AlternationCount="2" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding SaleSendlist}"  IsReadOnly="True"       Margin="0,0,10,20"            >
+        <DataGrid       x:Name="dataGrid1" CellEditEnding="DataGrid_CellEditEnding"  ScrollViewer.CanContentScroll="False" FrozenColumnCount="1"  Grid.Row="1" extent:DataGridExtend.DisplayRowNumber="True" AlternationCount="2" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding SaleSendlist}"         Margin="0,0,10,20"            >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -48,12 +67,60 @@
                 <DataGridTemplateColumn Header="序号">
                     <DataGridTemplateColumn.CellTemplate >
                         <DataTemplate>
+                            <Button Content="aa" Click="Button_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="序号">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
                             <TextBlock Text="{Binding Header, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}, Mode=FindAncestor}}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn   Header="销售出库编号" Binding="{Binding saleSend_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-                <DataGridTextColumn  Header="销售出库数量"   Binding="{Binding Qty, Mode=TwoWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTemplateColumn Header="颜色">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBox Text="{Binding saleSend_code,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Tag="{Binding }" VerticalAlignment="Center" Margin="10,0,0,0" LostFocus="TextBox_LostFocus">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding saleSend_code}" Value="sss">
+                                                <Setter Property="Foreground" Value="Red"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn   Header="销售出库编号" Binding="{Binding saleSend_code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  >
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="{x:Type TextBox}">
+                            <EventSetter Event="LostFocus" Handler="TextBox_LostFocus_1" />
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn  Header="销售出库数量"    Binding="{Binding Qty, Mode=TwoWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn  Header="aasd" x:Name="testcolor"    Binding="{Binding Cellcolore, Mode=TwoWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}"  >
+                     
+                </DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="csdsd" Text="{Binding Qty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="aa" Binding="{Binding ElementName=csdsd,Path=Text}"></DataGridTextColumn>
+                <DataGridTextColumn  Header="234234"     Binding="{Binding Cellcolore, Mode=TwoWay, StringFormat=\{0:0.######\}, UpdateSourceTrigger=PropertyChanged}"  >
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="{Binding Cellcolore}"/>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn   Header="供应商" Binding="{Binding customer_desc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTextColumn     Header="接收人员" Binding="{Binding emp_desc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridTemplateColumn  SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical">
@@ -91,6 +158,7 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
+
         <!--<Button Content="测试按钮"
         Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.ExpandedCommand}"
         CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}">

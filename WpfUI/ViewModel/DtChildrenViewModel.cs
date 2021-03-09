@@ -120,6 +120,13 @@ namespace WpfUI.ViewModel
             get { return _item_desc; }
             set { _item_desc = value; }
         }
+        private string cellcolore="Red";
+
+        public string Cellcolore
+        {
+            get { return cellcolore; }
+            set { cellcolore = value; }
+        }
 
 
 

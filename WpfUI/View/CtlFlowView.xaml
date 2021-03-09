@@ -15,7 +15,7 @@
 
 
     </UserControl.Resources>
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="265"/>
             <ColumnDefinition/>
@@ -51,9 +51,9 @@
             </Expander>
 
         </Grid>
-        <Grid Grid.Column="1" >
-            <Grid  >
-                <GroupBox Header="模板"  Margin="3,0,0,0">
+        <Grid Grid.Column="1"   >
+            <Grid   >
+                <GroupBox Header="模板"  Margin="3,0,0,0"   >
                     <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
                         <s:DesignerCanvas Focusable="true" x:Name="MyDesigner" Tag="{Binding  RememberClass}"
