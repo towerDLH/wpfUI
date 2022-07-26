@@ -12,6 +12,7 @@ using UI.BaseModel;
 using UI.Common;
 using UI.Enums;
 using UI.Interface;
+using WpfUI.Common;
 using WpfUI.View;
 
 namespace WpfUI.ViewModel
@@ -27,7 +28,26 @@ namespace WpfUI.ViewModel
         public object CurrentPage
         {
             get { return _CurrentPage; }
-            set { _CurrentPage = value; RaisePropertyChanged(); }
+            set
+            {
+
+                _CurrentPage = value; RaisePropertyChanged();
+                GetPageSelect(_ModuleManager.Modules);
+            }
+        }
+        public void GetPageSelect(ObservableCollection<Module> modules)
+        {
+            foreach (var item in modules)
+            {
+                if (item.Name == ((PageInfo)_CurrentPage).HeaderName)
+                {
+                    item.IsSelect = true;
+                }
+                if (item.Modules.Count > 0)
+                {
+                    GetPageSelect(item.Modules);
+                }
+            }
         }
         #region 工具栏
 
@@ -84,6 +104,7 @@ namespace WpfUI.ViewModel
             _NoticeView = new NoticeViewModel();
             //加载窗体模块
             _ModuleManager = new ModuleManager();
+
             //await _ModuleManager.LoadModules();
             //设置系统默认首页
             var page = OpenPageCollection.FirstOrDefault(t => t.HeaderName.Equals("系统首页"));
@@ -93,6 +114,7 @@ namespace WpfUI.ViewModel
                 HomePage about = new HomePage();
                 OpenPageCollection.Add(new PageInfo() { HeaderName = "系统首页", Body = about });
                 CurrentPage = OpenPageCollection[OpenPageCollection.Count - 1];
+                about.aa();
             }
         }
         private RelayCommand<Module> _ExcuteCommand;
@@ -186,19 +208,19 @@ namespace WpfUI.ViewModel
         /// 登录
         /// </summary>
         public RelayCommand<PageInfo> ExitCurrentPageCommand { get; set; }
-       
+
 
         public RelayCommand<PageInfo> ExitAllPageCommand { get; set; }
-        
+
 
         public RelayCommand<PageInfo> ExitAllExceptCommand { get; set; }
 
         #endregion
- 
+
 
         private void ExitCommand(MenuBehaviorType type, string pageName)
         {
-            var obj = this ;
+            var obj = this;
             if (obj == null) return;
             switch (type)
             {
@@ -231,7 +253,7 @@ namespace WpfUI.ViewModel
                             OpenPageCollection.Remove(t);
                         });
                     }
-                    break; 
+                    break;
                 case MenuBehaviorType.ExitAllExcept:
                     var pageListExcept = OpenPageCollection.Where(t => t.HeaderName != pageName && t.HeaderName != "系统首页").ToList();
                     if (pageListExcept != null)

@@ -19,7 +19,6 @@ namespace UI.Common
         private string _groupName;
         private ModuleType _moduleType;
         private ObservableCollection<Module> modules = new ObservableCollection<Module>();
-
         /// <summary>
         /// 模块ICO
         /// </summary>
@@ -29,6 +28,7 @@ namespace UI.Common
             set { _groupIcon = value; RaisePropertyChanged(); }
         }
 
+       
         /// <summary>
         /// 模块名称
         /// </summary>
@@ -69,8 +69,12 @@ namespace UI.Common
     /// <summary>
     /// 模块类
     /// </summary>
-    public class Module
+    public class Module : ViewModelBase
     {
+        public Module()
+        {
+
+        }
         public Module(string Name, string Code, int? Auth, string Icon)
         {
             _Code = Code;
@@ -83,14 +87,20 @@ namespace UI.Common
         private string _Name;
         private int? _Authorities;
         private string _Icon;
+        private bool isselect=false;
 
+        private ObservableCollection<Module> modules = new ObservableCollection<Module>() { };
 
         public string Code
         {
             get { return _Code; }
-            set { _Code = value; }
+            set { _Code = value; RaisePropertyChanged(); }
         }
-
+        public bool IsSelect
+        {
+            get { return isselect; }
+            set { isselect = value; RaisePropertyChanged(); }
+        }
 
 
         /// <summary>
@@ -98,7 +108,7 @@ namespace UI.Common
         /// </summary>
         public string ICON
         {
-            get { return _Icon; }
+            get { return _Icon; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -107,7 +117,7 @@ namespace UI.Common
         public string Name
         {
             get { return _Name; }
-            set { _Name = value; }
+            set { _Name = value; RaisePropertyChanged(); }
         }
 
         /// <summary>
@@ -115,8 +125,13 @@ namespace UI.Common
         /// </summary>
         public int? Authorities
         {
-            get { return _Authorities; }
+            get { return _Authorities; RaisePropertyChanged(); }
         }
 
+        public ObservableCollection<Module> Modules
+        {
+            get { return modules; }
+            set { modules = value; RaisePropertyChanged(); }
+        }
     }
 }

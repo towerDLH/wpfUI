@@ -28,6 +28,8 @@ namespace Braincase.GanttChart
         /// </summary>
         public string Name { get; set; }
 
+        public Guid Id { get; set; }
+
         /// <summary>
         /// Indicate whether this task is collapsed such that sub tasks are hidden from view. Only groups can be collasped.
         /// </summary>

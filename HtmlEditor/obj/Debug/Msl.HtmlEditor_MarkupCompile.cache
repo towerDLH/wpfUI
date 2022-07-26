@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\Test\WpfTest\HtmlEditor\obj\Debug\
+D:\work\wpfUI\HtmlEditor\obj\Debug\
 Msl.HtmlEditor
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 6-281621448
 
 201172500548
-13-1785169443
+12-511125657
 View\ColorPicker.xaml;View\FacePicker.xaml;View\HtmlEditor.xaml;View\HyperlinkDialog.xaml;View\ImageDialog.xaml;View\TableDialog.xaml;
 
-False
+True
 

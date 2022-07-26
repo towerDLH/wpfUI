@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfUI.View.CtlTempales" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WpfUI.View.CtlTempales" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:cnv="clr-namespace:WpfUI.Convers" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -68,10 +68,237 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="border" CornerRadius="0" Margin="2" BorderBrush="Black"
+                                        BorderThickness="0,0,0,0.2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Margin="10,0,0,0" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="#FF46679A" />
+                                <Setter TargetName="border" Property="Background" Value="white" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF46679A" />
+                                <Setter TargetName="border" Property="BorderThickness" Value="4,0,0,0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsSelected" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Foreground" Value="#FF46679A" />
+                                    <Setter TargetName="border" Property="Background" Value="white" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FF46679A" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,0.5" />
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <HierarchicalDataTemplate x:Key="treeviewTemplate"  ItemsSource="{Binding Children,Mode=TwoWay}">
+            <Grid  Background="Transparent">
+                <Grid MinHeight="30" x:Name="userinfo" Background="Transparent" Margin="-5 0 0 0" Visibility="{Binding Visibility,ElementName=groupinginfo,Converter={StaticResource visibleToReverse}}">
+                    <Grid Height="50" x:Name="grid">
+                        <Border Background="#62acf9" Width="40" Height="40" CornerRadius="4" HorizontalAlignment="Left" Margin="0 0 0 0">
+                            <TextBlock Text="{Binding SurName}" FontSize="23" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <TextBlock Text="{Binding Name}" Margin="50 7 0 0" FontSize="13"/>
+                        <TextBlock Text="{Binding Info}" Foreground="#808080" Margin="50 30 0 0"/>
+                    </Grid>
+                </Grid>
+                <StackPanel MinHeight="25" x:Name="groupinginfo" Orientation="Horizontal" Background="Transparent" HorizontalAlignment="Left" Visibility="{Binding IsGrouping,Converter={StaticResource boolToVisible}}">
+                    <TextBlock Text="{Binding DisplayName}" Margin="3 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Grid>
+        </HierarchicalDataTemplate>
+
+        <!--TreeViewItem样式代码-->
+        <Style  x:Key="DefaultTreeViewItem" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="MinHeight" Value="25" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="IsExpanded" Value="True"></Setter>
+            <Setter Property="IsSelected" Value="{Binding IsSelect}"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                        <ControlTemplate.Resources>
+                            <cnv:TreeViewConver  x:Key="indentConverter"/>
+                        </ControlTemplate.Resources>
+                        <Grid Background="Transparent">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Name="itemBackground" Background="{TemplateBinding Background}"  
+                                BorderBrush="{TemplateBinding BorderBrush}"  
+                                BorderThickness="{TemplateBinding BorderThickness}"  
+                                Padding="{TemplateBinding Padding}">
+                                <Grid Background="Transparent">
+                                    <Grid x:Name="ItemRoot"  Background="Transparent" Margin="{Binding Converter={StaticResource indentConverter},RelativeSource={RelativeSource TemplatedParent}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="16" />
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ToggleButton x:Name="Expander" HorizontalAlignment="Left" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
+                                            <ToggleButton.Style>
+                                                <Style TargetType="{x:Type ToggleButton}">
+                                                    <Setter Property="Focusable" Value="False"/>
+                                                    <Setter Property="Width" Value="16"/>
+                                                    <Setter Property="Height" Value="16"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                <Border Background="Transparent" Height="16" Padding="5" Width="16">
+                                                                    <Path x:Name="ExpandPath" Data="M0,0 L0,6 L6,0 z" Fill="#1593CB" Stroke="#1593CB">
+                                                                        <Path.RenderTransform>
+                                                                            <RotateTransform Angle="135" CenterY="3" CenterX="3"/>
+                                                                        </Path.RenderTransform>
+                                                                    </Path>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsChecked" Value="True">
+                                                                        <Setter Property="RenderTransform" TargetName="ExpandPath">
+                                                                            <Setter.Value>
+                                                                                <RotateTransform Angle="180" CenterY="3" CenterX="3"/>
+                                                                            </Setter.Value>
+                                                                        </Setter>
+                                                                        <Setter Property="Fill" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                        <Setter Property="Stroke" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                        <Setter Property="Stroke" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                        <Setter Property="Fill" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                    </Trigger>
+                                                                    <MultiTrigger>
+                                                                        <MultiTrigger.Conditions>
+                                                                            <Condition Property="IsMouseOver" Value="True"/>
+                                                                            <Condition Property="IsChecked" Value="True"/>
+                                                                        </MultiTrigger.Conditions>
+                                                                        <Setter Property="Stroke" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                        <Setter Property="Fill" TargetName="ExpandPath" Value="#0357aa"/>
+                                                                    </MultiTrigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ToggleButton.Style>
+                                        </ToggleButton>
+                                        <ToggleButton x:Name="ExBtn" Grid.Column="1" HorizontalAlignment="Left" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}">
+                                            <ToggleButton.Style>
+                                                <Style TargetType="{x:Type ToggleButton}">
+                                                    <Setter Property="Focusable" Value="False"/>
+                                                    <Setter Property="Width" Value="0"/>
+                                                    <Setter Property="Height" Value="16"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                <Border Background="Transparent" Height="16"    Width="16">
+                                                                    <TextBlock Text="&#xe69a;" Visibility="Collapsed"  Style="{DynamicResource FontAwesome}"  FontSize="15" x:Name="TxtFont" Foreground="Gray"    VerticalAlignment="Center"/>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsChecked" Value="True">
+                                                                        <Setter Property="Text" TargetName="TxtFont" Value="&#xe69a;"/>
+                                                                        <Setter Property="Foreground" TargetName="TxtFont" Value="Green"/>
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ToggleButton.Style>
+                                        </ToggleButton>
+                                        <ContentPresenter Grid.Column="2" x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="Stretch" >
+                                        </ContentPresenter>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                            <ItemsPresenter x:Name="ItemsHost" Grid.Row="1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsGrouping}" Value="false">
+                                <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
+                            </DataTrigger>
+                            <Trigger Property="HasItems" Value="False">
+                                <Setter Property="Visibility" TargetName="Expander" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="False">
+                                <Setter Property="Visibility" TargetName="ExBtn" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsExpanded" Value="False">
+                                <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="itemBackground" Value="#b7d2fa"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                    <Condition SourceName="itemBackground" Property="IsMouseOver" Value="true"/>
+                                </MultiTrigger.Conditions>
+                                <!--<Setter Property="Background" Value="#b7d2fa" TargetName="itemBackground"/>-->
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#FFADADAD"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--TreeView样式代码-->
+        <Style TargetType="{x:Type TreeView}">
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+            <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"></Setter>
+            <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling" />
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+            <Setter Property="ItemContainerStyle" Value="{StaticResource DefaultTreeViewItem}"></Setter>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="ItemTemplate" Value="{StaticResource treeviewTemplate}"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsItemsHost="True" Margin="0"/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <HierarchicalDataTemplate x:Key="ItemNode"    ItemsSource="{Binding Modules}" >
+            <StackPanel Orientation="Horizontal" Height="28"  >
+                <!--<Image Source="{Binding Icon}" x:Name="Text"></Image>-->
+                <!--<xly:FImage Source="{Binding Icon}" Width="22" Height="22"></xly:FImage>-->
+                <TextBlock Text="{ Binding ICON}" Style="{StaticResource FontAwesome}" FontSize="15"  x:Name="TxtFont" Foreground="Gray"  VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Name}" FontSize="15" VerticalAlignment="Center" Margin="3,0,0,0"></TextBlock>
+
+            </StackPanel>
+            <HierarchicalDataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Path=HasItems,RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}}}" Value="True">
+                    <Setter TargetName="TxtFont" Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </HierarchicalDataTemplate.Triggers>
+        </HierarchicalDataTemplate>
 
     </UserControl.Resources>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}">
+        <!--#region NewRegion -->
+        <!--<ItemsControl ItemsSource="{Binding Path=ModuleManager.ModuleGroups}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel />
@@ -79,7 +306,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Expander Header="{Binding GroupName}" Foreground="Black"  FocusVisualStyle="{x:Null}" IsExpanded="True" Background="Transparent">
+                    <Expander Header="{Binding GroupName}" Foreground="Black"  FocusVisualStyle="{x:Null}" IsExpanded="True" Background="Transparent" Width="150">
                         <ItemsControl ItemsSource="{Binding Modules}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -88,18 +315,28 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    
-                                    <Button Name="node" Style="{DynamicResource ButtonStyle}" 
+                                    <Button Name="node" Style="{DynamicResource ButtonStyle}"  HorizontalContentAlignment="Left" Width="150"
                                             Command="{Binding RelativeSource={RelativeSource FindAncestor, 
-                                            AncestorType={x:Type local:MainLeftMenu }},
+                                            AncestorType={x:Type local:MainLeftMenu }}, 
                                             Path=DataContext.ExcuteCommand,Mode=TwoWay}"   CommandParameter="{Binding}">
-                                        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="-35 0 0 0">
-                                            <!--<materialDesign:PackIcon Kind="ChevronRight" Width="20" Height="20" Margin="0 0 5 0" />-->
-                                            <TextBlock Text="{ Binding ICON}" Style="{StaticResource FontAwesome}"     Margin="2,0"/>
-                                            <TextBlock Text="{Binding Name}" 
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{ Binding ICON}" Style="{StaticResource FontAwesome}"     Margin="2,0" Grid.Column="0"/>
+                                            <TextBlock Text="{Binding Name}"  Grid.Column="1"
                                                        FontSize="15" 
                                                        Foreground="{Binding ElementName=node,Path=Foreground}"/>
-                                        </StackPanel>
+                                        </Grid>
+                                        -->
+        <!--<StackPanel Orientation="Horizontal"  VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="-35 0 0 0">
+                                            -->
+        <!--<materialDesign:PackIcon Kind="ChevronRight" Width="20" Height="20" Margin="0 0 5 0" />-->
+        <!--
+                                            
+                                        </StackPanel>-->
+        <!--
                                     </Button>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -107,6 +344,17 @@
                     </Expander>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ItemsControl>-->
+
+        <!--#endregion-->
+        <TreeView Name="treeview"     Padding="0" BorderThickness="1" ItemTemplate="{StaticResource ItemNode}"  ItemsSource="{Binding  Path=ModuleManager.Modules}" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectedItemChanged">
+                    <i:InvokeCommandAction   Command="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                            AncestorType={x:Type local:MainLeftMenu }}, 
+                                            Path=DataContext.ExcuteCommand,Mode=TwoWay}"   CommandParameter="{Binding ElementName=treeview, Path=SelectedItem }"  />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TreeView>
     </Grid>
 </UserControl>

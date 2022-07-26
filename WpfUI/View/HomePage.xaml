@@ -4,9 +4,379 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfUI.View"
+             xmlns:ex="clr-namespace:WpfUI.Extension"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBox Width="100" Height="30" KeyDown="TextBox_KeyDown"></TextBox>
+               xmlns:props="clr-namespace:WpfUI.Resouce.Langs" xmlns:controls="clr-namespace:UI.Control;assembly=UI" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid  >
+
+
+        <!--<StackPanel>
+
+            <TextBlock  Text="111111111111"  Foreground="Black" />
+
+            <TextBlock x:Name="TestStringblock" Text="3333" Foreground="Black"></TextBlock>
+            <Label  Content="{ex:StringResource All,DefaultValue=测试一}"     Foreground="Black"/>
+            <Button Click="Button_Click">中文</Button>
+            <Button Click="Button_Click_1">英文</Button>
+            <Button Click="Button_Click_2">西班牙语</Button>
+            <local:WinTitleControl></local:WinTitleControl>
+        </StackPanel>
+        <StackPanel  >
+            <RichTextBox CaretBrush="#fff" Background="Transparent" BorderThickness="0">
+                <FlowDocument    ColumnWidth="200" IsOptimalParagraphEnabled="True" IsHyphenationEnabled="True">
+                    <Section FontSize="12">
+                        <Paragraph  >
+                            <Floater Background="Red" Width="285" HorizontalAlignment="Left">
+                                <Table CellSpacing="5">
+                                    <Table.Columns>
+                                        <TableColumn Width="155"/>
+                                        <TableColumn Width="330"/>
+                                    </Table.Columns>
+                                    <TableRowGroup>
+                                        <TableRow>
+                                            <TableCell ColumnSpan="3">
+                                                <Paragraph>这是一个流文档</Paragraph>
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow   FontSize="12">
+                                            <TableCell  ColumnSpan="3">
+                                                <Paragraph>
+                                                    <Image Source="/WpfUI;Component/Resouce/Image/flow.jpg"></Image>
+                                                </Paragraph>
+                                            </TableCell>
+                                            
+                                        </TableRow>
+                                    </TableRowGroup>
+                                </Table>
+                            </Floater>
+                        </Paragraph>
+                         
+                        <Paragraph>
+                            <Run  x:Name="txtRun" >
+                                Astronomers believe Neptune has an inner rocky core that is surrounded by a vast
+                        ocean of water mixed with rocky material.From the inner core, this ocean extends
+                        upward until it meets a gaseous atmosphere of hydrogen, helium, and trace amounts
+                        of methane.Neptune has four rings and 11 known moons. Even though Neptune's volume
+                       is 72 times Earth’s volume, its mass is only 17.15 times Earth’s mass. Because of
+                        its size, scientists classify Neptune—along with Jupiter, Saturn, and Uranus—as
+                        one of the giant or Jovian planets(so-called because they resemble Jupiter).
+                          </Run>
+                        </Paragraph>
+                    </Section>
+                </FlowDocument>
+            </RichTextBox>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid  
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Top"
+                      Margin="50,10,50,0">
+                <Rectangle Width="500"
+                               Height="200"
+                               RadiusX="20"
+                               RadiusY="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               Fill="SkyBlue" />
+                <StackPanel Width="350"
+                                Height="370"
+                                Margin="0,10,0,0"
+                                Orientation="Vertical">
+                    <TextBlock Text="地段描述"
+                                   FontSize="22"
+                                   Foreground="White"
+                                   Margin="0,5" />
+                    <Grid   >
+                        <RichTextBox CaretBrush="#fff" Height="150"     Background="Transparent" BorderThickness="0">
+                            <FlowDocument    ColumnWidth="220" IsOptimalParagraphEnabled="True" IsHyphenationEnabled="True">
+                                <Section FontSize="12">
+                                    <Paragraph>
+                                        <Floater Background="Gray"  Width="120" HorizontalAlignment="Left">
+                                            <Table CellSpacing="2">
+                                                <Table.Columns>
+                                                    <TableColumn Width="55"/>
+                                                    <TableColumn Width="230"/>
+                                                </Table.Columns>
+                                                <TableRowGroup>
+                                                    <TableRow>
+                                                        <TableCell ColumnSpan="3">
+                                                            -->
+        <!--<Paragraph>图片</Paragraph>-->
+        <!--
+                                                        </TableCell>
+                                                    </TableRow>
+                                                    <TableRow   FontSize="12">
+                                                        <TableCell  ColumnSpan="3">
+                                                            <Paragraph   >
+                                                                <Image Source="/WpfUI;Component/Resouce/Image/flow.jpg"></Image>
+                                                            </Paragraph>
+                                                        </TableCell>
+
+                                                    </TableRow>
+                                                </TableRowGroup>
+                                            </Table>
+                                        </Floater>
+                                    </Paragraph>
+                                    <Paragraph Style="{x:Null}">
+                                        <Run >Astronomers believe Neptune has an inner rocky core that is surrounded by a vast
+                        ocean of water mixed with rocky material.From the inner core, this ocean extends
+                        upward until it meets a gaseous atmosphere of hydrogen, helium, and trace amounts
+                        of methane.Neptune has four rings and 11 known moons. Even though Neptune's volume
+                       is 72 times Earth’s volume, its mass is only 17.15 times Earth’s mass. Because of
+                        its size, scientists classify Neptune—along with Jupiter, Saturn, and Uranus—as
+                        one of the giant or Jovian planets(so-called because they resemble Jupiter).</Run>
+                                        
+                                    </Paragraph>
+                                </Section>
+                            </FlowDocument>
+                        </RichTextBox>
+
+                    </Grid>
+                    -->
+        <!--<TextBlock Text="{Binding SelectedAddress.Description}"
+                                   FontSize="17"   ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                   Foreground="White"
+                                   TextWrapping="Wrap"
+                                   Height="150" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top" />-->
+        <!--
+                    <Grid x:Name="ScoreChart" Margin="0,15,0,0"
+                              Width="300"
+                              Height="140">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        -->
+        <!--<Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="1"
+                                           Text="娱乐"
+                                           FontSize="16"
+                                           Foreground="Yellow"
+                                           HorizontalAlignment="Center" />
+                            <Rectangle Grid.Row="0"
+                                           Fill="Yellow"
+                                           RadiusX="5"
+                                           RadiusY="5"
+                                           VerticalAlignment="Bottom"
+                                           Width="35"
+                                           Height="{Binding SelectedAddress.EntertainmentScore,Converter={StaticResource ValueToHeightConverter}}" />
+                        </Grid>-->
+        <!--<Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="1"
+                                           Text="交通"
+                                           FontSize="16"
+                                           Foreground="OrangeRed"
+                                           HorizontalAlignment="Center" />
+                            <Rectangle Grid.Row="0"
+                                           Fill="OrangeRed"
+                                           RadiusX="5"
+                                           RadiusY="5"
+                                           VerticalAlignment="Bottom"
+                                           Width="35"
+                                           Height="{Binding SelectedAddress.TrafficScore,Converter={StaticResource ValueToHeightConverter}}" />
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="1"
+                                           Text="环境"
+                                           FontSize="16"
+                                           Foreground="Green"
+                                           HorizontalAlignment="Center" />
+                            <Rectangle Grid.Row="0"
+                                           Fill="Green"
+                                           RadiusX="5"
+                                           RadiusY="5"
+                                           VerticalAlignment="Bottom"
+                                           Width="35"
+                                           Height="{Binding SelectedAddress.EnvironmentScore,Converter={StaticResource ValueToHeightConverter}}" />
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="1"
+                                           Text="商业"
+                                           FontSize="16"
+                                           Foreground="SkyBlue"
+                                           HorizontalAlignment="Center" />
+                            <Rectangle Grid.Row="0"
+                                           Fill="SkyBlue"
+                                           RadiusX="5"
+                                           RadiusY="5"
+                                           VerticalAlignment="Bottom"
+                                           Width="35"
+                                           Height="{Binding SelectedAddress.CommerceScore,Converter={StaticResource ValueToHeightConverter}}" />
+                        </Grid>-->
+        <!--
+                    </Grid>
+                    <TextBlock Text="地段评分"
+                                   FontSize="17"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+
+        </Grid>-->
+        <!--<StackPanel  >
+            <TextBlock Text="部门1 " Foreground="Red" FontSize="32"  FontFamily="微软雅黑" ></TextBlock>
+            <TextBox Width="100" Height="30" KeyDown="TextBox_KeyDown"  ></TextBox>
+            <TextBox Width="100" Height="30" KeyDown="TextBox_KeyDown"  ></TextBox>
+            <TextBox Width="100" Height="30" KeyDown="TextBox_KeyDown" ></TextBox>
+            <TextBox Width="100" Height="30" KeyDown="TextBox_KeyDown"  ></TextBox>
+        </StackPanel>-->
+        <!--<StackPanel Width="50">
+            <TextBlock TextWrapping="WrapWithOverflow">
+                <Run>
+                    Astronomers believe Neptune has an inner rocky core that is surrounded by a vast
+                        ocean of water mixed with rocky material.From the inner core, this ocean extends
+                        upward until it meets a gaseous atmosphere of hydrogen, helium, and trace amounts
+                        of methane.Neptune has four rings and 11 known moons. Even though Neptune's volume
+                       is 72 times Earth’s volume, its mass is only 17.15 times Earth’s mass. Because of
+                        its size, scientists classify Neptune—along with Jupiter, Saturn, and Uranus—as
+                        one of the giant or Jovian planets(so-called because they resemble Jupiter).
+                </Run>
+            </TextBlock>
+        </StackPanel>-->
+
+        <Grid.Resources>
+            <SolidColorBrush x:Key="ColorBrush" Color="Red" Opacity="0.7"></SolidColorBrush>
+            <PathGeometry x:Key="closed" Figures="M509.125332 997.359791C236.342166 997.359791 14.419101 775.403955 14.419101 502.620789 14.419101 229.804853 236.342166 7.849017 509.125332 7.849017s494.739002 221.955836 494.739002 494.771772c0 272.783166-221.955836 494.739002-494.739002 494.739002zM726.85375 321.923243l-36.998101-36.965331-180.697547 180.664776-180.697546-180.664776-36.998101 36.965331 180.697546 180.697546-180.697546 180.664776 36.998101 36.998101 180.697546-180.697546 180.697547 180.697546 36.998101-36.998101-180.697546-180.664776 180.697546-180.697546z"></PathGeometry>
+            <Style x:Key="CloseBtn" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="{StaticResource ColorBrush}"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+                <Setter Property="Cursor" Value="Hand"></Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="Part_Border"  BorderThickness="{TemplateBinding BorderThickness}">
+
+
+                                <Grid>
+                                    <Ellipse Width="Auto" Height="Auto" Stroke="LightGray">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="Red" Opacity="0.5"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <TextBlock Text="×" HorizontalAlignment="Center" Foreground="LightGray"  VerticalAlignment="Center" FontSize="20" />
+                                </Grid>
+
+
+
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter  Property="Background" Value="Red"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter  Property="Background" Value="Red"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+        </Grid.Resources>
+        <Grid Visibility="Collapsed">
+            <!--<cefSharp:ChromiumWebBrowser Grid.Row="1" Name="cefsharp" Address="https://www.baidu.com/"/>-->
+            <!--<Viewbox Margin="0,0,6,0">
+                <WrapPanel>
+                <TextBox   ></TextBox>
+                    <TextBox Name="txtChina" HorizontalAlignment="Left" Height="43" Margin="62,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" 
+                 Width="204" PreviewMouseUp="txtChina_PreviewMouseUp"/>
+                    <controls:SoftKeyBoard></controls:SoftKeyBoard>
+                    </WrapPanel>
+            </Viewbox>-->
+            <!--<Button Width="21" Height="21" Style="{StaticResource CloseBtn}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="519,0,0,0" Click="ButtonBase_OnClick"></Button>-->
+        </Grid>
+        <Grid x:Name="MainGrid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <cefSharp:ChromiumWebBrowser x:Name="cefsharp"></cefSharp:ChromiumWebBrowser>
+                <Button Height="30" VerticalAlignment="Bottom" Click="ButtonJS_Click">调用js的方法</Button>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" >
+                <cefSharp:ChromiumWebBrowser x:Name="cefsharp1" ></cefSharp:ChromiumWebBrowser>
+            </Grid>
+
+            <!--<local:Map x:Name="umap" ></local:Map>-->
+        </Grid>
+        <Grid Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Grid.Column="1"  >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/WpfUI;Component/Resouce/Image/1657011481247.jpg"></ImageBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                <Border BorderBrush="Black" BorderThickness="1" CornerRadius="2">
+                    <Image Source="/WpfUI;Component/Resouce/Image/1657074859567.jpg"   >
+                    </Image>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0" Margin="5">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Image Source="/WpfUI;Component/Resouce/Image/1657009800158.jpg" Stretch="Fill"></Image>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2" Margin="5">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Image Source="/WpfUI;Component/Resouce/Image/1657012179088.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180.091"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2"   Grid.ColumnSpan="3" Margin="5">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Image Source="/WpfUI;Component/Resouce/Image/1657010598781.jpg"></Image>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid>
+           
+        </Grid>
     </Grid>
 </UserControl>

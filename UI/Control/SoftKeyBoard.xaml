@@ -1,0 +1,272 @@
+﻿<UserControl x:Class="UI.Control.SoftKeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Control"
+             mc:Ignorable="d" 
+              xmlns:system="clr-namespace:System;assembly=mscorlib"
+            d:DesignHeight="190" d:DesignWidth="540">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="background" Color="#E8E8E8"></SolidColorBrush>
+        <SolidColorBrush x:Key="keybackground" Color="#FEFEFE"></SolidColorBrush>
+        <SolidColorBrush x:Key="press" Color="#FFCD43"></SolidColorBrush>
+        <local:UperConvert x:Key="UperConvert"></local:UperConvert>
+        <local:ShiftConvert x:Key="ShiftConvert"></local:ShiftConvert>
+        <system:String x:Key="eq">=</system:String>
+        <system:String x:Key="gang">\</system:String>
+        <system:String x:Key="yinhao">'</system:String>
+        <system:String x:Key="douhao">,</system:String>
+        <Style x:Key="keyrow" TargetType="{x:Type StackPanel}">
+            <Setter Property="Orientation" Value="Horizontal"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+
+        <Style x:Key="button" TargetType="{x:Type Button}"  >
+            <Setter Property="Width" Value="30"></Setter>
+            <Setter Property="Height" Value="29"></Setter>
+            <Setter Property="Margin" Value="3,1"></Setter>
+            <Setter Property="Background" Value="{StaticResource keybackground}"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="PART_border" CornerRadius="4" Background="{TemplateBinding Background}">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource press}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="toggle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Width" Value="30"></Setter>
+            <Setter Property="Height" Value="29"></Setter>
+            <Setter Property="Margin" Value="3,1"></Setter>
+            <Setter Property="Background" Value="{StaticResource keybackground}"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="PART_border" CornerRadius="4" Background="{TemplateBinding Background}">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"></TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="PART_border" Property="Background" Value="{StaticResource press}"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource press}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <Border CornerRadius="5" Background="{StaticResource background}">
+        <Grid Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--row1-->
+            <StackPanel Grid.Row="0" Style="{StaticResource keyrow}">
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=`}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=1}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=2}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=3}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=4}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=5}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=6}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=7}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=8}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=9}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=0}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=-}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter={StaticResource eq}}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Width="60"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}">Delete</Button>
+            </StackPanel>
+            <!--row2-->
+            <StackPanel Grid.Row="1" Style="{StaticResource keyrow}">
+                <Button Style="{StaticResource button}" Width="45" 
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}">Tab</Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=q}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=w}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=e}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=r}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=t}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=y}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=u}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=i}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=o}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=p}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=[}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=]}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Width="45" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter={StaticResource gang}}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+            </StackPanel>
+            <!--row3-->
+            <StackPanel Grid.Row="2" Style="{StaticResource keyrow}">
+                <ToggleButton x:Name="caps" Style="{StaticResource toggle}" Width="64" Content="Caps lock" 
+                              IsChecked="{Binding Caps,Mode=TwoWay,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}"></ToggleButton>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=a}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=s}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=d}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=f}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=g}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=h}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=j}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=k}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=l}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=;}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter={StaticResource yinhao}}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+
+            </StackPanel>
+            <Button Grid.Row="2" Grid.RowSpan="3" Height="105" HorizontalAlignment="Right" Style="{StaticResource button}" 
+                    Width="65" Content="Enter" Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                    CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+            <!--row4-->
+            <StackPanel Grid.Row="3" Style="{StaticResource keyrow}">
+                <ToggleButton x:Name="shift" Style="{StaticResource toggle}" Width="82" 
+                              IsChecked="{Binding Shift,Mode=TwoWay,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}">Shift</ToggleButton>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=z}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=x}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=c}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=v}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=b}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=n}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=caps,Path=IsChecked,Converter={StaticResource UperConvert},ConverterParameter=m}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter={StaticResource douhao}}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=.}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+
+                <Button Style="{StaticResource button}" Content="{Binding ElementName=shift,Path=IsChecked,Converter={StaticResource ShiftConvert},ConverterParameter=/}"
+                        Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}"></Button>
+                <!--<ToggleButton Style="{StaticResource toggle}" Width="80" >Shift</ToggleButton>-->
+            </StackPanel>
+            <!--row5-->
+            <StackPanel Grid.Row="4" Style="{StaticResource keyrow}">
+                <ToggleButton x:Name="ctrl" Style="{StaticResource toggle}" 
+                              IsChecked="{Binding Ctrl,Mode=TwoWay,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}">Ctrl</ToggleButton>
+                <!--<Button Style="{StaticResource button}" Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}">Win</Button>-->
+                <ToggleButton x:Name="alt" Style="{StaticResource toggle}" 
+                              IsChecked="{Binding Alt,Mode=TwoWay,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}">Alt</ToggleButton>
+                <Button Style="{StaticResource button}" Width="388" Command="{Binding KeyCommand,RelativeSource={RelativeSource AncestorType={x:Type local:SoftKeyBoard}}}" 
+                        CommandParameter="{Binding Path=Content,RelativeSource={RelativeSource Self}}">Space</Button>
+                <!--<ToggleButton Style="{StaticResource toggle}" >Alt</ToggleButton>
+                <ToggleButton Style="{StaticResource toggle}" >Ctrl</ToggleButton>-->
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

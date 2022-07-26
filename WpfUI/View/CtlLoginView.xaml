@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:local="clr-namespace:WpfUI.View" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:ui="clr-namespace:UI.Control;assembly=UI"
              mc:Ignorable="d" 
              x:Name="BaseWin"
             Height="250" Width="300"  WindowStyle="None"  WindowStartupLocation="CenterScreen"  AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
@@ -18,12 +18,12 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.5 0.16" EndPoint="0.5 1">
-                <GradientStop Color="#FF145AD3" Offset="0.22"/>
-                <GradientStop Color="#FF174EE0" Offset="0.3"/>
-                <GradientStop Color="#FF0E95F2" Offset="0.4"/>
+                <GradientStop Color="#FF7692C3" Offset="0.1"/>
+                <GradientStop  Color="#FF153181" Offset="0.4"  />
+                <GradientStop Color="#FF0B466E" Offset="0.8"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="{Binding LoadIsenab}" >
             <StackPanel Orientation="Horizontal"  Margin="0,5">
                 <TextBlock Text="登录账号:" VerticalAlignment="Center" Foreground="White"></TextBlock>
                 <TextBox Width="140" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" x:Name="txtName">
@@ -43,8 +43,10 @@
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,0,0">
                 <Button Content="取消" Margin="30,0" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=BaseWin}"></Button>
                 <Button Content="登录" Margin="10,0" Command="{Binding SendCommand}" CommandParameter="{Binding ElementName=pasbox,Path=UnsafePassword}"></Button>
-
             </WrapPanel>
         </StackPanel>
+        <Grid Background="#FF828587" Opacity="0.4"  Visibility="{Binding LoadVis,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <hc:LoadingCircle      />
+        </Grid>
     </Grid>
 </Window>

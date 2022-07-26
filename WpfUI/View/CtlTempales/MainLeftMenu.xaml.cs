@@ -23,6 +23,7 @@ namespace WpfUI.View.CtlTempales
         public MainLeftMenu()
         {
             InitializeComponent();
+            
         }
     }
 }
